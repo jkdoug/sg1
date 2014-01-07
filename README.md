@@ -1,4 +1,4 @@
-sg1
+SG1
 ===
 
-Full-featured combat system for Lusternia.
+Documentation for installation and use of the code is available in the wiki.
