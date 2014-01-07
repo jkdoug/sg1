@@ -1,0 +1,261 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The frosty air saps the warmth from your flesh\.$"
+   name="shamanism_coldweather__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The scorching heat makes you sweat profusely\.$"
+   name="shamanism_hotweather__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) closes [hH](?:is|er) eyes for a moment and turns towards you\, beseeching the sun to shine\. A shaft of warm\, golden light falls over you\, soothing your body\.$"
+   name="shamanism_lightburst__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s fingers curl into talons as (?:[hH]|[sS]h)e slashes through the air at you\. Ephemeral\, ghostly claws materialise\, trailing smoke as they rip through your flesh in a spray of warm blood\.$"
+   name="shamanism_claw__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) cups [hH](?:is|er) hands before [hH](?:im|er)self\, blowing across them toward you\. A sweet\, cloying fragrance suddenly surrounds you\, enticing your nostrils and causing your mind to wander as you gaze about vapidly\, your vision going blurry\.$"
+   name="shamanism_bloom__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) stomps [hH](?:is|er) feet on the ground and chants in a guttural tone\, sending ripples of power through (?:the earth|[hH](?:is|er) demesne)\.$"
+   name="shamanism_earthquake__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The sudden tremor sends you sprawling to the ground\.$"
+   name="shamanism_earthquaked__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You try to move but fall over on the slippery mud\.$"
+   name="shamanism_muddy__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) extends an open hand to you\, palm\-up\, before suddenly clenching it into a fist\. You cry out and crumple as your bones suddenly snap and break with sickening cracks\, lances of pain spearing through your body\.$"
+   name="shamanism_bone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The flesh on your (left|right) (arm|leg) shrivels to the bone\.$"
+   name="shamanism_boned__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) thrusts [hH](?:is|er) hands diagonally out and down\, chanting in a deep and reverberating tone\. The sky rumbles before turning gray and releasing a rain of poisonous frogs\.$"
+   name="shamanism_frogs__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^A few tiny\, brightly coloured frogs land on your skin\,? and their toxic slime seeps into your bloodstream\.$"
+   name="shamanism_frogged__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Twenty long\, thin vines spring up from the ground around a root golem\'s feet and bind you tightly\.$"
+   name="shamanism_golem_vines__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A root golem rakes one of his wooden limbs across your torso\, leaving large\,? bleeding wounds\.$"
+   name="shamanism_golem_rake__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) spreads [hH](?:is|er) arms before [hH](?:im|er) and frowns in concentration\. (?:H|Sh)e slowly brings [hH](?:is|er) arms together\,? and your ears pop as the pressure in your environment increases\.$"
+   name="shamanism_pressure__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The sudden jump in pressure causes your eardrums to burst open painfully\.$"
+   name="shamanism_pressured__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) tilts [hH](?:is|er) head back\, enrapt\, lifting [hH](?:is|er) hands in an exulting rush as cool air courses through the area\.$"
+   name="shamanism_sky__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^A brief sense of the vastness of the sky overtakes you before cool winds surge beneath you\, casting you flailing into the firmament above\.$"
+   name="shamanism_skies__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^An abominable snowman throws a snowball at you with such force that you go tumbling\.$"
+   name="shamanism_snowman_prone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^An abominable snowman breathes a freezing mist at you\, chilling your bones\.$"
+   name="shamanism_snowman_cold__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) gestures sharply toward you\, chanting frosty syllables that ring through the cold air\. The temperature about you suddenly plummets to levels unimaginable\, freezing your very breath into ice crystals as you clutch fitfully at yourself\, scrabbling for warmth that does not come\.$"
+   name="shamanism_freeze__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A rumble of thunder sounds above\, and you have a split second to glance upward in horror before a dazzling bolt of lightning eclipses you\, turning the world white as spasms of pain run like fire through your nerves\, the scent of your own burning flesh filling your nostrils\.$"
+   name="shamanism_lightning__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>
+<!--
+Quicksand:
+
+Vadi crouches low, running his hands along the ground in easy, flowing motions, speaking softly
+under his breath. In response, the surface beneath grows turgid, spreading rapidly from him as it
+forms a churning mass of quicksand.
+
+You struggle slowly through the quicksand as you move northeastwards. - movement delay
+
+You find it impossible to tumble through the treacherous quicksand. - can't tumble
+
+Death:
+
+Vadi closes his eyes, and pinpoints of deathly black miasma begin to surround him. - start of trance
+
+The deathly black mist continues to build around Vadi. - continues to build
+
+Vadi raises a trembling finger and points directly at you. A swirling miasma of black death descends
+from above and wraps tightly around your body, dissipating moments later without effect. - fail, tried to kill
+
+Vadi raises a trembling finger and points directly at you.
+A swirling miasma of black death descends over you and all goes dark as you feel the life being
+drawn from your flesh. You cannot help but open your mouth to scream as you breathe your very last
+breath.
+You have been slain by Vadi. - success, kill
+-->

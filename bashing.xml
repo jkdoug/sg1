@@ -1,0 +1,121 @@
+<aliases>
+  <alias
+   enabled="y"
+   group="Bashing"
+   name="target__"
+   match="^\s*t\s+([\w\d]+)\s*$"
+   regexp="y"
+   script="bashing.handle_target"
+   ignore_case="y"
+   sequence="1000"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Bashing"
+   ignore_case="y"
+   match="^\s*kill(?:\s+(\w+))?\s*$"
+   name="bashing_kill__"
+   regexp="y"
+   script="bashing.handle_kill"
+   sequence="1"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Bashing"
+   ignore_case="y"
+   match="^\s*pkill\s*$"
+   name="bashing_pkill__"
+   regexp="y"
+   script="bashing.handle_pkill"
+   sequence="1"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Bashing"
+   name="bashing_report__"
+   match="^\s*bash(?:ing)?\s*$"
+   regexp="y"
+   script="bashing.show_queue"
+   ignore_case="y"
+   sequence="1000"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Bashing"
+   ignore_case="y"
+   name="bashing_reset__"
+   match="^\s*reset\s+(?:bash(?:er|ing)?|abs)\s*$"
+   regexp="y"
+   send_to="12"
+   sequence="1000"
+  >
+  <send>bashing.reset()
+display.Info("Bashing queues reset")</send>
+  </alias>
+
+  <alias
+   keep_evaluating="y"
+   name="bashing_items_list__"
+   match="^OnGMCP Char\.Items\.List (.+?)$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="bashing.items_list"
+   sequence="9500"
+  >
+  </alias>
+  <alias
+   keep_evaluating="y"
+   name="bashing_items_add__"
+   match="^OnGMCP Char\.Items\.Add (.+?)$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="bashing.items_add"
+   sequence="9500"
+  >
+  </alias>
+  <alias
+   keep_evaluating="y"
+   name="bashing_items_remove__"
+   match="^OnGMCP Char\.Items\.Remove (.+?)$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="bashing.items_remove"
+   sequence="9500"
+  >
+  </alias>
+  <alias
+   keep_evaluating="y"
+   name="bashing_items_update__"
+   match="^OnGMCP Char\.Items\.Update (.+?)$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="bashing.items_update"
+   sequence="9500"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="n"
+   group="Bashable"
+   keep_evaluating="y"
+   match="^(?:You cannot see that being here|Ahh\, I am truly sorry\, but I do not see anyone by that name here|Nothing can be seen here by that name|You detect nothing here by that name|I do not recognize anything called that here)\.$"
+   name="bashing_notarget__"
+   regexp="y"
+   script="bashing.handle_notarget"
+   sequence="9000"
+  >
+  </trigger>
+</triggers>

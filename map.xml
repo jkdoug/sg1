@@ -1,0 +1,793 @@
+<aliases>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   keep_evaluating="y"
+   name="mapper_movement__"
+   match="^\s*(n|e|w|s|ne|nw|se|sw|in|out|u|d|north|east|west|south|northeast|northwest|southeast|southwest|up|down)\s*$"
+   regexp="y"
+   script="map.movement"
+   sequence="50"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="mapper_lwho__"
+   match="^\s*lwho\s*$"
+   regexp="y"
+   send_to="12"
+   sequence="50"
+  >
+  <send>EnableTrigger("mapper_handle_who__", true)
+failsafe.exec("mapper_who", 2)
+Send("who")</send>
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="mapper_lwho_person__"
+   match="^\s*lwho\s+(\w+)\s*$"
+   regexp="y"
+   send_to="12"
+   sequence="50"
+  >
+  <send>EnableTrigger("mapper_handle_who__", true)
+failsafe.exec("mapper_who", 2)
+Send("who %1")</send>
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="mapper_areawho__"
+   match="^\s*a(?:rea)?who\s*$"
+   regexp="y"
+   send_to="12"
+   sequence="50"
+  >
+  <send>EnableTrigger("mapper_handle_who__", true)
+EnableTrigger("mapper_hide_who__", true)
+flags.set("area_who", true, 0)
+failsafe.exec("mapper_who", 2)
+Send("who")</send>
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="map_landmarks__"
+   match="^\s*(?:lmap\s+)?(?:tags|landmarks)\s*$"
+   regexp="y"
+   script="map.cmd_landmarks"
+   sequence="50"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Mapper"
+   match="^\s*(?:lmap\s+)?rooms(?:\s+([\w\s\'\,]+?)(?:\s+(\d+))?)?\s*$"
+   name="map_show_rooms__"
+   ignore_case="y"
+   regexp="y"
+   script="map.cmd_show_rooms"
+   sequence="10000"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="mapper_spe_create__"
+   match="^\s*spe(?:xit)?\s+create\s+(.+?)(?:\s+alias\s+(\w+))?\s*$"
+   regexp="y"
+   script="map.cmd_spe_create"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="mapper_spe_destroy__"
+   match="^\s*spe(?:xit)?\s+destroy\s+(.+?)\s*$"
+   regexp="y"
+   script="map.cmd_spe_destroy"
+   sequence="10000"
+  >
+  </alias>
+
+  <alias
+   name="map_room_info__"
+   match="^OnGMCP Room\.Info (.+?)$"
+   enabled="y"
+   group="Mapper"
+   regexp="y"
+   script="map.got_room_info"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="mapper_go__"
+   match="^\s*go\s*$"
+   regexp="y"
+   script="map.cmd_go"
+   sequence="50"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="mapper_goto__"
+   match="^\s*go(?:to)?\s+(\w+)\s*$"
+   regexp="y"
+   script="map.cmd_goto"
+   sequence="50"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="mapper_stop__"
+   match="^\s*stop\s*$"
+   regexp="y"
+   script="map.cmd_stop"
+   sequence="50"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="mapper_map_path__"
+   match="^\s*lmap\s+path\s+(\w+)\s*$"
+   regexp="y"
+   script="map.cmd_path"
+   sequence="50"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="mapper_map_path_show__"
+   match="^\s*lmap\s+path\s*$"
+   regexp="y"
+   script="map.cmd_path_show"
+   sequence="50"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="map_visited_info__"
+   match="^\s*(?:lmap\s+)?(?:un)?visited\s*$"
+   regexp="y"
+   script="map.cmd_visited"
+   sequence="50"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="area_visited_info__"
+   match="^\s*area\s+(?:un)?visited(?:\s+(.+?))?(?:\s+(all))?\s*$"
+   regexp="y"
+   script="map.cmd_area_visited"
+   sequence="50"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="areas_visited_info__"
+   match="^\s*areas\s+(?:un)?visited\s*$"
+   regexp="y"
+   script="map.cmd_areas_visited"
+   sequence="50"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="area_toggle_speedwalk__"
+   match="^\s*area\s+(off|on|enable|disable)(?:\s+(.+?))?\s*$"
+   regexp="y"
+   script="map.cmd_area_toggle"
+   sequence="50"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="area_list__"
+   match="^\s*area\s+list(?:\s+(.+?))?\s*$"
+   regexp="y"
+   script="map.cmd_area_list"
+   sequence="50"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   match="^room\s+look(?:\s+(\w+))?$"
+   name="map_cmd_room_look__"
+   regexp="y"
+   script="map.cmd_room_look"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   match="^room\s+find\s+(.+?)$"
+   name="map_cmd_room_find__"
+   regexp="y"
+   script="map.cmd_room_find"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   match="^room\s+(?:(\d+)\s+)?area\s+(\d+)$"
+   name="map_cmd_room_area__"
+   regexp="y"
+   script="map.cmd_room_area"
+   sequence="10000"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   group="Mapper"
+   ignore_case="y"
+   name="mapper_map_status__"
+   match="^\s*lmap\s+(?:status|info)\s*$"
+   regexp="y"
+   script="map.cmd_status"
+   sequence="50"
+  >
+  </alias>
+
+  <alias
+   name="scent_go__"
+   match="^\s*sg\s+(\w+)\s*$"
+   enabled="y"
+   group="Mapper"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>SetVariable("scent_target", "%1")
+EnableTrigger("scenting_target__", true)
+Execute("dofree1 scent")</send>
+  </alias>
+  <alias
+   name="scent_target_go__"
+   match="^\s*stg\s*$"
+   enabled="y"
+   expand_variables="y"
+   group="Mapper"
+   regexp="y"
+   send_to="10"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>sg @target</send>
+  </alias>
+
+  <alias
+  name="map_go__"
+  match="^\s*mg\s+(\w+)\s*$"
+  enabled="y"
+  group="Mapper"
+  regexp="y"
+  send_to="12"
+  ignore_case="y"
+  sequence="100"
+  >
+  <send>SetVariable("map_target", "%1")
+EnableTrigger("mapping_target__", true)
+EnableTrigger("mapping_target_vnum__", true)
+Execute("do1 inscribe map with %1")</send>
+  </alias>
+  <alias
+   name="map_target_go__"
+   match="^\s*mtg\s*$"
+   enabled="y"
+   expand_variables="y"
+   group="Mapper"
+   regexp="y"
+   send_to="10"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>mg @target</send>
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   keep_evaluating="y"
+   match="^(?:What do you wish to enter\?|You cannot find a planar gate here\.|You find yourself unable to enter .+?\.)$"
+   name="map_no_spexit__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.clear("spexit")</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Mapper"
+   keep_evaluating="y"
+   match="^Extending your Divine Sight\, you focus on [A-Z][a-z]+\, your senses gazing upon [hH](?:im|er) at (.+?) in .+?\.$"
+   name="map_locate_seek__"
+   regexp="y"
+   script="map.locate_far"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   keep_evaluating="y"
+   match="^You see the death occur at (.+?)\.$"
+   name="map_locate_deathsight__"
+   regexp="y"
+   script="map.locate_far"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   keep_evaluating="y"
+   match="^A mystic pathway leads to (.+?)\.$"
+   name="map_locate_pathway__"
+   regexp="y"
+   script="map.locate_far"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   keep_evaluating="y"
+   match="^Gazing up at the sky, you bring the image of [A-Z][a-z]+ into your mind\'s eye and overlay it on the constellations\. The power of the stars manifests as an image of (.+?) forms before your eyes\.$"
+   name="map_locate_astrosense__"
+   regexp="y"
+   script="map.locate_far"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   keep_evaluating="y"
+   match="^\(Serenwilde\)\: .+? says\, \&quot;(?:I\'m in trouble here at|I require assistance\, commune members of Serenwilde\! I\'m under attack at|Ahhh\! Send help quick(?:ly)? to) (.+?)\!\&quot;$"
+   name="map_locate_attacker__"
+   regexp="y"
+   script="map.locate_far"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   match="^You make out the scent of ([A-Z][a-z]+|a masked .+?) coming from (.+?)\.$"
+   name="map_locate_scent__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="map.locate_scent"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   match="^You sniff some iridescent spores\, then suddenly sneeze\.$"
+   name="map_locate_spores1__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>EnableTrigger("map_locate_spores2__", true)
+prompt.queue(function () EnableTrigger("map_locate_spores2__", false) end)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Mapper"
+   match="^Briefly\, you see an image of (.+?)\.$"
+   name="map_locate_spores2__"
+   regexp="y"
+   script="map.locate_far"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   match="^You open up a window in the cosmic fabric and search out .+?\. Through the cosmic window\, you see .+? at (.+?)(?: \(.+\))?\.$"
+   name="map_locate_window__"
+   regexp="y"
+   script="map.locate_far"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   match="^Cupping your hands before you\, they fill with water and an image forms within of [A-Z][a-z]+ at (.+?)(?: \(.+\))?\.$"
+   name="map_locate_scry__"
+   regexp="y"
+   script="map.locate_far"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   match="^As you inscribe the name of [A-Z][a-z]+ with a flourish\, lines crawl across the surface of the map\, centered upon (.+?)(?: \(.+\))?\.$"
+   name="map_locate_mysterymap__"
+   regexp="y"
+   script="map.locate_far"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Speedwalking"
+   keep_evaluating="y"
+   match="^(?:Now now\, don\'t be so hasty\!|You fumble about drunkenly\.)$"
+   name="map_autowalk_okay1__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="map.movement_autowalk"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Speedwalking"
+   keep_evaluating="y"
+   match="^You have recovered .+?\.$"
+   name="map_autowalk_onbal1__"
+   regexp="y"
+   script="map.movement_autowalk"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Speedwalking"
+   keep_evaluating="y"
+   match="^(?:You bump into .+? as it wanders aimlessly in a circle|You must regain (?:balance|equilibrium) first|You are recovering equilibrium and cannot move yet)\.$"
+   name="map_autowalk_offbal1__"
+   regexp="y"
+   script="map.movement_autowalk"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Speedwalking"
+   keep_evaluating="y"
+   match="^(?:There is a.+? door in the way|You unlock the .+? door to the \w+)\.$"
+   name="map_door_closed_unlocked__"
+   regexp="y"
+   script="map.movement_autowalk"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Speedwalking"
+   keep_evaluating="y"
+   match="^The .+? door is locked\.$"
+   name="map_door_open_locked__"
+   regexp="y"
+   script="map.movement_autowalk"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Speedwalking"
+   keep_evaluating="y"
+   match="^The .+? door is not locked\.$"
+   name="map_door_unlocked__"
+   regexp="y"
+   script="map.movement_autowalk"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Speedwalking"
+   keep_evaluating="y"
+   match="^(?:You open the .+? door to the \w+|The .+? door is not closed|There is no door to the \w+)\.$"
+   name="map_door_open_unlocked__"
+   regexp="y"
+   script="map.movement_autowalk"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   group="Mapper"
+   keep_evaluating="y"
+   match="^You (?:scent at the air\, your skilled nose picking up|snort and snuffle at the air\, sensing through .+? upon your face) the faint traces of others in the surrounding area\.$"
+   name="scenting_target__"
+   regexp="y"
+   send_to="14"
+   sequence="8000"
+  >
+  <send>EnableTrigger("scent_target__", true)
+prompt.queue(function ()
+  EnableTrigger("scenting_target__", false)
+  EnableTrigger("scent_target__", false)
+end, "scent_target")</send>
+  </trigger>
+  <trigger
+   expand_variables="y"
+   group="Mapper"
+   ignore_case="y"
+   keep_evaluating="y"
+   match="^You make out the scent of @scent_target coming from (.+?)\.$"
+   name="scent_target__"
+   regexp="y"
+   script="map.scent_target"
+   sequence="1000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Mapper"
+   expand_variables="y"
+   match="^You inscribe the name on the map\,? but it fades away\.$"
+   name="mapping_target_failed__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>EnableTrigger("mapping_target__", false)
+EnableTrigger("mapping_target_vnum__", false)</send>
+  </trigger>
+  <trigger
+   group="Mapper"
+   keep_evaluating="y"
+   expand_variables="y"
+   ignore_case="y"
+   match="^As you inscribe the name of @map_target with a flourish\, lines crawl across the surface of the map\, centered upon .+?\.$"
+   name="mapping_target__"
+   regexp="y"
+   send_to="14"
+   sequence="8000"
+  >
+  <send>EnableTrigger("mapping_target_vnum__", true)
+prompt.queue(function ()
+  EnableTrigger("mapping_target__", false)
+  EnableTrigger("mapping_target_vnum__", false)
+end, "map_going")
+SetVariable("map_target", "nobody")</send>
+  </trigger>
+  <trigger
+   group="Mapper"
+   keep_evaluating="y"
+   match="^\-\-\-.+? v(\d+) \-\-\-+$"
+   name="mapping_target_vnum__"
+   regexp="y"
+   send_to="10"
+   sequence="8000"
+  >
+  <send>do1 go %1</send>
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Mapper"
+   lines_to_match="2"
+   match="^You sense the following people\:\n\-+$"
+   multi_line="y"
+   name="mapper_handle_who__"
+   regexp="y"
+   script="map.handle_who"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   keep_evaluating="y"
+   group="Mapper"
+   match="^\s*([A-Z][a-z]+) \- (.+?)$"
+   name="mapper_locate_who__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="map.locate_who"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Mapper"
+   keep_evaluating="y"
+   match="^(?:You sense the following people\:|\-+|\(\*\) Currently\, there are \d+ Lusternians on this Plane and \d+ on other Planes\.)$"
+   name="mapper_hide_who__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Mapper"
+   match="^You follow .+?(\s\w+)? to .+?\.$"
+   name="mapper_movement_following__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="map.followed"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Mapper"
+   match="^You look through the mind of .+?\:$"
+   name="map_locate_bond_look__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>EnableTrigger("map_locate_stone2__", true)
+prompt.queue(function ()
+  EnableTrigger("map_locate_stone2__", false)
+end, "stonegaze")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   match="^You gaze into a glittering tierstone\.$"
+   name="map_locate_tierstone1__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>EnableTrigger("map_locate_stone2__", true)
+EnableTrigger("map_locate_tierstone2__", true)
+prompt.queue(function ()
+  EnableTrigger("map_locate_stone2__", false)
+  EnableTrigger("map_locate_tierstone2__", false)
+end, "stonegaze")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Mapper"
+   match="^[A-Z][a-z]+ is at (.+?) in .+?\.$"
+   name="map_locate_tierstone2__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="map.locate_stone"
+   sequence="8000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Mapper"
+   match="^You gaze into a seeing stone\.$"
+   name="map_locate_stone1__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>EnableTrigger("map_locate_stone2__", true)
+prompt.queue(function () EnableTrigger("map_locate_stone2__", false) end, "stonegaze")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Mapper"
+   match="^(?:In the trees above |Flying above |On the rooftops over |In a pit at |In the mountains above |In a nest above )?(.+?)(?:\. \(.+\))?\.$"
+   name="map_locate_stone2__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="map.locate_stone"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Mapper"
+   lines_to_match="3"
+   match="^\*+\[ MILESTONES \]\*+\nMilestone\s+Location\s*\n\-+$"
+   multi_line="y"
+   name="map_locate_milestones__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>EnableTrigger("map_locate_milestones_room__", true)
+prompt.queue(function () EnableTrigger("map_locate_milestones_room__", false) end, "msloc")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Mapper"
+   match="^(\d+)\s+\- (?:o0\=+~?o\[)?\s*(.+?)\s*(?:\]o~?\=+0o)?(?:\s\((?:Guild|Personal)\))?$"
+   name="map_locate_milestones_room__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="map.locate_milestone"
+   sequence="9000"
+  >
+  </trigger>
+</triggers>
+
+<!--
+********************************[ MILESTONES ]*********************************
+Milestone    Location                                                    
+(dashes)
+
+15027        - o0==o[  Ackleberry Triple Junction  ]o==0o
+25918        - o0======~o[  The Spiritsingers  ]o~=====0o (Guild)
+29640        - o0======~o[  Razine Mountains  ]o~======0o
+30755        - o0=====~o[  Northern Mountains  ]o~=====0o
+42433        - o0=======~o[  Avechna's Peak  ]o~=======0o
+45417        - o0=====~o[  Southern Mountains  ]o~=====0o
+56406        - o0=====~o[  The Grand Junction  ]o~=====0o
+91844        - o0=======~o[  Avechna's Teeth  ]o~======0o
+104737       - o0=====~o[  Ackleberry Junction  ]o~====0o
+164336       - Old flooring of the Emperor's Chalice (Personal)
+*******************************************************************************
+-->
+
+<!--
+1. White Hart Grove (shrine13758) - Influence of 15 rooms, 15 fully sanctified.
+2. The Fulcrux of Charune (shrine17600) - Influence of 0 rooms, 0 fully sanctified.
+3. The hallow of the Last Standing Stone (shrine31482) - Influence of 10 rooms, 10 fully sanctified.
+4. The Moonhart Mother Tree (shrine71519) - Influence of 16 rooms, 16 fully sanctified.
+5. Within the Nintoba Naos (shrine82516) - Influence of 15 rooms, 15 fully sanctified.
+6. Gardens overlooking the Serenwilde (shrine103874) - Influence of 5 rooms, 5 fully sanctified.
+7. Atop a platform bathed in moonlight (shrine122249) - Influence of 0 rooms, 0 fully sanctified.
+-->

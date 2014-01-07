@@ -1,0 +1,528 @@
+<aliases>
+  <alias
+   enabled="y"
+   name="event_module_locking__"
+   match="^OnModule(?:Unl|L)ock"
+   group="Interface"
+   regexp="y"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   name="aethercraft_captain__"
+   match="^\s*captain\s+(\w+)\s*$"
+   group="Interface"
+   regexp="y"
+   ignore_case="y"
+   script="aethercraft.captain"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   name="aethercraft_undock__"
+   match="^\s*(un)?dock\s*$"
+   group="Interface"
+   regexp="y"
+   ignore_case="y"
+   script="aethercraft.docking"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   name="aethercraft_module_toggle__"
+   match="^\s*(grid|chair|turret|siphon)\s+(on|off)\s*$"
+   group="Interface"
+   regexp="y"
+   script="aethercraft.toggle"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+
+  <alias
+   name="pilot_gliding_toggle__"
+   match="^\s*(gliding)\s+(on|off)\s*$"
+   group="Aether_Chair"
+   regexp="y"
+   script="aethercraft.toggle"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="pilot_flying__"
+   match="^\s*fly\s+(\w+)\s*$"
+   group="Aether_Chair"
+   regexp="y"
+   script="aethercraft.flying"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+
+  <alias
+   name="grid_command__"
+   match="^\s*(?:grid\s+)?(check|modules|repair)\s*$"
+   group="Aether_Grid"
+   regexp="y"
+   script="aethercraft.cmd_grid"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="grid_command_arg__"
+   match="^\s*(?:grid\s+)?(clarity)(?:\s+(chair|grid|turret[1-3]))?\s*$"
+   group="Aether_Grid"
+   regexp="y"
+   script="aethercraft.cmd_grid"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="grid_modules_show__"
+   match="^\s*mods\s*$"
+   group="Aether_Grid"
+   regexp="y"
+   script="aethercraft.show_modules"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+
+  <alias
+   name="turret_command__"
+   match="^\s*(ttn|fire|bomb(?:ard)?)\s*$"
+   group="Aether_Turret"
+   regexp="y"
+   ignore_case="y"
+   script="aethercraft.cmd_turret"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="turret_command_arg__"
+   match="^\s*(ttc|ttm|tts)\s+(\w+)\s*$"
+   group="Aether_Turret"
+   regexp="y"
+   ignore_case="y"
+   script="aethercraft.cmd_turret"
+   sequence="10000"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You step up to (the empathic grid|the command chair|an energy collector|a battle turret)\, locking yourself into the module and linking your mind to the controls of the ship\. After a moment\, you begin to sense your command of the module in your own brain\.$"
+   name="aethercraft_lock__"
+   regexp="y"
+   script="aethercraft.lock"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aethercraft"
+   match="^With a long\, slow blink\, you allow your mind to drift free from the ship\, and release your lock on the command of .+?\.$"
+   name="aethercraft_unlock__"
+   regexp="y"
+   script="aethercraft.unlock"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aethercraft"
+   match="^\[(\d+)\-hull\, (\d+)\-power\, (.+?)\, (\d+)\-will \*(x?)\*\]$"
+   name="aethercraft_prompt__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="aethercraft.match"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aethercraft"
+   match="^You (?:are not standing in a ship|do not stand before a module)\.$"
+   name="aethercraft_unlock_failsafe__"
+   regexp="y"
+   script="aethercraft.unlock"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   ignore_case="y"
+   match="^\(Ship\)\: .+? says\, \&quot;.*?Welcome to the command chair\, ([A-Z][a-z]+)\.\&quot;$"
+   name="aethercraft_captain__"
+   regexp="y"
+   script="aethercraft.captain"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Module -->
+  <trigger
+   group="Aethercraft"
+   match="^.+? launches into the aetherways\.$"
+   name="aethercraft_launched__"
+   regexp="y"
+   script="aethercraft.launch"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   group="Aethercraft"
+   match="^.+? (?:docks at .+?|deploys the aether anchor\, which bores into the fabric of the aetherways and creates a small\, rocky bubble of reality amidst the unstable aethers\, at which she docks|is unable to do that while docked)\.$"
+   name="aethercraft_docked__"
+   regexp="y"
+   script="aethercraft.dock"
+   sequence="100"
+  >
+  </trigger>
+
+<!-- Chair -->
+  <trigger
+   expand_variables="y"
+   group="Aether_Chair"
+   ignore_case="y"
+   match="^.+? stops sailing to the \w+\.$"
+   name="aethercraft_stopped_sailing__"
+   regexp="y"
+   script="aethercraft.stopped_sailing"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Grid -->
+  <trigger
+   group="Aether_Grid"
+   match="^\(Ship\)\: [A-Z][a-z]+ says\, \&quot;(Check)\.\&quot;$"
+   name="aethercraft_check_slivvens__"
+   regexp="y"
+   script="aethercraft.cmd_grid"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^\&quot;(\w+?)(\d+)\&quot;.+? \d+\% \/ (.+?)(?:\s+\[(.+?)\])?(?: PARASITE\!)?$"
+   name="aethercraft_modules__"
+   regexp="y"
+   script="aethercraft.grid_module"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^    It (is irresponsive to any commands|is covered in sludge|is disrupted|is slowed|has been blown up|is dead|is currently disabled)\!$"
+   name="aethercraft_module_affliction__"
+   regexp="y"
+   script="aethercraft.grid_afflicted"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^Crackling energy surges to (.+?)\, (partially|fully) healing it\.$"
+   name="aethercraft_grid_healing__"
+   regexp="y"
+   script="aethercraft.grid_healed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^\&quot;(\w+?)(\d+)\&quot;.+? \d+\% \/ (.+?)(?:\[(.+?)\])? PARASITE\!$"
+   name="aethercraft_modules_parasite__"
+   regexp="y"
+   script="aethercraft.grid_slivven"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^You ask .+? to clear .+? of any impairments\.$"
+   name="aethercraft_grid_claritied__"
+   regexp="y"
+   script="aethercraft.grid_claritied"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^.+? rumbles as her shield stops a blast from .+?\.$"
+   name="aethercraft_grid_shield_attacked__"
+   regexp="y"
+   script="aethercraft.grid_damage_report"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^.+? launches a worbling disc of energy at (.+?)\, which shudders as a sizzling energy rushes through the ship\.$"
+   name="aethercraft_grid_worbled__"
+   regexp="y"
+   script="aethercraft.grid_worbled"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^.+? pounds .+?\, hitting (.+?)\, which crackles and splutters\.$"
+   name="aethercraft_grid_murkled__"
+   regexp="y"
+   script="aethercraft.grid_murkled"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^You are thrust forward as .+? shudders violently and comes to a complete stop\.$"
+   name="aethercraft_grid_shockwaved__"
+   regexp="y"
+   script="aethercraft.grid_shockwaved"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^With a ripple\, .+? frees itself from its shockwave\.$"
+   name="aethercraft_grid_unshockwaved__"
+   regexp="y"
+   script="aethercraft.grid_unshockwaved"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^That module is already in full repair\.$"
+   name="aethercraft_grid_noheal__"
+   regexp="y"
+   script="aethercraft.grid_noheal"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid"
+   match="^That module needs no clarity\.$"
+   name="aethercraft_grid_noclarity__"
+   regexp="y"
+   script="aethercraft.grid_noclarity"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid2"
+   match="^\&quot;(\w+?)(\d+)\&quot;.+? \d+\% \/ (.+?)(?:\s+\[(.+?)\])?(?: PARASITE\!)?$"
+   name="aethercraft_modules_hide__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="aethercraft.grid_module_hide"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Grid2"
+   match="^    It (is irresponsive to any commands|is covered in sludge|is disrupted|is slowed|has been blown up|is dead|is currently disabled)\!$"
+   name="aethercraft_afflictions_hide__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="aethercraft.grid_afflicted"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Collector -->
+  <trigger
+   expand_variables="y"
+   group="Aether_Collector"
+   keep_evaluating="y"
+   ignore_case="y"
+   match="^\(Ship\)\: @sg1_aether_captain says\, \&quot;Siphon\.\&quot;$"
+   name="aethercraft_siphon__"
+   regexp="y"
+   script="aethercraft.siphon_auto"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Collector"
+   match="^You siphon some energy from the energy vortex into an energy collector\, bringing it to a total of (\d+) energy\.$"
+   name="aethercraft_siphoned__"
+   regexp="y"
+   script="aethercraft.siphon_success"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Collector"
+   match="^There is no energy vortex (?:to siphon energy from|from which to siphon energy)\.$"
+   name="aethercraft_no_vortex__"
+   regexp="y"
+   script="aethercraft.siphon_novortex"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Collector"
+   match="^An energy collector is filled to capacity\.$"
+   name="aethercraft_collector_full__"
+   regexp="y"
+   script="aethercraft.siphon_full"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Turret -->
+  <trigger
+   expand_variables="y"
+   group="Aether_Turret"
+   ignore_case="y"
+   match="^\(Ship\)\: @sg1_aether_captain says\, \&quot;Shockwave\.\&quot;$"
+   name="aethercraft_shockwave__"
+   regexp="y"
+   script="aethercraft.turret_shockwave"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   keep_evaluating="y"
+   match="^The floor shakes as [A-Z][a-z]+ fires a blast that slams into an? (.+?)\.$"
+   name="aethercraft_fire_at_will__"
+   regexp="y"
+   script="aethercraft.turret_fire_at_will"
+   sequence="1000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^Exhaustion clouds your mind and you fail to properly link to a battle turret\.$"
+   name="aethercraft_turret_cloudy__"
+   regexp="y"
+   script="aethercraft.turret_autofire"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^\(Ship\)\: .+?\, \&quot;.*?(?:Forcefield up\!|Please be quiet as I run silently\.)\&quot;$"
+   name="aethercraft_ceasefire__"
+   regexp="y"
+   script="aethercraft.turret_pause"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^\(Ship\)\: .+? says\, \&quot;.*?My forcefield has been shattered\!\&quot;$"
+   name="aethercraft_resumefire__"
+   regexp="y"
+   script="aethercraft.turret_unpause"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   keep_evaluating="y"
+   match="^\(Ship\)\: [A-Z][a-z]+ says\, \&quot;Target (.+?)\.\&quot;$"
+   name="aethercraft_target_called__"
+   regexp="y"
+   script="aethercraft.turret_newtarget"
+   sequence="1000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^A battle turret is not targeting anything\.$"
+   name="aethercraft_notarget__"
+   regexp="y"
+   script="aethercraft.turret_newtarget"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^You tune the weapon module to target (?:an? )?(.+?)\.$"
+   name="aethercraft_target_tuned__"
+   regexp="y"
+   script="aethercraft.turret_targeted"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^An? (.+?) suddenly explodes\!$"
+   name="aethercraft_creature_exploded__"
+   regexp="y"
+   script="aethercraft.turret_kill"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^No such creature is close enough for a battle turret to get a targeting lock\.$"
+   name="aethercraft_creature_notfound__"
+   regexp="y"
+   script="aethercraft.turret_notarget"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^An? (.+?) enters from the \w+ on the aetherways\.$"
+   name="aethercraft_fire_at_beast__"
+   regexp="y"
+   script="aethercraft.turret_beast"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^The energy vortex flashes and an? (.+?) flies out of it\.$"
+   name="aethercraft_fire_at_vortex__"
+   regexp="y"
+   script="aethercraft.turret_beast"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^The form of an? (.+?) comes into view from some hiding place\.$"
+   name="aethercraft_fire_at_unhiding__"
+   regexp="y"
+   script="aethercraft.turret_beast"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^Drawn by the flux of energy\, an? (.+?) suddenly wanders into the nearby area\.$"
+   name="aethercraft_fire_at_flux__"
+   regexp="y"
+   script="aethercraft.turret_beast"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Aether_Turret"
+   match="^An? (.+?) twists about itself in the aether\, creating a churning sheet of aetheric energy that flies out towards .+?\.$"
+   name="aethercraft_fire_at_sheet__"
+   regexp="y"
+   script="aethercraft.turret_beast"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

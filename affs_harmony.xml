@@ -1,0 +1,56 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A soft pink glow flows out of ([A-Z][a-z]+)\'s chest and covers you\.$"
+   name="harmony_chuuti__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s frosty skin chills you\.$"
+   name="harmony_akhlum__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Chanting under [hH](?:is|er) breath\, ([A-Z][a-z]+) touches [hH](?:is|er) palm to [hH](?:is|er) temple and then turns it towards you\, and you shudder as your mental reserves are drained\.$"
+   name="harmony_krakmun__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Chanting under [hH](?:is|er) breath\, ([A-Z][a-z]+) places [hH](?:is|er) palm over [hH](?:is|er) heart and then turns it towards you\, and you shudder as your mental reserves are drained\.$"
+   name="harmony_krakuti__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a single finger\, ([A-Z][a-z]+) touches [hH](?:is|er) gut\, heart and forehead\, causing the fingertip to glow with a shimmering light\. (?:H|Sh)e leans forward and gently touches your breast\. A glistening fingerprint remains in the place where (?:[hH]|[sS]h)e touched you\.$"
+   name="harmony_akhangooshkrak__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

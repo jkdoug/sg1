@@ -1,0 +1,14 @@
+<timers>
+  <timer
+   active_closed="y"
+   enabled="y"
+   name="install_reload__"
+   second="0.05"
+   offset_second="0.00"
+   one_shot="y"
+   send_to="12"
+   group="Track"
+  >
+  <send>DoCommand("ReloadScriptFile")</send>
+  </timer>
+</timers>

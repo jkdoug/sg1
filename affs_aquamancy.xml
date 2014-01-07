@@ -1,0 +1,202 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) raises [hH](?:is|er) hands and dark blue clouds form overhead\. Lightning crackles above and the clouds release an onslaught of cold\, icy hail stones that are the size of your fist\.$"
+   name="aquamancy_hailstorm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The hailstones pound into your body\.$"
+   name="aquamancy_hailstoned__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A biting cold seeps deep into your skin\.$"
+   name="aquamancy_icefloe1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A biting cold seeps deep into your bones from the frigid water\, making your teeth chatter\.$"
+   name="aquamancy_icefloe2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A biting cold seeps deep into your bones from the frigid water\, giving you massive hypothermia\.$"
+   name="aquamancy_icefloe3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^An enormous wave sweeps over you\, knocking you to the ground\.$"
+   name="aquamancy_tsunami__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A high wave suddenly rolls in\.$"
+   name="aquamancy_currents__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Violent rain slams into your skin so hard that they hit you like hot needles\.$"
+   name="aquamancy_needlerain__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A cloud of jellyfish swarms around you\, attacking you with tiny stings\.$"
+   name="aquamancy_jellies__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) blows out a great big bubble that grows to an enormous girth and height\. It floats towards you and then engulfs you\.$"
+   name="aquamancy_bubble__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are trapped inside a bubble and cannot do anything\.$"
+   name="aquamancy_bubbled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The enormous bubble pops and drops you onto the ground\.$"
+   name="aquamancy_unbubble__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) points [hH](?:is|er) staff at you\, icy water erupting forth and pounding into your body\. The shock of the cold water makes you gasp involuntarily\, knocking the breath out of you\.$"
+   name="aquamancy_staff__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Ice begins to form on your skin but an inner warm rises up and quickly melts it away\.$"
+   name="aquamancy_preserve1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A thin layer of ice forms over your skin\, making you shiver\.$"
+   name="aquamancy_preserve2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:Ice crystals form over your skin\, gripping you with a numbing pain as your flesh begins to freeze|The block of ice around you begins to constrict\, and you are helpless as your flesh freezes over)\.$"
+   name="aquamancy_preserve3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Dark lightning crackles through the water\, which boils your flesh\, and the pressure in the water increases to the point where your bones snap\. Your cries of pain cannot be heard above the howling winds\.$"
+   name="aquamancy_maelstrom_hit__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>
+
+<!--
+(currents moved, no protection defense, no beast following)
+The strong currents of the whirling waters pull at you.
+The currents pull you out to the north.
+
+(whirlpool prevents leaving the room)
+The strong currents of the water spin and churn, pulling you back as you try to swim away.
+
+(Maelstrom, start)
+Neos releases his staff, which hovers in the air before him. He raises up his arms, causing a gusher of sapphire water to fountain up 
+and surround a coral staff in sparkling bubbles.
+The sky glows with glowing sapphire clouds that release a powerful rain that pounds down upon you in heavy sheets.
+
+(Maelstrom, stage two)
+Towering waves roll across the waters, reaching to impossible heights and forming watery figures of monstrous sea creatures.
+
+(Maelstrom, hit)
+Dark lightning crackles through the water, which boils your flesh, and the pressure in the water increases to the point where your 
+bones snap. Your cries of pain cannot be heard above the howling winds.
+-->

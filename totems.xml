@@ -1,0 +1,61 @@
+<aliases>
+  <alias
+   enabled="y"
+   group="Totems"
+   match="^\s*auto\s+carving\s+(on|off)\s*$"
+   name="totems_toggle__"
+   ignore_case="y"
+   regexp="y"
+   script="totems.toggle"
+   sequence="10"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   group="Totems"
+   match="^\s*rev(?:ersions?)?(?:\s+(\d+))?\s*$"
+   name="totems_report__"
+   ignore_case="y"
+   regexp="y"
+   script="totems.coming_reversions"
+   sequence="10"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="n"
+   keep_evaluating="y"
+   group="Totems"
+   match="(?:An elder moonhart tree towers overhead\, her thick trunk rooted firmly in the ground|Reaching up as high as the eye can see looms the awesome presence of a living totem)."
+   name="totems_room__"
+   regexp="y"
+   script="totems.room"
+   sequence="9500"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Totems"
+   match="^You judge that this living totem has (\d+) days? left before its totemic carvings weather away and it reverts to an elder tree\.$"
+   name="totems_probe__"
+   regexp="y"
+   script="totems.probe"
+   sequence="9500"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Totems"
+   match="^(?:You shimmy up to the top of an elder moonhart tree and your hands begin to glow an emerald green\. With utmost devotion\, you call upon the spirits of nature\. The wood beneath your hands is shaped into representations of each totem as you work your way down to the base of an elder moonhart tree until finally you stand before a totempole|It is bonded to [A-Z][a-z]+)\.$"
+   name="totems_reset__"
+   regexp="y"
+   script="totems.reset"
+   sequence="9500"
+  >
+  </trigger>
+</triggers>
+  

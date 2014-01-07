@@ -1,0 +1,183 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Scintillating arcs of electricity crackle through the stratus field around ([A-Z][a-z]+)\, slashing across your skin in a painful dance of brilliance\.$"
+   name="aerochemantics_stratus__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Thin\, wispy clouds from ([A-Z][a-z]+)\'s cirrus field brush across your skin\, causing you to wince\.$"
+   name="aerochemantics_cirrus__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Lightning strobes within the clouds of ([A-Z][a-z]+)\'s cumulus field\, flashing directly into your face in pulsating blasts of light\.$"
+   name="aerochemantics_cumulus__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The raging storm engulfs you\, lightning pulsing within the dark mass of clouds\. The faintest whiff of ozone hangs in the air around ([A-Z][a-z]+) before the clouds are rent by slashing blades of lightning\.$"
+   name="aerochemantics_cloudkill__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Lightning slams into your body\, raking you with burning tendrils\. Your screams of pain turn to choking gasps as the clouds rush in and fill your lungs like wet sand\.$"
+   name="aerochemantics_cloudkill2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Bands of spiralling clouds swirl around ([A-Z][a-z]+)\, sinuously twisting around your surroundings\. Raising [hH](?:is|er) open hand above [hH](?:is|er) head\, (?:[hH]|[sS]h)e clenches [hH](?:is|er) fist together as the tendrils of cloud constrict with a grating sigh\.$"
+   name="aerochemantics_quantum__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Time slows as frigid coils of cloud contract around you\, squeezing the air from your lungs while lightning burns across your skin where the tendrils of cold mist cling to you\.$"
+   name="aerochemantics_quantum2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You gag as you inhale the ragged clouds spinning in ([A-Z][a-z]+)\'s altostratus field\, panicking as your airway constricts\.$"
+   name="aerochemantics_altostratus__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Tiny silver spheres skim around you\, slowing time as you enter ([A-Z][a-z]+)\'s dynomatic cloud\.$"
+   name="aerochemantics_dynomatic__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A burst of light flashes through the thick bank of fog as ribbons of multihued light burst from ([A-Z][a-z]+)\'s outstretched arms in a dazzling display of power\.$"
+   name="aerochemantics_aurora__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Every colour of the rainbow burns in your vision as a ribbon of light undulates before you\, first a delicate pink\, then an electric blue\. Without hesitation\, the ribbon twines around you\, turning your awe to terror as it twines around your throat and limbs\, choking you even as the raw power of the aurora burns into your skin\.$"
+   name="aerochemantics_aurora2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Energy sizzles through ([A-Z][a-z]+)\'s electromagnetic cloud as arcs of power slam into you\.$"
+   name="aerochemantics_electromagnetic__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A thick stream of positrons funnels? into your mouth from the cloud around ([A-Z][a-z]+)\, causing an intense burning sensation within your lungs that makes it hard to breathe\.$"
+   name="aerochemantics_positronic__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a deliberate gesture\,? ([A-Z][a-z]+) pulls the clouds surrounding [hH](?:im|er) into a tight\, gelid sphere that strains and bulges like a beast fighting to be free\. Dramatically\, (?:[hH]|[sS]h)e throws [hH](?:is|er) hands wide to send a gentle breeze flowing past you\, the cool air brushing your cheek like a lover\'s caress\.$"
+   name="aerochemantics_vacuum__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) draws [hH](?:is|er) arms together with a snap\, causing the air around you to rush toward [hH](?:im|er) in a concussive blast\.$"
+   name="aerochemantics_vacuum2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The air tears from your lungs in a single\, burning instant as the pressure plummets\. Through your bulging eyes\, you have little time to make out the wall of lightning bearing down upon you before it is searing across your skin and filling your lungs in a blue\-white conflagration\.$"
+   name="aerochemantics_vacuum3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The static electricity ignites around you in a blue\-white flash of lightning that flings you \w+wards\, leaving you sprawled and disgraced upon the ground\.$"
+   name="aerochemantics_static__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

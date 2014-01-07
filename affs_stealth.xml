@@ -1,0 +1,66 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) dips a dart into a vial\,? and then shoots it through a blowgun at you\.$"
+   name="stealth_blowgun__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A dart flies in from .+? and strikes you\.$"
+   name="stealth_blowgun_aim__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Taking a rope\, ([A-Z][a-z]+) quickly trusses you up\, tightening the bindings until you can barely move\.$"
+   name="stealth_truss__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Leaping out from the shadows\, ([A-Z][a-z]+) suddenly waylays you\, throwing you to the ground and then standing menacingly over you\.$"
+   name="stealth_waylay__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) carefully rushes directly at you and trusses you up in the most clever manner possible\.$"
+   name="stealth_rush__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) drags you off to the (\w+)\.$"
+   name="stealth_drag__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

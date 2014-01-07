@@ -1,0 +1,122 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^\&quot;.+?\&quot; sings ([A-Z][a-z]+)(.+?)\, and (?:[hH]|[sS]h)e looks directly at you\.$"
+   name="starhymn_singing__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^A dazzling ringing enters your mind\.$"
+   name="starhymn_starlight__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You scream in pain as a burst of (?:white|yellow|orange) holy flame envelops you\.$"
+   name="starhymn_crusadercanto__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The song of an angelic choir fills the air with a blazing white light\.$"
+   name="starhymn_lightcantata__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You find you must cover your eyes and drop to your knees\.$"
+   name="starhymn_lightcantata_blind__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^Filled with a haunting sorrow and unlimited love\, an excruciatingly beautiful note brings tears to your eyes and a lump to your throat\. Time slows and momentarily a vision fills your eyes of a goddess floating over an ancient pool with tears streaming down her face\.$"
+   name="starhymn_princessfarewell__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The light of Holy Celestia flares brightly as the blessed Supernals judge you\.$"
+   name="starhymn_justchorale__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) raises [hH](?:is|er) voice in a hymn to the hosts of Celestia\, beseeching Methrenton for aid\. H(?:is|er) song swells\, ringing through the air with a preternatural clarity\. In a blaze of holy fire\, an avenging angel descends from above, alighting before you and glaring at you in a righteous fury that makes your knees weak(?:en)? and your spirit tremble\.$"
+   name="starhymn_avengingangel__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You find yourself unwilling to (eat|drink) while this music is playing\.$"
+   name="starhymn_recessional__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Chimes sound as the water around you sparkles\, preventing the magical protection from forming\.$"
+   name="starhymn_eversea__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) lifts [hH](?:is|er) voice in a clarion hymn to Celestia\. A host of angels descends from above to circle \1\, trumpeting a rapturous hymn that pierces the air about you\, leaving you defenseless to [hH](?:is|er) songs\.$"
+   name="starhymn_angelichost__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

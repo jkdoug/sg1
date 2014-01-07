@@ -1,0 +1,12 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) whispers your name under [hH](?:is|er) breath as (?:[hH]|[sS]h)e chants\, and you suddenly feel drained and muddled\.$"
+   name="rituals_amissio__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

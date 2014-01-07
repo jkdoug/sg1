@@ -1,0 +1,4516 @@
+<aliases>
+  <alias
+   name="defs__"
+   match="^\s*defs\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="defs.show"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="defs_wanted__"
+   match="^\s*defs\s+wanted\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="defs.show_wanted"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+
+  <alias
+   name="defup_queue__"
+   match="^\s*defup\s+(free|bal|herb|elixir|sub|super|id)\s*$"
+   enabled="y"
+   group="Defenses"
+   regexp="y"
+   script="defs.exec"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="reset_defup__"
+   match="^\s*reset\s+defup\s*$"
+   enabled="y"
+   group="Defenses"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>defs.want()</send>
+  </alias>
+
+  <alias
+   name="stag_facepainting__"
+   match="^\s*paint\s*face\s+(greenman|trueheart|swiftstripes|lightning)\s*$"
+   enabled="y"
+   group="Defenses"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>local tints = {
+  greenman = "green",
+  trueheart = "yellow",
+  swiftstripes = "red",
+  lightning = "blue",
+}
+local face = string.lower("%1")
+if face == "greenman" and defs.has("trueheart") then
+  Send("wipe face trueheart")
+elseif face == "trueheart" and defs.has("greenman") then
+  Send("wipe face greenman")
+elseif face == "swiftstripes" and defs.has("lightning") then
+  Send("wipe face lightning")
+elseif face == "lightning" and defs.has("swiftstripes") then
+  Send("wipe face swiftstripes")
+end
+Send("outr 2 " .. tints[face] .. "tint")
+Send("paint face " .. face)</send>
+  </alias>
+  <alias
+   name="throne_defense__"
+   match="^\s*throne\s*$"
+   enabled="y"
+   group="Defenses"
+   regexp="y"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>sit on throne</send>
+  </alias>
+</aliases>
+
+<triggers>
+ <trigger
+   enabled="n"
+   group="Track"
+   match="^You have the following defences active\:$"
+   name="def_start__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.start"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are protected by (\d+) defences\.$"
+   name="def_done__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.done"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Acrobatics -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You inhale a deep breath\, ready to run quickly if the need arises|You are already moving at an increased pace)\.$"
+   name="defup_adroitness__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You tense your muscles with the sinuous grace of a predator\, prepared to avoid any incoming blows\.$"
+   name="defup_avoid__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You dance as nimbly as a cat\, maintaining your balance on the balls of your feet\.$"
+   name="defup_balancing__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Concentrating briefly\, you will parts of your muscles to relax, giving them more elasticity to prevent damage|You are already relaxing your muscles to prevent damage to them)\.$"
+   name="defup_elasticity__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Casting a wary eye about your surroundings\, you ready yourself for a fall|You are already concentrating on breaking your falls)\.$"
+   name="defup_falling__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You breathe in and exhale in a regular\, steady rhythm\, mastering your control over your breathing|You are already controlling your breathing masterfully)\.$"
+   name="defup_hyperventilating__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You stretch your muscles\, focusing on swift and nimble movements\.|You are already quite limber\!)$"
+   name="defup_limber__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You dance around chaotically\, avoiding incoming blows|You are already darting about in such a manner that you are extremely hard to hit)\.$"
+   name="defup_tripleflash__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You cease preparing to avoid the next attack\.$"
+   name="defdown_avoid__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:relax your nimble stance\, falling into a comfortable posture|can no longer concentrate on maintaining your balance)\.$"
+   name="defdown_balancing__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You cease darting around and avoiding blows\.$"
+   name="defdown_tripleflash__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are moving at an increased rate of speed\.$"
+   name="def_adroitness__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are carefully avoiding the next targeted blow\.$"
+   name="def_avoid__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are balancing carefully\.$"
+   name="def_balancing__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are concentrating on providing your muscles with increased elasticity\.$"
+   name="def_elasticity__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are protected against falling suddenly\.$"
+   name="def_falling__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are hyperventilating to control your breathing\.$"
+   name="def_hyperventilating__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are extremely limber\.$"
+   name="def_limber__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are dancing chaotically about\, avoiding blows\.$"
+   name="def_tripleflash__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Alchemy -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You feel the full potential of the moonwater manifest in you\.$"
+   name="defup_moonwater__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if defs.has("pre_orgpotion") then
+  defs.del_queue("pre_orgpotion")
+  defs.add_queue("moonwater")
+end</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Sipping"
+   match="^(?:A lulling tingle races through your body|The liquid bubbles within your mouth and then suddenly stops)\.$"
+   name="moonwater_sipped__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("moonwater_try") then
+  defs.add_queue("pre_orgpotion")
+  flags.clear("moonwater_try")
+end</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Sipping"
+   match="^Your movements become fluid as you drink the green tea\.$"
+   name="greentea_sipped__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("tea", "green")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Sipping"
+   match="^The flowery tea awakens a passion within you\.$"
+   name="oolongtea_sipped__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("tea", "oolong")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Sipping"
+   match="^Your blood surges as the black tea enters your system\.$"
+   name="blacktea_sipped__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("tea", "black")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Sipping"
+   match="^As you sip the white tea\, your thoughts become clearer\.$"
+   name="whitetea_sipped__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("tea", "white")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Sipping"
+   match="^The dark brew stokes a delicious fire within your belly\.$"
+   name="darkbeer_sipped__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("beer", "dark")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Sipping"
+   match="^You sigh contentedly as the amber brew takes away your pain\.$"
+   name="amberbeer_sipped__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("beer", "amber")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You sprinkle a circle of salt around yourself\, and a shimmering white orb springs up around you\.$"
+   name="defup_shield_salt__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("shield")
+flags.clear("shield_try")
+gear.decrement_potion("magical salt")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You sprinkle a circle of salt around [A-Z][a-z]+\, and a shimmering white orb springs up around [hH](?:im|er)\.$"
+   name="person_shield_salt__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>gear.decrement_potion("magical salt")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^A silvery thrill runs from the tips of your toes up to the top of your head\.$"
+   name="defup_vitae__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Tiny tremors spread through your body as the world seems to slow down\.$"
+   name="defup_speed__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.clear{"check_speed", "speed_try", "waiting_for_speed"}
+failsafe.disable("wait_for_speed")
+defs.add_queue("speed")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You belch (?:loudly and begin to feel the pain|deeply and no longer feel so stoked)\.$"
+   name="defdown_beer__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Forks of flame lick against your skin\, melting away your protection against fire\.$"
+   name="defdown_frost__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^As you luxuriantly rub the resinous\, red oil into your skin\, you sniff abruptly and inhale the enticing aroma of dragon\'s blood\.$"
+   name="defup_dragonsblood__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("dragonsblood")
+defs.del_queue{"jasmine", "musk", "sandalwood", "vanilla"}</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^As you luxuriantly rub the golden oil into your skin\, you sniff abruptly and inhale the sweet and floral odour of jasmine\.$"
+   name="defup_jasmine__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("jasmine")
+defs.del_queue{"dragonsblood", "musk", "sandalwood", "vanilla"}</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^As you luxuriantly rub the thick\, purple oil into your skin\, you sniff abruptly and inhale the pungent scent of musk\.$"
+   name="defup_musk__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("musk")
+defs.del_queue{"dragonsblood", "jasmine", "sandalwood", "vanilla"}</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^As you luxuriantly rub the slippery\, lutescent oil into your skin\, you sniff abruptly and inhale the clean fragrance of sandalwood\.$"
+   name="defup_sandalwood__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("sandalwood")
+defs.del_queue{"dragonsblood", "jasmine", "musk", "vanilla"}</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^As you luxuriantly rub the smooth, caramel[\- ]coloured oil into your skin\, you sniff abruptly and inhale the buttery redolence of vanilla\.$"
+   name="defup_vanilla__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("vanilla")
+defs.del_queue{"dragonsblood", "jasmine", "musk", "sandalwood"}</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^The faint hint of .+? disappears and you find yourself no longer coated in it\.$"
+   name="defdown_perfume__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue{"dragonsblood", "jasmine", "musk", "sandalwood", "vanilla"}</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^A strange surge is growing inside of you\.$"
+   name="def_pre_orgpotion__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are prepared to make use of (moonwater|holy water|nightsweats|unholy water) coursing through your body\.$"
+   name="def_orgpotion__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add((string.gsub("%1", " ", "_")))</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your passion is (?:ceremonially|herbally) heightened\.$"
+   name="def_oolongtea__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("tea", "oolong")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your insight is (?:ceremonially|herbally) heightened\.$"
+   name="def_whitetea__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("tea", "white")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your vivaciousness is (?:ceremonially|herbally) heightened\.$"
+   name="def_blacktea__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("tea", "black")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your movements are (?:ceremonially|herbally) heightened\.$"
+   name="def_greentea__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("tea", "green")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your pain is deadened by alcohol\.$"
+   name="def_amberbeer__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("beer", "amber")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your aggression is stoked by alcohol\.$"
+   name="def_darkbeer__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("beer", "dark")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are lightly coated with a layer of (\w+)\.$"
+   name="def_perfume__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("%1")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are more ready to handle electric currents\.$"
+   name="def_galvanism__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your insides are warmed by a fire potion\.$"
+   name="def_fire__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are tempered against fire damage\.$"
+   name="def_frost__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your sense of time is heightened\, and your reactions are speeded\.$"
+   name="def_speed__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>flags.clear{"check_speed", "speed_try", "waiting_for_speed"}
+defs.add("speed")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^The power of the elixir vitae flows through your veins\.$"
+   name="def_vitae__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Ascendant -->
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are whipped into a frenzied bloodlust by a Havoc Cry\.$"
+   name="def_havoccry__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are whipping your troops into frenzied bloodlust\.$"
+   name="def_havoccryer__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Leaping from your skin the energy fills the air\, bathing your surroundings in the fair energies of the Domotheos of Justice\, supporting your righteous cause\.$"
+   name="defup_judiciouspresence__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are bolstered by the righteous cause of a Judicious Presence\.$"
+   name="def_judiciouspresence__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are maintaining a Judicious Presence\.$"
+   name="def_judiciouspresencer__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Astrology -->
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^(?:An?|The) (.+?) sphere positively affects you\.$"
+   name="def_astro_sphere__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>local sphere = string.lower(string.gsub("%1", " ", "_"))
+defs.add(sphere)</send>
+  </trigger>
+
+<!-- Athletics -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You inhale deeply and feel the air fill your mighty lungs\.$"
+   name="defup_fitness__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your body grows tougher as the blessings dissolve around you\.$"
+   name="defup_purity__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^A brief shiver runs through your body\.$"
+   name="defup_weathering__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your body positively glows with health and vitality\.$"
+   name="defup_vitality__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You cannot call upon your vitality again so soon\.$"
+   name="deffail_vitality__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.progress("vitality")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You need to be fully healthy in both body and mind before you can call upon your vitality\.$"
+   name="defskip_vitality__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.clear("defs_bal", "scanned_defup_bal")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You take a few deep breaths to prepare your body for a marathon workout\.$"
+   name="defup_breathing__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You cross your arms\, standing firm and resolute\.$"
+   name="defup_sturdiness__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You begin to concentrate on regeneration of your wounds\.$"
+   name="defup_regeneration__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You call aloud and feel an aura of resistance shroud itself silently about you|You already have an aura of resistance)\.$"
+   name="defup_resistance__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You clench the muscles in your stomach\, determined to assert your superior constitution\.$"
+   name="defup_constitution__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You flex your muscles\, which bulge and pop in a spectacular display of your outstanding physique\.$"
+   name="defup_strength__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You will remain conscious at all times\.$"
+   name="defup_consciousness__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You almost pass out but successfully struggle to remain conscious\.$"
+   name="defwork_consciousness__"
+   regexp="y"
+   script="affs.repel_consciousness"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You call upon your inner strength to boost your health regeneration\.$"
+   name="defup_boosting__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You close your eyes and grit your teeth\, feeling the heat of the blood pumping through your veins|Your immune system is already charged)\.$"
+   name="defup_immunity__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("immunity")
+prompt.illqueue(function () SetVariable("sg1_def_immunity", 1) end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You pound your chest with your fists\, and bellow fiercely\. Your body expands to heroic proportions|Your body is already surged to maximum potential)\.$"
+   name="defup_surging__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^A surge of adrenaline courses through your veins\.$"
+   name="defup_adrenaline__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("speed_try") == "adrenaline" then
+  flags.clear{"check_speed", "speed_try"}
+  flags.set("waiting_for_speed", "adrenaline", 0)
+  failsafe.exec("wait_for_speed", 7)
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You are already speeded\.$"
+   name="defup_speed_abc__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("speed_try") == "adrenaline" then
+  defs.add_queue("speed")
+  flags.clear{"check_speed", "speed_try", "waiting_for_speed"}
+  failsafe.disable("wait_for_speed")
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^A surge of rejuvenating energy floods your system\, healing your wounds\.$"
+   name="defdown_vitality___"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("vitality")
+flags.damaged_health()</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You cease to stand firm against attempts to move you\.$"
+   name="defdown_sturdiness__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You(?: call a halt to the regenerative process| no longer possess sufficient mana to sustain your regeneration|r willpower is insufficient to continue regenerating your health)\.$"
+   name="defdown_regeneration__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue{"regeneration", "boosting"}</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You will no longer concentrate on retaining full consciousness\.$"
+   name="defdown_consciousness__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Defenses"
+   match="^You feel your grasp over your consciousness slip away with a wrenching feeling of sickness\.$"
+   name="defdown_consciousness_sp__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("consciousness")
+display.Alert("Consciousness stripped away")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your blood settles down\, its poison immunity fading\.$"
+   name="defdown_immunity__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("immunity")
+prompt.illqueue(function () DeleteVariable("sg1_def_immunity") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You relax the surge of power through your body\,? and dwindle to normal proportions\.$"
+   name="defdown_surging__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your regeneration is boosted\.$"
+   name="def_boosting__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your body is prepared for a marathon workout\.$"
+   name="def_breathing__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are maintaining consciousness at all times\.$"
+   name="def_consciousness__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are using your superior constitution to prevent nausea\.$"
+   name="def_constitution__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are utilising your bodily control to make yourself more fit\.$"
+   name="def_fitness__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have tempered your bloodstream to reject poisons\.$"
+   name="def_immunity__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("immunity")
+SetVariable("sg1_def_immunity", 1)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your body is purified\.$"
+   name="def_purity__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are regenerating lost health\.$"
+   name="def_regeneration__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are resisting magical damage\.$"
+   name="def_resistance__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your muscles are flexed for increased strength\.$"
+   name="def_strength__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are standing firm against attempts to move you\.$"
+   name="def_sturdiness__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your essence is surging into your body\.$"
+   name="def_surging__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You will call upon your fortitude in need\.$"
+   name="def_vitality__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your body is weathering the storm of life a little better\.$"
+   name="def_weathering__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Beastmastery -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:climb up on|easily vault onto the back of) (.+?)\.$"
+   name="defup_mounted__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("mounted", "%1")
+beast.locate("mounted")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^.+? flaps its wings a few times and lifts you into the skies\.$"
+   name="defup_mounted_flying__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("flying")
+beast.locate("mounted")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:step down off of|lose purchase on|flail your arms wildly as you fall off) .+?\.$"
+   name="defdown_dismount__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("mounted")
+beast.locate("following")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are riding (.+?)\.$"
+   name="def_mounted__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("mounted", "%1")
+beast.locate("mounted")</send>
+  </trigger>
+
+<!-- Bookbinding -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You release .+? and it flutters into the air and around you\, its (.+?)(?: origami)? charm dissolving into the air around you as the vellum disappears in tiny motes of dust\.$"
+   name="defup_origami__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("origami", "%1")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are blessed with the origami charm of (.+?)(?: origami)?\.$"
+   name="def_origami__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add("origami", "%1", true)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^A swirling energy suddenly manifests around you and collapses inward, briefly taking the shape of an? (.+?)(?: origami)? before it vanishes\, leaving you curiously refreshed\.$"
+   name="defdown_origami__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if defs.has("origami") == "%1" then
+  defs.del_queue("origami")
+end</send>
+  </trigger>
+
+<!-- Cavalier -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You grip .+?\, ready to guard yourself against assault\.$"
+   name="defup_guard__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add("guard", "self")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are watching for attacks against your person\.$"
+   name="def_guard_self__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add("guard", "self")</send>
+   </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are watching for attacks against ([A-Z][a-z]+)\'s person\.$"
+   name="def_guard_other__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add("guard", "%1")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:flex your muscles and hone your mind on the task of recovering any missed strikes and converting them to swings with the shaft of your weapon|are already recovering your strikes)\.$"
+   name="defup_recovery__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are hooking attacks against your (head|gut|chest|left arm|left leg|right arm|right leg)\.$"
+   name="def_hook__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add("hook", "%1")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:cease using your keen eye|are not currently alerted by a keen eye)\.$"
+   name="defdown_recovery__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are recovering your missed strikes and converting them to swings\.$"
+   name="def_recovery__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Combat -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:begin to examine your surroundings with|are already alerted by) a keen eye\.$"
+   name="defup_keeneye__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:cease using your keen eye|are not currently alerted by a keen eye)\.$"
+   name="defdown_keeneye__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your fighting stance is defending your (\w+)(?: \w+)?\.$"
+   name="def_stance__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>if "%1" == "vital" then
+  defs.add("stance", "vitals", true)
+else
+  defs.add("stance", "%1", true)
+end</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are observing with a keen eye\.$"
+   name="def_keeneye__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Discernment -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:open your eyes wide\, concentrating on the small strands of aether around you|are already sensing disruptions in the aether)\.$"
+   name="defup_aethersight__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You(?: shut your eyes and concentrate on the end of life\. A moment later\, you feel inextricably linked with|r mind is already linked to) the strings of fate\.$"
+   name="defup_deathsense__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:will now lip read to overcome the effects of deafness|are already lipreading)\.$"
+   name="defup_lipreading__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your vision sharpens with light as you gain night sight\.$"
+   name="defup_nightsight__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You bow your head and concentrate on blurring your personal energies until your power is masked\.$"
+   name="defup_powermask__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:now possess the gift of the third ?eye|already possess the third ?eye)\.$"
+   name="defup_thirdeye__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You close your eyes for a moment\, and cease concentrating on the aether\.$"
+   name="defdown_aethersight__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are sensing disruptions in the aether\.$"
+   name="def_aethersight__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your mind is sensing the death of others\.$"
+   name="def_deathsense__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are lipreading to overcome deafness\.$"
+   name="def_lipreading__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your vision is heightened to see in the dark\.$"
+   name="def_nightsight__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have a powermask hiding your actions\.$"
+   name="def_powermask__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are viewing the world through the third eye\.$"
+   name="def_thirdeye__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Discipline -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You inhale deeply and begin holding your breath\.$"
+   name="defup_held_breath__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("held_breath")
+flags.clear{"hold_breath_try", "scanned_hold_breath"}</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:clench your fists\, grit your teeth\, and banish all possibility of sleep|are already an insomniac)\.$"
+   name="defup_insomnia__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("insomnia_try") then
+  defs.add_queue("insomnia")
+  flags.clear("insomnia_try")
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:order your mind to ensure you will not journey far into the dreamworld|already have metawake turned on)\.$"
+   name="defup_metawake__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("metawake")
+flags.clear("metawake_try")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You quickly pull yourself out of sleep\.$"
+   name="defup_metawake_effect__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.clear{"waking", "wake_try", "metawake_try"}
+defs.add_queue("metawake")
+affs.del("asleep")
+affs.prone()</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:rub your hands together greedily|already are a selfish bastard)\.$"
+   name="defup_selfish__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("selfish")
+flags.clear{"selfishness_try", "scanned_no_selfish"}</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You can hold your breath no longer and gasp for air, fighting to bring oxygen back to your deprived muscles\.$"
+   name="defdown_held_breath__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You cease concentrating on maintaining distance from the dreamworld\.$"
+   name="defdown_metawake_off__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("metawake")
+flags.clear("metawake_try")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^A feeling of generosity spreads throughout you\.$"
+   name="defdown_selfish__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("selfish")
+flags.clear{"generosity_try", "scanned_undo_selfish"}</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are holding your breath\.$"
+   name="def_held_breath__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have insomnia\, and cannot easily go to sleep\.$"
+   name="def_insomnia__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are concentrating on maintaining distance from the dreamworld\.$"
+   name="def_metawake__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are feeling quite selfish\.$"
+   name="def_selfish__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Dramatics -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You take a deep breath and mentally shift into performance mode\.$"
+   name="defup_performance__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   lines_to_match="2"
+   match="^Furrowing your brow into a scowl\, you clench your jaw and flare your nostrils\, twisting your lips into a cruel grin\.\nYou transform yourself into a bully\!$"
+   multi_line="y"
+   name="defup_role_bully__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("role", "bully")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   lines_to_match="2"
+   match="^Slicking back your hair\, you put on your best greasy grin and bob your head like a toady\.\nYou transform yourself into a sycophant\!$"
+   multi_line="y"
+   name="defup_role_sycophant__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("role", "sycophant")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You belch and begin swaying back and forth like a drunkard\.$"
+   name="defup_role_drunkard__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("drunkard")
+defs.del_queue("sober")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You stand up a little straighter and try to act more sober\.$"
+   name="defup_role_sober__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("sober")
+defs.del_queue("drunkard")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You begin a performance to act more wounded than you are\.$"
+   name="defup_wounded__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Straightening your posture and calming yourself down\, you begin to exude an aura of forgiveness and serenity\.$"
+   name="defup_diplomat__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   lines_to_match="2"
+   match="^Puffing up your chest in self\-importance\, you plaster a condescending smile on your lips and develop a knowing smirk\.\nYou transform yourself into a bureaucrat\!$"
+   multi_line="y"
+   name="defup_role_bureaucrat__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("role", "bureaucrat")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   lines_to_match="2"
+   match="^Tossing back your hair\, you rub some life in your cheeks and smile sensually\.\nYou transform yourself into a gorgeous beauty\!$"
+   multi_line="y"
+   name="defup_role_gorgeous__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("role", "gorgeous")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   lines_to_match="2"
+   match="^You tousle your hair and rub dirt on your face\, then hunch your shoulders in a slouch\.\nYou transform yourself into a vagabond\!$"
+   multi_line="y"
+   name="defup_role_vagabond__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("role", "vagabond")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You review the performances of others around you\.$"
+   name="defup_review___"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You let out a deep breath and release yourself from performing\.$"
+   name="defdown_performances___"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue{"drunkard", "performance", "role", "sober", "wounded"}</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You cease reviewing the performances of others\.$"
+   name="defdown_review___"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You cease acting (drunk|sober|wounded)\.$"
+   name="defdown_drunk_sober_wounded___"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if "%1" == "drunk" then
+  defs.del_queue("drunkard")
+else
+  defs.del_queue("%1")
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You relax your posture and allow yourself to speak normally\, no longer seeking to draw out forgiveness in others\.$"
+   name="defdown_diplomat___"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You .+?\, no longer performing the role of the .+?\.$"
+   name="defdown_role___"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You take a deep breath and look up innocently through lowered lashes\, taking on a saintly attitude\.$"
+   name="defup_saintly__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("attitude", "saintly")
+EnableTrigger("cure_hurry__", true)
+prompt.queue(function () EnableTrigger("cure_hurry__", false) end, "attitude")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You jut out your jaw and thin your lips\, taking on the demeanor of a zealot\.$"
+   name="defup_zealotry__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("attitude", "zealotry")
+EnableTrigger("cure_circuitous__", true)
+prompt.queue(function () EnableTrigger("cure_circuitous__", false) end, "attitude")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You purse your lips and narrow your eyes\, taking on a lawyerly attitude\.$"
+   name="defup_lawyerly__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("attitude", "lawyerly")
+EnableTrigger("cure_loophole__", true)
+prompt.queue(function () EnableTrigger("cure_loophole__", false) end, "attitude")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You already bear yourself with .+? (saintly|lawyerly|zealot).*?\.$"
+   name="defup_attitude_abc__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if "%1" == "zealot" then
+  defs.add_queue("attitude", "zealotry")
+else
+  defs.add_queue("attitude", "%1")
+end</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Defenses"
+   match="^You have the patience of a saint and refuse to hurry the debate\.$"
+   name="cure_hurry__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del("debate_hurry")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Defenses"
+   match="^You laugh off the circuitous logic in your arguments with zeal\.$"
+   name="cure_circuitous__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del("debate_circuitous")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Defenses"
+   match="^You cut through the loopholes in your arguments\.$"
+   name="cure_loophole__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del("debate_loophole")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are in performance mode\.$"
+   name="def_performance__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are carrying yourself with a (lawyerly|saintly) demeanor\.$"
+   name="def_demeanor1__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("attitude", "%1")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are carrying yourself with the demeanor of a zealot\.$"
+   name="def_demeanor2__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("attitude", "zealot")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are performing the role of a (bully|bureaucrat|gorgeous|sycophant|vagabond)(?: beauty)?\.$"
+   name="def_roles__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("role", "%1")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are acting drunker than you actually (?:is|are)\.$"
+   name="def_drunkard__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are acting more (sober|wounded) than you actually are\.$"
+   name="def_sober_wounded__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("%1")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are performing the role of a diplomat\.$"
+   name="def_diplomat__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are reviewing performances of others\.$"
+   name="def_review__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Dramaturgy -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:smooth back your hair and flash your pearly whites|are already displaying fine etiquette)\.$"
+   name="defup_etiquette__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Smoothing your clothes\, you|You already) stand proud in your foppery\.$"
+   name="defup_foppery__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are displaying fine etiquette\.$"
+   name="def_etiquette__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are standing proudly in your foppery\.$"
+   name="def_foppery__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Dreamweaving -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You weave a mental shield around your body\.$"
+   name="defup_control__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are in complete control of your waking mind\.$"
+   name="def_control__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Druidry -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You twirl your cudgel before you\, bringing forth an emerald shield that surrounds you\.$"
+   name="defup_deflect__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are deflecting physical attacks\.$"
+   name="def_deflect__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger> 
+
+<!-- Ecology -->
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your soul is bonded to an animal spirit\, ready for transmigration\.$"
+   name="def_transmigration__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Enchantments -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You narrow your eyes and look around greedily for something to add to your hoard\.$"
+   name="defup_acquisitio__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("acquisitio")
+prompt.preillqueue(function () actions.activated_enchantment("acquisitio") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You hold .+? to your lips and blow a light\, twinkling ditty\. As the notes fade\, you cannot help but look around with avarice in your eyes\.$"
+   name="defup_avarice__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("avarice")
+prompt.preillqueue(function () actions.activated_enchantment("avarice") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^A ray of (purple|golden|green|pink) light suddenly spotlights you\.$"
+   name="defup_mpkb__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>local enchants = {
+  purple = "mercy",
+  golden = "perfection",
+  green = "kingdom",
+  pink = "beauty"
+}
+defs.add_queue(enchants["%1"])
+prompt.preillqueue(function () actions.activated_enchantment(enchants["%1"]) end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:begin to rise on a|are already walking on a small) cushion of air\.$"
+   name="defup_levitating__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("levitating")
+prompt.preillqueue(function () actions.activated_enchantment("levitate") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:touch the cosmos and allow your eyes to pierce through the veil of|already are seeing) death\.$"
+   name="defup_deathsight__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("deathsight")
+prompt.preillqueue(function () actions.activated_enchantment("deathsight") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:A nimbus of glittering motes blossoms around you|You are already surrounded with a cosmic nimbus)\.$"
+   name="defup_nimbus__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("nimbus")
+prompt.preillqueue(function () actions.activated_enchantment("cosmic") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^As you wind (.+?) up\, the hands on its face begin to move slower and slower\. Suddenly\, a flurry of bright\,? yellow sparks sprays? out of \1\, and you feel your musical aptitude take on a new dimension\.$"
+   name="defup_tempo__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>actions.used_enchantment()
+defs.add_queue("tempo")
+prompt.preillqueue(function () actions.activated_enchantment("tempo") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You quickly wind up (.+?) as tightly as you can\. The hands on \1 begin to spin faster and faster and time\,? itself\,? seems to distort around you\.$"
+   name="defup_truetime__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>actions.used_enchantment()
+defs.add_queue("truetime")
+prompt.preillqueue(function () actions.activated_enchantment("truetime") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:pull a cosmic web down around your feet\, and you sense that gravity will be your ally when entering water|are already water walking)\.$"
+   name="defup_waterwalking__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("waterwalking")
+prompt.preillqueue(function () actions.activated_enchantment("waterwalk") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You allow the charm of Acquisitio to leave you and are no longer gripped by an unnatural need to accumulate things\.$"
+   name="defdown_acquisitio__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("acquisitio")
+prompt.preillqueue(function () actions.activated_enchantment("acquisitio") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You hold .+? to your lips and blow a light\, twinkling ditty\. As the notes fade\, you see the world through less avaricious eyes\.$"
+   name="defdown_avarice__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("avarice")
+prompt.preillqueue(function () actions.activated_enchantment("avarice") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your enhanced sense of music fades from your mind as quickly as it came\.$"
+   name="defdown_tempo__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You feel less protected against variations in time\.$"
+   name="defdown_truetime__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You briefly hold your hand over your mouth until your lips and tongue tingle\.$"
+   name="defup_waterbreathing__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("waterbreathing")
+prompt.preillqueue(function () actions.activated_enchantment("waterbreathe") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:pull a cosmic web down around your feet\, and you sense that gravity will be your ally when entering water|are already water walking)\.$"
+   name="defup_waterwalk__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("waterwalking")
+prompt.preillqueue(function () actions.activated_enchantment("waterwalk") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You cough and splutter as you inhale some water|There\'s water ahead of you\. You\'ll have to swim in that direction to make it through)\.$"
+   name="defdown_waterwalking__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are filled with the greed of Acquisitio\.$"
+   name="def_acquisitio__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are instilled with a need to hoard gold\.$"
+   name="def_avarice__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your ego is regenerating by virtue of the Ray of Beauty\.$"
+   name="def_beauty__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are seeing death\.$"
+   name="def_deathsight__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your blood is clotting by virtue of the Ray of the Kingdom\.$"
+   name="def_kingdom__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are walking on a small cushion of air\.$"
+   name="def_levitating__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your health is regenerating by virtue of the Ray of the Merciful Hand\.$"
+   name="def_mercy__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are surrounded by a nimbus of cosmic protection\.$"
+   name="def_nimbus__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your mana is regenerating by virtue of the Ray of Perfection\.$"
+   name="def_perfection__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are filtering air from water for breathing\.$"
+   name="def_waterbreathing__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You can walk upon water\.$"
+   name="def_waterwalking__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Environment -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Kneeling to place a hand upon the ground\, you close your eyes and breathe deeply\, allowing your senses to intermingle with the (.+?) around you\.$"
+   name="defup_attuned__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("attuned", "%1")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Focusing your will on the bond between you and the environment here\, you draw as much strength as you can before the bond snaps completely in a sudden wave of energy which fills your every fibre with a soothing warmth\.$"
+   name="defdown_attuned__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are attuned to being in (.+?) environment\.$"
+   name="def_attuned__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("attuned", "%1")</send>
+  </trigger>
+
+<!-- Glamours -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You weave an impossibly complex glamour of light\, producing an unerring replica of yourself that floats eerily around you and prevents your precise location from being easily determined|You are already protected by an illusory glamour of yourself)\.$"
+   name="defup_illusoryself__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your illusory glamour you have woven of yourself melts away\.$"
+   name="defdown_illusoryself__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have taken on a glamour of ([A-Z][a-z]+)\.$"
+   name="def_glamour__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("glamour", "%1")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are accompanied by an illusory glamour\.$"
+   name="def_illusoryself__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Herbs -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You suddenly feel incapable of falling asleep\.$"
+   name="defup_insomnia_herb__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("last_cure") == "eat merbloom" then
+  defs.add_queue("insomnia")
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You now possess the gift of truehearing\.$"
+   name="defup_truehearing__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your insomnia has cleared up\.$"
+   name="defdown_insomnia_poison__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("insomnia")
+flags.clear{"last_cure", "charybdon", "hex"}</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your mind relaxes and you feel as if you could sleep\.$"
+   name="defdown_insomnia_herb__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("insomnia")
+prompt.illqueue(function () cures.clear("smoke coltsfoot") end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your aura of weapons rebounding disappears\.$"
+   name="defdown_rebounding_att__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.clear("aura_timer")
+defs.del_queue("rebounding")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^([A-Z][a-z]+) razes your aura of rebounding with .+?\.$"
+   name="defdown_rebounding_raze__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if main.attacked("%1", nil, "raze") then
+  flags.clear("aura_timer")
+  defs.del_queue("rebounding")
+end</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have ingested the kafe bean and are feeling extremely energetic\.$"
+   name="def_kafe__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are protected from hand\-held weapons with an aura of rebounding\.$"
+   name="def_rebounding__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("rebounding")
+flags.clear("aura_timer")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^The world is seen through your sixth sense\.$"
+   name="def_sixthsense__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("sixthsense")
+flags.clear("wait_sixth")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Sounds are heard through your true hearing\.$"
+   name="def_truehearing__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Highmagic -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Muttering the secret names of Geburah\, you trace the glowing symbol of a sword before you\. The sword enters your chest and you feel strength course through your veins|You are already basking in the Geburah sphere)\.$"
+   name="defup_geburah__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Muttering words of power\, you trace a cobalt blue pentagram in each of the four directions\. The four pentagrams remain hovering in the air\, connected to each other by lines of energy\.$"
+   name="defup_greatpentagram__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Muttering the secret names of Hod\, you trace a glowing triangle before you\. The triangle enters your forehead and clears your mind\.$"
+   name="defup_hod__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Muttering the secret names of Netzach\, you trace the glowing symbol of a rose before you\. You smile as the rose floats towards you and enters your chest\, making your personality sparkle|You are already basking in the Netzach sphere)\.$"
+   name="defup_netzach__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Your great pentagram fluctuates and then dissipates\, leaving your immediate surroundings unprotected|Your pentagrams dissipate with your movement)\.$"
+   name="defdown_greatpentagram__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:A surge of energy floods your system, making you more alert|You no longer feel the ritual of Hod preparing you for a mental revival)\.$"
+   name="defdown_hod__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You feel the Netzach Sphere leave you\.$"
+   name="defdown_netzach__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are surrounded by the Geburah Sphere\.$"
+   name="def_geburah__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are protecting the immediate area with a great pentagram\.$"
+   name="def_greatpentagram__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are surrounded by the Hod Sphere\.$"
+   name="def_hod__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are surrounded by the Netzach Sphere\.$"
+   name="def_netzach__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Hunting -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You use the natural environment around you to camouflage yourself\, hiding from prying eyes|You begin silently to shadow [A-Z][a-z]+\'s movements about the land|You are already camouflaged)\.$"
+   name="defup_camouflage__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You step forth from your hiding|You are not camouflaged)\.$"
+   name="defdown_camouflage__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Too many prying eyes prevent you from finding a suitable hiding place|You do not have the ability to camouflage yourself in this environment)\.$"
+   name="deffail_camouflage__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.progress("camouflage")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are camouflaged\.$"
+   name="def_camouflage__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Healing -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You radiate a powerful aura of vitality\, that winds protectively around your body to shield it from the ravages of a healing backlash|You are already radiating a healing aura of vitality)\.$"
+   name="defup_aura_vitality__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You touch two fingers to your forehead, and attune your inner eye to the fluctuations of your healing auras|You are already sensing your healing auras)\.$"
+   name="defup_aurasense__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You touch two fingers to your forehead and dissolve your link to your healing auras|You are not attuned to the fluctuations of your healing auras)\.$"
+   name="defdown_aurasense__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are radiating a healing vitality\.$"
+   name="def_aura_vitality__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are sensing fluctuations in your healing auras\.$"
+   name="def_aurasense__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Illusions -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   keep_evaluating="y"
+   match="^You distort the light around yourself until your body becomes somewhat blurred\.$"
+   name="defup_blur__"
+   regexp="y"
+   script="defs.up"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   keep_evaluating="y"
+   match="^(?:[A-Z][a-z]+ creates a sparkling cloud and then molds it until it appears exactly like you|.+? lowers ([hH](?:is|er)) head and stares at you\, eyes alight with a preternatural glow\, as a stream of sparkling smoke blows out \1 nostrils and forms a reflection of you)\.$"
+   name="defup_reflection__"
+   regexp="y"
+   script="defs.up"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^One of your reflections has been destroyed\! You have 0 left\.$"
+   name="defdown_reflection__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are blurry\.$"
+   name="def_blur__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are surrounded by one reflection of yourself\.$"
+   name="def_reflection__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Influence -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Summoning all your influence\, you begin to verily radiate charisma\, creating an aura about yourself and those loyal to you|You already exude a charismatic aura)\.$"
+   name="defup_charismaticaura__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your posture relaxes as you allow your charismatic aura to drain away\, your mind feeling less strained\, though those loyal to you appear slightly disappointed\.$"
+   name="defdown_charismaticaura__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are compellingly charismatic\.$"
+   name="def_charismaticaura__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Knighthood -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You focus your attention on the (\w+) fighting style\.$"
+   name="defup_combatstyle__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("combatstyle", "%1")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You concentrate on gripping tightly with your hands|You already have a firm grip)\.$"
+   name="defup_gripping__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You relax your grip|Your grip is already relaxed)\.$"
+   name="defdown_gripping__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are fighting (with powerful blows|with focused strikes|with headstrong speed|defensively)\.$"
+   name="def_combatstyle__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>local xlate = {
+  ["with powerful blows"] = "aggressive",
+  ["with focused strikes"] = "concentrated",
+  ["with headstrong speed"] = "lightning",
+  ["defensively"] = "defensive",
+}
+defs.add("combatstyle", xlate["%1"])</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your hands are gripping your wielded items tightly\.$"
+   name="def_gripping__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Lowmagic -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Turning to the west\, you beseech the Spirits of Autumn to make your harvest plentiful\. A sparkling wind comes forth and wraps around you\, promising your harvests will be fruitful\.$"
+   name="defup_autumn__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Pressing your hands together before you\, you concentrate on your throat chakra\. A blue glow suffuses your throat\, protecting all your communications\.$"
+   name="defup_blue__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Pressing your hands together before you\, you concentrate on your belly chakra\. An orange glow suffuses the area around your stomach and the pangs of hunger disappear\.$"
+   name="defup_orange__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Pressing your hands together before you\, you concentrate on your root chakra\. A red glow runs down your spine\, helping anchor you to the earth|Muttering the secret names of Malkuth\, you trace glowing geometric patterns in the air which settle around you\, grounding you to the earth|The red chakra already burns bright within your body|The sphere of Malkuth already binds you to the earth)\.$"
+   name="defup_roots__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Pressing your hands together before you\, you concentrate on all your chakras together\. A serpent of rainbow energy surges up from the root of your spine and travels to the top of your head\, bursting forth from your crown chakra and surrounding you with an aura of prismatic energy|A renewed aura of prismatic energy surges once more from your crown chakra and surrounds you)\.$"
+   name="defup_serpent__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue{"serpent", "prismatic"}</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Pressing your hands together before you\, you concentrate on your solar plexus chakra\. A golden glow suffuses your solar plexus and your body swells with power\.$"
+   name="defup_yellow__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You feel the autumn wind subside\.$"
+   name="defdown_autumn__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You feel your (orange|yellow) chakra fade\.$"
+   name="defdown_orange_yellow__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("%1")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:The aura of prismatic energy surrounding you flickers and retreats into your crown chakra|Your aura of prismatic energy flickers and fades)\.$"
+   name="defdown_prismatic__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your serpent\'s aura of prismatic energy flickers and fades\.$"
+   name="defdown_serpent__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue{"serpent", "prismatic"}</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are followed by the autumn wind\.$"
+   name="def_autumn__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have empowered your blue chakra\.$"
+   name="def_blue__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have empowered your orange chakra\.$"
+   name="def_orange__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^The pull of the earth roots you more firmly to the ground\.$"
+   name="def_roots__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have empowered your yellow chakra\.$"
+   name="def_yellow__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Moon -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You scan the skies for the moon\, but it is nowhere to be found\.$"
+   name="defup_nomoon__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.progress("shine")
+defs.progress("drawdown")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You dance to the spirit of the moon\, asking for protection\. A soft light suffuses you|You are already surrounded by the moon aura)\.$"
+   name="defup_moonaura__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You form a triangle with your hands and frame the moon within\. After whispering devotions to the moon\, you lower your hands and feel the power of the moon suffuse your very spirit|The power of (?:the )?moon has already suffused your spirit\!)\.$"
+   name="defup_drawdown__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Raising your hands over head\, you beseech Mother Moon for her many blessings\. A shaft of moonlight falls upon you\, soaking into your skin and filling you with the throbbing cycle of phases|You already are shining with the light of the moon)\.$"
+   name="defup_shine__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:lead the coven in a ceremony to call down the harvest powers of the moon|join [A-Z][a-z]+ in a ceremony to call down the harvest powers of the moon)\.$"
+   name="defup_harvest_coven__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>EnableTrigger("defup_harvest__", true)
+prompt.queue(function () EnableTrigger("defup_harvest__", false) end)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Defenses"
+   match="^The blessings of the harvest moon are upon you\.$"
+   name="defup_harvest__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   keep_evaluating="y"
+   match="^(?:The coven of [A-Z][a-z]+ dissolves|You dissolve your coven)\.$"
+   name="defdown_harvest__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have the aura of the moon protecting you\.$"
+   name="def_moonaura__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^The moon has been drawn closer to you\.$"
+   name="def_drawdown__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are shining with the light of .+?\.$"
+   name="def_shine__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your soul is blessed under the harvest moon\.$"
+   name="def_harvest__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Music -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:With a charming flourish\, you bow down deeply\. As you rise up slowly\, your ego swells with the presence of the bardic profession|You already have a bardic presence)\.$"
+   name="defup_bardicpresence__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have a bardic presence\.$"
+   name="def_bardicpresence__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Nature -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You concentrate for a moment\, and your skin becomes rough and thick like tree bark|Your skin is already covered in protective bark)\.$"
+   name="defup_barkskin__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You kneel and place a palm on the ground\, imploring nature to hide you from prying eyes|You are already blended into the foliage)\.$"
+   name="defup_blend__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:thump the ground with your \w+ and feel a connection with the earth|are already rooted)\.$"
+   name="defup_rooting__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You step forth from your hiding\.$"
+   name="defdown_blend__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have skin covered in treebark\.$"
+   name="def_barkskin__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are blended in the foliage\.$"
+   name="def_blend__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are rooted\.$"
+   name="def_rooting__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Poisons -->
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are immune (?:to|from) (\w+)\.$"
+   name="def_immune_poison__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("immune", "%1")
+SetVariable("sg1_def_immune", "%1")</send>
+  </trigger>
+
+<!-- Runes -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^[A-Z][a-z]+ gathers a handful of runes and casts them upon the ground\, carefully studying the way they have broken\. Rising\, (?:[hH]|[sS]h)e pronounces a prophesy of good fortune upon [hH](?:im|er)self and [hH](?:is|er) allies\.$"
+   name="runes_benign_prophesy__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>EnableTrigger("defup_benign_prophesy__", true)
+prompt.queue(function () EnableTrigger("defup_benign_prophesy__", false) end)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Defenses"
+   match="^Your heart flutters as the prophesy takes hold\.$"
+   name="defup_benign_prophesy__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are under the effect of a benign prophesy\.$"
+   name="def_benign_prophesy__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are protected from the (\w+) rune by a runic amulet\.$"
+   name="def_runic_amulet__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add("runicamulet", "%1")</send>
+  </trigger>
+
+<!-- Shamanism -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You carefully draw a few strands of ethereal substance from the air around you\, wrapping it over your shoulders like a cloak\.$"
+   name="defup_weatherguard__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are wearing a cloak to ward against the worst of weather\.$"
+   name="def_weatherguard__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Stag -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You call upon the spirit of the stag to guide you\. Your legs tingle as the stag pours his blessings on you\.$"
+   name="defup_bolting__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Ceremoniously\, you dab some green tint upon your face\, creating the pattern of an image of the greenman|You already have an image of the greenman painted on your face)\.$"
+   name="defup_greenman__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Ceremoniously\, you dab some blue tint upon your face\, creating the pattern of lightning bolts|You already have lightning bolts painted on your face)\.$"
+   name="defup_lightning__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You begin briskly walking in a wide circle\, lifting your knees high\, creating a path in the shape of a ring\. As you effortlessly trot along the ringed path\, the grace of White Hart within you separates from your inner being in the form of a ghostly stag\, who joins you upon the sacred ringwalk|Your inner stag is already walking the ring)\.$"
+   name="defup_ringwalk__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You call upon Stag and throw wide your arms\. You embrace the presence of Stag as he manifests and your heart thuds as antlers sprout upon your head|You have already taken the form of a stag)\.$"
+   name="defup_stagform__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You call upon the spirit of the stag to protect you\, and your skin turns into a thick stag\'s hide|You are already covered with stag\'s hide)\.$"
+   name="defup_staghide__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Ceremoniously\, you dab some red tint upon your face\, creating the pattern of stripes|You already have swift stripes painted on your face)\.$"
+   name="defup_swiftstripes__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Ceremoniously, you dab some yellow tint upon your face\, creating the pattern of bright rays of sunshine|You already have an image of trueheart painted on your face)\.$"
+   name="defup_trueheart__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You feel your legs settle down|You already are not set to flee upon sighting an enemy)\.$"
+   name="defdown_bolting__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your inner stag no longer walks the ring\.$"
+   name="defdown_ringwalk__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You will instantly bolt when an enemy approaches\.$"
+   name="def_bolting__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your face is painted with the image of the greenman\.$"
+   name="def_greenman__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your face is painted with blue bolts of lightning\.$"
+   name="def_lightning__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your body has been blessed by the stag\.$"
+   name="def_stagform__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have the hide of the stag protecting your body\.$"
+   name="def_staghide__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your face is painted with red stripes\.$"
+   name="def_swiftstripes__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your face is painted with yellow rays of sunshine\.$"
+   name="def_trueheart__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Totems -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You call upon all the spirits of Nature\, and a whirlwind of power surrounds you\, briefly lifting you from the ground\. As every spirit embraces you\, you shudder and tremble in delight\.$"
+   name="defup_nature__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   lines_to_match="2"
+   match="^SPIRITS\:\n(\(None\)|The spirit of squirrel grants you the ability to forge\.)$"
+   multi_line="y"
+   name="defcheck_totems_nature__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if "%1" == "(None)" then
+  defs.del_queue("nature")
+else
+  defs.add_queue("nature")
+end</send>
+  </trigger>
+
+<!-- Tracking -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You concentrate intently on your knowledge of tracking and prepare to deliver your poisons more efficiently|You are already focusing on your knowledge of tracking to provide increased poison delivery)\.$"
+   name="defup_poisonexpert__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are focusing intently on delivering poisons more efficiently\.$"
+   name="def_poisonexpert__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Wicca -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You press your hands together and bow your head\, concentrating upon opening up the aetheric channels to other planar entities|Your channels are already open)\.$"
+   name="defup_channels__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have opened your aetheric channels to other planar entities\.$"
+   name="def_channels__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+
+<!-- Miscellaneous -->
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^A shimmering field of protection flares up around you\.$"
+   name="defup_protection__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("protectorate") then
+  defs.add_queue("protection")
+  flags.clear{"protectorate", "protection_try"}
+  failsafe.disable("protection")
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You feel an aura of rebounding surround you\.$"
+   name="defup_rebounding__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("rebounding")
+failsafe.exec("rebounding")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:A soft moan rises up from the ground as a shadowy bubble forms around you|Spreading your arms wide\, you spin clockwise and visualize a circle of protection\. A shimmering white orb springs up around you|Muttering words of power\, you trace a cobalt blue pentagram in the air that remains hovering before you\, protecting against assault)\.$"
+   name="defup_shield__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("shield")
+flags.clear("shield_try")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You begin to concentrate on the sixth sense\.\.\.$"
+   name="defup_sixthsense_start__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.set("waiting_for_sixthsense", true, 8)
+flags.clear("last_cure")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You now possess the gift of the sixth sense\.$"
+   name="defup_sixthsense__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("waiting_for_sixthsense") then
+  flags.clear{"blinded", "waiting_for_sixthsense"}
+  defs.add_queue("sixthsense")
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:A pair of faerie wings rapidly flutters\, then carries you up into the skies|You draw deeply upon your divine essence and rise gracefully into the skies on swirling currents of power|You are picked up by the twister and thrown up into the sky)\.$"
+   name="defup_flying__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You sit upon your throne\, and your heart beats faster as a feeling of transcendent superiority floods through your being\.$"
+   name="defup_throne__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("throne")
+affs.add_queue("sitting")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You (?:concentrate for a moment\, surrounding yourself with a psionic barrier|are already protected against psionic attacks)\.$"
+   name="defup_psishield__"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You slip into a pair of faerie wings\.$"
+   name="defup_wings__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("wings")
+prompt.illqueue(function () SetVariable("sg1_def_wings", 1) end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You slip into a shroud of shadows|Muttering the secret names of Yesod\, you trace a glowing circle in front of you\. You step into the circle of energy\, coming out of it cloaked in invisibility)\.$"
+   name="defup_shroud__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("shroud")
+if string.find("%0", "shroud of shadows") then
+  prompt.illqueue(function () SetVariable("sg1_def_shroud", 1) end)
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You begin to descend\, the wind whistling past you as the earth draws ever closer\. You land easily\, back on the ground again\.|The wind is too strong for you to remain up in the skies\.|You dive towards the ground\, alighting gently upon its surface as the currents of power swirling around you dissipate\.|Lacking any way to fly and any support\, you plummet to the earth below you\!|You swoop down towards the canopy below you\.|The geyser strikes you full\-on\, and you tumble to the ground helplessly\.)$"
+   name="defdown_flying__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^[A-Z][a-z]+ dissolves the shimmering field around you\.$"
+   name="defdown_protection__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("protection")
+display.Alert("NO PROTECTION")
+display.Alert("NO PROTECTION")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^Your psionic barrier (?:dissolves|shatters from a massive blast of psionic energy emanating from [A-Z][a-z]+)\.$"
+   name="defdown_psishield__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Your movement causes your magical shield to dissipate|Your magical protection is blown away|.+? makes a sudden gesture at you and a bolt of black energy shoots out from [hH](?:is|er) outward stretched palm and shatters your magical shield of protection|.+? mutters and pokes [hH](?:is|er) index finger towards you and makes a hooking gesture\. Invisible energies slam against you\, ripping apart your magical shield of protection|[A-Z][a-z]+ plays .+? and your magical shield dissipates into nothingness)\.$"
+   name="defdown_shield__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You are no longer receiving the gift of speed from the shield shrine\.$"
+   name="defdown_shrine_celerity__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You are no longer being healed by the power of a healing shrine\.$"
+   name="defdown_shrine_healing__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You are no longer under the protection of the shield shrine\.$"
+   name="defdown_shrine_protection__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:You remove a shroud of shadows|Muttering the secret names of Yesod\, you trace a glowing circle in front of you\. You step into the circle of energy\, feeling your invisibility melt away with it|Your shroud dissipates and you return to the realm of perception)\.$"
+   name="defdown_shroud__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("shroud")
+if string.find("%0", "shroud of shadows") then
+  prompt.illqueue(function () DeleteVariable("sg1_def_shroud") end)
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="(?:.+?you no longer see the world through the sixth sense|Colou?rs fade and everything becomes dark and black)\.$"
+   name="defdown_sixthsense__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You blink for a moment\, then instantly\, all about you is darkness\.$"
+   name="defdown_sixthsense_blind__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("sixthsense")
+local charyb = (flags.get("charybdon") or 1) - 1
+if charyb &lt;= 0 then
+  flags.clear("charybdon")
+else
+  flags.set("charybdon", charyb, 0)
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You are blind and (?:can )?see nothing but darkness\.$"
+   name="defdown_sixthsense_dark__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("blinded") then
+  defs.del_queue("sixthsense")
+  flags.clear("blinded")
+else
+  flags.set("blinded", true, 1)
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^([A-Z][a-z]+) razes your speed defence with .+?\.$"
+   name="defdown_speed_raze__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if main.attacked("%1", nil, "raze") then
+  defs.del_queue("speed")
+  flags.clear{"speed_try", "waiting_for_speed"}
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:The aural world fades to silence|A ditty runs through your head\,? and you can\'t stop yourself from singing it)\.$"
+   name="defdown_truehearing__"
+   regexp="y"
+   script="defs.down"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^(?:Your ears open up\, though you lose your true hearing|You cry out as your deaf ears open up to the sound of a high\-pitched note)\.$"
+   name="defdown_truehearing_blank__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("truehearing")
+if (flags.get("earache") == "chord" and string.find("%0", "sound")) or
+   (flags.get("earache") == "note" and string.find("%0", "true hearing")) then
+  affs.add_queue("earache", os.clock())
+end
+if string.find("%0", "true hearing") and
+   flags.get("hit_with") and
+   flags.get("hit_with") ~= "rebounded" then
+  affs.add_queue("sensitivity")
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Defenses"
+   match="^You remove a pair of faerie wings\.$"
+   name="defdown_wings__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.del_queue("wings")
+prompt.illqueue(function () DeleteVariable("sg1_def_wings") end)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are benefiting from lucky critical hits for (\d+) hours and (\d+) minutes\.$"
+   name="def_criticals__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("crits", "%1:%2", true)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are emanating an aura of death\.$"
+   name="def_deathaura__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have (\d+) spirits caught within your aura of death\.$"
+   name="def_deathaura_count__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("deathspirits", %1, true)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are experiencing a (\d+) percent experience boost\.$"
+   name="def_xp_boost__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("xp_boost", "%1\%")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are protected by a psionic barrier\.$"
+   name="def_psishield__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are being healed by the power of a healing shrine\.$"
+   name="def_shrine_healing__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are protected by the shield shrine\.$"
+   name="def_shrine_protection__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are surrounded by a regal aura\.$"
+   name="def_throne__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are soaring high above the ground\.$"
+   name="def_flying__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your (\w+) has been enhanced through fine food\.$"
+   name="def_food__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("food_%1")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are standing within a prismatic barrier\.$"
+   name="def_prismatic__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have an aura of protection around you\.$"
+   name="def_protection__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are surrounded by a nearly invisible magical shield\.$"
+   name="def_shield__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are a Moonchilde\.$"
+   name="def_moonchilde__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("moonchilde")
+SetVariable("sg1_def_moonchilde", 1)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^(?:You are wearing a magic shroud|Your actions are cloaked in secrecy)\.$"
+   name="def_shroud__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("shroud")
+if string.find("%0", "magic shroud") then
+  SetVariable("sg1_def_shroud", 1)
+end</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are wearing faerie wings\.$"
+   name="def_wings__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("wings")
+SetVariable("sg1_def_wings", 1)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are under a (Lesser|Minor|Major) Blessing of the Domotheos of (Beauty|Knowledge|Justice|Death|Nature|Chaos|War|Harmony|Life)\.$"
+   name="def_domoth___"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.domoth("%2", string.lower("%1"))</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^Your \w+ is under a Minor Blessing of the Domotheos of Chaos\.$"
+   name="def_domoth_chaos___"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.domoth("Chaos", "minor")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are gifted with increased speed by the shield shrine\.$"
+   name="def_celerity__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You have an?(?: divine)? (health|mana|ego) blessing\.$"
+   name="def_divine_blessing__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>defs.add("%1_blessing")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are demonstrating increased musical aptitude\.$"
+   name="def_tempo__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="DEF"
+   match="^You are slightly protected against shifting time\.$"
+   name="def_truetime__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="defs.up"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>
+
+<!--
+Person sprinkles some sulfur at you, which turns into a bolt of black energy that shatters your magical shield of protection.
+-->

@@ -1,0 +1,54 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Making a slashing motion towards? you with [hH](?:is|er) golden sickle\, ([A-Z][a-z]+) curses you for your transgressions\. Painful\, stigmatic wounds open up all over your body\, dripping with blood\.$"
+   name="nature_curse_sickle__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) points the tip of [hH](?:is|er) (athame|cudgel) at your heart and makes a sudden stabbing motion\. A glowing pentagram shoots from the tip of the \2 and slams into your chest\, making you gasp in pain\.$"
+   name="nature_curse_athame_cudgel__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) points [hH](?:is|er) talisman at you\. It glows and you gasp as pain shoots through your body\.$"
+   name="nature_curse_talisman__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) points .+? at you and a beam of flickering light shoots forth\, covering you with colourful flame\.$"
+   name="nature_faeriefire__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) points .+? at you and vines shoot forth\, entangling you in a thorny embrace\.$"
+   name="nature_vines__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

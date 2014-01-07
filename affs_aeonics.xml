@@ -1,0 +1,139 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Locking [hH](?:is|er) eyes with yours\, ([A-Z][a-z]+) clicks [hH](?:is|er) tongue against the roof of [hH](?:is|er) mouth\. As the rhythm of the clicks slows down\, reality seems to stop and start in sudden jerks\.$"
+   name="aeonics_aeon__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) languidly gestures at you and the world tilts as time itself warps\.$"
+   name="aeonics_timewarp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You have a sudden sense of deja vu\.$"
+   name="aeonics_temporalbonds__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) thrusts [hH](?:is|er) palm towards you\, and you feel the air sizzle around you\.$"
+   name="aeonics_timeechoes__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You suddenly relive events that happened just moments ago\.$"
+   name="aeonics_timeechoes_symp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) gazes deep into your eyes\, revealing oracular visions of the darkest possible of futures\.$"
+   name="aeonics_oracle__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are haunted by the oracular visions of dark possible futures\, which fill you with fear and dread\.$"
+   name="aeonics_oracle_symp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The white sphere that surrounds ([A-Z][a-z]+) pulses\, emitting a high\-pitched screech and flashing a series of bright lights\.$"
+   name="aeonics_aeonfield__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The cloying presence of ([A-Z][a-z]+)\'s aeon field envelops you\, causing the air around you to shimmer\.$"
+   name="aeonics_aeonfield_hit__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) gestures sharply\, then pushes you into a shimmering rift\. You find yourself frozen and can only look helplessly about you\.$"
+   name="aeonics_displacement__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You are trapped in time and can only helplessly watch the world pass you by\.$"
+   name="aeonics_displaced__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) punches ([hH](?:is|er)) fist in the air\, and an explosion of light and sound resounds around [hH](?:im|er)\. Holding streams of wavering bands of energy in \2 hand\, \1 whips them back and forth\, sending shockwaves reverbating through the air\.$"
+   name="aeonics_timequake__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Reality wavers and bucks as the world around you stops and starts erratically\. You relive competing\,? possible futures over and over\, which finally calms and leaves you gasping for breath\.$"
+   name="aeonics_timequake_hit__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

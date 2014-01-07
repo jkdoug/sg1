@@ -1,0 +1,75 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slings an? (\w+) rune at you\, hitting you in the chest\.$"
+   name="runes_sling1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slings an? (\w+) rune and an? (\w+) rune at you\, hitting you in the chest\.$"
+   name="runes_sling2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slings an? \w+ rune(?:and an? \w+ rune)? at [A-Z][a-z]+\, hitting [hH](?:im|er) in the chest\.$"
+   name="runes_sling_other__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^An? (\w+) rune whizzes in from the (\w+) and hits you in the chest\.$"
+   name="runes_sling_adjacent1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^An? (\w+) rune and an? (\w+) rune whiz in from the (\w+) and hit you in the chest\.$"
+   name="runes_sling_adjacent2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The ghostly outline of an? (\w+) rune briefly appears in front of you before slamming into your forehead\.$"
+   name="runes_embedded__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) gathers a handful of runes in [hH](?:is|er) hands and casts them furiously upon the ground\. (?:H|Sh)e points a crooked finger at you and declares in a rasping voice a malign prophesy of sickness upon you as a sudden wave of intense nausea washes over you\.$"
+   name="runes_prophesy__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

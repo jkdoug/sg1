@@ -1,0 +1,383 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) whips you with (.+?)\, lashing the skin from your (chest|gut|head|left arm|left leg|right arm|right leg)\.$"
+   name="ninjakari_jakari__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Twirling (.+?) so fast that it whistles\, ([A-Z][a-z]+) grazes your (head|chest|gut|left arm|left leg|right arm|right leg)\, opening up a deep gash\.$"
+   name="ninjakari_ninchu__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Taking (.+?) in two hands\, ([A-Z][a-z]+) throws it out to its full length\, then whips it down upon you\, tearing your flesh and coiling it tightly about your (head|chest|gut|left arm|left leg|right arm|right leg)\.$"
+   name="ninjakari_ninshi__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The chain coiled(?: tightly)? around your (?:chest|gut|head|left arm|left leg|right arm|right leg) turns the (healing )?salve brown and useless\.$"
+   name="ninjakari_ninshi_salve__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) wraps .+? about [hH](?:is|er) wrists and wrenches it violently from you\, tearing skin and mincing flesh\.$"
+   name="ninjakari_ninshi_yank__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Springing up\, ([A-Z][a-z]+) whirls [hH](?:is|er) leg around\, pounding your (chest|head|gut)"
+   name="ninjakari_akogh__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Springing up\, ([A-Z][a-z]+) whirls [hH](?:is|er) leg around\, pounding your (left|right) (arm|leg) with such force that your limb crunches and dangles uselessly\.$"
+   name="ninjakari_akogh_limb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) snaps .+? at your throat\, crushing your windpipe\.$"
+   name="ninjakari_ninombhi_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) snaps .+? at your chest\, snapping some ribs\.$"
+   name="ninjakari_ninombhi_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) snaps .+? at your gut\, making you double over and spew bloody vomit\.$"
+   name="ninjakari_ninombhi_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) snaps .+? at your (left|right) (arm|leg)\, which then dangles uselessly at your side\.$"
+   name="ninjakari_ninombhi_limb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   lines_to_match="2"
+   match="^.+? whips in from the (\w+) and wraps around you\.\nThe chain around you tightens\,? and you are jerked off to the \w+, falling before the feet of ([A-Z][a-z]+)\.\.$"
+   multi_line="y"
+   name="ninjakari_ninukhi__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a flick of [hH](?:is|er) wrist\, ([A-Z][a-z]+) wraps .+? around your head and then jerks it off with a violent twist\, causing your skull to crack and bleed\.$"
+   name="ninjakari_ninthugi_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a flick of [hH](?:is|er) wrist\, ([A-Z][a-z]+) wraps .+? around your gut and then jerks it off with a violent twist\, causing the blood to spout from your mouth\.$"
+   name="ninjakari_ninthugi_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a flick of [hH](?:is|er) wrist\, ([A-Z][a-z]+) wraps .+? around your chest and then jerks it off with a violent twist\, causing your ribcage to crack and splinter\.$"
+   name="ninjakari_ninthugi_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a flick of [hH](?:is|er) wrist\, ([A-Z][a-z]+) wraps .+? around your (left|right) (arm|leg) and then jerks it off with a violent twist\, causing your limb to twist at an alarming angle\.$"
+   name="ninjakari_ninthugi_limb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a deft pirouette\, ([A-Z][a-z]+) whirls (.+?) about [hH](?:im|er)self\, bringing it crashing into the side of your (head|chest)\.$"
+   name="ninjakari_umubah__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a look of concentration\, ([A-Z][a-z]+) unleashes a powerful kick at your (chest|gut|head|left arm|left leg|right arm|right leg)\.$"
+   name="ninjakari_oolibah__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) lashes out at your gut with (.+?)\, rupturing it and leaving a gaping wound\.$"
+   name="ninjakari_ashlamkh_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) lashes out at your chest with (.+?)\, crushing it with a heavy thud and making breathing difficult\.$"
+   name="ninjakari_ashlamkh_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) lashes out at your (left|right) (arm|leg) with (.+?)\, mangling it with a fleshy thud\.$"
+   name="ninjakari_ashlamkh_limb_mangle__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) lashes out at your (left|right) (arm|leg) with (.+?)\, snapping the bone with a crunch\.$"
+   name="ninjakari_ashlamkh_limb_break__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) lashes out at your head with (.+?)\, causing (?:it|your jaw) to shatter into pieces\.$"
+   name="ninjakari_ashlamkh_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? catches you with a glancing blow\, gouging a stinging welt across your exposed skin\.$"
+   name="ninjakari_byahkari__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With the whistling of .+? reaching a high-pitched whine\, ([A-Z][a-z]+) swings [hH](?:is|er) chain (?:at you\, but you are able to jump mostly out of the way for a glancing blow|into your gut\, tearing open the torso as organs burst forth in an explosion of blood)\.$"
+   name="ninjakari_ughathalogg__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+
+  <trigger
+   enabled="n"
+   group="NinjakariMods"
+   match="^([A-Z][a-z]+) jerks back .+? as it strikes\, lacerating the flesh\.$"
+   name="ninjakari_ochai__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="NinjakariMods"
+   match="^The chain catches your ankle and pulls your feet from under you\.$"
+   name="ninjakari_dhatogh__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="NinjakariMods"
+   match="^.+? spins you in a circle so fast that you are left reeling and nauseous\.$"
+   name="ninjakari_bhaddogho__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="NinjakariMods"
+   match="^Jerked off your feet\, you slam heavily against the ground\.$"
+   name="ninjakari_ninoaghi__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="NinjakariMods"
+   match="^You begin to twitch uncontrollably\.$"
+   name="ninjakari_ninaali__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="NinjakariMods"
+   match="^Blood pours from the jagged wounds on your head\.$"
+   name="ninjakari_illgathoru_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="NinjakariMods"
+   match="^You reel backwards as blood splurts out of your chest\.$"
+   name="ninjakari_illgathoru_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="NinjakariMods"
+   match="^The chain tears open your belly\, causing bloody innards to be exposed\.$"
+   name="ninjakari_illgathoru_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="NinjakariMods"
+   match="^Your (left|right) leg buckles as the chain nearly saws it off\.$"
+   name="ninjakari_illgathoru_leg__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="NinjakariMods"
+   match="^You scream as the chain tears through a nerve in your (left|right) arm\.$"
+   name="ninjakari_illgathoru_arm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="NinjakariMods"
+   match="^.+? rips from your throat with such force that bits of flesh fly into the air and your head almost spins around in a full circle\.$"
+   name="ninjakari_constrict__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

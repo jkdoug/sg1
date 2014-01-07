@@ -1,0 +1,65 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^\&quot;.+?\&quot; sings ([A-Z][a-z]+)(.+?)\, and (?:[hH]|[sS]h)e looks directly at you\.$"
+   name="necroscream_singing__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You cough up some black slime\.$"
+   name="necroscream_blackdeath__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^Smoky tendrils rise up around you\, wrapping around your arms and legs and solidifying into iron shackles\. You scream in agony as invisible spikes and other unspeakable implements are driven into your flesh\.$"
+   name="necroscream_queenslament__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^A sick feeling ferments throughout your body\.$"
+   name="necroscream_sickeningplague__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="SongEffects"
+   match="^The wrathful canticle of Ashtorath rings ominously in your ears\.$"
+   name="necroscream_wrathfulcanticle__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="SongEffects"
+   match="^As the carilli?on bells thunder in the air\, you are nearly blinded by pain when an angry cough suddenly wracks your body\.$"
+   name="necroscream_carillonknell__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

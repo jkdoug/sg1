@@ -1,0 +1,59 @@
+<aliases>
+  <alias
+   name="wounds__"
+   match="^\s*(?:wounds(?:\s+simple)?|ws)\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="wounds.sync"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="n"
+   group="Track"
+   lines_to_match="4"
+   match="^Your wound status is\:\n\*{79}\nBody Part       Wounds     Wound Status\s*\n\-{79}$"
+   multi_line="y"
+   name="wound_status__"
+   regexp="y"
+   script="wounds.synced"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounds"
+   match="^(Head|Chest|Gut|Right Arm|Left Arm|Right Leg|Left Leg)\s+(\d+)\s+\w+$"
+   name="wound_status_part__"
+   regexp="y"
+   script="wounds.syncup"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>
+
+<timers>
+  <timer
+   enabled="n"
+   name="warrior_hits_decrement__"
+   second="0.5"
+   offset_second="0.00"
+   script="wounds.decrement_hits"
+   group="Track"
+  >
+  </timer>
+  <timer
+   enabled="n"
+   name="kata_hits_decrement__"
+   second="0.5"
+   offset_second="0.00"
+   script="wounds.decrement_kata"
+   group="Track"
+  >
+  </timer>
+</timers>

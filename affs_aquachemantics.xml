@@ -1,0 +1,184 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s pellucid mist washes over you\, a sense of weakness and inferiority coming over you\.$"
+   name="aquachemantics_pellucid__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s body shimmers with a clear sheen and you are suddenly struck with a sense of uncertainty and doubt\.$"
+   name="aquachemantics_peaceful__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s humid mist condenses around you\, the air becoming too thick to properly breathe\.$"
+   name="aquachemantics_humid__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s body glows with a virtuous sheen and you are overcome by a sudden awareness of the wrongness of your actions\.$"
+   name="aquachemantics_virtuous__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s bubbling mist condenses around you in a shimmering curtain\, your thoughts becoming light\-hearted and irrational\.$"
+   name="aquachemantics_bubbling"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) throws [hH](?:is|er) hands down and the condensing mists above begin to solidify\, shimmering swathes of water pouring down around you and washing everything in a depuration spray\.$"
+   name="aquachemantics_depuration__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^As the depuration adjuvant washes over you it passes into your lungs\, thickening and causing you to choke and cough\, while larger droplets of the shimmering waters batter you with surprising force\.$"
+   name="aquachemantics_depuration2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) holds [hH](?:is|er) chalice before [hH](?:im|er) and whispers a word\, summoning a powerful spray of elemental water that douses you\, battering and drowning you\.$"
+   name="aquachemantics_chalice__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) presses [hH](?:is|er) hands out as the misty air begins to boil and froth\, the temperature well past the range of comfort\. Waves of heat and hot\, scalding water rush past you\, threatening to boil everyone alive\.$"
+   name="aquachemantics_percolation__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You scream and writhe as the scalding droplets of water cling to your skin\, grouping and clumping into small pools of boiling liquid while your airways are scourged from within by the fiery mist\.$"
+   name="aquachemantics_percolation2"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s luminated mist envelops you\, drops of liquid light forming all across your body\.$"
+   name="aquachemantics_luminated__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s body glows with a fervid sheen\,? and you are suddenly struck with an overwhelming sense of need\.$"
+   name="aquachemantics_fervid__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The last of the mists used by ([A-Z][a-z]+) fade from the air\, combining to feed the growing spirals of water that grow tall and fat\, the air becoming hotter and dryer still\. With a twist of [hH](?:is|er) arms [A-Z][a-z]+ throws them outwards\, dangerous\, twisting spires of water spinning about wildly through your surroundings\.$"
+   name="aquachemantics_dehydration__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^One of the spires of water grabs hold of you and twists you about\, its boiling hot contents smothering and choking you as the currents yank and pull at you every which way\.$"
+   name="aquachemantics_dehydration2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s body glows with an ardent sheen\,? and you know nothing but love and adoration for [hH](?:im|er)\!$"
+   name="aquachemantics_argent__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The mists that wash over you and drown out your surroundings become bitter cold\, sending chills down your spine\. A loud clap emanates from ([A-Z][a-z]+) and suddenly half\-seen shapes twist through the freezing mist\, forming and dissolving in rolling waves of chilling elemental energy\.$"
+   name="aquachemantics_aquoxitism__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You barely have a moment as gelid tendrils of mist batter and grab at you\, pulling you into their freezing depths as they smother and threaten to drown you in their half\-liquid\, half-gaseous embrace\.$"
+   name="aquachemantics_aquoxitism2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

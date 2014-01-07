@@ -1,0 +1,287 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) (?:plays .+?\, and you cry out as your deaf ears open up to the sound of a high\-pitched note|appears to play .+?\, but you hear no sound)\.$"
+   name="music_blanknote__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The ache in your ear canals suddenly intensifies\, leaving you with nothing but a splitting headache\.$"
+   name="music_blanknote_earache__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) plays .+? and directs the (whispering|ominous|screeching|jarring|trembling|disharmonic|exquisite) notes towards you\.$"
+   name="music_play__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^As the whispers enter your mind\, a sinking feeling drops into the pit of your stomach\.$"
+   name="music_majorsecond__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^Your head begins throbbing to the beat of the ominous noise\.$"
+   name="music_tritone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^You blanch as the high[\-\s]pitched screech settles deep within your mind\.$"
+   name="music_minorseventh__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^The jarring sound causes a cold pain to stab you in the forehead\.$"
+   name="music_majorseventh__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^You feel suddenly tired and enervated as the music washes over you\.$"
+   name="music_minorsixth__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^The reverberating sound echoes through your head\, pounding you with excruciating pain\.$"
+   name="music_minorsecond__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^The lyrical sound invokes a strange longing for ([A-Z][a-z]+)\.$"
+   name="music_perfectfifth__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^You feel your blood begin to boil as your skin turns red and chars\.$"
+   name="music_chaoschord__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^Pain sweeps through you as your own skin writhes as if worms crawl beneath the surface\.$"
+   name="music_ironchord__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^Your skin begins to crystallise\.$"
+   name="music_loralchord__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^A shadow passes over you\, causing your gorge to rise and heart ?beat to quicken\.$"
+   name="music_shadowchord__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^Holy fire erupts at your feet and engulfs you\.$"
+   name="music_starchord__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^A rime of ice forms on your forehead and the chill spreads downwards to your neck\.$"
+   name="music_wildechord__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You hear strange whispers\, and a sharp pain stabs you between the eyes\.$"
+   name="music_majorsecond_symp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You hear an ominous sound\, and a dull pain stab throbs throughout your head\.$"
+   name="music_tritone_symp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You hear a dark thrumming\, and pain wracks your entire being\.$"
+   name="music_majorseventh_symp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You find you cannot bear to part from ([A-Z][a-z]+)\.$"
+   name="music_perfectfifth_symp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) plays .+?\, striking a single perfect note that lingers in the air and builds in strength\.$"
+   name="music_octave__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your entire being quivers as the ringing note in the air suddenly reaches a reverberating harmonic unity\.$"
+   name="music_octave_up__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You breathe a sigh of relief as the reverberating ringing note here fades away\.$"
+   name="music_octave_down__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A strange vibration prevents you from (healing spiritual curses|healing auric ailments|focusing your spirit)\.$"
+   name="music_octave_symp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) plays a wailing\, discordant chord on .+?\, directing the dissonant notes at you\.$"
+   name="music_discordantchord__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^You scream in agony as the violent chord threatens to rip you asunder\.$"
+   name="music_discordantchorded__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^\&quot;.+?\&quot; sings ([A-Z][a-z]+)\, (?:somb(?:er|re) notes tumbling out of .+?|as .+? plays deep\, dark melodies|tragically playing .+? with a mournful thrum|while .+? lets loose with screaming melodies|building up a crescendo of powerful\, deeply riveting notes|loosing grim\, sombre notes from .+?)\, and (?:[sS]h|[hH])e looks directly at you\.$"
+   name="music_deathsong1__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:Clasping [hH](?:is|er) hands to [hH](?:is|er) breast\, ([A-Z][a-z]+) sings to you\, wishing you well on your journey to the Halls of the Fates\. A white light surrounds [hH](?:im|er) as the voices of an angelic choir join [hH](?:im|er) in this somber hymn|The throat of ([A-Z][a-z]+) undulates and warbles as (?:[sS]h|[hH])e continues to maintain the moaning note of [hH](?:is|er) song\. Ominous black shadows rise out of the ground\, slowly circling around you|Sweat breaks out on ([A-Z][a-z]+)'s forehead, as (?:[sS]h|[hH])e continues to maintain the screaming note of [hH](?:is|er) song\. Ghostly spiked bands materialize around you\, which slowly begin to spin and screech like rusty iron cogs|([A-Z][a-z]+)\'s eyes roll up in [hH](?:is|er) head\, as (?:[sS]h|[hH])e sings a throbbing note\. Unseen drums begin to beat and invisible spirits begin to chant\, as mists rise up from the ground and swirl around you|([A-Z][a-z]+) continues to play furious\, fast\-paced\, infectiously energetic music and you continue to dance wildly\, caught up entirely in the ectasy of the rhythm\. You feel your body heating up and sweat drips down your forehead at the exertion|Staring balefully at you\, ([A-Z][a-z]+) draws low\, ominous chords from the air\, focused upon maintaining the killing song\. You suddenly falter as the funebre pervades your hearing\, wrinkles forming across your skin\, crinkling like brittle parchment)\.$"
+   name="music_deathsong2__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+</triggers>

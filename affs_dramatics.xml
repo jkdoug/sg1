@@ -1,0 +1,42 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^([A-Z][a-z]+) (?:screams at you\, reminding you that you have to hurry|draws you into a convoluted discussion using circuitous logic|reveals to you the many loopholes to be found throughout the discussion)\. "
+   name="dramatics_fasttalked__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>if main.attacked("%1", "dramatics", "fasttalk") then
+  flags.set("fasttalker", "%1")
+  EnableTrigger("dramatics_lost_attitude__", true)
+  EnableTrigger("dramatics_affliction__", true)
+  prompt.queue(function ()
+    EnableTrigger("dramatics_lost_attitude__", false)
+    EnableTrigger("dramatics_affliction__", false)
+  end)
+end</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="You are flustered and cannot maintain (?:a (?:saintly|lawyerly) demeanor|the demeanor of a zealot)\.$"
+   name="dramatics_lost_attitude__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="(A sense of panic instills you as you feel the need to hurry|The circuitous logic confounds you|You are overwhelmed by the sheer number of loopholes in this debate)\.$"
+   name="dramatics_affliction__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

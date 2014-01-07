@@ -1,0 +1,360 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a quick spin\, ([A-Z][a-z]+) strikes your (head|chest|gut|left arm|left leg|right arm|right leg) with (.+?)\.$"
+   name="tahtetso_tahto__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="TahtetsoMods"
+   match="^.+? grinds into your jaw\, crushing the bones\.$"
+   name="tahtetso_rakto_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="TahtetsoMods"
+   match="^.+? grinds into your (left|right) (arm|leg)\, crushing the bones\.$"
+   name="tahtetso_rakto_limb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="TahtetsoMods"
+   match="^.+? grinds into your gut\, tearing through your nerve cent(?:er|re)s\.$"
+   name="tahtetso_rakto_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="TahtetsoMods"
+   match="^You draw breath in short\, rasping gasps from the pain in your chest\.$"
+   name="tahtetso_raktiini_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="TahtetsoMods"
+   match="^Your gut is hit with a loud crack\, causing you to double over as the wind is knocked out of you\.$"
+   name="tahtetso_raktiini_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="TahtetsoMods"
+   match="^Your (left|right) leg is hit with a loud crack\, breaking your kneecap and causing your leg to twist unnaturally\.$"
+   name="tahtetso_raktiini_leg__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a quick snap of the wrist\, ([A-Z][a-z]+) swings (.+?) about\, slamming one end into your (left|right) arm\. The limb buckles with an audible\, horrible crack as a sharp pain shoots along its length\.$"
+   name="tahtetso_bomrakini_arm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a quick snap of the wrist\, ([A-Z][a-z]+) swings (.+?) about\, slamming one end into your (left|right) leg\. Searing lancets of pain jolt up your leg as your foot is pulverised beneath the weapon\.$"
+   name="tahtetso_bomrakini_leg__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You scream as ([A-Z][a-z]+) applies pressure with .+?(?:\, dislocating your (head|chest|gut|left arm|left leg|right arm|right leg) with a loud snap)?\.$"
+   name="tahtetso_bomrakobo__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Stepping behind you\, ([A-Z][a-z]+) locks your head with (.+?)\, choking you\.$"
+   name="tahtetso_bairak__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You lose consciousness as ([A-Z][a-z]+) continues to choke you with [hH](?:is|er) tahto staff\.$"
+   name="tahtetso_bairak_choking__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) swings [hH](?:is|er) leg high into the air at your (head|chest)(\, sending you reeling)?\.$"
+   name="tahtetso_starkick__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) sweeps .+? in a low\, wide circle\, attempting to trip [hH](?:is|er) foes\.$"
+   name="tahtetso_tidesweep__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You are hit by the sweep and topple to the ground\.$"
+   name="tahtetso_tideswept__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="TahtetsoMods"
+   match="^You\'re thrown off balance and fall down from the whirling strike\.$"
+   name="tahtetso_bomolini__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a swift drive\, ([A-Z][a-z]+) jabs your head with (.+?)\.$"
+   name="tahtetso_bairakobo__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) sweeps (.+?) into your (head|chest|gut|left arm|left leg|right arm|right leg) with a loud crack\, causing the staff to vibrate\."
+   name="tahtetso_tahtosho__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) steps forward with one foot and simultaneously slams (.+?) into your (left|right) arm\. You gasp in agony as your fingers loosen their grip on (.+?)\.$"
+   name="tahtetso_raktisho_arm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) steps forward with one foot and simultaneously slams (.+?) into your chest\. You (are dimly aware of your ribs splintering in dozens of places as you fall backwards to the ground|stumble backwards\, trying to stay standing while your ribs feel as though they\'ve splintered into a hundred pieces)\.$"
+   name="tahtetso_raktisho_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) steps forward with one foot and simultaneously slams (.+?) into your (left|right) leg\. Your vision spins\, capturing all that is above you in a fleeting glimpse before it is consumed by the ground\.$"
+   name="tahtetso_raktisho_leg__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) steps forward with one foot and simultaneously slams (.+?) into your head\, sending a thick fog over your consciousness\.$"
+   name="tahtetso_raktisho_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) steps forward with one foot and simultaneously slams (.+?) into your gut\. You stumble backwards\, your head ringing painfully\.$"
+   name="tahtetso_raktisho_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) cracks (.+?) precisely into your (left|right) leg\, causing spasms to numb your stiffening muscles\.$"
+   name="tahtetso_bomolsho__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="TahtetsoMods"
+   match="^([A-Z][a-z]+) twists .+? painfully as it strikes\.$"
+   name="tahtetso_twist__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) cracks (.+?) precisely into your (left|right) arm\, causing spasms to numb your stiffening side\.$"
+   name="tahtetso_bomirrak__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) swings (.+?) in a circle before smashing one end into the side of your gut\, echoing a sickening crack as you lose all control over your body\.$"
+   name="tahtetso_raktiahsho_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="9999"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a quick spin\, ([A-Z][a-z]+) strikes your head with (.+?)\,? and the world around you spins\.$"
+   name="tahtetso_raktiahsho_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="9999"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) swings (.+?) in a circle before smashing one end into the side of your (left|right) (arm|leg)\. You can only look away\, the distant pain telling you the limb has been mangled beyond use\.$"
+   name="tahtetso_raktiahsho_limb1__"
+   regexp="y"
+   script="affs.process"
+   sequence="9999"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) swings (.+?) in a circle before bringing it through your (left|right) (arm|leg)\. A horrific pain washes over you as (?:the bone snaps|(?:[hH]|[sS]h)e sweeps you off the ground\, the limb flailing in the air at an unnatural angle)\.$"
+   name="tahtetso_raktiahsho_limb2__"
+   regexp="y"
+   script="affs.process"
+   sequence="9999"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your lungs fill with fluid as ([A-Z][a-z]+) swings (.+?) in a circle before smashing one end into the side of your chest\, knocking the air from your lungs\. You gasp\, but only blood takes its place\.$"
+   name="tahtetso_raktiahsho_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="9999"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Swept low by (.+?)\, you howl in agony as ([A-Z][a-z]+)(?: deftly)? strikes your (left|right) leg(?: and shatters your ankle)?\.$"
+   name="tahtetso_bomolahsho__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="TahtetsoMods"
+   match="^You gasp and clutch your chest as it is struck with a crack\.$"
+   name="tahtetso_gahtiahsho__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Swinging (.+?)\, ([A-Z][a-z]+) bumps your (head|chest|gut|left arm|left leg|right arm|right leg) to little effect\.$"
+   name="tahtetso_gahtiraksho_fail__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

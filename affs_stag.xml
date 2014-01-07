@@ -1,0 +1,106 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s feet transform into golden hooves\, and (?:[hH]|[sS]h)e raises one up high and stomps down upon you\, knocking the wind out of your lungs\.$"
+   name="stag_stagstomp1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The form of a ghostly stag settles upon ([A-Z][a-z]+)\. (?:H|Sh)e raises one golden hoof up high and stomps down upon you\, knocking the wind out of your lungs\.$"
+   name="stag_stagstomp2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Your (left|right) (arm|leg) is crushed under the fierce stomping\!$"
+   name="stag_stagstomp_break__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) tilts [hH](?:is|er) head back and bellows at you\, forcing you to cover your ears\.$"
+   name="stag_bellow__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) lowers [hH](?:is|er) head and charges you\, slamming into your body\.$"
+   name="stag_headbutt__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You are hurled (\w+)wards by the force of the blow\.$"
+   name="stag_headbutted__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Powerful spirits plague you with their terrible presence\.$"
+   name="stag_ancestralcurse__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) lowers ([hH]is|[hH]er) head and charges you\, goring you with \2 antlers\.$"
+   name="stag_gore_pain__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) lowers ([hH]is|[hH]er) head and charges you\, impaling you on \2 antlers\.$"
+   name="stag_gore_impale__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your health continues to drain away as your impaled body shudders on the end of [A-Z][a-z]+\'s antlers\.$"
+   name="stag_gore_impaled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

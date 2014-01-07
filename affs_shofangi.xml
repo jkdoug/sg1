@@ -1,0 +1,420 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slices through your (chest|gut|head|left arm|left leg|right arm|right leg) in a graceful arc with (.+?)\.$"
+   name="shofangi_shofa__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^([A-Z][a-z]+) razes your (?:aura of rebounding|speed defence) with .*?(?:moonblade|shofa|staghorn|bull\-horn).*?\.$"
+   name="shofangi_skive__"
+   regexp="y"
+   script="affs.process"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) twists your right arm and left arm with .+?\, pinning (?:it|them) tightly\.$"
+   name="shofangi_logami__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) spins [hH](?:is|er) shofa in each hand\, crisscrossing them back and forth in elaborate patterns just before slashing them into your (chest|gut|head|left arm|left leg|right arm|right leg)\.$"
+   name="shofangi_shotah__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a flourish\, ([A-Z][a-z]+) jerks out the blades embedded in the bones of your arms\, sending bone framents flying as (?:[hH]|[sS]h)e disarms you\.$"
+   name="shofangi_disarm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) swiftly stomps on your (chest|gut|head)\, causing you to wince\.$"
+   name="shofangi_stomp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) swiftly stomps on your (left|right) (arm|leg)\, causing you to wince\.$"
+   name="shofangi_stomp_limb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) twists your right leg and left leg with [hH](?:is|er) blades\, locking (?:it|them) up\.$"
+   name="shofangi_bogami__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) stomps at you and snorts loudly in your face\, startling you with [hH](?:is|er) rage\.$"
+   name="shofangi_bullsnort__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) leaps at you and slams [hH](?:is|er) head into your face\.$"
+   name="shofangi_headbutt__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You suddenly stumble\.$"
+   name="shofangi_headbutt_prone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) smashes your head with (.+?)\, shattering your jaw\.$"
+   name="shofangi_butanj__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slices across your head with (.+?)\, spilling stinging blood into your eyes\.$"
+   name="shofangi_whibuta__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Jumping straight up into the air\, ([A-Z][a-z]+) snaps a kick at you and slams a heel into your skull\.$"
+   name="shofangi_heelslam_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Jumping straight up into the air\, ([A-Z][a-z]+) snaps a kick at you and slams a heel into your chest\, snapping ribs\.$"
+   name="shofangi_heelslam_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Jumping straight up into the air\, ([A-Z][a-z]+) snaps a kick at you and slams a heel into your gut\, knocking the wind out of you\.$"
+   name="shofangi_heelslam_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Jumping straight up into the air\, ([A-Z][a-z]+) snaps a kick at you and slams a heel into your (left|right) (arm|leg)\, popping the limb out of its socket\.$"
+   name="shofangi_heelslam_limb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slices cleanly through your mouth with (.+?)\, shredding your tongue\.$"
+   name="shofangi_butojo_sliced_tongue__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slices (.+?) cleanly through the air in front of you\. You blink several times as it appears that (?:[sS]h|[hH])e missed you\, but then pain blossoms in a line across your neck as blood gushes out of a long\, razor\-thin cut\.$"
+   name="shofangi_butojo_slit_throat__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) impales (.+?) deep into your gut\, which spills forth blood\.$"
+   name="shofangi_tomati__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) viciously twists (.+?) out of your (chest|gut|head|left arm|left leg|right arm|right leg)\, shredding the flesh into bloody strips\.$"
+   name="shofangi_shred__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) viciously twists (.+?) out of your (chest|gut|head|left arm|left leg|right arm|right leg) and (chest|gut|head|left arm|left leg|right arm|right leg)\, shredding the flesh into bloody strips\.$"
+   name="shofangi_shred2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your elbow splinters as ([A-Z][a-z]+) smashes your (left|right) arm with (.+?)\.$"
+   name="shofangi_boganj_arm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) smashes your (left|right) leg with (.+?)\, splintering your kneecap\.$"
+   name="shofangi_boganj_leg__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) drives (.+?) deep into your chest\, hooking (?:it|them) in your ribs\.$"
+   name="shofangi_kumati__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your vision goes white with pain as ([A-Z][a-z]+) slams your (head|chest|gut|left arm|left leg|right arm|right leg) into [hH](?:is|er) raised knee with a loud crunch of bone\.$"
+   name="shofangi_crunch__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+
+  <trigger
+   enabled="n"
+   group="ShofangiMods"
+   match="^The blade of .+? shreds the flesh on your (left|right) (arm|leg) into bloody ribbons\.$"
+   name="shofangi_rake__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="ShofangiMods"
+   match="^Your skin is scraped by the shofa\, raising angry red welts on the skin\.$"
+   name="shofangi_shoflai__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="ShofangiMods"
+   match="^Bones crunch under the force of the blow\.$"
+   name="shofangi_bullstrength__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="ShofangiMods"
+   match="^The shofa hooks your (?:left|right) leg\, sending you tumbling\.( You crack your head as you land\.)?$"
+   name="shofangi_hook__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="ShofangiMods"
+   match="^You howl in agony as the .+? digs deep and pierces your spine\. Your body suddenly starts to feel numb\.$"
+   name="shofangi_kumaki__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) wildly twists and turns\, kicking [hH](?:is|er) legs out behind [hH](?:im|er)\. One thunderous kick slams into your (left|right) (arm|leg)\, which flails about limply as the bones are crushed to powder\.$"
+   name="shofangi_buck_limb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) wildly twists and turns\, kicking [hH](?:is|er) legs out behind [hH](?:im|er)\. One thunderous kick slams into your head\, and the world momentarily fades to black\.$"
+   name="shofangi_buck_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) wildly twists and turns\, kicking [hH](?:is|er) legs out behind [hH](?:im|er)\. One thunderous kick slams into your gut\, and you double over and spit out blood\.$"
+   name="shofangi_buck_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) wildly twists and turns\, kicking [hH](?:is|er) legs out behind [hH](?:im|er)\. One thunderous kick slams into your chest\, which caves in with a sickening crunch\.$"
+   name="shofangi_buck_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) twists [hH](?:is|er) twin shofa painfully deeper into you\, ripping them apart with an elegant whirl\.$"
+   name="shofangi_kumato__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You scream in absolute agony and spin violently through the air in a spray of crimson blood\, crashing painfully to the ground elsewhere\.$"
+   name="shofangi_kumato_toss__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) powerfully bullkicks your (head|chest|gut)\, impacting with a sickening crunch\.$"
+   name="shofangi_bullkick__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a whirl of [hH](?:is|er) shofa\, ([A-Z][a-z]+) charges recklessly from the \w+ into you\, spearing the twin blades into your ribs and brutally hooking them\, knocking you to the ground\.$"
+   name="shofangi_bullcharge__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

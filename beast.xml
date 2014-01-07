@@ -1,0 +1,581 @@
+<aliases>
+  <alias
+   name="beast_order__"
+   match="^\s*beast\s+order\s+(.+?)\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   keep_evaluating="y"
+   sequence="100"
+  >
+  <send>beast.order("%1")</send>
+  </alias>
+  <alias
+   name="beast_empath__"
+   match="^\s*beast\s+empath\s+(health|mana|ego)\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   keep_evaluating="y"
+   sequence="100"
+  >
+  <send>beast.empath("%1")</send>
+  </alias>
+  <alias
+   name="beast_info__"
+   match="^\s*beast\s+info\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   keep_evaluating="y"
+   sequence="100"
+  >
+  <send>EnableTrigger("beast_score__", true)
+Send("beast info")</send>
+  </alias>
+
+  <alias
+   name="beast_chameleon__"
+   match="^\s*cham\s+(on|off)\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   send_to="10"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>dofree1 beast order chameleon %1</send>
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You may order your beast again\.$"
+   name="beast_balance__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>bals.gain("beast")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^What are you trying to order your beast to do\?$"
+   name="beast_cant_do__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>failsafe.exec("beast")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your beast has not been trained .+?\.$"
+   name="beast_dont_know__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>failsafe.exec("beast")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You direct (.+?) to (use|relax) its chameleon powers\.$"
+   name="beast_chameleon__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if "%2" == "use" then
+  beast.ordered("%1", "chameleon on")
+else
+  beast.ordered("%1", "chameleon off")
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your beast\'s chameleon power is already (?:on|off)\.$"
+   name="beast_chameleon_abc__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>failsafe.exec("beast")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^A nimbus of (green|blue|golden) light surrounds (.+?)\, who then nuzzles you as a surge of healing energies suffuses your body\.$"
+   name="beast_heal__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>local ht = {
+  ["green"] = "health",
+  ["blue"] = "mana",
+  ["golden"] = "ego"
+}
+beast.ordered("%2", "heal " .. ht["%1"])</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^A nimbus of (red|purple|pink) light surrounds (.+?)\, who then nuzzles you as a surge of healing energies suffuses your body\.$"
+   name="beast_cure__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>local ct = {
+  ["red"] = "body",
+  ["purple"] = "mind",
+  ["pink"] = "spirit"
+}
+beast.ordered("%2", "cure " .. ct["%1"])
+flags.set("last_cure", "beast %1")
+main.cures_on()</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^With a loud hiss\, (.+?) spits a stream of foul liquid into the face of [A-Z][a-z]+\.$"
+   name="beast_poison_spit__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "spit")
+if not flags.get("arena") then
+  beast.set("doses", tonumber(beast.get("doses") or "1") - 1)
+end
+EnableTrigger("beast_poison_empty__", true)
+prompt.queue(function () EnableTrigger("beast_poison_empty__", false) end)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) gags noisily before spewing a nasty liquid onto the ground\. That was disgusting\!$"
+   name="beast_poison_purge__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "purge")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^(?:Your beast\'s venom sacs are empty|.+? has emptied (?:its|his|her) venom sacs)\.$"
+   name="beast_poison_empty__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.set("poison", "")
+beast.set("doses", 0)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You pour the contents of a vial into the mouth of (.+?)\. (?:H|Sh)e gulps it down\, causing [hH](?:is|er) neck to bulge as the venom sacks fill with (\w+)\.$"
+   name="beast_poison_drink__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "drink %2")
+beast.set("poison", "%2")
+beast.set("doses", 10)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) lowers ([hH](?:is|er)) head and stares at ([A-Z][a-z]+|you)\, eyes alight with a preternatural glow\, as a stream of sparkling smoke blows out \2 nostrils and forms a reflection of \3\.$"
+   name="beast_reflection__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "cast reflection")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   lines_to_match="2"
+   match="^The eyes of (.+?) swirl about in a kaleidoscopic array of swirling colours\, which turn to gaze directly at ([A-Z][a-z]+)\.\n\2 stares blankly into space\, [hH](?:is|er) eyes flashing with .+? spots\.$"
+   multi_line="y"
+   name="beast_hypnoticgaze__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "cast hypnoticgaze")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) (?:opens a gash in .+? arm with a skillful blow|wounds .+? with a glancing cut|slashes .+? viciously)\.$"
+   name="beast_attack__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "attack")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^.+? (?:howls|yelps in pain) as (.+?) (?:hacks into|bashes) [hH](?:im|er)\.$"
+   name="beast_attack_two__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "attack")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) rears back and unhinges [hH](?:is|er) jaws\, breathing a stinking cloud at [A-Z][a-z]+\, who screams as flesh dissolves from [hH](?:is|er) bones\.$"
+   name="beast_breath_gas__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "breathe gas")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) rears back and unhinges [hH](?:is|er) jaws\, breathing a ball of fire at [A-Z][a-z]+\, who screams as [hH](?:is|er) flesh sizzles and chars\.$"
+   name="beast_breath_fire__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "breathe fire")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) rears back and unhinges [hH](?:is|er) jaws\, breathing a cone of frost at [A-Z][a-z]+\, who screams as [hH](?:is|er) flesh freezes and cracks\.$"
+   name="beast_breath_cold__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "breathe cold")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) rears back and unhinges [hH](?:is|er) jaws\, breathing a bolt of lightning at [A-Z][a-z]+\, who screams as [hH](?:is|er) flesh blackens and crackles\.$"
+   name="beast_breath_lightning__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "breathe lightning")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) rears back and unhinges [hH](?:is|er) jaws\, breathing an invisible force at [A-Z][a-z]+\, who screams as [hH](?:is|er) eyes bulge and blood leaks from [hH](?:is|er) ears\.$"
+   name="beast_breath_psionicblast__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "breathe psionicblast")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) rears back and unhinges [hH](?:is|er) jaws\, breathing a cone of superheated steam at [A-Z][a-z]+\, which scalds [hH](?:is|er) skin horribly\.$"
+   name="beast_breath_steam__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "breathe steam")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You pet (.+?)\, whispering soothing words as you channel (health|mana|ego) energies into your loyal beast\.$"
+   name="beast_empathed__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "empath %2")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) rears back and unhinges [hH](?:is|er) jaws\, releasing a scintillating cloud of sparkling motes\.$"
+   name="beast_breath_sleep__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "breathe sleepcloud")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) rears back and unhinges [hH](?:is|er) jaws\, releasing a plume of thick\, cold fog\.$"
+   name="beast_breath_amnesia__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "breathe amnesiacloud")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You squeeze your legs around (.+?)\'s body and \1 immediately responds by thrusting out a hind leg and kicking (?:[A-Z][a-z]+) brutally in the chest\, knocking [hH](?:im|er) to the ground\.$"
+   name="beast_kick__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "kick")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Flapping [hH](?:is|er) wings furiously\, (.+?) creates a gust of wind that (?:sweeps through the room|pushes [A-Z][a-z]+ out to the \w+)\.$"
+   name="beast_gust__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "gust")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You pull back the reigns on your beast and jump off to the \w+\.$"
+   name="beast_jump__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered(beast.get("desc"), "jump")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You whip (.+?) into a fury\, bucking and racing dangerously in a circle\, trampling the ground in a frenzy\.$"
+   name="beast_trample__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.ordered("%1", "trample")</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Track"
+   match="^@sg1_beast_desc (?:begins to follow closely|obediently falls into line) behind you\.$"
+   name="beast_followed__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.locate("following")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You move about quickly and lose (.+?)\.$"
+   name="beast_lost__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if "%1" == beast.get("desc") then
+  beast.lost()
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You have no beast here you can command\.$"
+   name="beast_missing__"
+   regexp="y"
+   send_to="12"
+   sequence="8000"
+  >
+  <send>prompt.illqueue(beast.lost)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You have no beast here you can command\.$"
+   name="beast_missing__"
+   regexp="y"
+   send_to="12"
+   sequence="8000"
+  >
+  <send>prompt.illqueue(beast.lost)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You reach out through your bond with .+? and summon h(?:im|er) from the stables. You sense h(?:im|er) answering your call\.$"
+   name="beast_summoned__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.locate("enroute")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You reach out through your bond with your beast and dismiss h(?:im|er)\, sending h(?:im|er) back to the stables\.$"
+   name="beast_dismissed__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.locate("stable")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The following beings are in your entourage\:$"
+   name="check_ents__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>EnableTrigger("beast_ent__", true)
+prompt.queue(function () EnableTrigger("beast_ent__", false) end, "entbeast")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   expand_variables="y"
+   group="Track"
+   match="\b(@sg1_beast_desc)\#\d+\b"
+   name="beast_ent__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if beast.locate() ~= "mounted" then
+  beast.locate("following")
+end</send>
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Track"
+   lines_to_match="10"
+   match="^\| (.+?) \-+ \#(\d+)\|\n\| Sex    \: (?:Male|Female)\s+Birthday  \: .+? \|\n\| Status \: \w+\s+Age       \: .+? \|\n\| Fees   \: .+? \|\n\| Stable \: .+? \|\n\| Locale \: .+? \|\n\|\-+ VITALS\|\n\| Health \: (\d+)\/(\d+)\s+ Body Trains    \: \d+\/\d+\s+\|\n\| Mana   \: (\d+)\/(\d+)\s+ Mind Trains    \: \d+\/\d+\s+\|\n\| Ego    \: (\d+)\/(\d+)\s+ Spirit Trains  \: (\d+)\/(\d+)\s+\|$"
+   multi_line="y"
+   name="beast_score__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.clear()
+SetVariable("sg1_beast_desc", "%1")
+beast.set("id", %2)
+beast.set("maxhealth", %4)
+beast.set("maxmana", %6)
+beast.set("maxego", %8)
+beast.health(%3)
+beast.mana(%5)
+beast.ego(%7)
+EnableTrigger("beast_score__", false)
+EnableTrigger("beast_score_poison__", true)
+EnableTrigger("beast_score_abilities__", true)
+prompt.queue(function ()
+  EnableTrigger("beast_score_poison__", false)
+  EnableTrigger("beast_score_abilities__", false)
+end)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^\| Poison \: (\w+) \((\d+) doses\)\s+\|$"
+   name="beast_score_poison__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>beast.set("poison", string.lower("%1"))
+beast.set("doses", %2)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^\|\-+ TRAINED ABILITIES\|$"
+   name="beast_score_abilities__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>EnableTrigger("beast_score_ability1__", true)
+EnableTrigger("beast_score_ability2__", true)
+prompt.queue(function ()
+  EnableTrigger("beast_score_ability1__", false)
+  EnableTrigger("beast_score_ability2__", false)
+end)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   keep_evaluating="y"
+   lowercase_wildcard="y"
+   match="^\| (?:\(|\<\<)?(.+?)(?:\)|\>\>)?  \s*"
+   name="beast_score_ability1__"
+   regexp="y"
+   script="beast.add_ability"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   keep_evaluating="y"
+   lowercase_wildcard="y"
+   match="  \s*(?:\(|\<\<)?(.+?)(?:\)|\>\>)?\s+\|$"
+   name="beast_score_ability2__"
+   regexp="y"
+   script="beast.add_ability"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>
+
+<timers>
+  <timer
+   enabled="y"
+   name="beast_regen__"
+   second="5.00"
+   offset_second="0.00"
+   script="beast.regen"
+   group="Track"
+  >
+  </timer>
+</timers>

@@ -1,0 +1,23 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sudden primal fear grips your heart\.$"
+   name="cosmic_fear__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A dark ray of energy shoots (?:forth|from ([A-Z][a-z]+)\'s hand) and hits you in the chest\. You gasp in horror as you feel your muscles shrivel and wither\.$"
+   name="cosmic_enfeeble__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

@@ -1,0 +1,115 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You pale as a tendril of ([A-Z][a-z]+)\'s rust\-coloured ferrous fumes wafts past you\.$"
+   name="geochemantics_ferrous__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The air in front of you shimmers\,? and your head spins as ([A-Z][a-z]+)\'s clear chemical fumes overwhelm you\.$"
+   name="geochemantics_chemical__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A cloud of ([A-Z][a-z]+)\'s green toxic fumes washes over you\, turning your skin a mottled purple\.$"
+   name="geochemantics_toxic__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s black taint fumes surround you\, clinging to you like a second shadow\.$"
+   name="geochemantics_taint__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The snaking miasma of rusty fumes suddenly grows darker\, and the metallic taste intensifies as the air grows thick and deadened\. The reaction reaches its climax as the rusty fumes condense into white\-hot metallic shards\, which explode in all directions\.$"
+   name="geochemantics_metal_storm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You are raked by the white\-hot metallic shards\, which leave your skin tattered and torn\.$"
+   name="geochemantics_metal_storm2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The thick\, swirling cord of fumes suddenly contracts\, the reaction reaching its climax and turning entirely dark brown as it grows to fill the area with choking\, bitter fumes\.$"
+   name="geochemantics_foul__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The brown fumes surround you\, making your eyes water as your skin pales into a light grey\.$"
+   name="geochemantics_foul2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A soft buzzing begins to rise from the haze\, bloated green flies crawling from within the black veins threaded throughout it\.$"
+   name="geochemantics_contagion__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The bloated flies dive toward you\, their metallic teeth ripping at your flesh as the sickly green haze crawls slowly up you\.$"
+   name="geochemantics_contagion2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>
+
+<!--
+Akyaevin convulses, a stream of thick, putrid liquid spewing from his filth pump at you.
+Your attack strikes one of Akyaevin's polluted studs, which spews a corrosive substance at you.
+Akyaevin twists toward you, one of his rusted spikes throwing you off balance.
+Akyaevin's cranial implant flares, a thin crackle of energy igniting the fumes surrounding him in tiny flashes on its way to strike you.
+-->

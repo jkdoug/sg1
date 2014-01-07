@@ -1,0 +1,170 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The cloud of fragrant smoke coalesces into the scene of rolling hills silhouetted against a raging thunderstorm\. Mud begins sliding off the hills\, pounding down all around you\.$"
+   name="ecology_smudge_hills__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You are caught in the onslaught and go down in a wave of rolling mud\.$"
+   name="ecology_smudged_hills__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A strange bone creature (?:flies in from the \w+|leaps out of ([A-Z][a-z]+)\'s hands) and attacks you.+"
+   name="ecology_fetish__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The cloud of fragrant smoke coalesces into the scene of desert sand dunes\. Suddenly a sandstorm rises up over a dune and rushes down atop you\.\nThe whirling sands scour your flesh\.$"
+   name="ecology_smudge_desert__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The whirling sands scour your flesh\.$"
+   name="ecology_smudged_desert__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The cloud of fragrant smoke coalesces into the scene of a verdant swamp\.$"
+   name="ecology_smudge_swamp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You gasp in horror as you begin to sink into a patch of quicksand\.$"
+   name="ecology_smudged_swamp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? stabs you with a deadly stinger attached to its bone armour\.$"
+   name="ecology_familiar_sting__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The cloud of fragrant smoke coalesces into the scene of a wide open valley\. A tornado twists across the valley\'s expanse\.$"
+   name="ecology_smudge_valley__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You are picked up by the twister and thrown upwards\,? but crash into the ceiling and fall immediately back down\.$"
+   name="ecology_smudged_valley1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You are picked up by the twister and thrown up into the sky\.$"
+   name="ecology_smudged_valley2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Mumbling softly to [Hh](?:er|im)self\, ([A-Z][a-z]+) points a finger at you\, and you are gripped by the undulating image of (a screeching bat|a hissing snake|burning herbs)\.$"
+   name="ecology_bane__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The cloud of fragrant smoke coalesces into the scene of a soaring mountain\. An ominous rumbling soon heralds an avalanche of rock that comes crashing down the mountainside\.$"
+   name="ecology_smudge_mountain__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You are buried under an avalanche of rock and rubble\.$"
+   name="ecology_smudged_mountain__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The cloud of fragrant smoke coalesces into the scene of a roaring forest fire\. Flaming branches rain down all around you\.$"
+   name="ecology_smudge_forest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^A burl cracks open next to you\, covering you in burning sap\.$"
+   name="ecology_smudged_forest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

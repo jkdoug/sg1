@@ -1,0 +1,152 @@
+<aliases>
+  <alias
+   name="target_influence__"
+   match="^\s*it\s+([\w\d]+)\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="influence.handle_target"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="influence_type__"
+   match="^\s*(charity|empower|weaken|paranoid|seduce|village)(?:\s+(\w+))?\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="influence.handle_type"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="influence__"
+   match="^\s*inf\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="influence.handle_sway"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="influence_amnesty__"
+   match="^\s*amnesty(?:\s+(\w+))?\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="influence.handle_amnesty"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^.+? (?:tickles you\, obviously amused by your antics|scoffs at you\, clearly unimpressed|laughs uproariously at your amusing stories|snorts derisively and rebuffs your attention|snorts in derision at you and shoves you away|rolls [hH](?:is|er) eyes\, mumbling about what (?:[hH]|[sS]h)e can afford on [hH](?:is|er) meager pay|considers you a moment before shaking [hH](?:is|er) head and muttering something about duty|.+? brushes you off\, suggesting you contact the ruling council instead)\.$"
+   name="influence_immune__"
+   regexp="y"
+   script="influence.immunity"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:You compliment .+? on [hH](?:is|er) outstanding intellect and physique|You confide in .+? how much you admire [hH](?:is|er) dazzling mental and physical skills|You sing the praises of the heroic exploits of .+?\, recounting [hH](?:is|er) many incredible adventures|You jokingly tell .+? about some choice rumours you heard about [hH](?:im|er)|You tell .+? in confidence about some shady shenanigans that may bring [hH](?:im|er) ruin|With great sincerity\, you whisper into the ear of .+? about the worldwide conspiracy that is out to get [hH](?:im|er)|You thrust your hand out to .+? and beg shamelessly|Explaining your abject poverty\, you humbly request a little help from .+?|Keeping up a non\-stop patter\, you keep wheedling .+? to give up [hH](?:is|er) worldly goods to you in a dizzying display of circuitous logic|Ooohing and ahhhing\, you make a great fuss over .+?\'s choice of hair style\, clothes\, and good looks|Smoothing back your hair\, you smoothly slide up to .+? and blow softly on the back of [hH](?:is|er) neck|Puffing up your chest\, you snuggle up to .+? and gently caress the back of [hH](?:is|er) neck|You smile brightly at .+?\, remarking on what great friends the two of you are|With a wink and a nudge\, you wrap your arm around .+?\, joyously announcing that (?:[hH]|[sS]h)e is your best friend|You sidle up to .+? and stroke the muscles on [hH](?:is|er) arms\, fluttering your eyelashes coyly|Licking your lips lasciviously\, you run your fingers over .+?\'s body\, whispering sweet temptations into [hH](?:is|er) ears|You tease .+?\, ridiculing [hH](?:is|er) outlandish style and manners|Sniggering cruelly\, you mock .+? about [hH](?:is|er) pathetic life|Showing no mercy\, you spitefully deride .+? about the complete worthlessness of [hH](?:is|er) existence|.+? smiles and tells you that .+? may be a lovely place\, but the Village of [A-Z][a-z]+ has no need of its services|.+? sneers contemptuously at you,? and proclaims you are not worth the effort to spit\, much less be considered in any negotiations|Sighing dramatically\, .+? rolls [hH](?:is|er) eyes and fails to be persuaded by your entreaty|Cracking [hH](?:is|er) knuckles\, .+? wonders aloud why even considering amnesty for you would be worth the trouble|Smiling sadly\, .+? shakes [hH](?:is|er) head and regrets that you hae not convinced [hH](?:im|er) of your motives|Folding [hH](?:is|er) hands across [hH](?:is|er) chest\, .+? questions your honour and motives)\.$"
+   name="influence_progress__"
+   regexp="y"
+   script="influence.progress"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) puffs up [hH](?:is|er) chest and a crazy gleam enters [hH](?:is|er) eyes as (?:[hH]|[sS]h)e vigorously agrees with you that [hH](?:is|er) intelligence and strength far surpass anyone else\'s\.$"
+   name="influence_empower__"
+   regexp="y"
+   script="influence.completed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) breaks down and sobs\, telling you how true it is that (?:[hH]|[sS]h)e is nothing but a pathetic fraud\.$"
+   name="influence_weaken__"
+   regexp="y"
+   script="influence.completed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) sighs dramatically and searches [hH](?:is|er) pockets\, looking for something to give you\.$"
+   name="influence_charity__"
+   regexp="y"
+   script="influence.completed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) wildly looks around\, [hH](?:is|er) left eye suddenly developing a nervous twitch\,? and asks you to keep a look out for \'them\'\.$"
+   name="influence_paranoia__"
+   regexp="y"
+   script="influence.completed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) (?:drops down on [hH](?:is|er) knees and worships the very ground you walk on\!|wraps an arm around you\, declaring you to be the truest of friends\.)$"
+   name="influence_seduce__"
+   regexp="y"
+   script="influence.completed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) spits in [hH](?:is|er) palm and slaps [hH](?:is|er) hand into yours\, sealing the pact\.$"
+   name="influence_amnesty__"
+   regexp="y"
+   script="influence.completed"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:.+? keeps asking [hH](?:im|er)self why (?:[hH]|[sS]h)e considered giving so much away\, and pays you no attention|.+? is so caught up in admiring [hH](?:im|er)self that (?:[hH]|[sS]h)e barely notices you|Apparently not hearing anything you said\, .+? grabs you by the shoulders and demands to know if you are one of \'them\'|.+? keeps thumping [hH](?:im|er)self on the head\, not hearing a word you say|.+? doesn\'t even seem to notice you(?:r actions)?\, as (?:[hH]|[sS]h)e is lost (?:thinking|daydreaming) (?:a future living with you|of [hH](?:is|er) friendship with you|of [hH](?:is|er) true love|of [hH](?:is|er) best friend)|.+? pays little attention to you and mutters about whether (?:[hH]|[sS]h)e should have been so trusting to others|.+? brushes you off\, apparently too tired to engage you in any meaningful dialogue|.+? smiles at you condescendingly and pats your head)\.$"
+   name="influence_not_laidback__"
+   regexp="y"
+   script="influence.ignored"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(.+?) (has a brave soul|displays a friendly disposition|possesses an intimidating demeanor|enjoys an extremely sensuous disposition|is a greedy bugger)\. (.+?)$"
+   name="influence_analyze__"
+   omit_from_output="y"
+   regexp="y"
+   script="influence.analyze"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

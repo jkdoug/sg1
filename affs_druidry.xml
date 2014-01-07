@@ -1,0 +1,325 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As you stumble through the briars\, you become entangled in the morass of vines and nettles\.$"
+   name="druidry_briars__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+   <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) gestures to the wildlife around [hH](?:im|er) and it spills a heady cloud of pollen and heavily\-aromatic particles around you\.$"
+   name="druidry_seedcloud__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+ <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Squirrels chitter madly but remain unseen in the trees\. You are pelted by acorns that leave welts and bruises\.$"
+   name="druidry_squirrels__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A murder of crows descends from the sky with black wings spread and eyes glowing a malevolent red\, diving at you in a filthy flurry of malevolent talons and beaks\.$"
+   name="druidry_murder__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The tiny red mushrooms on the ground release a cloud of yellow spores\, which travel up your nose and make your eyes water\.$"
+   name="druidry_spores__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Small motes of yellow pollen rise up from the wildflowers around you and drift into your mouth\. Your throat begins to scratch\, forcing you to cough\.$"
+   name="druidry_pollen__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Animated branches from the trees above suddenly reach down and clutch you around the waist\, pulling you into their foliage\.$"
+   name="druidry_treelife__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The bough you\'re standing on suddenly tilts and branches forcibly hurl you out of the tree\, sending you tumbling to the forest floor\.$"
+   name="druidry_treebane__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A vine drops down from a tree limb and lashes out at you\, cutting you deeply with its tiny thorns\.$"
+   name="druidry_thorns__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The crooked forest paths twist dizzyingly around you\, and you find yourself stumbling through the branches\.$"
+   name="druidry_pathtwist__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Vines from the looming trees drape about your form\, clinging to you as you stumble along the twisted path\.$"
+   name="druidry_pathtwist2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Hundreds of bloated spiders crawl up your legs\, their painful stings raising red welts on your skin\.$"
+   name="druidry_spiders__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Flying insects suddenly swarm you\, covering you with tiny\, painful stings\.$"
+   name="druidry_swarm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Branches swoop down and lift you up into the trees\.$"
+   name="druidry_cudgel_raise__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The end of ([A-Z][a-z]+)\'s cudgel forms a knotty burl and (?:[hH]|[sS]h)e points it at you\. The burl pops and ruptures\, shooting a barrage of splinters into your flesh\.$"
+   name="druidry_cudgel_point__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a grim smile\, ([A-Z][a-z]+) touches the trees and sap courses out in a thick syrup that lunges at you\, coating you in the viscid liquid\.$"
+   name="druidry_sap__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The sticky sap coating your body causes you to move unbearably slowly\.$"
+   name="druidry_sapped__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A bolt of whitest lightning streaks down from the heavens and engulfs you\. You writhe and shake in noiseless agony as the pure electricity ripples over your body\.$"
+   name="druidry_storm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A viciously thorned vine spears out from a nearby branch and lashes tightly around your (head|left arm|left leg|right arm|right leg)\.$"
+   name="druidry_thornlash__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The thorny vines rip into your flesh\.$"
+   name="druidry_thornlash_movement__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) interlaces ([hH](?:is|er)) fingers together and raises \2 locked hands above \2 head\. Screaming out your name\, \1 rips \2 hands apart\.$"
+   name="druidry_thornrend__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The thorny vines wrapped around you viciously whipsaw back and forth\, flaying the skin from your flesh in bloody strips\.$"
+   name="druidry_thornrended__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) scoops [hH](?:is|er) hand through the air as though (?:[hH]|[sS]h)e just caught something\. (?:He|She) then appears to fling something at you but you see nothing\. Curiously\, your skin begins to itch\.$"
+   name="druidry_darkseed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You scream in agony as thorny vines suddenly sprout out of your skin and wrap you in a bloody embrace\.$"
+   name="druidry_darkseed_entangled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) pops something into ([hH]is|[hH]er) mouth\, and rolls it around in \1 cheek\. (?:He|She) cups a fist against \1 mouth and spits a sickly green beetle at you\, which burrows into your flesh\.$"
+   name="druidry_scarab__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sharp pain starts in your stomach and slowly crawls up your throat\.$"
+   name="druidry_scarab_crawl__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+?stag.+? scoops you up with its antlers and tosses you into the trees\.$"
+   name="druidry_stag_treetoss__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? caws and spits a glob of black phlegm into your face\.$"
+   name="druidry_crow_blacklung__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>
+
+<timers>
+  <timer
+   name="druid_darkseed__"
+   second="3.00"
+   offset_second="0.00"
+   send_to="12"
+   group="Afflictions"
+  >
+  <send>affs.del("darkseed")
+EnableTimer("druid_darkseed__", false)</send>
+  </timer>
+</timers>
+
+<!--
+(pollen/swarm gives allergy level, if you already have allergies)
+(if in trees, 50% chance of additional allergy level)
+
+(IntoxicatingFlower - summoned with allergies, lost entourage, decreased three allergy levels)
+A heady perfume wafts in on an errant breeze and catches somewhere in your throat, evoking deep and distant memories from your childhood. Intoxicated, you stumble desperately to find the source of the profound smell. As you rush through the forest, various branches and plants scrape some of the allergenic pollen off your body and clothes.
+
+(IntoxicatingFlower - third person)
+With eyes glazed over, Person stumbles in, leading with [hH](?:is|er) nose.
+-->

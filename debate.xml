@@ -1,0 +1,290 @@
+<aliases>
+  <alias
+   name="target_debate__"
+   match="^\s*dt\s+(\w+)\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="debate.handle_target"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="debate_someone__"
+   match="^\s*deb(?:\s+(\w+))?\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="debate.handle_debate"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="mindset_new__"
+   match="^\s*mindset\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="debate.handle_mindset"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) passionately presents [hH](?:is|er) case\, fervently arguing [hH](?:is|er) points with emotional appeals\. The tempestuous argument overwhelms your careful preparation\, leaving you shocked to the point where you find yourself capitulating to the emotional demands made in the argument\.$"
+   name="debate_passion_pedantic__"
+   regexp="y"
+   script="debate.handle_attack"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) passionately presents [hH](?:is|er) case\, fervently arguing [hH](?:is|er) points with emotional appeals\. As temperaments cool\, you quietly but firmly expose the argument as nothing more than a baseless form of emotional blackmail\.$"
+   name="debate_passion_cautious__"
+   regexp="y"
+   script="debate.handle_attack"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) passionately presents [hH](?:is|er) case\, fervently arguing [hH](?:is|er) points with emotional appeals\. With absolutely no readily available facts upon which to analyze the argument\, you can only frown and shake your head in frustration\, conceding this emotional outburst to ([A-Z][a-z]+)\.$"
+   name="debate_passion_analytical__"
+   regexp="y"
+   script="debate.handle_attack"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) argues with sweeping authority\, buttressing [hH](?:is|er) broad claims with dogmatic assumptions and justifications\. While you have a hunch that [hH](?:is|er) argument is baseless\, it is so general and broad that you are left spluttering in confusion\.$"
+   name="debate_pontification_pedantic__"
+   regexp="y"
+   script="debate.handle_attack"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) argues with sweeping authority\, buttressing [hH](?:is|er) broad claims with dogmatic assumptions and justifications\. The argument is so preposterous and so full of holes that you don\'t know where to begin to dissect it\, and before you reali[sz]e it your silence has been taken for concession\.$"
+   name="debate_pontification_cautious__"
+   regexp="y"
+   script="debate.handle_attack"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) argues with sweeping authority\, buttressing [hH](?:is|er) broad claims with dogmatic assumptions and justifications\. With great glee\, you rip apart [hH](?:is|er) arguments with brilliant logic\, transforming the entire discourse into an example of absurdity\.$"
+   name="debate_pontification_analytical__"
+   regexp="y"
+   script="debate.handle_attack"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) unscrupulously quibbles about the smallest points in [hH](?:is|er) argument\, bringing up esoteric minutiae to support [hH](?:is|er) radical theories\. You laugh in [hH](?:is|er) face and counter every point raised with facts of arcane trivia that deflates? the entire dissertation\.$"
+   name="debate_pettifoggery_pedantic__"
+   regexp="y"
+   script="debate.handle_attack"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) unscrupulously quibbles about the smallest points in [hH](?:is|er) argument\, bringing up esoteric minutiae to support [hH](?:is|er) radical theories\. You can only blink in astonishment at [hH](?:is|er) mindboggling logic\.$"
+   name="debate_pettifoggery_cautious__"
+   regexp="y"
+   script="debate.handle_attack"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) unscrupulously quibbles about the smallest points in [hH](?:is|er) argument\, bringing up esoteric minutiae to support [hH](?:is|er) radical theories\. The logic of this argument is sound and you find yourself conceding to all the points raised\.$"
+   name="debate_pettifoggery_analytical__"
+   regexp="y"
+   script="debate.handle_attack"
+   sequence="10000"
+  >
+  </trigger>
+
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You passionately present your case\, fervently arguing your points with emotional appeals\. ([A-Z][a-z]+) is so overwhelmed that (?:[sS]h|[hH])e eagerly capitulates to the emotional demands made in your argument\.$"
+   name="debate_pedantic_passion__"
+   regexp="y"
+   script="debate.handle_hit"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You passionately present your case\, fervently arguing your points with emotional appeals\. After a dramatic pause\, ([A-Z][a-z]+) exposes your argument as nothing more than a baseless form of emotional blackmail\.$"
+   name="debate_cautious_passion__"
+   regexp="y"
+   script="debate.handle_hit"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You passionately present your case\, fervently arguing your points with emotional appeals\. ([A-Z][a-z]+) frowns at you and shakes [hH](?:is|er) head\, but concedes the argument to you\.$"
+   name="debate_analytical_passion__"
+   regexp="y"
+   script="debate.handle_hit"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You argue with sweeping authority\, buttressing your broad claims with dogmatic assumptions and justifications\. ([A-Z][a-z]+) splutters in confusion\, unable to refute your argument\.$"
+   name="debate_pedantic_pontification__"
+   regexp="y"
+   script="debate.handle_hit"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You argue with sweeping authority\, buttressing your broad claims with dogmatic assumptions and justifications\. Your argument leaves ([A-Z][a-z]+) staring at you in stupefaction\, and [hH](?:is|er) continued silence must obviously be taken for concession\.$"
+   name="debate_cautious_pontification__"
+   regexp="y"
+   script="debate.handle_hit"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You argue with sweeping authority\, buttressing your broad claims with dogmatic assumptions and justifications\. With great glee\, ([A-Z][a-z]+) rips apart your arguments with brilliant logic\, transforming your entire discourse into an example of absurdity\.$"
+   name="debate_analytical_pontification__"
+   regexp="y"
+   script="debate.handle_hit"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You unscrupulously quibble about the smallest points in your argument\, bringing up esoteric minutiae to support your theories\. ([A-Z][a-z]+) laughs in your face and counters every point you raise with facts of arcane trivia that deflates? your entire dissertation\.$"
+   name="debate_pedantic_pettifoggery__"
+   regexp="y"
+   script="debate.handle_hit"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You unscrupulously quibble about the smallest points in your argument\, bringing up esoteric minutiae to support your theories\. ([A-Z][a-z]+) can only blink in astonishment at your astounding logic\.$"
+   name="debate_cautious_pettifoggery__"
+   regexp="y"
+   script="debate.handle_hit"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You unscrupulously quibble about the smallest points in your argument\, bringing up esoteric minutiae to support your theories\. ([A-Z][a-z]+) agrees with the logic and concedes all your points\.$"
+   name="debate_analytical_pettifoggery__"
+   regexp="y"
+   script="debate.handle_hit"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:You change your debating mindset to be |\| This Week \: .+? Mindset  \: )(\w+)"
+   name="debate_mindset__"
+   regexp="y"
+   script="debate.handle_setmind"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Track"
+   ignore_case="y"
+   match="^Face burning red\, @target_debate throws up [hH](?:is|er) hands in exasperation and curses loudly\, obviously too discombobulated to engage in further debate\.$"
+   name="debate_won__"
+   regexp="y"
+   script="debate.handle_win"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The stress of this debate is too much\! You throw up your hands in exasperation and curse loudly\, losing face in front of your peers\.$"
+   name="debate_lost__"
+   regexp="y"
+   script="debate.handle_loss"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You approach ([A-Z][a-z]+) for a debate\, but (?:[hH]|[sS]h)e quickly rushes away\.$"
+   name="debate_opp_shattered__"
+   regexp="y"
+   script="debate.handle_shattered"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You raise .+? up and golden tendrils creep out and surround your head\. As they disperse\, you are left feeling re\-[ei]nvigou?rated\.$"
+   name="debate_goblet__"
+   regexp="y"
+   script="debate.handle_goblet"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>
+
+<!--
+(being debated by another)
+^([A-Z][a-z]+) is too distracted by another debate to pay you any attention\.$
+
+(sleeping)
+^([A-Z][a-z]+) sleeps peacefully through your carefully[\- ]chosen arguments\.$
+
+
+-->

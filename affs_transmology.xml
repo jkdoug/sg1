@@ -1,0 +1,297 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) stares at you with [hH](?:is|er) silvery eyes\.$"
+   name="transmology_eyes_hypnotize__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A swirling beam of light shoots out of the eye of a floating spix directly into your eyes\, transfixing you with a kaleidoscope of colours and shapes\.$"
+   name="transmology_spix_transfix__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) throws back [hH](?:is|er) head and blows a stream of slime out of [hH](?:is|er) nose and onto you\.$"
+   name="transmology_nose_slime__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) darts out and viciously pecks you with [hH](?:is|er) beak nose\.$"
+   name="transmology_nose_peck__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A squirming sludgeworm rears up and spits a gob of green slime onto you\, covering you in a slick muco?us\.$"
+   name="transmology_sludgeworm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A puddle of slimy muco?us forms under your feet\, causing you to slip and fall\.$"
+   name="transmology_sludgeworm_fall__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The slithering tentacles sprouting from ([A-Z][a-z]+) wrap around you and then snap off of [hH](?:im|er)\, entangling you like bloody ropes\.$"
+   name="transmology_torso_block__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A screeching morrible places a suckered finger against the nape of your neck\. Your mind reels as dozens of gibbering voices assault you\.$"
+   name="transmology_morrible__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) rakes you across the throat with [hH](?:is|er) claws\.$"
+   name="transmology_hands_claw__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slugs you in the jaw with [hH](?:is|er) enormous fist\.$"
+   name="transmology_hands_crush__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) screams at you\, \&quot;[^a-z]+\!\&quot;$"
+   name="transmology_throat_scream__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^An enormous gutt[eu]ral croak reverberates through the air\, shaking the ground\.$"
+   name="transmology_throat_croak__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The grotesque sound causes your insides to churn and you taste blood in your mouth\.$"
+   name="transmology_throat_croaked__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Dozens of hands from a tangled hekoskeri slap at you\, and you feel a cold needle injected into your shoulder\, causing your reactions to slow\.$"
+   name="transmology_hekoskeri__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) sinks [hH](?:is|er) fangs into your neck\, and you feel yourself drained of blood and energy.$"
+   name="transmology_mouth_bite__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) whispers into [hH](?:is|er) cupped hands\,? and then releases a fluttering madfly\,? which buzzes over to you\.$"
+   name="transmology_madfly__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A fluttering madfly darts into your ear\, and you hear a horrendously loud buzzing within your skull\. You stumble about trying to clear the impossible visions that plague you\.$"
+   name="transmology_madfly_insanity__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^A fluttering madfly curls up and turns black\, disintegrating into dust\.$"
+   name="transmology_madfly_gone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The psychedelic lights around ([A-Z][a-z]+) flare and shoot out at you\.$"
+   name="transmology_aura_psychedelia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Reality shifts and colours explode in your vision as the Inveiglora of Gnostoratu points a dainty finger at you\.$"
+   name="transmology_champion_mob1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Laughing softly\, the Inveiglora of Gnostoratu whips her arms at you\, which transform into a mass of tentacles that binds you completely\.$"
+   name="transmology_champion_mob2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The Inveiglora of Gnostoratu giggles as her hand seizes your throat\, her fingers morphing into tentacles that only tighten their hold\.$"
+   name="transmology_champion_mob3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You feel your mental strength drain as the Inveiglora of Gnostoratu's throat splits open and releases a discordant song\.$"
+   name="transmology_champion_mob4__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^H(?:is|er) eyes glowing a fearsome yellow\, a homunculus resembling a deformed \w+ stares at you with a burning gaze\, and you cannot help but shudder at the intensity of the malice directed towards you\.$"
+   name="transmology_homunculus1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Baring sharpened teeth dripping with greenish saliva\, a homunculus resembling a deformed \w+ leaps up and bites you\, causing you to tremble and feel feverish\.$"
+   name="transmology_homunculus2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^H(?:is|er) eyes glowing a fiery red\, a homunculus resembling a deformed \w+ looks at you\, quickly looks away\, then looks back at you with a malicious glint in [hH](?:is|er) eye\.$"
+   name="transmology_homunculus3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^A hauntingly beautiful song fills the air\, compelling you to follow it\.$"
+   name="transmology_throat_sing1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^As the song reaches a crescendo\, you cannot help but follow it to its source\.$"
+   name="transmology_throat_sing2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

@@ -1,0 +1,142 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) hurls a tarot card with the image of the Hanged Man on it at you\. As it reaches you\, a huge mass of rope bursts out of it\, entrapping and hindering you\.$"
+   name="tarot_hangedman__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) flings a tarot card at you\, and a jester appears with a slack[\- ]jawed expression\. With a mad jingling of his bells\, the fool (?:plants an enormous kiss on your lips\.|pinches your nose and shouts\, \&quot;WHOOP\! WHOOP\! WHOOP\!\&quot;\.?|squirts water at you from a large flower\.|throws a custard pie in your face\.)$"
+   name="tarot_fool__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) throws a Lovers tarot at you and as it strikes true\, you fall hopelessly in love with [hH](?:im|er)\.$"
+   name="tarot_lovers__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A glowing axe appears and strikes you in the chest\.$"
+   name="tarot_warrior__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) flings a tarot card at you which turns an ominous\, sickly red before striking you in the head\.$"
+   name="tarot_moon__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) deftly flings a Dreamer tarot at you\, and the card dissolves into a warm\, cloying mist that clouds your mind\.$"
+   name="tarot_dreamer__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are suddenly spooked by an image from your dreams and lose some of your attentiveness\.$"
+   name="tarot_dreamer_tick__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) flings a tarot card at you\, which expands into an image of Juliana\. A set of scales appears above your head and one side of the scale quickly descends\. You have a bad feeling about this\.$"
+   name="tarot_judge__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) stands an Aeon tarot on [hH](?:is|er) palm and blows it at you\.$"
+   name="tarot_aeon__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) quickly flings a tarot card at you\, and you feel unreasonable lust for [hH](?:im|er)\.$"
+   name="tarot_lust__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) rubs a tarot card on your arm\. A cold jolt travels through your being\.$"
+   name="tarot_soulless_rub__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) flings a tarot card at you and upon impact\, it disappears\. An ominous silence overtakes your surroundings\.$"
+   name="tarot_soulless_fling__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The tarot card hits your magical shield\, which immediately explodes upon impact\.$"
+   name="tarot_world__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

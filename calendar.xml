@@ -1,0 +1,68 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^Password correct\. Welcome to Lusternia\.$"
+   name="calendar_init__"
+   regexp="y"
+   send_to="12"
+   sequence="5000"
+  >
+  <send>Send("date")
+Send("read watch")</send>
+  </trigger>
+
+  <trigger
+   back_colour="8"
+   enabled="y"
+   group="Track"
+   match="^It is now the (\d+).+? of (\w+)\, (\d+) years after the Coming of Estarra\.$"
+   match_back_colour="y"
+   match_bold="y"
+   match_text_colour="y"
+   name="calendar_midnight__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+   text_colour="11"
+  >
+  <send>calendar.date(%1, "%2", %3)
+calendar.set_watch(0, 0, true)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Today is the (\d+).+? of (\w+)\, (\d+) years after the Coming of Estarra\. The phase of the moon is .+?\.$"
+   name="calendar_date__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>calendar.date(%1, "%2", %3)</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The hands on .+? read (.+?)\.$"
+   name="calendar_watch__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>calendar.time("%1")</send>
+  </trigger>
+</triggers>
+
+<timers>
+  <timer
+   enabled="y"
+   name="calendar_clock__"
+   second="2"
+   offset_second="0.00"
+   script="calendar.tick"
+   group="Track"
+  >
+  </timer>
+</timers>

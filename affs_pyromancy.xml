@@ -1,0 +1,186 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) raises [hH](?:is|er) hands over [hH](?:is|er) head\, and a ball of fire forms between [hH](?:is|er) palms\.$"
+   name="pyromancy_fireball__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The fireball bursts and you are caught in the raging flames\.$"
+   name="pyromancy_fireballed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Thick black smoke wreaths you\, and you begin to hack and cough\.$"
+   name="pyromancy_smokehaze__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:A rolling wave of fire sweeps over you|You are swarmed by several burning salamanders\, setting you ablaze)\.$"
+   name="pyromancy_firestorm_salamanders__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your skin and lips crack amid this parching heatwave\.$"
+   name="pyromancy_heatwave__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your flesh burns as a sheet of shimmering fire envelops you\.$"
+   name="pyromancy_flashfire__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A burning salamander breathes a cloud of superheated air into your face\.$"
+   name="pyromancy_salamanders_dizziness__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A burning salamander spits in your eyes\.$"
+   name="pyromancy_salamanders_blindness__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The air visibly wavers around .+? as seething flames erupt across [hH](?:is|er) form\. With a high\-pitched shriek\, .+? releases a torrid stream of white\-hot fire at you\, causing you to scream in utter agony\, flames licking across your skin as it blisters\.$"
+   name="pyromancy_phoenix__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Liquid fire rains down on you\, broiling your flesh\.$"
+   name="pyromancy_firerain__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You begin to sweat profusely in this sweltering heat\.$"
+   name="pyromancy_heatstroke__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You breathe in some black ashes\,? and then begin coughing hoarsely\.$"
+   name="pyromancy_ashfall__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your flesh blisters as you reach through the ring of fire that surrounds ([A-Z][a-z]+)\.$"
+   name="pyromancy_flamering__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:A stream of liquid fire shoots in from the \w+ and|([A-Z][a-z]+) points [hH](?:is|er) staff at you\, and the burning ball at its tip flares and shoots a stream of liquid fire that) blasts you\, scorching your flesh\.$"
+   name="pyromancy_staff_point__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The torr?id wind fans the flames on you\, roasting your flesh\.$"
+   name="pyromancy_staff_twirl__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s eyes glow red as five jagged rifts open up in the air around [hH](?:im|er)\, each shooting forth a blast of seething fire at you\. Your flesh chars as you are knocked senseless in the blinding explosion\.$"
+   name="pyromancy_incinerate__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You scream as your entire (left|right) (arm|leg) is reduced to ash\.$"
+   name="pyromancy_limb_severed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

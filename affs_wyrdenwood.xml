@@ -1,0 +1,191 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s oozing leaves stretch forth upon twined vines from [hH](?:is|er) trunk like a putrescent arm and take hold of you in their deadly embrace\.$"
+   name="wyrdenwood_oozing__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s pepper leaves slice you like a fountain of blood\, leaving blistering pain where the wounds seep\.$"
+   name="wyrdenwood_pepper__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A wriggling mass of ([A-Z][a-z]+)\'s worm leaves covers you\, making your skin fester and crawl\.$"
+   name="wyrdenwood_worm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s blood leaves rain from [hH](?:is|er) withered canopy and shower you in a red haze\.$"
+   name="wyrdenwood_blood__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As the hungry swarm of insects falls prey to bloodlust\, their numbers seem to swell and they rise up prepared to feed as one\, the maddening buzzing roaring like thunder\.$"
+   name="wyrdenwood_insect__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The sound of a hungry insect swarm precedes thousands of tiny\, black shadows with red\, multi\-faceted eyes that engulf you in a frenzy of blood\, pain\, and agony\.$"
+   name="wyrdenwood_insect2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A deafening howl of buzzing choruses through the air as the swarm of blackened wasps permeates the area with a wild\, unfettered hatred\.$"
+   name="wyrdenwood_wasp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^A swarm of buzzing and shadows swallows you like a living flame\, tearing your flesh apart with the stinging of hundreds of angry wasps\.$"
+   name="wyrdenwood_wasp2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The air fills with the low\, threatening buzzing of thousands of blood\-frenzied hornets\. As the sound rises\, the black miasma of tiny shapes spreads like a thick cancer through the air\.$"
+   name="wyrdenwood_hornet__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^A stream of laser\-focused black shapes descends upon you\, their vicious buzzing a paralyzing sound\. In a cyclone of dark fury\, they rip and tear into your skin\, leaving sores and oozing poison in their wake\.$"
+   name="wyrdenwood_hornet2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A tidal wave of shadows and crawling\, writhing insects blots out the skies and finally crests\, covering the ground in a creeping blanket of hunger and rage\.$"
+   name="wyrdenwood_creeping__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Like a vile\, unstoppable disease\, the blanket of red\-eyed insects that has infested the ground surges forward and coils its way up your legs\. Before you can even begin to fend them off\, they have already wormed\, slithered\, crawled\, and eaten their way inside of you\, spreading their dread contagions far and wide\, deep within the inner sanctum of your body\.$"
+   name="wyrdenwood_creeping2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) sends [hH](?:is|er) thornvine lashing through the air at you with all the mounting force of a falling tree\. As the vine strikes your body\, it wraps your neck and forcefully chokes the breath from your lungs\.$"
+   name="wyrdenwood_noose__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) whips [hH](?:is|er) thornvine at you from the (\w+)\. It wraps painfully around your neck\, choking you violently and leaving bleeding wounds where the thorns pressed into your flesh\.$"
+   name="wyrdenwood_noose_dir__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^One of ([A-Z][a-z]+)\'s branches suddenly lashes out\, striking you and leaving a seeping\, putrescent wound\.$"
+   name="wyrdenwood_deadened__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You catch yourself on ([A-Z][a-z]+)\'s razor\-sharp bark\, opening a thin wound that bleeds copiously\.$"
+   name="wyrdenwood_razor__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a low groan\, ([A-Z][a-z]+)\'s thorny branches twist\, reaching down to slice suddenly across your chest\.$"
+   name="wyrdenwood_thorny__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sweeping movement from ([A-Z][a-z]+)\'s boughs draws down a long\, tangling branch that binds you tightly and snaps off\.$"
+   name="wyrdenwood_tangled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

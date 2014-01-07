@@ -1,0 +1,35 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   lines_to_match="3"
+   match="^\*+\n\s*Id\s+Name\s+Status\s+Spell\s+Charges\s+Months\s*\n\-+$"
+   multi_line="y"
+   name="magiclist__"
+   regexp="y"
+   script="magic.list"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="MagicList"
+   match="^\s*(\d+)\s+a magic tome\s+scroll\s+(\w+).+?(\d+)(\*?)\s+(?:\d+|\*)$"
+   name="magictome__"
+   regexp="y"
+   script="magic.assign"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="MagicList"
+   match="^\s*(\d+)\s+.{22,}\s+(worn|unworn|scroll|wielded|unwielded|watch|box|flute|trumpet)\s+(\w+).+?(\d+)(\*?)\s+(?:\d+|\*)$"
+   name="magicitem__"
+   regexp="y"
+   script="magic.assign"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

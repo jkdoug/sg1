@@ -1,0 +1,88 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? rears back and unhinges [hH](?:is|er) jaws\, (?:breath|blast)ing .+? at you\, and you scream .+?\.$"
+   name="beastmastery_minorbreath__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a loud hiss\, .+? spits a stream of foul liquid into your face\.$"
+   name="beastmastery_poison__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? gazes intently at you\, and you feel yourself drawn into [hH](?:is|er) eyes\, which swirl about in a kaleidoscopic array of swirling colours\. Your vision slowly fades into nothing but curiously floating (.+?) spots\.$"
+   name="beastmastery_hypnoticgaze__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) squeezes [hH](?:is|er) legs around (.+?)\'s body and \2 immediately responds by thrusting out a hind leg and kicking you brutally in the chest\, knocking you to the ground\.$"
+   name="beastmastery_kicking__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) whips (.+?) into a fury\, bucking and racing dangerously in a circle\, trampling the ground in a frenzy\.$"
+   name="beastmastery_trample__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^(.+?) (?:breaks|crushes|pulveri[sz]es|smashes) your (left|right) (arm|leg)\.$"
+   name="beastmastery_trampled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? opens [hH](?:is|er) jaws and releases a rank\, putrescent blast of stale air and rotten chunks of tissue at you\.$"
+   name="beastmastery_death_plague__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+?\'s eyes glow a soft\, pale blue as [hH](?:is|er) mind brushes against your own\, soothing waves of harmony instilling peaceful thoughts\.$"
+   name="beastmastery_peaceful_companion__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

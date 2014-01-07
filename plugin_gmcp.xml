@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE muclient>
+
+<muclient>
+<plugin
+   name="GMCP"
+   author="Iasmos"
+   id="b6cfad5ebb8f70781eb2e2e5"
+   language="Lua"
+   purpose="Reading data from Lusternia using GMCP messages."
+   date_written="2006-03-08"
+   requires="4.51"
+   version="1.1"
+   >
+</plugin>
+
+<aliases>
+  <alias
+   name="default_gmcp__"
+   match="^OnGMCP"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+
+  <alias
+   name="gmcp_debug__"
+   match="^gmcp debug (on|off)$"
+   enabled="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>SetVariable("echo_on", string.lower("%1"))
+if GetVariable("echo_on") == "on" then
+  Note('Enabled GMCP debug output')
+else
+  Note('Disabled GMCP debug output')
+end</send>
+  </alias>
+  <alias
+   name="gmcp_toggle__"
+   match="^gmcp (on|off)( quiet)?$"
+   enabled="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>ENABLED = string.lower("%1") == "on"
+if ENABLED then
+  if "%2" ~= " quiet" then
+    Note('Enabling GMCP')
+  end
+  SendGMCP('Core.Hello', [[{ "client": "MUSHclient", "version": "]] .. Version() .. [[" }]])
+  SendGMCP('Core.Supports.Set', '[ "Char.Name 1", "Char.Vitals 1", "Room 1", "Room.Info 1", "Char 1", "Char.Skills 1", "Char.Items 1", "IRE.Rift 1", "IRE.Composer 1" ]')
+else
+  if "%2" ~= " quiet" then
+    Note('Disabling GMCP')
+  end
+  SendGMCP('Core.Supports.Remove', '[ "Char.Name", "Char.Vitals", "Room", "Room.Info", "Char", "Char.Skills", "Char.Items", "IRE.Rift", "IRE.Composer" ]')
+end</send>
+  </alias>
+  <alias
+   name="gmcp_rift_request__"
+   match="^gmcp rift$"
+   enabled="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>SendGMCP('IRE.Rift.Request')</send>
+  </alias>
+  <alias
+   name="gmcp_skills__"
+   match="^gmcp skills$"
+   enabled="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>SendGMCP('Char.Skills.Get')</send>
+  </alias>
+  <alias
+   name="gmcp_skill__"
+   match="^gmcp skill (\w+)$"
+   enabled="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>SendGMCP('Char.Skills.Get', '{ "group": "%1" }')</send>
+  </alias>
+  <alias
+   name="gmcp_items__"
+   match="^gmcp (?:items|inv(?:entory)?)$"
+   enabled="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>SendGMCP('Char.Items.Inv')</send>
+  </alias>
+  <alias
+   name="gmcp_compose__"
+   match="^gmcp compose (.+?)$"
+   enabled="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>SendGMCP('IRE.Composer.SetBuffer', "%1")</send>
+  </alias>
+</aliases>
+
+<!--  Script  -->
+<script>
+<![CDATA[
+
+local json = require("json")
+
+local IAC, SB, SE, DO = 0xFF, 0xFA, 0xF0, 0xFD
+local GMCP = 201
+ENABLED = false
+
+function SendGMCP(cmd, args)
+  local r = true
+  if not args or #args < 1 then
+    r = SendPkt(string.char(IAC, SB, GMCP) .. cmd .. string.char(IAC, SE))
+  else
+    r = SendPkt(string.char(IAC, SB, GMCP) .. cmd .. " " .. args .. string.char(IAC, SE))
+  end
+  if GetVariable("echo_on") == "on" then
+    print("SendPkt result = " .. tostring(r))
+  end
+end
+
+function OnPluginDisconnect()
+  ENABLED = false
+end
+
+-- agree to use GMCP
+function OnPluginTelnetRequest(type, data)
+  if type == GMCP and data == "WILL" then
+    return true
+  end -- if
+  
+  if type == GMCP and data == "SENT_DO" and not ENABLED then
+    Note("Enabling GMCP.")
+    SendGMCP('Core.Hello', [[{ "client": "MUSHclient", "version": "]] .. Version() .. [[" }]])
+    SendGMCP('Core.Supports.Set', '[ "Char.Name 1", "Char.Vitals 1", "Room 1", "Room.Info 1", "Char 1", "Char.Skills 1", "Char.Items 1", "IRE.Composer 1", "IRE.Rift 1" ]')
+    ENABLED = true
+    return true
+  end -- if GMCP login needed (just sent DO)
+  
+  return false  
+end
+
+--[[
+'Room.Info { "num": 931, "name": "The Moonhart Mother Tree", "area": "the Serenwilde Forest", "environment": "forest", "coords": "188,0,0,0", "map": "www.lusternia.com/irex/maps/clientmap.php?map=188&building=0&level=0 22 10", "exits": { "n": 5809, "s": 854, "x": 0 } }'
+'Char.Items.Add { "location": "room", "item": { "id": "23979", "name": "a ruby fire keg" } }'
+'Char.Items.Add { "location": "inv", "item": { "id": "72656", "name": "a group of 5 arnica buds", "attrib": "g" } }'
+'Char.Items.Remove { "location": "rep72736", "item": 125529 }'
+'Char.Items.Update { "location": "inv", "item": { "id": "52541", "name": "a fesix backpack", "attrib": "wc" } }'
+'Char.Status [ { "name": "fullname", "value": "Iasmos" }, { "name": "level", "value": "Demigod" }, { "name": "xprank", "value": "85th" }, { "name": "explorerrank", "value": "a Roamer of the Basin" }, { "name": "race", "value": "demigod" }, { "name": "age", "value": "273" }, { "name": "guild", "value": "Serenguard (an Emeritus in the Assembly of the Aeromagi)" }, { "name": "city", "value": "serenwilde (Forest Warden)" }, { "name": "order", "value": "charune (Argeisia Charune)" }, { "name": "family", "value": "none" } ]'
+'Char.StatusVars [ { "name": "fullname", "caption": "Full name" }, { "name": "level", "caption": "Level" }, { "name": "xprank", "caption": "XP rank" }, { "name": "explorerrank", "caption": "Explorer rank" }, { "name": "race", "caption": "Race" }, { "name": "age", "caption": "Age" }, { "name": "guild", "caption": "Guild" }, { "name": "city", "caption": "City" }, { "name": "order", "caption": "Order" }, { "name": "family", "caption": "Family" } ]'
+'Char.Vitals'  '{ "hp": "7084", "maxhp": "7084", "mp": "4485", "maxmp": "4485", "ego": "6072", "maxego": "5520", "pow": "10", "maxpow": "10", "ep": "27900", "maxep": "27900", "wp": "17400", "maxwp": "17400", "essence": "60056291", "blind": "0", "deaf": "0", "prone": "0", "equilibrium": "1", "balance": "1", "head": "1", "right_arm": "1", "left_arm": "1", "right_leg": "1", "left_leg": "1", "psisub": "1", "psisuper": "1", "psiid": "1", "kafe": "0", "string": "NL:0/100 H:7084/7084 M:4485/4485 E:6072/5520 P:10/10 N:27900/27900 W:17400/17400 " }'
+'Char.Skills.Groups [ { "name": "Combat" }, { "name": "Resilience" }, { "name": "Discernment" }, { "name": "Highmagic" }, { "name": "Planar" }, { "name": "Discipline" }, { "name": "Environment" }, { "name": "Influence" }, { "name": "Dramatics" }, { "name": "Arts" }, { "name": "Beastmastery" }, { "name": "Totems" }, { "name": "Moon" }, { "name": "Knighthood" }, { "name": "Athletics" }, { "name": "Blademaster" }, { "name": "Aethercraft" } ]'
+'Char.Skills.List { "group": "blademaster", "list": [ "Blademastery", "ArmArtery", "LegArtery", "Maneuvers", "SliceForehead", "PierceArm", "PunctureLung", "OpenGut", "SliceEar", "PunctureChest", "SepticWound", "Scalp", "PierceLeg", "SeverNerve", "CollapseLungs", "Lunge", "SlitThroat", "GashChest", "PinLeg", "CollapseNerve", "Impale", "Coule", "Rend", "LegTendon", "Disembowel", "HeartPierce", "Behead", "Haymaker" ] }'
+'Char.Skills.List { "group": "highmagic", "list": [ "I" ] }'
+'IRE.Rift.List [ { "name": "yarrow", "amount": "2814", "desc": "yarrow" }, { "name": "wormwood", "amount": "2218", "desc": "wormwood" }, { "name": "kombu", "amount": "1007", "desc": "kombu" }, { "name": "reishi", "amount": "1783", "desc": "reishi" }, { "name": "arnica", "amount": "3127", "desc": "arnica" }, { "name": "coltsfoot", "amount": "3990", "desc": "coltsfoot" }, { "name": "yellowtint", "amount": "267", "desc": "yellowtint" }, { "name": "pearl", "amount": "356", "desc": "pearl" }, { "name": "moonstone", "amount": "1978", "desc": "moonstone" }, { "name": "platinum", "amount": "2322", "desc": "platinum" }, { "name": "goldbar", "amount": "3031", "desc": "gold" }, { "name": "greentint", "amount": "436", "desc": "greentint" }, { "name": "marble", "amount": "433", "desc": "marble" }, { "name": "wood", "amount": "3779", "desc": "wood" }, { "name": "rope", "amount": "1376", "desc": "rope" }, { "name": "amethyst", "amount": "264", "desc": "amethyst" }, { "name": "bloodstone", "amount": "1397", "desc": "bloodstone" }, { "name": "bluetint", "amount": "176", "desc": "bluetint" }, { "name": "ruby", "amount": "1222", "desc": "ruby" }, { "name": "turquoise", "amount": "1534", "desc": "turquoise" }, { "name": "beryl", "amount": "616", "desc": "beryl" }, { "name": "onyx", "amount": "335", "desc": "onyx" }, { "name": "gems", "amount": "841", "desc": "gems" }, { "name": "opal", "amount": "2097", "desc": "opal" }, { "name": "cloth", "amount": "707", "desc": "cloth" }, { "name": "coral", "amount": "747", "desc": "coral" }, { "name": "steel", "amount": "2117", "desc": "steel" }, { "name": "garnet", "amount": "828", "desc": "garnet" }, { "name": "sapphire", "amount": "243", "desc": "sapphire" }, { "name": "goldtint", "amount": "19", "desc": "goldtint" }, { "name": "salt", "amount": "682", "desc": "salt" }, { "name": "sulfur", "amount": "637", "desc": "sulfur" }, { "name": "pennyroyal", "amount": "2187", "desc": "pennyroyal" }, { "name": "sparkleberry", "amount": "859", "desc": "sparkleberry" }, { "name": "earwort", "amount": "1122", "desc": "earwort" }, { "name": "marjoram", "amount": "3990", "desc": "marjoram" }, { "name": "myrtle", "amount": "992", "desc": "myrtle" }, { "name": "horehound", "amount": "3319", "desc": "horehound" }, { "name": "galingale", "amount": "3990", "desc": "galingale" }, { "name": "calamus", "amount": "1692", "desc": "calamus" }, { "name": "kafe", "amount": "3682", "desc": "kafe" }, { "name": "merbloom", "amount": "1000", "desc": "merbloom" }, { "name": "iron", "amount": "2319", "desc": "iron" }, { "name": "diamond", "amount": "351", "desc": "diamond" }, { "name": "leather", "amount": "978", "desc": "leather" }, { "name": "faeleaf", "amount": "2582", "desc": "faeleaf" }, { "name": "chervil", "amount": "3983", "desc": "chervil" }, { "name": "meatfeed", "amount": "188", "desc": "meatfeed" }, { "name": "fruitfeed", "amount": "393", "desc": "fruitfeed" }, { "name": "vegfeed", "amount": "490", "desc": "vegfeed" }, { "name": "bodoru", "amount": "133", "desc": "bodoru" }, { "name": "suporu", "amount": "142", "desc": "suporu" }, { "name": "mindoru", "amount": "473", "desc": "mindoru" }, { "name": "fishfeed", "amount": "232", "desc": "fishfeed" }, { "name": "oatfeed", "amount": "500", "desc": "oatfeed" }, { "name": "rosehips", "amount": "1000", "desc": "rosehips" }, { "name": "tea", "amount": "4000", "desc": "rawtea" }, { "name": "sage", "amount": "2614", "desc": "sage" }, { "name": "juniper", "amount": "2829", "desc": "juniper" }, { "name": "mistletoe", "amount": "3990", "desc": "mistletoe" }, { "name": "flax", "amount": "2135", "desc": "flax" }, { "name": "colewort", "amount": "4000", "desc": "colewort" }, { "name": "weed", "amount": "1000", "desc": "weed" }, { "name": "sargassum", "amount": "1164", "desc": "sargassum" }, { "name": "redtint", "amount": "300", "desc": "redtint" }, { "name": "milk", "amount": "1", "desc": "milk" }, { "name": "fruit", "amount": "101", "desc": "fruit" }, { "name": "eggfeed", "amount": "500", "desc": "eggfeed" }, { "name": "purpletint", "amount": "510", "desc": "purpletint" }, { "name": "coal", "amount": "3309", "desc": "coal" }, { "name": "silk", "amount": "243", "desc": "silk" }, { "name": "sugar", "amount": "2", "desc": "sugar" }, { "name": "mercury", "amount": "244", "desc": "mercury" }, { "name": "auronidion", "amount": "100", "desc": "auronidion" }, { "name": "silver", "amount": "890", "desc": "silver" }, { "name": "jade", "amount": "2109", "desc": "jade" }, { "name": "emerald", "amount": "1110", "desc": "emerald" }, { "name": "meat", "amount": "397", "desc": "meat" }, { "name": "spices", "amount": "1681", "desc": "spices" } ]'
+'IRE.Rift.Change { "name": "arnica", "amount": "3117", "desc": "arnica" }'
+--]]
+
+function OnPluginTelnetSubnegotiation(type, option)
+  if type ~= GMCP then
+    return
+  end
+
+  local command, args = string.match(option, "^([%a.]+)%s+(.*)$")
+  if not command then
+    return
+  end
+
+  local invalid_chars = "[^A-Za-z0-9'\\\"%s%:{}%[%]%.%-/,%%%(%)&?=_]"
+  command = string.gsub(command, invalid_chars, "")
+  args = string.gsub(args, invalid_chars, "")
+
+  if GetVariable("echo_on") == "on" then
+    Note("GMCP '" .. tostring(command) .. "'  '" .. tostring(args) .. "'")
+  end
+  
+  Execute("OnGMCP " .. tostring(command) .. " " .. tostring(args))
+end
+]]>
+</script>
+</muclient>

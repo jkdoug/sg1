@@ -1,0 +1,356 @@
+<triggers>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^(?:You shrug off the effects of the poison|You laugh in the face of \w+|Your increased immunity allows you to easily resist \w+|The poison forces you to gag slightly\, but your superior constitution shrugs off the nausea|Your blood boils as it throws off the effects of the poison rushing through your veins)\.$"
+   name="poisons_shrug__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^A coldness seeps deep into the marrow of your bones\.$"
+   name="poisons_mactans__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^Fiery pain courses through your veins\.$"
+   name="poisons_pyrotoxin__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^A prickly stinging overcomes your body\, fading away into numbness\.$"
+   name="poisons_mantakaya__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You watch\, in horror\, as your (left|right) arm shrivels up and becomes useless\.$"
+   name="poisons_dendroxin__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You stumble as your (left|right) leg shrivels into a useless appendage\.$"
+   name="poisons_calcise__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You feel a terrible thirst for elixirs grow within you\.$"
+   name="poisons_addiction__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^The idea of eating or drinking is repulsive to you\.$"
+   name="poisons_anorexia__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You feel a tightening sensation grow in your lungs\.$"
+   name="poisons_asthma__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You gasp as your fine\-tuned reflexes disappear into a haze of confusion\.$"
+   name="poisons_clumsiness__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You look about yourself\, frenzied and wild\-eyed\.$"
+   name="poisons_dementia__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^Your head spins as a sudden fit of dizziness overwhelms you\.$"
+   name="poisons_dizziness__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^Your nerves feel suddenly jangled\.$"
+   name="poisons_epilepsy__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You are feeling a bit peckish right now\.$"
+   name="poisons_gluttony__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^An uncomfortable squirming within your chest grips you\.$"
+   name="poisons_healthleech__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You suddenly feel lightheaded\.$"
+   name="poisons_hemophilia__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You shuffle your feet noisily\, suddenly bored\.$"
+   name="poisons_impatience__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^An odd sensation descends upon you\.$"
+   name="poisons_masochism__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^(?:Unthinking paranoia overcomes you|You look about yourself nervously)\.$"
+   name="poisons_paranoia__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^Your will to harm anything leaves you\.$"
+   name="poisons_peace__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You feel your control over your power begin to slip away\.$"
+   name="poisons_powersap__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^(?:None may stand in your way\! You are invincible\!|You reali[sz]e that your heroic actions can no longer continue unnoticed\, and you take it upon yourself to rectify the situation\.)$"
+   name="poisons_recklessness__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You feel light headed and dizzy\.$"
+   name="poisons_relapsing__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You feel ugliness radiating from you\.$"
+   name="poisons_repugnance__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^A prickly\, stinging sensation spreads through your body\.$"
+   name="poisons_sensitivity__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You notice that your sweat glands have begun to rapidly secrete a foul\, oily substance\.$"
+   name="poisons_slickness__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^Hmmmm\. Why must everything be so difficult to figure out\?$"
+   name="poisons_stupidity__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^Your vision is flooded with light\, and your face suddenly reddens\.$"
+   name="poisons_sunallergy__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You feel your allergy to the sun going into temporary remission\.$"
+   name="poisons_sunallergy2__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^You suddenly feel lightheaded and faint\.$"
+   name="poisons_vapors__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^The idea of heights makes you queasy suddenly\.$"
+   name="poisons_vertigo__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^A sense of extreme nausea washes over you\.$"
+   name="poisons_vomiting__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^Your limbs grow heavy and you groan feebly\.$"
+   name="poisons_weakness__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Poisons"
+   match="^Your belly gurgles and rumbles\.$"
+   name="poisons_worms__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+</triggers>
+
+
+<timers>
+  <timer
+   name="poisons_darts__"
+   second="50.00"
+   offset_second="0.00"
+   send_to="12"
+   group="Afflictions"
+  >
+  <send>EnableAlias("poisons_prompt__", true)
+EnableTimer("poisons_darts__", false)</send>
+  </timer>
+</timers>

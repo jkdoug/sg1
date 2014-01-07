@@ -1,0 +1,79 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   lines_to_match="2"
+   match="^([A-Z][a-z]+) swoops down from the skies towards you\, and grasps you firmly with [hH](?:is|er) talons\.\n(?:He|She) swiftly lifts you\, kicking and screaming\, into the skies\.$"
+   multi_line="y"
+   name="crow_scavenger_hoist__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With blinding speed\, ([A-Z][a-z]+) darts forward and pecks out your (left|right) eye\, and you scream in agony as blood flows down your face\. The eyeball plops messily to the ground\.$"
+   name="crow_eyepeck__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) retches suddenly before belching loudly\, sending a fresh stench of rotting flesh to waft through the air\.$"
+   name="crow_stench__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You cannot help but gag as you inhale the rotting stench\, the aroma wrecking your form and causing a sharp inner pain\.$"
+   name="crow_stenched__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:([A-Z][a-z]+) regurgitates a chunk of rotting flesh and spits it in your face\, and you cannot help but gag as the warm\, stinking glob slides down your skin|A dark spirit rises up from ([A-Z][a-z]+) and hisses at you\, spitting a glob of black slime in your face)\.$"
+   name="crow_disease__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^In a sudden buzz of excitement\, the pulsating cloud of seething\, diseased flies suddenly hurl themselves at your flesh\, causing you to scream in agony as they bury into your skin and feed off the blood from your tender wounds\.$"
+   name="crow_spew__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The loud caw of a crow from above makes you shiver\, just as ([A-Z][a-z]+) suddenly swoops down from the branches above and digs [hH](?:is|er) talons into your flesh\, dragging you back up into the trees\.$"
+   name="crow_trees__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

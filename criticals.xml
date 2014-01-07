@@ -1,0 +1,67 @@
+<aliases>
+  <alias
+   name="reset_crits__"
+   match="^\s*reset\s+crit(?:ical)?s?\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="criticals.reset"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="show_crits__"
+   match="^\s*crit(?:ical)?s?\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="criticals.show"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^You (?:wildly )?(?:swing|jab) .+? at .+?\. "
+   name="critical_swing__"
+   regexp="y"
+   script="criticals.attack"
+   sequence="100"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match=" (?:You almost lose your balance as your thrust fails to connect|Your weapon \w+ through the air\, missing completely)\.$"
+   name="critical_miss__"
+   regexp="y"
+   script="criticals.miss"
+   sequence="100"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   ignore_case="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^You have scored an? (.+?) hit\!\!?\!?$"
+   name="critical_hit__"
+   regexp="y"
+   script="criticals.hit"
+   sequence="100"
+  >
+  </trigger>
+</triggers>
+
+<!--
+The end of your cudgel forms a glowing burl and you point it at a slavering sandworm. The burl pops and ruptures, a swarm of crackling lightning bugs swirling about him and scourging his flesh with electricity.
+-->

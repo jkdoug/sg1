@@ -1,0 +1,281 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) weaves a glamour of radiant prismatic colours\, dazzling you with a burst of (.+?)\.$"
+   name="glamours_colourburst__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) spreads [hH](?:is|er) hands wide and weaves a vibrant spray of prismatic colours that dance and swirl through the air in a riotous pandemonium of hues\.$"
+   name="glamours_colourspray__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Wild\, abstract shapes of (.+?) splatter across your vision\, sending you reeling\.$"
+   name="glamours_coloursprayed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) weaves [hH](?:is|er) hands towards you and light erupts into fascinating patterns that overwhelm your senses\.$"
+   name="glamours_fascination__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are too close to the fireworks and are caught in the blazing explosion\!$"
+   name="glamours_fireworks__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) weaves a beautiful swirl of rainbow\-coloured lights\, casting them into alluring patterns of barely restrained imagery\. With a graceful gesture\, (?:[hH]|[sS]h)e conducts the rainbow patterns to spin recklessly around you\.$"
+   name="glamours_rainbowpattern__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Rainbows"
+   match="^You heave a sigh of relief as the beautiful and maddening rainbow patterns that swirl feverishly around you fade away in a multi\-coloured smoke\.$"
+   name="glamours_rainbows_done__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Rainbows"
+   lines_to_match="2"
+   match="^Bright red bubbles float by as your mind drifts from confusion\.\nBlood drips from your nose as the rainbow lights swirl around you in a maddening frenzy\.$"
+   multi_line="y"
+   name="glamours_rainbows_confusion__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Rainbows"
+   lines_to_match="2"
+   match="^Melting orange clocks seep across the ground as contorted animals march past\.\nBlood drips from your nose as the rainbow lights swirl around you in a maddening frenzy\.$"
+   multi_line="y"
+   name="glamours_rainbows_hallucinations__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Rainbows"
+   lines_to_match="2"
+   match="^Glowing yellow bursts of light flash across your vision\, filling you with unsated desire\.\nBlood drips from your nose as the rainbow lights swirl around you in a maddening frenzy\.$"
+   multi_line="y"
+   name="glamours_rainbows_addiction__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Rainbows"
+   lines_to_match="2"
+   match="^Abstract green blotches spin around you\, causing you to stumble\.\nBlood drips from your nose as the rainbow lights swirl around you in a maddening frenzy\.$"
+   multi_line="y"
+   name="glamours_rainbows_clumsiness__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Rainbows"
+   lines_to_match="2"
+   match="^Vivid blue spirals spin wildly around you\, and suddenly you are seeing double\.\nBlood drips from your nose as the rainbow lights swirl around you in a maddening frenzy\.$"
+   multi_line="y"
+   name="glamours_rainbows_dizziness__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Rainbows"
+   lines_to_match="2"
+   match="^Blinding violet lights flash maddeningly in front of your eyes\, which twitch uncontrollably\.\nBlood drips from your nose as the rainbow lights swirl around you in a maddening frenzy\.$"
+   multi_line="y"
+   name="glamours_rainbows_epilepsy__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Rainbows"
+   lines_to_match="2"
+   match="^Snaking vines of dark indigo creep across your skin\, holding you tight\.\nBlood drips from your nose as the rainbow lights swirl around you in a maddening frenzy\.$"
+   multi_line="y"
+   name="glamours_rainbows_paralysis__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   lines_to_match="2"
+   match="^([A-Z][a-z]+) weaves [hH](?:is|er) hands and fountains of dazzling light flare across your vision\, erupting in novas of colour that burn into your eyes\.\n(A dazzling orange afterimage burns into your sight\.|Vision returns\, though you no longer see the world through the sixth sense\.)$"
+   multi_line="y"
+   name="glamours_flare__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Dazzling lights flash across your vision\, leaving you with naught but a fading orange afterimage\.$"
+   name="glamours_afterimage__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) weaves a soothing\, mesmeri[sz]ing glamour around you\. The gentle\, soft lights are hypnotic to watch\, and soon you find your eyelids growing heavy\.$"
+   name="glamours_mesmerize__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:([A-Z][a-z]+) weaves the light into a shifting net of bewitching lights that dance around you in hypnotic patterns|Glowing lights swirl around you in a slow\, graceful dance of hypnotic patterns\, disrupting your concentration)\.$"
+   name="glamours_hypnoticpattern__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) spreads [hH](?:is|er) hands wide and weaves a dancing morass of flickering\, coloured light about [hH](?:im|er)\. With a clap\, \1 sends it spraying outwards\, the light congealing into a wave of technicoloured flames that rush over you with a cool sensation\.$"
+   name="glamours_lightspray__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^As the illusory flames wash over you\,? some begin to cling\, illuminating your figure\.$"
+   name="glamours_lightsprayed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The maelstrom of rainbow colours whips violently around\, slamming (.+?) into you\.$"
+   name="glamours_colourmaelstrom__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) traces blasphemous patterns in the air with [hH](?:is|er) finger\, weaving a deadly glamour that constricts tightly around you\, unraveling your defenses\.\n\d+h\,"
+   name="glamours_deadlypattern__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) deftly traces the pattern of a vast\, labyrinthine maze\, too convoluted to follow with your eye\. Sweat drips down [hH](?:is|er) brow as the maze bursts into vibrant reality and vanishes\, yet the powerful vortex left in its wake sucks you violently into its depths\.$"
+   name="glamours_maze__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As the illusory maze fades away\, you are buffeted by screaming streaks of colour\,? which leave you disoriented and feeling sick\.$"
+   name="glamours_maze_done__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>
+
+<timers>
+  <timer
+   name="glamours_rainbowpatterns__"
+   minute="1"
+   second="30.00"
+   offset_second="0.00"
+   script="affs.process"
+   group="Afflictions"
+  >
+  </timer>
+</timers>

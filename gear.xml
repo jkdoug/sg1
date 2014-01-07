@@ -1,0 +1,209 @@
+<aliases>
+  <alias
+   name="rift_outr__"
+   match="^\s*outr(?:\s+(?:\d+|all))?\s+(\w+)\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Send("%0")
+flags.set("outr_try", "%1", 2)</send>
+  </alias>
+
+  <alias
+   name="potion_summary__"
+   match="^\s*[pv]sum\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>EnableTriggerGroup("PotionListHide", true)
+Send("pl")</send>
+  </alias>
+  <alias
+   name="potion_show__"
+   match="^\s*[pv]show\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="gear.show_potions"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="herb_show__"
+   match="^\s*(?:hshow|herbs)\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="gear.show_herbs"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+
+  <alias
+   name="gear_wielded__"
+   match="^\s*wielded\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.set("check_wielded", true, 2)
+Send("wielded")</send>
+  </alias>
+  <alias
+   name="gear_items__"
+   match="^OnGMCP Char\.Items\.List (.+?)$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="gear.items_list"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="gear_items_add__"
+   match="^OnGMCP Char\.Items\.Add (.+?)$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="gear.items_add"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="gear_items_remove__"
+   match="^OnGMCP Char\.Items\.Remove (.+?)$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="gear.items_remove"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="gear_items_update__"
+   match="^OnGMCP Char\.Items\.Update (.+?)$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="gear.items_update"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="gear_rift_list__"
+   match="^OnGMCP IRE\.Rift\.List (.+?)$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="gear.rift_list"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="gear_rift_change__"
+   match="^OnGMCP IRE\.Rift\.Change (.+?)$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="gear.rift_change"
+   sequence="10000"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   lines_to_match="3"
+   match="^\*+\nId\s+Container\s+Contents\s+Sips\s+Months\s*\n\-+$"
+   multi_line="y"
+   name="potionlist__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>gear.reset_potions()
+EnableTriggerGroup("PotionList", true)</send>
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="PotionListHide"
+   match="^(?:[\*\-]+|Id\s+Container\s+Contents\s+Sips\s+Months\s*|\d+\s+.+?\s+\d+\s+(?:\d+|\*))$"
+   name="hpotionlist__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send></send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="PotionListHide"
+   match="^Total Containers\: \d+$"
+   name="hpotionlist_done__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  <send>EnableGroup("PotionListHide", false)
+gear.show_potions(true)</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   lines_to_match="3"
+   match="^\*+\nId\s+Container\s+Contents\s+Sips\s+Months\s*\n\-+$"
+   multi_line="y"
+   name="potionlist__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>gear.reset_potions()
+EnableTriggerGroup("PotionList", true)</send>
+  </trigger>
+
+  <trigger
+   enabled="n"
+   expand_variables="y"
+   group="PotionList"
+   keep_evaluating="y"
+   match="^(\d+)\s+(.{30})\s+(\(?.+?\)?)\s+(\d+)\s+(\d+|\*)$"
+   name="potionlist_add_elixir__"
+   regexp="y"
+   script="gear.add_potion"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="PotionList"
+   keep_evaluating="y"
+   match="^Total Containers\: \d+$"
+   name="potionlist_done__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>EnableGroup("PotionList", false)</send>
+  </trigger>
+</triggers>

@@ -1,0 +1,48 @@
+<aliases>
+  <alias
+   name="showkills__"
+   match="^\s*tkills(?:\s+(\w+))?\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="kills.show_kills"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="showdeaths__"
+   match="^\s*tdeaths(?:\s+(\w+))?\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="kills.show_deaths"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You have slain (.+?)\.$"
+   name="killed__"
+   regexp="y"
+   script="kills.win"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^You have been slain by (.+?)\.$"
+   name="died__"
+   regexp="y"
+   script="kills.lose"
+   sequence="9000"
+  >
+  </trigger>
+</triggers>

@@ -1,0 +1,55 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) suddenly leaps forward\, flipping into the air and slamming [hH](?:is|er) feet against you\.$"
+   name="acrobatics_forwardflip__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The bones in your (left|right) (arm|leg) suddenly snap\.$"
+   name="acrobatics_flipleg__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) tumbles into a backflip to the \w+\, kicking you in the back of the knee\, which gives out and trips you to the ground in the process\.$"
+   name="acrobatics_backflip__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) suddenly jumps up into the air from far below\, grabbing you firmly around the torso and flinging you towards the earth as it rushes up to meet you\.$"
+   name="acrobatics_highjump__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) flings [hH](?:is|er) leg out in a vicious jumpkick that slams ringingly into your head\, sending you toppling to the ground\.$"
+   name="acrobatics_jumpkick__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

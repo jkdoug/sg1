@@ -1,0 +1,2330 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:White teeth shining brightly\, you flash a compellingly charismatic smile to all around you|You feel the presence of [A-Z][a-z]+ next to you|The blood of [A-Z][a-z]+ surges through .+?\, washing you with its healing powers|Frothy water swirls at your feet and glowing foam travels up your body)\.$"
+   name="cure_generally__"
+   regexp="y"
+   script="main.cures_on"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The healing presence of (?:[A-Z][a-z]+\'s|your) spirit totem washes over you\.$"
+   name="cure_totem__"
+   regexp="y"
+   script="cures.dn.allcure"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You are also caught in the ray of light\.$"
+   name="cure_moon_full__"
+   regexp="y"
+   script="cures.dn.allcure"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Swinging about in a wild dance\, you call down upon the powers of the moon to heal you of afflictions\. A soft beam of moonlight suffuses you, curing you of sickness\.$"
+   name="cure_moon_full2__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("power_cure_try") == "moondance full" then
+  prompt.illqueue(function () defs.add("prismatic") end)
+  flags.set("last_cure", "moon full")
+  flags.clear("power_cure_try")
+end
+main.allcure(true)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Pressing your hands together before you\, you concentrate on your heart chakra\. An emerald glow suffuses your chest and you feel your afflictions drain away\.$"
+   name="cure_invoke_green__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("power_cure_try") == "invoke green" then
+  flags.set("last_cure", "invoke green")
+  flags.clear("power_cure_try")
+end
+main.allcure(true)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Muttering the secret names of Gedulah\, you trace a glowing circle above you\. The circle passes through your body and you feel your afflictions drain away\.$"
+   name="cure_evoke_gedulah__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("power_cure_try") == "evoke gedulah" then
+  flags.set("last_cure", "evoke gedulah")
+  flags.clear("power_cure_try")
+end
+main.allcure(true)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You bathe in the glory of the holy light that surrounds you\.$"
+   name="cure_holylight__"
+   regexp="y"
+   script="cures.dn.allcure"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The presence of your Deity\'s avatar soothes you\.$"
+   name="cure_exalt_aura__"
+   regexp="y"
+   script="cures.dn.allcure"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The divine aura of curing around you hums briefly as it draws an affliction from your body\.$"
+   name="cure_shrine__"
+   regexp="y"
+   script="cures.dn.allcure"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:A warm zephyr caresses your skin and clears your mind|You pass through a pink cloud and feel refreshed|A westerly breeze brings in a clean\,? sweet scent that invigorates your body)\.$"
+   name="cure_westwind__"
+   regexp="y"
+   script="cures.dn.allcure"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^With an heroic effort\,? you manage to writhe yourself free from the (cross|antlers|(?:only |second )?blade through your (?:left|right) foot|blade through your gut)\.$"
+   name="cure_impaleheroic__"
+   regexp="y"
+   script="cures.dn.unimpaled"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^With a snarl of contempt\, [A-Z][a-z]+ allows you to slide free of [hH](?:is|er) antlers\.$"
+   name="cure_antlers_withdraw__"
+   regexp="y"
+   script="cures.dn.unimpaled_antlers"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^With a snarl of contempt\, [A-Z][a-z]+ withdraws [hH](?:is|er) weapon from your (gut|left leg|right leg)\.$"
+   name="cure_impaled_withdraw__"
+   regexp="y"
+   script="cures.dn.unimpaled_withdraw"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^A pale glow surrounds you as the moonwater soothes you\.$"
+   name="cure_moonwater__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>main.allcure(true)
+defs.del_queue("moonwater")
+flags.set("last_cure", "sip allheale")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Energy wreathes itself about your body to heal your limbs\.$"
+   name="cure_restoration__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>main.cures_on()
+flags.clear("restore_try")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You return to the normal timestream\.$"
+   name="cure_aeon__"
+   regexp="y"
+   script="affs.unaeon"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You sneeze suddenly and\, with great relief\, feel that your allergies have cleared up completely\.$"
+   name="cure_allergies__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You suddenly sneeze\,? then feel your allergies settle down slightly\.$"
+   name="cure_allergies_level__"
+   regexp="y"
+   script="cures.dn.allergies"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You sense the choking effect of the shadow leaving you\.$"
+   name="cure_choke__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The dark fate shrouding your mind has passed\.$"
+   name="cure_darkfate__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You sigh in relief as the ravaging plague subsides\.$"
+   name="cure_homeostasis__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You have fully recovered your breath\.$"
+   name="cure_hyperventilating__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You carefully writhe out of ([A-Z][a-z]+)\'s grapple\, escaping [hH](?:is|er) grasp\.$"
+   name="cure_grapple_person__"
+   regexp="y"
+   script="cures.dn.grapple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) loses control of [hH](?:is|er) grapple on you\.$"
+   name="cure_grapple_lost__"
+   regexp="y"
+   script="cures.dn.grapple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You have writhed free of your (ropes|tight bindings|state of transfixion|entanglement|thorny vines|shackles)(\, slicing flesh into bloody ribbons)?\.$"
+   name="cure_writhed__"
+   regexp="y"
+   script="cures.dn.writhed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You begin to writhe helplessly\, throwing your body off balance\.$"
+   name="cure_clear_writhe__"
+   regexp="y"
+   script="cures.nc.writhe"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^There is no beast clamped onto you\! You begin to writhe helplessly\, throwing your body off balance\.$"
+   name="cure_clear_writhe_clamp__"
+   regexp="y"
+   script="cures.nc.writhe_clamp"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You aren\'t entangled\! You begin to writhe helplessly\, throwing your body off balance\.$"
+   name="cure_clear_writhe_entangle__"
+   regexp="y"
+   script="cures.nc.writhe_entangle"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You aren\'t grappled\! You begin to writhe helplessly\, throwing your body off balance\.$"
+   name="cure_clear_writhe_grapple__"
+   regexp="y"
+   script="cures.nc.writhe_grapple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You aren\'t hoisted\! You begin to writhe helplessly\, throwing your body off balance\.$"
+   name="cure_clear_writhe_hoist__"
+   regexp="y"
+   script="cures.nc.writhe_hoist"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You aren\'t bound in ropes\! You begin to writhe helplessly\, throwing your body off balance\.$"
+   name="cure_clear_writhe_ropes__"
+   regexp="y"
+   script="cures.nc.writhe_ropes"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You aren\'t shackled\! You begin to writhe helplessly\, throwing your body off balance\.$"
+   name="cure_clear_writhe_shackles__"
+   regexp="y"
+   script="cures.nc.writhe_shackles"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You aren\'t transfixed\! You begin to writhe helplessly\, throwing your body off balance\.$"
+   name="cure_clear_writhe_transfix__"
+   regexp="y"
+   script="cures.nc.writhe_transfix"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You aren\'t trussed up\! You begin to writhe helplessly\, throwing your body off balance\.$"
+   name="cure_clear_writhe_truss__"
+   regexp="y"
+   script="cures.nc.writhe_truss"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^There are no vines around you\! You begin to writhe helplessly\, throwing your body off balance\.$"
+   name="cure_clear_writhe_vines__"
+   regexp="y"
+   script="cures.nc.writhe_vines"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your (scalp|left arm|left leg|right arm|right leg) is sliced to shreds as the thorny vines are ripped away\.$"
+   name="cure_writhed_thorns__"
+   regexp="y"
+   script="cures.dn.writhed_thorns"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^(?:Turning your head to the south\, you beseech the Spirits of Summer to set you free\. A sparkling wind comes forth from the south|Muttering the secret names of Tipheret\, you clench your fists\,? which begin to glow\. The glow spreads across your body)"
+   name="cure_fastwrithe__"
+   regexp="y"
+   script="cures.dn.fastwrithe"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cleanse"
+   match="^The vile black gunk that covers your body dissolves\.$"
+   name="cure_gunk_cleanse__"
+   regexp="y"
+   script="cures.dn.cleansed_gunk"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cleanse"
+   match="^The raging fire about your skin goes out\.$"
+   name="cure_ablaze_cleanse__"
+   regexp="y"
+   script="cures.dn.cleansed_ablaze"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The majesty of Mother Moon fades from your mind\.$"
+   name="cure_succumbing__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("curing_succumb") then
+  affs.del_queue("succumbing")
+end</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your muscles unlock\; you are no longer paralysed\.$"
+   name="cure_paralysis__"
+   regexp="y"
+   script="cures.dn.focused_body"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You feel the muscles in your legs unlocking\.$"
+   name="cure_leg_locked__"
+   regexp="y"
+   script="cures.dn.focused_body"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You feel the muscles in your throat opening up again\.$"
+   name="cure_throat_locked__"
+   regexp="y"
+   script="cures.dn.focused_body"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You shrug off your impatience and focus your mind once again\.$"
+   name="cure_impatience_focus__"
+   regexp="y"
+   script="cures.dn.focused_mind"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Dexterity returns to your (left|right) arm as your cracked elbow heals\.$"
+   name="cure_arms_elbow___"
+   regexp="y"
+   script="cures.dn.regenerate"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your nervous system calms down as the collapsed nerve in your (left|right) arm mends\.$"
+   name="cure_arms_nerve___"
+   regexp="y"
+   script="cures.dn.regenerate"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The pain in your chest clears as your heart resumes its normal rhythm\.$"
+   name="cure_chest_chest_pain__"
+   regexp="y"
+   script="cures.dn.regenerate"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your chest expands as your entire ribcage heals and cracks into place\.$"
+   name="cure_chest_crushed_chest__"
+   regexp="y"
+   script="cures.dn.regenerate"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The pain in your gut subsides as health returns to your internal organs\.$"
+   name="cure_gut_burst_organs__"
+   regexp="y"
+   script="cures.dn.regenerate"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The pain in your gut subsides as your innards regenerate\.$"
+   name="cure_gut_disemboweled__"
+   regexp="y"
+   script="cures.dn.regenerate"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The pains in your stomach subside\.$"
+   name="cure_gut_ruptured_gut__"
+   regexp="y"
+   script="cures.dn.regenerate"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Miraculously\, your spinal system regenerates\, restoring feeling to the rest of your body\.$"
+   name="cure_gut_severed_spine__"
+   regexp="y"
+   script="cures.dn.regenerate"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The bones in your (left|right) ankle mend\.$"
+   name="cure_legs_ankle___"
+   regexp="y"
+   script="cures.dn.regenerate"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Dexterity returns to your legs as your cracked (left|right) kneecap heals\.$"
+   name="cure_legs_kneecap___"
+   regexp="y"
+   script="cures.dn.regenerate"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The tendon in your (left|right) leg reattaches itself\.$"
+   name="cure_legs_tendon___"
+   regexp="y"
+   script="cures.dn.regenerate"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your (left|right) (arm|leg) is greatly healed\, but still damaged\.$"
+   name="cure_mangledlimb_broken__"
+   regexp="y"
+   script="cures.dn.regenerate_limb"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your ability to breathe greatly improves as your collapsed lung fills with air once again\.$"
+   name="cure_collapsedlungs__"
+   regexp="y"
+   script="cures.dn.regenerate_collapsed_lungs"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your head is greatly healed\, but still damaged\.$"
+   name="cure_concussion1__"
+   regexp="y"
+   script="cures.dn.regenerate_concussion1"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^As your concussion lifts\, your thinking becomes clearer\.$"
+   name="cure_concussion2__"
+   regexp="y"
+   script="cures.dn.regenerate_concussion2"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your head feels stronger and healthier\.$"
+   name="cure_damaged_head__"
+   regexp="y"
+   script="cures.dn.regenerate_damaged_head"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your (left|right) eye socket itches as a new eyeball suddenly fills the empty cavity\.$"
+   name="cure_losteye__"
+   regexp="y"
+   script="cures.dn.regenerate_lost_eye"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your jaw partially realigns into place as the bones there partially heal\.$"
+   name="cure_shattered_jaw__"
+   regexp="y"
+   script="cures.dn.regenerate_shattered_jaw"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^A new (left|right) (arm|leg) grows where the old one was\, though one that is quite sickly and in poor repair\.$"
+   name="cure_severedlimb_mangled__"
+   regexp="y"
+   script="cures.dn.regenerate_limb"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The thorny vines on your (head|left arm|left leg|right arm|right leg) wither away\.$"
+   name="cure_thorns_limb__"
+   regexp="y"
+   script="cures.dn.thorns_ignited"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Sipping"
+   match="^You feel one of your burst blood vessels knit back together\.$"
+   name="cure_burst_vessel__"
+   regexp="y"
+   script="cures.dn.burst_vessel"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Sipping"
+   match="^You feel the last of your burst blood vessels knit back together\.$"
+   name="cure_burst_vessels__"
+   regexp="y"
+   script="cures.dn.burst_vessels"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^You feel your health\, mana and ego replenished\.$"
+   name="sparkleberry_healing__"
+   regexp="y"
+   script="cures.dn.sparkle"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The dazzling afterimage fades from your vision\.$"
+   name="cure_afterimage__"
+   regexp="y"
+   script="cures.dn.afterimage"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your bout of bad luck has ended\.$"
+   name="cure_bad_luck__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You do not bleed\, my friend\.$"
+   name="cure_bleeding_all__"
+   omit_from_output="y"
+   regexp="y"
+   script="cures.dn.bleeding_all"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The ache in your ear canals clears up\.$"
+   name="cure_earache__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You no longer feel lightheaded and weak\.$"
+   name="cure_lightheaded__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The sense of impending doom lifts\.$"
+   name="cure_omen__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You are capable of offensive acts once more\.$"
+   name="cure_pacifism__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The phantom shadows that plague your mind are lifted\.$"
+   name="cure_phantoms__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your fingers and toes begin to tingle\, and before long the grey fades from your skin and flushes a healthy colour\. You are no longer a statue\!$"
+   name="cure_statue__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The ugly\, cankerous sores on your skin clear up and close\.$"
+   name="cure_taint_sick__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your mind is no longer being drained by [A-Z][a-z]+\.$"
+   name="cure_vampirism__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You are no longer stunned( and have a brief stun immunity)?\.$"
+   name="cure_stunned__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if affs.has("stunned") and #"%1" &gt; 0 then
+  flags.set("stun_immunity", true, 2)
+end
+affs.del_queue("stunned")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You are no longer immune from stun\.$"
+   name="stun_unimmune__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.clear("stun_immunity")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You feel the curse of the (Bat|Herb|Snake) Bane lift(?:s|ed) from your being\.$"
+   name="cure_bane__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del_queue("bane_" .. string.lower("%1"))</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:You open your eyes and (?:yawn mightily|stretch languidly\, feeling deliciously well\-rested)|You already are awake|You are jerked awake by the (?:pain|need to vomit))\.$"
+   name="cure_asleep__"
+   regexp="y"
+   script="actions.waked"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The (.+?) aura surrounding you dissipates\.$"
+   name="cure_healing_aura__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if "%1" == "deadly bedeviling" then
+  affs.del_queue("bedeviled")
+  flags.clear("bedeviler")
+  failsafe.disable("bedevil")
+elseif "%1" == "deadly aurawarp" then
+  affs.del_queue{"aurawarp", "homeostasis"}
+  flags.clear("aurawarper")
+  failsafe.disable("aurawarp")
+end</send>
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^(?:The raging fire about your skin goes out|Steam rises from your skin as the fires that plague you are extinguished|You sigh in relief as the fire on your body flickers and fades|With a loud hiss of steam\, you sigh in relief as the waters put out the flames on your body|The biting cold of the water washes over you and extinguishes the flames on you)\.$"
+   name="cure_ablaze__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The screeching fades away from your inner hearing\.$"
+   name="cure_achromatic__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your terrible addiction to lovely elixirs seems to wane\.$"
+   name="cure_addiction__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You can handle the idea of open spaces again\.$"
+   name="cure_agoraphobia__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The angelic host focused on you vanish(?:es)? in a blaze of empyreal light\.$"
+   name="cure_angelic_host__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Food is no longer repulsive to you\.$"
+   name="cure_anorexia__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The flow of blood recedes as your forehead cuts mend\.$"
+   name="cure_artery_head__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The flow of blood recedes as your (left|right) (arm|leg)\'s main artery mends\.$"
+   name="cure_artery_limb__"
+   regexp="y"
+   script="cures.dn.side_limb"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your bronchial tubes open up and your asthma is cured\.$"
+   name="cure_asthma__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your strength surges as your (left|right) bicep mends\.$"
+   name="cure_bicep__"
+   regexp="y"
+   script="cures.dn.side"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The Binah Sphere no longer surrounds you\.$"
+   name="cure_binah_sphere__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You breathe easier as your lungs clear up of the dreadful black phlegm\.$"
+   name="cure_black_lung__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your bleeding slows as your blood clots\.$"
+   name="cure_bleeding__"
+   regexp="y"
+   script="cures.dn.bleeding"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Blessed sight returns to you\.$"
+   name="cure_blindness__"
+   regexp="y"
+   script="cures.dn.blindness"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The pain in your (left|right) (hip|shoulder) recedes as the blood clot there dissolves\.$"
+   name="cure_blood_clot__"
+   regexp="y"
+   script="cures.dn.blood_clot"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You can breathe easier as your ribs snap into place\.$"
+   name="cure_broken_chest__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your jaw clicks into place as the bones there heal\.$"
+   name="cure_broken_jaw__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del_queue{"broken_jaw", "shattered_jaw"}</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The bones in your (left|right) (arm|leg) mend\.$"
+   name="cure_broken_limb__"
+   regexp="y"
+   script="cures.dn.broken_limb"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The salve fizzles away without effect\.$"
+   name="cure_broken_limb_fizzle__"
+   regexp="y"
+   script="cures.dn.broken_limb_fizzle"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^With a loud crack\, your broken nose straightens and heals\.$"
+   name="cure_broken_nose__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The broken bones of your (left|right) wrist click into place and become whole\.$"
+   name="cure_broken_wrist__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del_queue("broken_%1wrist")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your burnt flesh is soothed\.$"
+   name="cure_burns__"
+   regexp="y"
+   script="cures.dn.burns"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^(?:You heal some of your burns\,? but you still have (first|second|third|fourth) degree burns|You completely heal your burn damage)\.$"
+   name="cure_burned__"
+   regexp="y"
+   script="cures.dn.burned"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You have writhed free of the jaws of the mutt clamped on your (left|right) arm\.$"
+   name="cure_clamped__"
+   regexp="y"
+   script="cures.dn.clamped"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Small spaces no longer frighten you\.$"
+   name="cure_claustrophobia__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Thank Estarra\! Your clumsiness has been cured\.$"
+   name="cure_clumsiness__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^A coil of cloud choking you disperses\.$"
+   name="cure_coils__"
+   regexp="y"
+   script="cures.dn.coils"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The confusion lifts from your mind and it is clear once again\.$"
+   name="cure_confusion__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The potion burns through your veins\, destroying the deadly poisons that are killing you\.$"
+   name="cure_crotamine__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The cartilage and nerves in your windpipe heal and your voice returns\.$"
+   name="cure_crushed_windpipe__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The curse of the dark moon passes from your spirit\.$"
+   name="cure_darkmoon__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You mind quickly focuses on the real world\, shrugging off childish daydreams\.$"
+   name="cure_daydreams__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You are no longer deadened\.$"
+   name="cure_deadening__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The sounds of the world gradually return to you\.$"
+   name="cure_deafness__"
+   regexp="y"
+   script="cures.dn.deafness"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You feel the dark mark upon your body finally disappear\.$"
+   name="cure_deathmark__"
+   regexp="y"
+   script="cures.dn.deathmark"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You laugh off the circuitous logic in your arguments\.$"
+   name="cure_debate_circuitous__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The patience of a saint surrounds you\, and you refuse to hurry\.$"
+   name="cure_debate_hurry__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your mind suddenly cuts through the loopholes in the discussion\.$"
+   name="cure_debate_loophole__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The deep damage in your (head|chest|gut|left arm|left leg|right arm|right leg) (completely|partially) heals\.$"
+   name="cure_deepwounds__"
+   regexp="y"
+   script="cures.dn.deepwounds"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Sanity returns to you and you are no longer demented\.$"
+   name="cure_dementia__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Pain flares in your (left|right) (shoulder|hip) as your joints re\-seat themselves\.$"
+   name="cure_dislocated_limb__"
+   regexp="y"
+   script="cures.dn.dislocated_limb"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You step back into the normal timestream\.$"
+   name="cure_displacement__"
+   regexp="y"
+   script="cures.dn.displacement"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You begin intense concentration to restore your equilibrium\.$"
+   name="cure_disrupted__"
+   regexp="y"
+   script="cures.dn.disrupted"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You are no longer dizzy\.$"
+   name="cure_dizziness__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your haunts from the dreaming fade away\.$"
+   name="cure_dreamer__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your bowels calm themselves\.$"
+   name="cure_dysentery__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Despite your past failures in discourse\, your self\-confidence returns once again\.$"
+   name="cure_ego_shattered__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The oppressive whispering in your mind dies out\.$"
+   name="cure_ego_vice__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Strength returns as your shriveled muscles plump up\.$"
+   name="cure_enfeebled__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your nerves suddenly calm down\.$"
+   name="cure_epilepsy__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^There is nothing to fear but fear itself\.$"
+   name="cure_fear_compose__"
+   regexp="y"
+   script="cures.dn.fear"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your fear has been cured\.$"
+   name="cure_fear__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^A feeling of comfortable warmth spreads over you\.$"
+   name="cure_fire__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("fire")
+affs.del_queue{"frozen", "shivering"}</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your step becomes more confident as the bones in your (left|right) foot mend\.$"
+   name="cure_foot__"
+   regexp="y"
+   script="cures.dn.side"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your double vision subsides as the breaks in your skull fuse together\.$"
+   name="cure_fractured_head__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The fracture in the bones of your (left|right) (arm) knit together\.$"
+   name="cure_fractured_limb__"
+   regexp="y"
+   script="cures.dn.side_limb"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^A chill runs over your icy skin\.$"
+   name="cure_frost__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("frost")
+affs.del_queue("ablaze")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Though still shivering\, you are no longer frozen solid\.$"
+   name="cure_frozen__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del_queue("frozen")
+affs.add_queue("shivering")
+defs.del_queue("fire")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The bleeding in your brow subsides\.$"
+   name="cure_furrowed_brow__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^A jolting surge rumbles through your insides\.$"
+   name="cure_galvanism__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>defs.add_queue("galvanism")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The twitching in your face settles down\.$"
+   name="cure_gashed_cheek__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your gluttonous desires subside\.$"
+   name="cure_gluttony__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your hallucinations cease to plague you\.$"
+   name="cure_hallucinations__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your aching\, pain\-wracked body is soothed and calmed\.$"
+   name="cure_healthleech__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your (left|right) side tingles as feeling returns\.$"
+   name="cure_hemiplegy__"
+   regexp="y"
+   script="cures.dn.side"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your lower body tingles as feeling returns\.$"
+   name="cure_hemiplegy_legs__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your blood regains its ability to clot\.$"
+   name="cure_hemophilia__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^[A-Z][a-z]+ suddenly releases (?:[hH]is|[hH]er) vice\-like grip on you\.$"
+   name="cure_hoisted__"
+   regexp="y"
+   script="cures.dn.hoisted"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You feel a bit more alert and awake\.$"
+   name="cure_hypersomnia__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The hypnotic lights that dance around you in beguiling patterns suddenly dissipate\.$"
+   name="cure_hypnotic_patterns__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^My\, you feel healthier than you have in years\.$"
+   name="cure_hypochondria__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del_queue("hypochondria")
+flags.clear("hypochondriac")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You notice the glow illuminating you fades away\.$"
+   name="cure_illuminated__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You are patient once again\.$"
+   name="cure_impatience__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You no longer have any temporary insanity\.$"
+   name="cure_insanity__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your sanity partially returns\, but you still suffer from a (slight|moderate|major|massive) case of temporary insanity\.$"
+   name="cure_insanity_partial__"
+   regexp="y"
+   script="cures.dn.insanity"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You sigh in relief as the jinx that confounds your mind lifts\.$"
+   name="cure_jinx__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The curse of justice leaves you\.$"
+   name="cure_justice__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The flow of blood recedes as your (left|right) (arm|leg)\'s laceration mends\.$"
+   name="cure_lacerated_limb__"
+   regexp="y"
+   script="cures.dn.side_limb"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The lethargy evaporates\, leaving you full of energy\.$"
+   name="cure_lethargy__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The awful loneliness leaves you\.$"
+   name="cure_loneliness__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your hearing sharpens as your (left|right) ear regenerates\.$"
+   name="cure_lostear__"
+   regexp="y"
+   script="cures.dn.side"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Mmmm\! You are seized with a sudden desire to find a mate\!$"
+   name="cure_love__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.add_queue("love")
+SetVariable("sg1_aff_love", 1)
+affs.del_queue("repugnance", true)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^What were you thinking\? You have no desire to find a mate\.$"
+   name="cure_love_no__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del_queue("love")
+DeleteVariable("sg1_aff_love")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You shake your head\, wondering what you ever saw in "
+   name="cure_lovers__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^An ominous noise lifts from within your mind\.$"
+   name="cure_manabarbs__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You no longer enjoy pain\.$"
+   name="cure_masochism__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You shrug off your narcoleptic tendencies\.$"
+   name="cure_narcolepsy__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^A warmth flows through your (chest|gut|head|left arm|left leg|right arm|right leg)\.$"
+   name="cure_numb__"
+   regexp="y"
+   script="cures.dn.numb"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your amplified fears start to settle down\.$"
+   name="cure_omniphobia__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The curse of Papaxi upon your (ego|health|mana)(?: reserves)? lifts\.$"
+   name="cure_papaxi__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del_queue("%1_curse")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Aaaahhh\. No one is out to get you after all\.$"
+   name="cure_paranoia__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The unnatural feeling of peace leaves you\.$"
+   name="cure_peace__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You (?:breathe easier as one of the|heave a sigh of relief as the last of the) phantom spheres inhabiting your brain dissipates\.$"
+   name="cure_phantomsphere__"
+   regexp="y"
+   script="cures.dn.phantomsphere"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your breath returns to you\.$"
+   name="cure_phrenic_nerve__"
+   regexp="y"
+   script="cures.dn.phrenic_nerve"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The hole impaling your (left|right) (arm|leg) muscles closes\.$"
+   name="cure_pierced_limb__"
+   regexp="y"
+   script="cures.dn.side_limb"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The dark thrumming presence around you dissipates\.$"
+   name="cure_power_spikes__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The sapping of your power subsides\.$"
+   name="cure_powersap__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The mental weakness you suffer subsides\.$"
+   name="cure_powersink__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The sores on your skin dry up and disappear\.$"
+   name="cure_pox__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your strength returns as your punctured chest mends\.$"
+   name="cure_punctured_chest__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You breathe easier as your punctured lung mends\.$"
+   name="cure_punctured_lung__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Prudence rules your psyche once again\.$"
+   name="cure_recklessness__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You feel your blood thickening\.$"
+   name="cure_relapsing__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You no longer will inspire disloyalty among friends\.$"
+   name="cure_repugnance__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your muscles relax as the rigormortis subsides\.$"
+   name="cure_rigormortis__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Oh\, thank the gods\! The infernal itching has subsided at long last\.$"
+   name="cure_scabies__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your scalp grows back but your forehead still has some remaining wounds\.$"
+   name="cure_scalped__"
+   regexp="y"
+   script="cures.dn.scalped"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Some insect has crawled up your throat and into your mouth\. You gag and spit out a sickly green beetle\.$"
+   name="cure_scarab__"
+   regexp="y"
+   script="cures.dn.scarab"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your thoughts coalesce into better focus\.$"
+   name="cure_scrambled__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The stinging feeling fades\.$"
+   name="cure_sensitivity__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your body warms up and you stop shivering\.$"
+   name="cure_shivering__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del_queue{"shivering", "frozen"}
+defs.del_queue("fire")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You take a deep gasp and regain better control of your lungs\.$"
+   name="cure_short_breath__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your shyness has been cured\. You can now face the world boldly\.$"
+   name="cure_shyness__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The gaping wound in your chest closes up\.$"
+   name="cure_sliced_chest__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The flow of blood recedes as your gut mends\.$"
+   name="cure_sliced_gut__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You feel your mouth return to normalcy as your tongue heals\.$"
+   name="cure_sliced_tongue__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your glands cease their oily secretion\.$"
+   name="cure_slickness__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You breathe a sigh of relief as blood stops gushing from your throat\.$"
+   name="cure_slit_throat__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You no longer feel so sluggish\.$"
+   name="cure_sluggish__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You breathe? easier as the pain in your ribs subsides\.$"
+   name="cure_snapped_rib__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The coloured lights stop flashing before your eyes\.$"
+   name="cure_stars__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your (face|chest|gut|left arm|right arm) muscles loosen up\.$"
+   name="cure_stiff__"
+   regexp="y"
+   script="cures.dn.stiff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your (face|chest|gut|left arm|right arm) muscles loosen ever so slightly\.$"
+   name="cure_stiff_non__"
+   regexp="y"
+   script="cures.dn.stiff_non"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You aren't such a complete idiot anymore\.$"
+   name="cure_stupidity__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^No longer will the sunlight harm you\.$"
+   name="cure_sunallergy__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You feel the earth\'s taint leave your soul\.$"
+   name="cure_taint_sick__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your strength surges as your (left|right) thigh mends\.$"
+   name="cure_thigh__"
+   regexp="y"
+   script="cures.dn.side"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your flesh is sliced to shreds as all the thorny vines are ripped away\.$"
+   name="cure_thorns_ripped__"
+   regexp="y"
+   script="cures.dn.thorns_ripped"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Time no longer warps around you\.$"
+   name="cure_timewarp__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The warping of time lightens\,? but you are still (minorly|moderately|majorly|massively) warped\.$"
+   name="cure_timewarp_partial__"
+   regexp="y"
+   script="cures.dn.timewarp"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You sense the curse of treebane leaves? your spirit\.$"
+   name="cure_treebane__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You stop trembling\.$"
+   name="cure_trembling__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your (left|right) (arm|leg) strengthens\.$"
+   name="cure_twisted_limb__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>affs.del_queue("twisted_%1%2")
+affs.numb("%1%2", 2)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You shake your head and clear it of vapors\.$"
+   name="cure_vapors__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your fear of heights subsides\.$"
+   name="cure_vertigo__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^You no longer fear wearing clothes\.$"
+   name="cure_vestiphobia__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your thoughts coalesce into coherence\.$"
+   name="cure_void__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your stomach becalms itself\.$"
+   name="cure_vomiting__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^The stomach cramps lift and your gorge settles\.$"
+   name="cure_vomiting_blood__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your limbs strengthen and you feel stronger\.$"
+   name="cure_weakness__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Cures"
+   match="^Your stomach rumbles and you cough up dead worms\.$"
+   name="cure_worms__"
+   regexp="y"
+   script="cures.dn.simple"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^As you chant the ritual of Puer over your (chest|gut|head|left arm|left leg|right arm|right leg)\, you feel your skin tighten\, tendons knit together and bones strengthen\.$"
+   name="highmagic_puer__"
+   regexp="y"
+   script="wounds.handle_puer"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^Your (chest|gut|head|left arm|left leg|right arm|right leg) is (?:already )?fully healed\.$"
+   name="highmagic_puer_healed__"
+   regexp="y"
+   script="wounds.handle_puer"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

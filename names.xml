@@ -1,0 +1,197 @@
+<aliases>
+  <alias
+   name="names_control__"
+   match="^\s*(un)?(celest|glom(?:doring)?|mag(?:nagora)?|seren(?:wilde)?|halli(?:fax)?|gaudi(?:guch)?)(?:\s+(\w+))?\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="names.handle"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   custom_colour="17"
+   colour_change_type="1"
+   enabled="y"
+   expand_variables="y"
+   group="Track"
+   keep_evaluating="y"
+   make_underline="y"
+   match="\b(@!sg1_people_celest|Snozwanger)\b"
+   name="color_celestians__"
+   other_text_colour="steelblue"
+   regexp="y"
+   repeat="y"
+   script="names.highmark"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   custom_colour="17"
+   colour_change_type="1"
+   enabled="y"
+   expand_variables="y"
+   group="Track"
+   keep_evaluating="y"
+   make_underline="y"
+   match="\b(@!sg1_people_glomdoring|Snozwanger)\b"
+   name="color_gloms__"
+   other_text_colour="blueviolet"
+   regexp="y"
+   repeat="y"
+   script="names.highmark"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   custom_colour="17"
+   colour_change_type="1"
+   enabled="y"
+   expand_variables="y"
+   group="Track"
+   keep_evaluating="y"
+   make_underline="y"
+   match="\b(@!sg1_people_magnagora|Snozwanger)\b"
+   name="color_magnagorans__"
+   other_text_colour="red"
+   regexp="y"
+   repeat="y"
+   script="names.highmark"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   custom_colour="17"
+   colour_change_type="1"
+   enabled="y"
+   expand_variables="y"
+   group="Track"
+   keep_evaluating="y"
+   make_underline="y"
+   match="\b(@!sg1_people_serenwilde|Snozwanger)\b"
+   name="color_serens__"
+   regexp="y"
+   repeat="y"
+   sequence="9000"
+   script="names.highmark"
+   other_text_colour="limegreen"
+  >
+  </trigger>
+  <trigger
+   custom_colour="17"
+   colour_change_type="1"
+   enabled="y"
+   expand_variables="y"
+   group="Track"
+   keep_evaluating="y"
+   make_underline="y"
+   match="\b(@!sg1_people_hallifax|Snozwanger)\b"
+   name="color_hallifaxians__"
+   other_text_colour="peru"
+   regexp="y"
+   repeat="y"
+   script="names.highmark"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   custom_colour="17"
+   colour_change_type="1"
+   enabled="y"
+   expand_variables="y"
+   group="Track"
+   keep_evaluating="y"
+   make_underline="y"
+   match="\b(@!sg1_people_gaudiguch|Snozwanger)\b"
+   name="color_gaudiguchites__"
+   other_text_colour="violet"
+   regexp="y"
+   repeat="y"
+   script="names.highmark"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   lines_to_match="2"
+   match="^\*+\[ [A-Z\s]+ (SERENWILDE|MAGNAGORA|HALLIFAX) \]\*+\n(?:Commune Member|Citizen)\s+Rank\s+Position\s+CT\s*$"
+   multi_line="y"
+   name="names_cwho_start__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>EnableTrigger("names_cwho_add__", true)
+EnableTrigger("names_cwho_end__", true)
+flags.set("cwho", string.lower("%1"), 2)
+prompt.queue(function ()
+  EnableTrigger("names_cwho_add__", false)
+  EnableTrigger("names_cwho_end__", false)
+end)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   keep_evaluating="y"
+   match="^([A-Z][a-z]+)\s+"
+   name="names_cwho_add__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if flags.get("cwho") and not names.is_member("%1", flags.get("cwho")) then
+  names.add("%1", flags.get("cwho"))
+else
+  names.mark("%1")
+end</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^\*+$"
+   name="names_cwho_end__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>EnableTrigger("names_cwho_add__", false)
+EnableTrigger("names_cwho_end__", false)</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^\((Serenwilde|Magnagora|Hallifax)\)\: ([A-Z][a-z]+) (?:\(from .+?\) )?says\, \&quot;.+?\&quot;$"
+   name="names_ct_add__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>if not names.is_member("%2", string.lower("%1")) then
+  names.add("%2", string.lower("%1"))
+else
+  names.mark("%2")
+end</send>
+  </trigger>
+</triggers>
+
+<timers>
+  <timer
+   active_closed="y"
+   enabled="n"
+   name="names_lists__"
+   second="5"
+   offset_second="0.00"
+   script="names.lists"
+   group="Track"
+  >
+  </timer>
+</timers>

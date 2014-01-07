@@ -1,0 +1,79 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^\&quot;.+?\&quot; sings ([A-Z][a-z]+)(.+?)\, and (?:[hH]|[sS]h)e looks directly at you\.$"
+   name="shadowbeat_singing__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The beat of the music pounds into your head\, and you cannot stop yourself from dancing wildly to the rhythm\.$"
+   name="shadowbeat_shadowrave__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your bleeding wounds sting painfully\, causing your limbs to stiffen up\.$"
+   name="shadowbeat_shadowpulse__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Wounds open up all over your body and you start to bleed\.$"
+   name="shadowbeat_bloodycaps__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^As the cawing sound of the music pierces into your mind\, visions out of your deepest nightmares rise up to plague you\. Something deep within you snaps\, and you find yourself unable to do anything but gibber madly\.$"
+   name="shadowbeat_crowcaw__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s deadly\, poisonous blood splashes across you\, and you recoil in pain as your skin hisses and melts\.$"
+   name="shadowbeat_widowsmercy__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Hundreds of tiny stings attack your body for a brief moment\.$"
+   name="shadowbeat_spidercantiga__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

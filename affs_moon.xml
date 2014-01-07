@@ -1,0 +1,95 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Whispering to [hH](?:im|er)self\, ([A-Z][a-z]+) points at you and a silver light flashes across your field of vision\.$"
+   name="moon_succumb1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A lilting call fills your ears as the face of ([A-Z][a-z]+) appears before you\, beckoning you to succumb to Moon\'s majesty\.$"
+   name="moon_succumb2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A silver light weighs upon you\, draining your mental energies\.$"
+   name="moon_succumb3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a slow\, jerking dance\, ([A-Z][a-z]+) points at you and lowers [hH](?:is|er) arms\, and you feel the world about you slow\.$"
+   name="moon_waning1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You feel the world about you slow as the brief outline of the dancing form of ([A-Z][a-z]+) passes across your mind\.$"
+   name="moon_waning2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) moves [hH](?:is|er) feet in a rhythmic dance and raises a palm before [hH](?:is|er) eyes\, blocking you from sight\. As (?:[hH]|[sS]h)e slowly turns widdershins\, a dark silver glow pours down from above\, surrounding you briefly\.$"
+   name="moon_dark1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The world spins in darkness as the curse of the dark moon hits you\.$"
+   name="moon_dark2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) thrusts [hH](?:is|er) palm towards you and a burst of silver light shoots from it and hits you\, burning you painfully\.$"
+   name="moon_moonburst__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) lifts [hH](?:is|er) hands and cups them vertically over [hH](?:is|er) heart whilst closing [hH](?:is|er) eyes\. Suddenly\, great gouts of azure moonfire leap out from [hH](?:is|er) hands and swirl about you in a deadly miasma\, the lunar flames scorching flesh and spirit\.$"
+   name="moon_moonfire__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

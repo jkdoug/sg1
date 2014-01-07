@@ -1,0 +1,184 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^H(?:is|er) eyes glowing a cobalt blue\, ([A-Z][a-z]+) stands a bit straighter and looks decidedly more attractive than you realized\.$"
+   name="paradigmatics_enthrall__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Eyes flashing with rainbow colours\, ([A-Z][a-z]+) stares intently at you\. Strange thoughts and perceptions challenge your grip on reality\. When you finally pull yourself away from \1\'s gaze\, you find yourself twitching and drooling\.$"
+   name="paradigmatics_revelations__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A wave of nausea sweeps over you\.$"
+   name="paradigmatics_flux__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^H(?:is|er) eyes glowing a fearsome yellow\, ([A-Z][a-z]+) stares at you with a burning gaze\, and you cannot help but shudder at the intensity of the malice directed towards you\.$"
+   name="paradigmatics_badluck__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^H(?:is|er) eyes glowing a fiery red\, ([A-Z][a-z]+) looks at you\, quickly looks away\, then looks back at you with a malicious glint in [hH](?:is|er) eye\.$"
+   name="paradigmatics_greywhispers__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You hear whispers that make no sense but tickle the back of your mind and make you want to scream\.$"
+   name="paradigmatics_greywhispers_symp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are distracted by the movement of an impossible creature that you see out of the corner of your eye\.$"
+   name="paradigmatics_eyesnare__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sudden vision passes through your mind\'s eye\, a vision that is so warped and twisted that it challenges your very perception of reality\.$"
+   name="paradigmatics_visionflux__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^H(?:is|er) eyes turning into starry orbs of pitch black\, ([A-Z][a-z]+) gazes deep into your eyes\. You feel [hH](?:is|er) thoughts boring into your own(\, but you shake your head and cast [hH](?:im|er) out| and you cannot resist the plundering of your spiritual essence\. \1 cries out in triumph and you cannot help but scream in abject pain and humiliation as the core of your very self is laid bare before you)\.$"
+   name="paradigmatics_truename__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The incessant whispering around ([A-Z][a-z]+) threatens your sanity\.$"
+   name="paradigmatics_chaosaura__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^An enormous green spider scuttles in\, chasing a glittering butterfly\. The butterfly circles around you\, and the spider jumps on you\, sinking its fangs into your neck and then quickly webbing you in a cocoon\. The butterfly flutters off\, and the spider continues its pursuit after it\.$"
+   name="paradigmatics_butterfly1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^There is a loud explosion in the distance followed by a whistling sound that becomes louder and louder\. You look up and see a glittering butterfly fluttering away\,? followed by the shadow of an enormous boulder\,? which then smashes into you\.$"
+   name="paradigmatics_butterfly2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A billowing black cloud rises up from the ground at your feet\,? as a glittering butterfly flutters away\. The thick vapour clings to you and fills your nostrils with a foul stench\.$"
+   name="paradigmatics_butterfly3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A glittering butterfly flutters in and loops around you\. You turn around\, trying to follow its flight path\, and your legs get twisted up\. Arms flailing\, you awkwardly try to keep your balance and end up flipping over\, end over end\, breaking all four of your limbs\.$"
+   name="paradigmatics_butterfly4__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A glittering butterfly alights on the ground at your feet\. The ground suddenly gives way and you drop into a pit as the butterfly flutters away\.$"
+   name="paradigmatics_butterfly5__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A small rift opens up over your head\, and a glittering butterfly flutters through it\. A shaft of brilliant light pours out of the rift and bathes you in a golden glow\.$"
+   name="paradigmatics_butterfly6__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^\s+(?:\.\.o\@\@\@\@\@\@\@\@\@\@\@\@\@o\.\.|\.\.\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\.\.|\.\@\@\@\@\@\@\@\@\@\@\@\&quot;\'\@\@\@\@\@\@\@\@\@\&quot;\'\@\@\@\@\@\@\@\@\@\@\@\.|\.\@\@\@\@\@\@\@\@\@\@\@\@\@    \@\@\@\@\@\@\@    \@\@\@\@\@\@\@\@\@\@\@\@\@\.|\@\@\@\@\@\@\@\@\@\@\@\@\@\@0    0\@\@\@\@\@0    0\@\@\@\@\@\@\@\@\@\@\@\@\@\@|\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@0    0\@\@\@\@\@0    0\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@|\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\.  \.\@\@\@\@\@\@\@\.  \.\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@|\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\.\.\@\@\@\@\@\@\@\@\@\.\.\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@|\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@|\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@0|\@\@\@\@\@\@\@\@\@\@\'\^\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\^`\@\@\@\@\@\@\@\@0|\@\@\@\@\@\@\@~  \&lt;\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\&gt;  ~\@\@\@\@\@0|\@\@\@\@\@\@        `\&quot;Y88\@\@\@\@\@\@\@\@\@\@\@\@88Y\&quot;\'        \@\@\@00|\@\@\@\@\@\@\.AOO\@oo\.\.                  \.\.oo\@OO6\.\@\@\@0|\@\@\@\@\@\@\@\@\@\@\@\@\@\@oo\.\.        \.\.oo\@\@\@\@\@\@\@\@\@\@\@00|`\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@000\'|`\^\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@000\^\'|`\^\@\@\@\@\@\@\@\@\@\@\@000\^\'|\.\@\@\@\@\@\@\@\@\@\@\@\;\;\@\@\@\@\@\@\@\@\;\;\@\@\@\@\@\@\@\@\@\@\@\.|\.\@\@\@\@\@\@\@\@\@\@\@\@\@\;\;\;\;\@\@\@\@\@\@\@\;\;\;\;\@\@\@\@\@\@\@\@\@\@\@\@\@\.|\@\@\@\@\@\@\@\@\@\@\@\@\@\@0\;\;\;\;0\@\@\@\@\@0\;\;\;\;0\@\@\@\@\@\@\@\@\@\@\@\@\@\@|\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@0\;\;\;\;0\@\@\@\@\@0\;\;\;\;0\@\@\@\@\@\@\@\@\@\@\@\@\@\@\@|\@\@\@\@\@\@\.AOO\@oo\.\. Stoned Love\, Baby \.\.oo\@OO6\.\@\@\@0)$"
+   name="paradigmatics_smileys__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

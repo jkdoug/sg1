@@ -1,0 +1,111 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^\&quot;.+?\&quot; sings ([A-Z][a-z]+)(.+?)\, and (?:[hH]|[sS]h)e looks directly at you\.$"
+   name="loralaria_singing__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your eyelids grow heavy as the placid\, soothing tones of ([A-Z][a-z]+)\'s music roll over you\.$"
+   name="loralaria_blueberceuse__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your sleeping mind screams in torment as a piercing noise reverberates through your skull\.$"
+   name="loralaria_blueberceused__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^As the warmth of the lovely aubade surrounds you\, you are suddenly struck with a deep longing for ([A-Z][a-z]+) and gaze deeply into [hH](?:is|er) eyes\.$"
+   name="loralaria_aureolinaubade__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You spring into sudden motion\, your legs moving stiffly of their own accord in interweaving steps\, compelled by the minuet ringing through the air\.$"
+   name="loralaria_midnightminuet__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^The deafening notes bring you to your knees\, reverberating endlessly within your skull\.$"
+   name="loralaria_fleckedfortissimo__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The oscillating notes of the violet vibrato ring maddeningly through your skull\, causing you to clutch your head as your faculties elude you\.$"
+   name="loralaria_violetvibrato__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^The music resounds around you strangely\, causing you to freeze in horror as the world around you speeds up in a series of rapid blurs\.$"
+   name="loralaria_skysforzando__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The rhythms of the rubato cause the air around you to buckle and shift as time itself warps in your presence\, wracking your body with pain\.$"
+   name="loralaria_redrubato__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^You feel a sinking sensation in your stomach as the fabric of space and time distorts around you\. Everything goes dark as the world shifts around you\.$"
+   name="loralaria_convergence__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

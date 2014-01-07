@@ -1,0 +1,81 @@
+<aliases>
+  <alias
+   name="roulette_bet__"
+   match="^\s*bet\s+(\d+)\s+gold\s+on\s+(\d+)\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="roulette.bet_gold"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="roulette_show__"
+   match="^\s*roul(?:ette)?\s?show\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="roulette.show_stats"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="roulette_reset__"
+   match="^\s*reset\s+roul(?:ette)?\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="roulette.reset_session"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="roulette_reset_all__"
+   match="^\s*reset\s+roul(?:ette)?\s+all\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="roulette.reset_all"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You bet \d+ sovereigns on (\d+)\, eliciting a wry grin and a wink from .+?\.$"
+   name="roulette_betted__"
+   regexp="y"
+   script="roulette.bet_placed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The ball finally settles down on (\d+)(?: \((black|red)\))?\.$"
+   name="roulette_ball__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="roulette.ball_landed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^.+? exclaims to you\, \&quot;We have a winner\! You\'ve won \d+ gold\!\&quot; The stakes for your winning bets are returned to you\, along with your winnings\.$"
+   name="roulette_winner__"
+   regexp="y"
+   script="roulette.bet_won"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

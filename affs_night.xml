@@ -1,0 +1,119 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Dipping [hH](?:is|er) hand into a shadow cauldron\, ([A-Z][a-z]+) pulls out a long shadow and releases it into the air\. The room darkens with the churning darkness\.$"
+   name="night_cauldron_release__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) sends a tendril of shadows into your face\. You try to cry out as your vision is blotted and spears of pain stab into your eye sockets\.$"
+   name="night_scourge__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A tower of shadows prevents you from moving there\.$"
+   name="night_brumetower__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) thrusts .+? into the ground near you\, then as (?:[hH]|[sS]h)e withdraws [hH](?:is|er) weapon from the ground\, your shadow comes with it\.$"
+   name="night_steal__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:A black shadow materialises in the air before ([A-Z][a-z]+) and then quickly strikes you|([A-Z][a-z]+) grabs you by the back of the neck and pulls you forward into an embrace\. H(?:is|er) cold lips press against the neck\, and you are momentarily frozen in pain as your lifeforce is sucked from you)\.$"
+   name="night_damage__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) grabs [A-Z][a-z]+ by the back of the neck and pulls [hH](?:im|er) forward into an embrace\, pressing [hH](?:is|er) lips against the neck\. As shadows twine between them\, [A-Z][a-z]+ grows pale and haggard\, while \1 grows stronger and more hale\.$"
+   name="night_nightkiss_noshield__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) raises [hH](?:is|er) arms and dances around you\, spinning faster and faster\. With each pass around you\, (?:[hH]|[sS]h)e shimmers with a dark beauty while your thoughts become cloudier and cloudier\.$"
+   name="night_lash__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+<!--
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Shadows suddenly leap out from every corner\, violently whirling in a sudden surge\. When the shadows dissipate slightly\, you gasp as you feel strands of darkness still cling to you\, binding you to ([A-Z][a-z]+) in a suffocating\, choking embrace\.$"
+   name="night_choke__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Thick shadows drag against your every action\.$"
+   name="night_choke_symp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+-->
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) grasps your shadow in [hH](?:is|er) hands and twists it violently\, sending jolts of pain through your mind\.$"
+   name="night_shadowtwist__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You feel your body falter under the supremacy of Mother Night\.$"
+   name="night_shadowtwist_aff__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

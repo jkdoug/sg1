@@ -1,0 +1,961 @@
+<variables>
+  <variable name="sg1_warrior_miss">\, and you smoothly step away from the blow|\, and you make ready with .+?|\, and you raise .+?|\, but his thrust hits your powerful aura and rebounds back into himself|\, but her thrust hits your powerful aura and rebounds back into herself|\. His weapon cuts through the air\, missing you completely|\. Her weapon cuts through the air\, missing you completely|\. [A-Z][a-z]+\'s .+? \w+ your .+?\, which completely absorbs the blow|\. [A-Z][a-z]+\'s .+? \w+ your .+?\, and you easily deflect the blow|\. [A-Z][a-z]+\'s .+? strikes your .+? and bounces harmlessly off</variable>
+</variables>
+
+<triggers>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^([A-Z][a-z]+) wildly jabs (.+?) at you(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_jab__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%1", "knighthood", "jab", "%2", #"%3" &gt; 0, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^With a focused look\, ([A-Z][a-z]+) strikes at you with (.+?)(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_strike__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%1", "knighthood", "strike", "%2", #"%3" &gt; 0, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^([A-Z][a-z]+) (?:wildly )?swings (.+?) at you(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_swing__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%1", "knighthood", "swing", "%2", #"%3" &gt; 0, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^With a heavy overhand stroke\, ([A-Z][a-z]+) slams (.+?) down upon you(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_hack_down__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%1", "knighthood", "hack down", "%2", #"%3" &gt; 0, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^Letting (.+?) droop\, ([A-Z][a-z]+) suddenly heaves it up at you(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_hack_up__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%2", "knighthood", "hack up", "%1", #"%3" &gt; 0, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^Flourishing (.+?) above [hH](?:is|er) head\, ([A-Z][a-z]+) takes a swing at you(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_slice_bash__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%2", "knighthood", "slice/bash", "%1", #"%3" &gt; 0, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^Swinging (.+?) in an underhand arc\, ([A-Z][a-z]+) strikes at you(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_slash_smash__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%2", "knighthood", "slash/smash", "%1", #"%3" &gt; 0, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="\, but your \w+ hits [hH](?:is|er) powerful aura and rebounds back into you\."
+   name="knighthood_rebound__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("", "", "rebounded", "", false, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^With a powerful lunge\, ([A-Z][a-z]+) strikes at you with (.+?)(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_lunge__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>flags.set("wound_multiply", 1.6)
+wounds.attacked("%1", "knighthood", "lunge", "%2", #"%3" &gt; 1, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^Cleaving through your defenses\, ([A-Z][a-z]+) makes a slow\,? deadly strike at your .+? with (.+?)(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_cleave__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%1", "knighthood", "cleave", "%2", #"%3" &gt; 1, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^Holding (.+?) poised at an angle overhead\, ([A-Z][a-z]+) unleashes a violent assault at your .+?(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_assault__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%2", "pureblade", "assault", "%1", #"%3" &gt; 1, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^Sweeping (.+?) through the air overhead\, ([A-Z][a-z]+) sends it whooshing straight towards your .+?(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_sweep__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%2", "axelord", "sweep", "%1", #"%3" &gt; 1, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^With a deft move\, ([A-Z][a-z]+) retaliates with a quick swing of (.+?) at you(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_riposte__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%1", "bonecrusher", "riposte", "%2", #"%3" &gt; 1, "%0")
+flags.set("counter_attacked", true)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^([A-Z][a-z]+)\'s blade runs down the shaft of your weapon(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="knighthood_coule__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%1", "blademaster", "coule", flags.get("coule") or "rapier", #"%2" &gt; 1, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="\bwho brandishes (.+?)\."
+   name="knighthood_coule_weapon__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>flags.set("coule", "%1")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   keep_evaluating="y"
+   match="(?: sends it whooshing straight towards your | unleashes a violent assault at your )"
+   name="knighthood_sweep_assault__"
+   regexp="y"
+   send_to="12"
+   sequence="9100"
+  >
+  <send>flags.set("wound_multiply", 1.4)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   keep_evaluating="y"
+   match=" crushe[ds] "
+   name="knighthood_crush__"
+   regexp="y"
+   send_to="12"
+   sequence="9100"
+  >
+  <send>flags.set("wound_multiply", 1.6)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^Spotting an opening in your offence\, ([A-Z][a-z]+) quickly jabs your (?:head|chest|gut|left arm|left leg|right arm|right leg)(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="cavalier_guard__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%1", "cavalier", "guard", "bardiche", #"%2" &gt; 0, "%0")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   expand_variables="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^Swinging the shaft of .+? with brutal strength\, ([A-Z][a-z]+) aims for your (?:head|chest|gut|left arm|left leg|right arm|right leg)(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   name="cavalier_sunder__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>wounds.attacked("%1", "cavalier", "sunder", "bardiche", #"%2" &gt; 0, "%0")</send>
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" (?:The blade bounces off your sternum\, delivering only a shallow puncture|You are \w+ in the chest for a small surface wound|You receive a bloody gash from the \w+ to your chest|Your chest is \w+ open\, laying bare your ribs|You are stabbed in the side of your chest\, blood oozing from the gash|You are \w+ in the chest and receive a small bruise|You stagger back from the force of being \w+ in the chest|You are \w+ in the chest with great force and hear a disturbing crunch|You are thumped in the chest weakly|You are smacked in the chest with a solid blow|You are brutally whacked in the chest and are forced to take several steps back|The blade slides between your ribs\, opening a hole that gushes blood)\.$"
+   name="knighthood_chest1__"
+   regexp="y"
+   script="wounds.hit"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" (?:You are \w+ in the belly for a mere scratch|A long\, bleeding rend is \w+ into your belly|Your belly opens up from the deep \w+\, spraying blood everywhere|You are pricked in the gut and bleed slightly|You receive a nasty belly wound from the thrust of the blade|You bleed like a stuck pig from the blade being plunged into your gut|You are barely fazed from getting \w+ in the gut|You grunt as you are \w+ in the gut\, forcing all the air out of your lungs|You double over and can barely breathe from the force of your belly being \w+|You are tapped in the stomach with little effect|You bare your teeth in pain as the .+? is thrust fiercely in(?:to)? your gut|Your eyes water and you can barely breathe as the blow punches hard into your belly|You are \w+ in the gut\, and the wind is knocked out of you)\.$"
+   name="knighthood_gut1__"
+   regexp="y"
+   script="wounds.hit"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" (?:You are \w+ in the cheek for a small flesh wound|You reel from the mighty \w+ to your head\, seeing stars and flashes of light|You are poked in the chin for a small puncture|You are pierced in the side of your face\, leaving a bleeding wound|You are dealt only a glancing blow to the side of your head from the \w+ swing|You are \w+ in your head\, leaving an ugly bruise|Your skull is \w+ with a resounding crack\, leaving your ears ringing and causing you to stagger|You are cuffed lightly in the side of your face|You are painfully pounded in the face|Your head whips back from the force of the blow|You are \w+ in the forehead and blink away blood|The blade is driven into your throat\, which begins to spurt blood)\.$"
+   name="knighthood_head1__"
+   regexp="y"
+   script="wounds.hit"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" (?:The strike to your (?:left|right) arm barely \w+ through the skin|You are \w+ in your (?:left|right) arm\, lacerating flesh|The strike to your (?:left|right) arm \w+ down to the bone|You are merely clipped on your (?:left|right) arm for a small cut|You are stabbed in your (?:left|right) arm\, the blade painfully burrowing into your flesh|Your (?:left|right) arm is skewered by the blade\, driven completely through the other side|Your (?:left|right) arm is \w+ and slightly bruised|An enormous bruise rises on your (?:left|right) arm from getting \w+ hard|You falter in your tracks as your (?:left|right) arm receives a severe \w+|You are hit on the (?:left|right) arm and get only a small bruise|Your (?:left|right) arm is hit forcefully\, leaving an enormous bruise on the forearm|Your (?:left|right) arm is almost dislocated from its shoulder as the .+? is driven deeply into your bicep|Your (?:left|right) knuckles are struck with a loud crack)\.$"
+   name="knighthood_arm1__"
+   regexp="y"
+   script="wounds.hit"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" (?:The \w+ to your (?:left|right) leg leaves only a nick on your thigh|The stroke to your (?:left|right) leg \w+ a long wound to your calf|You are \w+ deep into your (?:left|right) leg\, gushing blood pooling at your feet|You are feebly struck in your (?:left|right) leg with the blade|The stab to your (?:left|right) thigh leaves a gaping hole|The blade is driven cleanly through the meat of your (?:left|right) thigh|You receive only a red welt from your (?:left|right) leg being \w+|You get a large bruise on your (?:left|right) thigh from being \w+ hard on the leg|You barely keep your balance as your (?:left|right) leg is brutally \w+|You are hit on the (?:left|right) thigh for a minor bruise|Your (?:left|right) leg is smacked with a force that goes to the bone|You stumble and barely stay upright as the .+? is plowed deep into the meat of your (?:left|right) leg)\.$"
+   name="knighthood_leg1__"
+   regexp="y"
+   script="wounds.hit"
+   sequence="9500"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ your (left|right) (arm|leg)\, striking a major artery that splurts blood in all directions\.$"
+   name="knighthood_artery1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ your fore(head)\, causing blood to flow into your eyes and coat your entire face\.$"
+   name="knighthood_artery2__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You are \w+ in your (left|right) bicep and blood freely flows down your arm\.$"
+   name="knighthood_bicep1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You are \w+ in the eye\, which turns purple and swells shut\.$"
+   name="knighthood_blackeye1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You are \w+ squarely in the nose\, which bleeds profusely\.$"
+   name="knighthood_bloodynose1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your (left|right) arm is \w+ and breaks with a loud crack\.$"
+   name="knighthood_breakarm1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You grimace in pain as your ribs are \w+ viciously\.$"
+   name="knighthood_breakchest1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You cry out in pain as your jaw is \w+ and shatters\.$"
+   name="knighthood_breakjaw1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your (left|right) thigh bone is \w+ and shatters under the force of the blow\.$"
+   name="knighthood_breakleg1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your nose is savagely \w+ and breaks\, causing blood to splurt forth\.$"
+   name="knighthood_breaknose1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" The bones of your (left|right) wrist breaks? as it is \w+\.$"
+   name="knighthood_breakwrist1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You are mortally wounded when \w+ in the gut\. Your internal organs have ruptured and turned to jelly\. If you do not heal soon\, you shall die\.$"
+   name="knighthood_burstorgans1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ powerfully into your chest\, and blood sprays out of your nose and mouth\.$"
+   name="knighthood_collapsedlungs1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your head is \w+ with crushing force\, and your mind becomes so addled that you can only blink blankly about yourself\.$"
+   name="knighthood_concussion1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your (left|right) elbow cracks apart as it is \w+\.$"
+   name="knighthood_crackelbow1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You are \w+ in the chest with a mighty blow\, spurting blood between your ribs\.$"
+   name="knighthood_crushaorta1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your (left|right) arm is \w+ with an awesome blow and pulveri[zs]ed into a bloody stump\.$"
+   name="knighthood_crusharm1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your chest is brutally \w+ and your ribs snap under the force of the blow\.$"
+   name="knighthood_crushchest1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your (left|right) leg is \w+ with an awesome blow and pulveri[zs]ed into a bloody stump(\, sending you sprawling)?\.$"
+   name="knighthood_crushleg1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ your throat\, crushing your windpipe\.$"
+   name="knighthood_crushwindpipe1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ open your gut\, and coils of bloody intestines spill out in a grotesque mass\. You begin to feel lightheaded as the world darkens around you\.$"
+   name="knighthood_disembowel1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ deep into your gut\, and a bloody intestine partially erupts with a foul stench\.$"
+   name="knighthood_dysentery1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You are \w+ in the (left|right) elbow\, cutting deep into the bone and causing the arm to hang uselessly\.$"
+   name="knighthood_elbow1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You are \w+ in the (left|right) (arm)\, which becomes limp and falls to your side\."
+   name="knighthood_fractured1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your (head) snaps back as your skull is \w+ hard and fractures\, causing your thoughts to spin\.$"
+   name="knighthood_fractured2__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ across your forehead and leaves a long furrow that weeps blood onto your face\.$"
+   name="knighthood_furrowbrow1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ across your face and through your cheek\, leaving it dangling precariously and oozing blood\.$"
+   name="knighthood_gashcheek1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ through your chest\, gashing apart layers of skin to reveal your bloody ribcage\.$"
+   name="knighthood_gashchest1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ deep into your (left|right) shoulder\, which severs a nerve and causes your entire \1 side to go numb\."
+   name="knighthood_hemiplegy1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ plunges (?:[hH]is|[hH]er) blade through your gut\, and you are impaled viciously on the blade\.$"
+   name="knighthood_impale1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You are struck deep into your (gut|chest)\, ripping the flesh with a jagged wound that gushes blood\.$"
+   name="knighthood_jaggedwound1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your (left|right) kneecap is \w+\, slicing through the bone and causing the leg to collapse\.$"
+   name="knighthood_kneecap1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your (left|right) leg is elegantly \w+ and swept out from under you\, knocking you to the ground\."
+   name="knighthood_knockdown1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ your (left|right) (arm|leg)\, mangling a major artery that explodes blood in all directions\."
+   name="knighthood_lacerated1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ deep into your (left|right) shoulder\, which collapses a nerve and sends spasms throughout your limp arm\.$"
+   name="knighthood_nerve1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ into your gut\, which opens up and pours blood in a pool at your feet\.$"
+   name="knighthood_opengut1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ into your midriff and slices through\, drawing (?:[hH]is|[hH]er) blade out in a spray of crimson blood as your lungs wheeze to breathe\.$"
+   name="knighthood_phrenic1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ deeply into your (left|right) (arm)\, which hits a nerve and makes that arm twitch involuntarily\.$"
+   name="knighthood_pierced1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ powerfully \w+ your (left|right) (leg)\, and blood fountains out in a thick spray\.$"
+   name="knighthood_pierced2__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ deep into your (left|right) foot\, pinning it down with .+?\. You involuntarily crumple to a crouch and can think of nothing but freeing your impaled foot\.$"
+   name="knighthood_pinned1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ deep into your chest\, and you grit your teeth as the blade twists violently\.$"
+   name="knighthood_puncturedchest1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ into your chest and blood foams up from your mouth\.$"
+   name="knighthood_puncturedlung1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) gives [hH](?:is|er) weapon a vicious twist and withdraws it from your (body|gut|left leg|right leg) in a shower of blood\.$"
+   name="knighthood_rend1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ into the side of your head with a reverberating thunk of bone that rings in your ears\, causing you to stumble as everything becomes cloudy and the world spins\."
+   name="knighthood_ringingear1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ into your gut and heaves upwards\, rupturing your stomach which causes you to spit up a bloody bile\.$"
+   name="knighthood_rupturegut1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ cleanly \w+ off your scalp\, and blinding pain and blood reverberates across your entire head\.$"
+   name="knighthood_scalp1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your (left|right) (leg) is completely \w+ through\, which immediately plops to the ground\, leaving only a bloody stump\.$"
+   name="knighthood_severed1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your (left|right) (arm) is completely \w+ through\, which flies through the air as blood splurts out in a fountain at the severed shoulder joint.$"
+   name="knighthood_severed2__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ into your back and you feel your spine shatter with a sickening crunch as all feeling in your limbs fades into horrifying numbness\.$"
+   name="knighthood_severedspine1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ fiercely into your jaw\, which shatters loudly in a bloody explosion of bone\, teeth and gore\.$"
+   name="knighthood_shatterjaw1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You are \w+ across the chest\, laying open a flap of skin which bleeds profusely\.$"
+   name="knighthood_slicechest1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ off your (left|right) ear\, and blood fills your ear canal\, making you somewhat dizzy\.$"
+   name="knighthood_sliceear1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ your neck\, and blood fountains out in a thick spray\.$"
+   name="knighthood_slitthroat1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ into your chest and you feel a rib snap like a twig under the force of (?:[hH]is|[hH]er) blow\.$"
+   name="knighthood_snaprib1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" [A-Z][a-z]+ \w+ the tendon above your (left|right) heel\, and you scream in agony as it\'s completely severed\.$"
+   name="knighthood_tendon1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" You are \w+ in the (left|right) thigh\, cutting almost to the bone and causing your leg to buckle\.$"
+   name="knighthood_thigh1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your gut is \w+ with great force\, and blood begins to foam at your mouth\.$"
+   name="knighthood_vomitblood1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   match=" Your (left|right) ankle is \w+\, shattering the bone with a tremendous crack\.$"
+   name="knighthood_shatterankle1__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="9500"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Wounding"
+   keep_evaluating="y"
+   match=" crushed "
+   name="knighthood_crush__"
+   regexp="y"
+   send_to="12"
+   sequence="9100"
+  >
+  <send>flags.set("wound_multiply", 1.6)</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Swinging an iron maiden war hammer in an underhand arc\, Thoros strikes at you\."
+   name="swing_illusion1__"
+   regexp="y"
+   sequence="500"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) raises .*? over [hH](?:is|er) head and begins to swing it in a wide circle\, gaining speed as (?:[sS]h|[hH])e goes\.$"
+   name="knighthood_decapitate__"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>if not names.is_member("%1", "Serenwilde") or flags.get("arena") then
+  Execute("OnInstakill Decapitate started by %1")
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) begins to bear down on you\, whirling .*?\.$"
+   name="knighthood_decapitate_two__"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>Execute("OnInstakill Decapitate - WEB %1 or GET OUT NOW!")</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? rears up and brutally kicks you in the (head|chest|gut|left arm|left leg|right arm|right leg)\, sending you sprawling\.$"
+   name="cavalier_obstruction__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) charges in from the \w+ and slams into you\, impaling [hH](?:is|er) (\w+) deep in your gut\.$"
+   name="cavalier_pincharge__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Bearing down on you\, ([A-Z][a-z]+) lowers [hH](?:is|er) (\w+) and angles it across .+?\'s neck\. (?:[hH]|[sS]h)e connects brutally with your (chest|left arm|right arm)\, sending you flying through the air before gravity exerts its pull and you come tumbling back down\, hitting the floor hard\.$"
+   name="cavalier_joust__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

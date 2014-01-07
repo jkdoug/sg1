@@ -1,0 +1,161 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A barghest lifts his massive head and lets forth a blood curdling howl that pierces through the air\.$"
+   name="wicca_barghest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A pigwidgeon (?:bound in shadows )?begins to follow you\.$"
+   name="wicca_pigwidgeon__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As you attempt to move\, a pigwidgeon(?: bound in shadows)? maniacally runs in circles between your legs\, causing you to trip\.$"
+   name="wicca_pigwidgeon_move__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A redcap slashes you with a thin razor\, causing blood to spurt from the wound\, which he soaks up with his little cap\.$"
+   name="wicca_redcap__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A banshee(?: bound in shadows)? stares at you\, then suddenly emits a high\-pitched screech at you\. The soundwaves pierce into your very being\, weakening you in both body and mind\.$"
+   name="wicca_banshee__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You hear the sound of tinkling silver bells and see a ball of light bobbing in the air before you\.$"
+   name="wicca_willowisp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As the ball of light floats away\, you are compelled to chase after it\, and the forest seems to blur around you\.$"
+   name="wicca_willowisp_done__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The crone crosses her shriveled arms and turns her dark\, penetrating gaze upon you\.$"
+   name="wicca_crone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A slaugh strokes a cold\, beautiful finger across your cheek\, and a cold sweat breaks out upon your brow\.$"
+   name="wicca_slaugh__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Patchou the Moon Cat stares at you with her eerie silvery\-green eyes\. You cannot break away from the gaze as the world seems to slow around you\.$"
+   name="wicca_patchou_aeon__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Patchou the Moon Cat arches her back and hisses at you\, causing your mental strength to suddenly drain\.$"
+   name="wicca_patchou_manadrain__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Shadows gather around the form of Black Shuck\, the Darkhound as he opens his mouth fully\, spewing forth darkness which forces its way down your throat and into your lungs\.$"
+   name="wicca_blackshuck_black_lung__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Black Shuck\, the Darkhound barks piercingly at you\, the concussion of the sound causing your muscles to lock up\.$"
+   name="wicca_blackshuck_paralysis__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Eyes flashing with anger\, ([A-Z][a-z]+) points a finger imperiously at you and utters a series of guttural croaks\. A strange thrumming fills your stomach\, and you watch in horror as warts break out over your skin which then turns green and slimy\. The world seems to suddenly become much larger\.\.\.or are you becoming smaller\? Hmm\, why do you have a sudden craving for flies\?$"
+   name="wicca_toadcurse__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a sudden lurch\, the world around you becomes a blur as your body stretches and lengthens into its familiar .+? shape\. Your time as a toad has ended\, though the troublesome craving for flies lingers\.$"
+   name="wicca_untoaded__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+</triggers>

@@ -1,0 +1,81 @@
+<triggers>
+<!--
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? leaps at you\, biting down into your flesh and gnawing on you painfully\.$"
+   name="tracking_bond_attack__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.damaged()</send>
+  </trigger>
+-->
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A clamp snaps shut on your foot\, pinning you to the ground\.$"
+   name="tracking_legsnare__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You step on a concealed plate\, which springs up and tosses you violently out of the room\.$"
+   name="tracking_springtrap__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A small anvil drops down\, cracking painfully against your skull\.$"
+   name="tracking_deadfall__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The ground suddenly falls away from beneath you and you go tumbling into a pit(?:\, landing painfully on the hard ground\.|\. Before you hit the bottom\, you are skewered upon some spikes\!|\, but thankfully something soft and spongy breaks your fall\-\-Holy Nil\, it\'s a pile of snakes\!)$"
+   name="tracking_pit__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:Pain sears through your (left|right) arm as .+? leaps up and clamps its powerful jaws around it|You almost lose your balance as .+? viciously shakes your (left|right) arm\, tearing your flesh and causing massive bleeding)\.$"
+   name="tracking_bond_clamp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A dart streaks from out of nowhere and slams into you\.$"
+   name="tracking_darts__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

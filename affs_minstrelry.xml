@@ -1,0 +1,112 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^\&quot;.+?\&quot; sings ([A-Z][a-z]+)(.+?)\, and (?:[hH]|[sS]h)e looks directly at you\.$"
+   name="minstrelry_singing__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You stumble over your own feet as you try to dance\.$"
+   name="minstrelry_stumbling__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your mind reels as the stench of cactus weed overcomes you and takes you on a strange trip\.$"
+   name="minstrelry_strangetrip__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As ([A-Z][a-z]+)\'s music washes over you\, your mind descends into chaos\.$"
+   name="minstrelry_yaikoyaiko__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^As the ringing note reverberates through your head dizzyingly\, you stumble\, hiccupping\, as your world blurs into a drunken haze\.$"
+   name="minstrelry_shotnote__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A purple haze descends over your vision\, confusing you with wild hallucinations\.$"
+   name="minstrelry_purplehaze__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The air around you shimmers in response to the song before igniting\, consuming you in a roaring pyre of red\-orange flame\.$"
+   name="minstrelry_firefugue__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The rousing melody of the jamboree entices you to hum along gleefully\, all cares fleeing from thought\.$"
+   name="minstrelry_jamboree__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^[A-Z][a-z]+ begins bobbing [hH](?:is|er) head and then suddenly thrusts [hH](?:is|er) leg upwards\, catching you painfully in the gut\.$"
+   name="minstrelry_cancan__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^Laughing gaily in your drunken state\, you hop about wildly to the music\, shaking your rear and giving a loud belch\. Sobriety suddenly slaps you coldly in the face as you quickly descend from your high\, glancing around in mute embarrassment\.$"
+   name="minstrelry_drunkenfool__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

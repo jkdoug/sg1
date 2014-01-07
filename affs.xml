@@ -1,0 +1,1378 @@
+<triggers>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Flames erupt on your skin\, blistering your flesh\.$"
+   name="aff_ablaze__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Your speed defence is destroyed\.$"
+   name="aff_aeon1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Suddenly your movements through the time stream are slowed\.$"
+   name="aff_aeon2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You close your eyes\, curl up in a ball\, and fall asleep\.$"
+   name="aff_asleep_fell__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You feel incredibly tired\, and fall asleep immediately\.$"
+   name="aff_asleep_poison__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your exhausted mind can stay awake no longer\, and you fall into a deep sleep\.$"
+   name="aff_asleep_tired__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You bleed (\d+) health\.$"
+   name="aff_bleeding__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Your flesh is charred\, and you receive (first|second|third|fourth) degree burns\.$"
+   name="aff_burnlevel__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You plummet head first into the ground with a sickening crunch\.$"
+   name="aff_concussion__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A wave of dizziness suddenly overwhelms you\.$"
+   name="aff_dizziness__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^\| Sobriety  \: (.+?)\s+Credits        \: \d+\s+\|$"
+   name="aff_drunk__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) points .+? at you\, and sparks fly out of it\.$"
+   name="aff_enchantment__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Sticky strands of webbing spray out (?:from ([A-Z][a-z]+) )?to cover you\.$"
+   name="aff_entangled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Unthinking terror seizes your mind as ([A-Z][a-z]+) looms up before you\, [hH](?:is|er) visage nightmarish and impossibly powerful\.$"
+   name="aff_fear_ascendant__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^You can hold your breath no longer and gasp for air, fighting to bring oxygen back to your deprived muscles\.$"
+   name="aff_hyperventilating__"
+   regexp="y"
+   script="affs.process"
+   sequence="9900"
+  >
+  </trigger>
+   <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Your cracked (left|right) kneecap shatters\, sending a fracture spiralling up your leg\.$"
+   name="aff_kneecap_again__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+ <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You (?:drop to one knee\, demonstrating your humility and respect|kneel before [A-Z][a-z]+\, swearing your allegiance to [hH](?:im|er))\.$"
+   name="aff_kneeling__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You cry out in pain as your (left|right) leg twists and snaps beneath you\.$"
+   name="aff_legs_notree__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You scream as you feel the force of the landing break both your legs\.$"
+   name="aff_legs_tree__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s face reddens until\, abruptly\, (?:[hH]|[sS]h)e belches out a cone of scorching flames at you\.$"
+   name="aff_orgpotion_gaudiguch__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Thin tendrils of shadow reach out from ([A-Z][a-z]+) to rake across your skin\.$"
+   name="aff_orgpotion_glomdoring__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A rush of icy air leaves ([A-Z][a-z]+)\'s pores and surrounds you in a frigid cloud\, turning your potions to slush\.$"
+   name="aff_orgpotion_hallifax__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The slushy potions chill your tongue and torment your brain with a sudden and agonising chill\.$"
+   name="aff_orgpotion_hallifax_stun__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your slushy potions warm and return to their normal consistency\.$"
+   name="aff_orgpotion_hallifax_end__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Darkness swells from ([A-Z][a-z]+) and strikes at you\.$"
+   name="aff_orgpotion_magnagora__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sense of deep inner calm descends on you\.$"
+   name="aff_pacifism__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:You sit yourself down|You stumble and fall in your alcoholic haze|You slip and fall in the puddle of puke as you try to leave|You must (?:first raise yourself from the floor and stand up|pick yourself off the ground first|first stand up before you can do that))\.$"
+   name="aff_prone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You manage to resist the attempt to summon you\.$"
+   name="aff_resist_summon__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your muscles spasm and start to lock up\.$"
+   name="aff_rigormortis__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^An uncomfortable itch tickles you in an embarrassing location\.$"
+   name="aff_scabies__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) (?:swings|follows through by swinging) .+? with all [hH](?:is|er) might\, smashing it into your head with a resounding ring\.$"
+   name="aff_shieldstun__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? unleashes a bolt of energy that slams into you\.$"
+   name="aff_totem_statue__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The (\w+) rune on your amulet shines bright blue\, protecting you\.$"
+   name="repel_amulet__"
+   regexp="y"
+   script="affs.repel_amulet"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The courage of the wolf swells within you\, driving fear from your heart\.$"
+   name="repel_fear__"
+   regexp="y"
+   script="affs.repel_fear"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your (ceremonially )?enhanced (insight|movement|passion|vivaciousness) repels (\w+)\.$"
+   name="repel_tea__"
+   regexp="y"
+   script="affs.repel_tea"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The karmic blessing of (?:death|chaos) protects you from (\w+)\.$"
+   name="repel_karma__"
+   regexp="y"
+   script="affs.repel_karma"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Flames lick around you \- you are on fire\!$"
+   name="symp_ablaze__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You move sluggishly into action\.$"
+   name="symp_aeon__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Terror descends upon you and your head swims \- you must find shelter\!$"
+   name="symp_agoraphobia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your mind swirls in a fog as you try to remember what you were doing a moment ago\.$"
+   name="symp_amnesia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:The idea of putting something in your stomach sickens you|The thought of eating sickens you)\.$"
+   name="symp_anorexia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your (left|right) arm must be free\.$"
+   name="symp_arm_not_free__"
+   regexp="y"
+   script="affs.check_arm"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your (left|right) arm is off balance\.$"
+   name="symp_arm_off_balance__"
+   regexp="y"
+   script="affs.check_arm"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are asleep and can do nothing\. WAKE will attempt to wake you\.$"
+   name="symp_asleep__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your lungs are much too constricted to smoke\.$"
+   name="symp_asthma_smoking__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You cough uncontrollably\, as you hack up some black phlegm\.$"
+   name="symp_black_lung__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You attempt to inhale\, but only end up coughing out more black phlegm\.$"
+   name="symp_black_lung_smoke__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You suffer acute pain as you (?:chew|swallow)\.$"
+   name="symp_broken_jaw__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The walls close in to suffocate you \- you must escape\!$"
+   name="symp_claustrophobia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You lash out clumsily\.$"
+   name="symp_clumsiness__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Experiencing a shortness of breath\, you suddenly black out\.$"
+   name="symp_collapsed_lungs__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are unable to smoke due to collapsed lungs\.$"
+   name="symp_collapsed_lungs_smoking__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are too confused to concentrate properly\.$"
+   name="symp_confused__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Both your arms must be free and functioning to do that\.$"
+   name="symp_crippled_arms__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You cannot move as both your legs are crippled\.$"
+   name="symp_crippled_legs__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Blood begins to slowly drip from your nose\.$"
+   name="symp_crotamine1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You cough suddenly\, expelling black fluid with bits of what looks to be tissue suspended in it\.$"
+   name="symp_crotamine2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your legs tremble slightly as a yellow jaundice begins to creep through your now\-pale features\.$"
+   name="symp_crotamine3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The dark void of terror fills your mind as\, horribly\, blood begins to seep out of every pore on your body\.$"
+   name="symp_crotamine4__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your crushed windpipe inhibits your ability to swallow\.$"
+   name="symp_crushed_pipe__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are too caught up in your dark fate to focus your mind\.$"
+   name="symp_darkfate_focus__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The herb tastes foul and spoiled as you muse on your dark fate\.$"
+   name="symp_darkfate_herb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The ground seems to tilt and you fall with a thump\.$"
+   name="symp_dizziness__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your bowels turn to water and are voided as you double over from a sharp pain in your stomach\.$"
+   name="symp_dysentery__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Tight bindings (?:cling to you\, making that impossible|prevent you from moving)\.$"
+   name="symp_entangled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your limbs begin to jerk and shake uncontrollably\, and you begin to foam at the mouth\.$"
+   name="symp_epilepsy__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You rush about in a state of utter panic\.$"
+   name="symp_fear__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You find that you are not yet ready to perform that feat\.$"
+   name="symp_feat_failed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You begin moving your frozen body slowly \w+\.$"
+   name="symp_frozen__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sheet of blood rolls down your forehead and into your eyes\.$"
+   name="symp_furrowed_brow__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You immediately throw up what you just ate\.$"
+   name="symp_gluttony__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:Spiders are erupting from your mouth and nose\!|Ooh look\! A lovely lake\. Perhaps you\'ll dive in\!)$"
+   name="symp_hallucinations__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You leap up and attempt a graceful swan dive\.\.\.right into the solid ground\.$"
+   name="symp_hallucinations_prone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are stunned by (?:a vision of divine astral beings|the sight of a massive pink bunny hopping by)\.$"
+   name="symp_hallucinations_stun__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You watch helplessly as your lifeforce drains into [A-Z][a-z]+\.$"
+   name="symp_healthleech__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You attempt to move\, but the muscles of your legs do not respond\.$"
+   name="symp_hemiplegy_legs__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your blood refuses to clot\.$"
+   name="symp_hemophilia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You slowly hobble \w+\.$"
+   name="symp_hobbling__"
+   regexp="y"
+   script="affs.check_leg"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your hypersomnia prevents your insomnia\.$"
+   name="symp_hypersomnia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your mind swims as dizziness overtakes you\.$"
+   name="symp_hypochondria1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^(?:You feel incredibly tired\, and fall asleep immediately|A prickly stinging overcomes your body\, fading away into numbness)\.$"
+   name="symp_hypochondria2__"
+   regexp="y"
+   script="affs.process"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^You blink for a moment\, then instantly\, all about you is darkness\.$"
+   name="symp_hypochondria3__"
+   regexp="y"
+   script="affs.process"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^(?:A sense of extreme nausea washes over you\.|You stumble as your (?:left|right) leg shrivels into a useless appendage\.|You watch\, in horror as your (?:left|right) arm shrivels up and becomes useless\.|You feel control over your power begin to slip away\.|Your vision is flooded with light\, and your face suddenly reddens\.|Unreasoning rage turns the world blood\-red\.|None may stand in your way\! You are invincible\!|You begin feeling slightly flushed\.|Your limbs grow heavy and you groan feebly\.|You gasp as your fine\-tuned reflexes disappear into a haze of confusion|You notice that your sweat glands have begun to rapidly secrete a foul\, oily substance\.|Hmmmm\. Why must everything be so difficult to figure out\?|You reali[sz]e that your heroic actions can no longer continue unnoticed\, and you take it upon yourself to rectify the situation\.|You look about yourself nervously\.|The idea of eating or drinking is repulsive to you\.|You feel a tightening sensation grow in your lungs\.)$"
+   name="symp_hypochondria4__"
+   regexp="y"
+   script="affs.process"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are too impatient to focus on anything\.$"
+   name="symp_impatience__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You cannot be bothered to do that\, it is too boring\.$"
+   name="symp_impatience_med__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Justice is dealt out and your attack rebounds onto you\.$"
+   name="symp_justice__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are unable to maintain a stance for any period of time while your kneecaps are cracked\.$"
+   name="symp_kneecap_stance__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:You are unable to (?:stand|spring up) with your legs locked|You attempt to move\, but the muscles of your legs are locked)\.$"
+   name="symp_leglocked__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You realise that you have been left alone \- you must find companionship\!$"
+   name="symp_loneliness__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Blood flows into your (left|right) side inner ear\, inhibiting your sense of balance\.$"
+   name="symp_lost_ear__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your empty eyesockets can see nothing but the oblivion of utter darkness\.$"
+   name="symp_lost_eyes__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You love [A-Z][a-z]+ far too much to even THINK of hurting [hH](?:im|er)\.$"
+   name="symp_lovers__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:You smile with pleasure as you ram your fist into your jaw|You drive a clenched fist into your gut|With the heel of your palm\, you smack yourself upside the head|You use your (?:left|right) foot to stomp on your (?:left|right) as hard as possible)\.$"
+   name="symp_masochism__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You feel just as tired as before\.$"
+   name="symp_narcolepsy__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:You must have two good legs to do that|Both of your legs are crippled and thus you cannot carry out that action)\.$"
+   name="symp_need_two_legs__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:Frustratingly\, your body won\'t respond to your call to action|Paralysed as you are .+?|Your state of paralysis prevents you from doing that|As you are paralysed\, you cannot give away anything|You are paralysed and (?:cannot do that|unable to do that|are unable to drop anything))\.$"
+   name="symp_paralysis__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:An ally is just someone pretending to like you\, to make all the sweeter when they stab you in the back\! Allies are for weaklings \- you have no allies\!|Everyone is\, of course\, an enemy, but these people really sicken you\:)$"
+   name="symp_paranoia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Hatred burns in your eyes \- you realise that your enemies are everywhere\!"
+   name="symp_paranoia2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your heart is filled with divine love\, violence is abhorrent to you\.$"
+   name="symp_peace__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You attempt to inhale\, but only end up making a wheezing noise\.$"
+   name="symp_phrenic_nerve__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You attempt to stand up\, but your pierced leg gives out and you collapse back to the ground\.$"
+   name="symp_pierced_leg__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You gasp and shiver as you feel yourself losing control of your own power\.$"
+   name="symp_powersap__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:Ugly sores break open up\s?on your skin\, seeping with a bloody\,? yellow muco?us|You feel nauseous and your skin turns blotchy)\.$"
+   name="symp_pox__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Gasping for air\, you faint from sudden exhaustion\.$"
+   name="symp_punctured_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You swoon as you suffer a toxic relapse\.$"
+   name="symp_relapsing__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You stand in such dishonour that not even your loyal friends will help you\.$"
+   name="symp_repugnance__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your (left|right) (arm|leg) suddenly stiffens and loses all feeling sensation\, rendering it useless\.$"
+   name="symp_rigormortis__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Red rivulets of blood flow down your (left|right) (arm|leg)\.$"
+   name="symp_rivulets__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are too tangled up to do that\.$"
+   name="symp_roped__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sudden itch drives you half\-mad\, and you scratch it furiously\.$"
+   name="symp_scabies__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Something is blocking your throat\, making it impossible to swallow\.$"
+   name="symp_scarab__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You have no arms\!$"
+   name="symp_severed_arms__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:You are bound and cannot move|You are shackled and cannot do that)\.$"
+   name="symp_shackled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You feel the strength ebb from your body as the cold takes its toll\.$"
+   name="symp_shivering__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You have a particularly intense shiver\.$"
+   name="symp_shivering_disrupted__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Heart thumping\, you cannot bear the company of others and depart in terror\.$"
+   name="symp_shyness__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A blush begins to creep up your neck and into your face as you come to the reali[sz]ation that there are other people here\!$"
+   name="symp_shyness_fear__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A copious amount of blood suddenly splutters from your gut onto the ground\, and you slip in the deep red puddle\.$"
+   name="symp_sliced_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Copious amounts of blood suddenly splutter from your (chest|gut) onto the ground\.$"
+   name="symp_sliced_torso__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The arnica slides off your oily skin\.$"
+   name="symp_slickness_arnica__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+   <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The potion slides off your oily skin\.$"
+   name="symp_slickness_health__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+ <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The salve slides off your oily skin\.$"
+   name="symp_slickness_salve__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The hole in your throat prevents you from swallowing\.$"
+   name="symp_slit_throat__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You stumble and lose your combat stance\.$"
+   name="symp_stance_stumble__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are too stunned to be able to do anything\.$"
+   name="symp_stunned__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You yell\, \&quot;(?:I like cheese|[A-Z][a-z]+ (?:smells like a goat|is cute))\!\&quot;$"
+   name="symp_stupidity__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Sunlight shines down upon you mercilessly\, rippling across your skin like fire\.$"
+   name="symp_sunallergy__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The sun has rendered you too weak to move a muscle\.$"
+   name="symp_sunallergy_paralysis__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your throat has been locked\, and thus you cannot swallow\.$"
+   name="symp_throat_locked__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are transfixed and cannot (?:do that\. You must writhe to escape|move)\.$"
+   name="symp_transfixed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are overcome by it all and topple over in a dead faint\.$"
+   name="symp_vapors__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:You are gripped with fear \- you cannot leave the ground|You look downwards and the ground spins dizzily beneath you)\.$"
+   name="symp_vertigo__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are too afraid of heights to climb up\.$"
+   name="symp_vertigo_climb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:You begin to panic as the thought of wearing clothing strangles you|You are being strangled by .+? and rip it off of your body(?:\, throwing it on the ground)?)\.$"
+   name="symp_vestiphobia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You cannot contain the convulsions in your stomach any longer and double over\, retching violently\.$"
+   name="symp_vomiting__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You lurch forward and vomit out a puddle of blood\.$"
+   name="symp_vomiting_blood__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You try to raise the strength in your limbs\, but find yourself too weary\.$"
+   name="symp_weakness__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

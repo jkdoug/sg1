@@ -1,0 +1,56 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) makes a fist and punches towards you\, releasing a blast of pure elemental energy that slams into you\, searing your flesh\.$"
+   name="elementalism_blast__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are scorched by the firewall as you pass through\.$"
+   name="elementalism_firewall__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) raises a hand towards you and blasts you with cold\, frigid air\.$"
+   name="elementalism_freeze__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:An icewall rises up|[A-Z][a-z]+ raises [hH](?:is|er) hands dramatically\, and summons an icewall) to the (\w+)\.$"
+   name="elementalism_icewall__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Pointing at you\, ([A-Z][a-z]+) hisses and narrows [hH](?:is|er) eyes\. Flames erupt on your skin\, blistering your flesh\.$"
+   name="elementalism_ignite__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

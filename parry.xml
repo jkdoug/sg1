@@ -1,0 +1,67 @@
+<aliases>
+  <alias
+   name="parry_part__"
+   match="^\s*parry\s+(\w+)\s+(\d+)\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="parry.track"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="parry_scan__"
+   match="^\s*parry\s+scan\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="parry.exec"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You adjust your attention spent parrying your (chest|gut|head|left arm|left leg|right arm|right leg)\.$"
+   name="parry_changed__"
+   regexp="y"
+   script="parry.changed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You cease parrying\.$"
+   name="parry_cease__"
+   regexp="y"
+   script="parry.reset"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You are weighing your attention spent parrying yourself as follows\:$"
+   name="parry_sync__"
+   regexp="y"
+   script="parry.sync"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Actions"
+   match="(Head|Chest|Gut|Larm|Rarm|Lleg|Rleg)\:\s+(\d+)$"
+   name="parry_sync_part__"
+   regexp="y"
+   script="parry.sync_part"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

@@ -1,0 +1,120 @@
+<aliases>
+  <alias
+   name="time_diff__"
+   match="^time_diff (.+?) (.+?)$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="prompt.time_diff"
+   sequence="100"
+  >
+  </alias>
+  <alias
+    name="prompt_gag__"
+    match="^\s*prompt\s+gag\s*$"
+    enabled="y"
+    group="Interface"
+    regexp="y"
+    script="prompt.gagger"
+    sequence="100"
+    ignore_case="y"
+  >
+  </alias>
+
+  <alias
+   enabled="n"
+   name="pprompt_gmcp__"
+   match="^OnGMCP Char\.Vitals (.+)$"
+   group="Track"
+   regexp="y"
+   sequence="99"
+  >
+  <send></send>
+  </alias>
+  <alias
+   keep_evaluating="y"
+   name="prompt_gmcp__"
+   match="^OnGMCP Char\.Vitals (.+)$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   script="prompt.gmcp"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^(\d+)h\, (\d+)\m\, (\d+)e\, (\d+)p\, (\d+)en\, (\d+)w(?:\, (\d)mo)?(.+)"
+   name="pprompt"
+   regexp="y"
+   send_to="12"
+   sequence="9"
+  >
+  <send>Note('match %1 %2 %3 %4 %5 %6 %7 %8')</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^\-$"
+   name="bprompt"
+   regexp="y"
+   send_to="12"
+   sequence="9"
+  >
+  <send>Note('match blackout')</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(\d+)h\, (\d+)\m\, (\d+)e\, (\d+)p\, (\d+)en\, (\d+)w(?:\, (\d)mo)?(.+)"
+   name="prompt__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="prompt.match"
+   sequence="10"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^\-$"
+   name="prompt_blackout__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="prompt.match"
+   sequence="10"
+  >
+  </trigger>
+</triggers>
+
+<timers>
+  <timer
+   active_closed="y"
+   enabled="y"
+   name="install_reload__"
+   second="0.1"
+   offset_second="0.00"
+   one_shot="y"
+   send_to="12"
+   temporary="y"
+   group="Track"
+  >
+  <send>DoCommand("ReloadScriptFile")</send>
+  </timer>
+  <timer
+   active_closed="y"
+   enabled="n"
+   name="expire_timestamp__"
+   second="10.00"
+   offset_second="2.00"
+   script="prompt.time_expire"
+   group="Track"
+  >
+  </timer>
+</timers>

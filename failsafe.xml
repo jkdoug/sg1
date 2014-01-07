@@ -1,0 +1,307 @@
+<triggers>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^You are bleeding for (\d+) health\.$"
+   name="checking_bleeding_amount__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_bleeding_amount"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^The idea of putting something in your stomach sickens you\.$"
+   name="checking_eating_anorexia__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_eating_anorexia"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^The hole in your throat prevents you from swallowing\.$"
+   name="checking_eating_slit_throat__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_eating_slit_throat"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^Your throat has been locked\, and thus you cannot swallow\.$"
+   name="checking_eating_throatlock__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_eating_throatlock"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^Your crushed windpipe inhibits your ability to swallow\.$"
+   name="checking_eating_windpipe__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_eating_windpipe"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^(?:What is it that you wish to drink\?|You take a long draught of water\, hoping to quench your thirst\.)$"
+   name="checking_eating_fine__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_eating_fine"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^Your lungs are much too constricted to smoke\.$"
+   name="checking_asthma1__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_asthma_true"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^What is it you wish to smoke\?$"
+   name="checking_asthma2__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_asthma_false"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^(?:You are blind and (?:can )?see nothing but darkness|There is nothing noteworthy there for you to read)\.$"
+   name="checking_blindness__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_blind"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^(?:Number of matching objects\: 0 \(out of \d+ total\)|You concentrate hard on breaking through your delusions\.)$"
+   name="checking_dementia__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_demented"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^(?:You close your eyes\, bow your head\, and empty your mind of all thought|Your mental prowess is already swollen to its maximum)\.$"
+   name="checking_impatience__"
+   omit_from_log="y"
+   omit_from_output ="y"   
+   regexp="y"
+   script="failsafe.handle_impatient"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^You cannot be bothered to do that\, it is too boring\.$"
+   name="checking_impatience_true__"
+   omit_from_log="y"
+   omit_from_output ="y"   
+   regexp="y"
+   script="failsafe.handle_impatient_true"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   keep_evaluating="y"
+   match="^Paralysed as you are\, your body is not able to pick up anything\.$"
+   name="checking_paralysis1__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_paralysis_true"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   keep_evaluating="y"
+   match="^I see no \&quot;paralysis&quot; to take\.$"
+   name="checking_paralysis2__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_paralysis_false"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Failsafe"
+   match="^(?:Galt is not currently an enemy of yours|You declare that Galt will no longer be one of your enemies)\.$"
+   name="checking_paranoia__"
+   omit_from_log="y"
+   omit_from_output="y"   
+   regexp="y"
+   script="failsafe.handle_paranoid"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^You must have two good legs to do that\.$"
+   name="checking_standing_hemiplegy__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_standing_hemiplegy"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   keep_evaluating="y"
+   match="^You are unable to stand with your legs locked\.$"
+   name="checking_standing_leglock__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_standing_leglock"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   keep_evaluating="y"
+   match="^You are too tangled up to do that\.$"
+   name="checking_standing_roped__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_standing_roped"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   keep_evaluating="y"
+   match="^You are shackled and cannot do that\.$"
+   name="checking_standing_shackled__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_standing_shackled"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   keep_evaluating="y"
+   match="^(?:You stand straight up|You stand up and stretch your arms out wide)\.$"
+   name="checking_standing_fine__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_standing_fine"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^Your locked throat prevents you from speaking\.$"
+   name="checking_throatlock1__"
+   regexp="y"
+   script="affs.process"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   keep_evaluating="y"
+   match="^You are \d+ years old\.$"
+   name="checking_aeon1__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_aeon_false"
+   sequence="9000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   keep_evaluating="y"
+   match="^You have no arms\!$"
+   name="checking_severed_arms1__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_severed_arms_true"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Failsafes"
+   match="^(?:What is it that you wish to drink\?|You take a long draught of water\, hoping to quench your thirst\.)$"
+   name="checking_severed_arms2__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="failsafe.handle_severed_arms_false"
+   sequence="9000"
+  >
+  </trigger>
+</triggers>

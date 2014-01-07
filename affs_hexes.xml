@@ -1,0 +1,55 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:([A-Z][a-z]+) grabs some glowing glyphs and throws them at you|Glowing glyphs in the air flare and explode in your face|Glowing glyphs drift in from the \w+ and explode in your face)\.$"
+   name="hexes_hex__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:You see .+?\'s throat vibrate as [hH](?:is|er) yell|The screeching yell of .+?) pierces your mind\, \&quot;.+?\&quot;$"
+   name="hexes_hexenthroat__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) draws a glowing glyph in the air and flings it at you\. Your mind suddenly grows befuddled and clouded\.$"
+   name="hexes_jinx__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your limbs twitch of their own volition under the curse of the jinx\, refusing to obey your commands\.$"
+   name="hexes_jinx_symptom__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The images of two glowing glyphs suddenly spring up in your mind\'s eye\.$"
+   name="hexes_hexensoles__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

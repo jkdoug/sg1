@@ -1,0 +1,175 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You fall on your face as your legs are suddenly pulled out from under you\.$"
+   name="telekinesis_trip__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sharp pain erupts in your chest\, and (?:your (?:neck|forehead|temple) throbs|blood trickles out of your (?:nose|ear|eye))\.$"
+   name="telekinesis_burst__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   lines_to_match="2"
+   match="^.+? floats around you\, then dives at you\.\nIt painfully stabs you\!$"
+   multi_line="y"
+   name="telekinesis_animatedagger__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The air around you suddenly erupts into flames\, scorching your body\.$"
+   name="telekinesis_pyre__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sudden force lifts you up off the ground and flings you into the air\. (You go sailing into the sky|You hit the ceiling with an awful crunch and drop to the ground)\.$"
+   name="telekinesis_fling__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You put a hand to your throat as an invisible force tightens around your neck and chokes you\.$"
+   name="telekinesis_choke__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The bones of your (left|right) (arm|leg) suddenly snap\.$"
+   name="telekinesis_psychicfist_limb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^An invisible force swipes by your leg\, causing you to fall over\.$"
+   name="telekinesis_psychicfist_fall__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The bones of your (jaw|ribcage) suddenly snap\.$"
+   name="telekinesis_psychicfist_body__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^As the pain of your broken jaw sets in\, you are filled with a sense of confusion\.$"
+   name="telekinesis_psychicfist_confuse__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You are briefly stunned by the snapping of your ribcage\.$"
+   name="telekinesis_psychicfist_stun__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You gasp as a surging pain strikes you in your (left|right) (arm|hip)\.$"
+   name="telekinesis_clot__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You cough as something gets lodged deep in your throat\.$"
+   name="telekinesis_throatlock__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A tingling sensation ripples over your skin and you begin to sweat profusely\.$"
+   name="telekinesis_sweat__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^A force field around ([A-Z][a-z]+) flares\, absorbing all damage\.$"
+   name="telekinesis_forcefield__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:The air in the room suddenly sizzles with energy|A strange force prevents you from moving that way)\.$"
+   name="telekinesis_barrier__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

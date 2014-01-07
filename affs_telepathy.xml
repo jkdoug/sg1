@@ -1,0 +1,44 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sudden headache makes you rub your temples for relief\.$"
+   name="telepathy_affliction__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A terrible lethargy suddenly overwhelms you\, making you feel mentally exhausted\.$"
+   name="telepathy_psychicvampirism__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As the image of ([A-Z][a-z]+) floats before your eyes\, blinding pain explodes behind them\, and they begin to tear up with blood\.$"
+   name="telepathy_mindblast__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A blinding pain explodes behind your eyes\, which begin to tear up with blood\.$"
+   name="telepathy_mindblast2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

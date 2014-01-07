@@ -1,0 +1,148 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slams [hH](?:is|er) forehead into your skull\, the shock of which stuns you and makes stars dance before your eyes\.$"
+   name="athletics_headslam__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You are knocked off your feet by the force of the blow\.$"
+   name="athletics_headslammed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) clenches [hH](?:is|er) muscles until they bulge and pop\, roaring menacingly at you\. Clearly\, (?:[hH]|[sS]h)e is going to tear you limb from limb\!$"
+   name="athletics_intimidate__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) tackles your legs and attempts to carry you off to the (\w+)\.$"
+   name="athletics_tackle__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^(?:Sh|H)e succeeds and carries you\, knocking you to the ground\.$"
+   name="athletics_tackled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You succeed and carry ([hH]im|[hH]er)\, knocking \1 to the ground\.$"
+   name="athletics_tackling__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) comes barreling in from the \w+\.$"
+   name="athletics_barge__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) barges you (\w+)wards\.$"
+   name="athletics_barged__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) charges in from the (\w+) and slams into you\.$"
+   name="athletics_charge__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You are carried off to the (\w+)\.$"
+   name="athletics_charged__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^[A-Z][a-z]+ slams you hard to the ground\, and you are crushed under [hH](?:is|er) weight\.$"
+   name="athletics_slammed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You charge to the (\w+)\.$"
+   name="athletics_charging__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   lines_to_match="2"
+   match="^You slam into [A-Z][a-z]+\.\nYou carry [hH](?:im|er) to the (\w+)\.$"
+   multi_line="y"
+   name="athletics_charger__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^You slam [A-Z][a-z]+ (?:hard )?to the ground\, crushing [hH](?:im|er) under you\.$"
+   name="athletics_slammer__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

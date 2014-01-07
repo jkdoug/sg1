@@ -1,0 +1,153 @@
+<aliases>
+  <alias
+   name="herbs_plants__"
+   match="^\s*plants\s*$"
+   enabled="y"
+   group="Herbs"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="1000"
+  >
+  <send>if calendar.month == 0 then
+  Send("date")
+end
+Send("plants")</send>
+  </alias>
+  <alias
+   name="herbs_tracker__"
+   match="^\s*harvested\s*$"
+   enabled="y"
+   group="Herbs"
+   regexp="y"
+   script="herbs.show_tracker"
+   ignore_case="y"
+   sequence="1000"
+  >
+  </alias>
+  <alias
+   name="herbs_almanac__"
+   match="^\s*almanac(?:\s+(\w+))?\s*$"
+   enabled="y"
+   group="Herbs"
+   regexp="y"
+   script="herbs.show_almanac"
+   ignore_case="y"
+   sequence="1000"
+  >
+  </alias>
+
+  <alias
+   name="herbs_harvest__"
+   match="^\s*harv(?:est)?(?:\s+(\w+))?\s*$"
+   enabled="y"
+   group="Herbs"
+   regexp="y"
+   script="herbs.handle_harvest"
+   ignore_case="y"
+   sequence="1000"
+  >
+  </alias>
+  <alias
+   name="herbs_plant__"
+   match="^\s*plant\s*$"
+   enabled="y"
+   group="Herbs"
+   regexp="y"
+   script="herbs.handle_plant"
+   ignore_case="y"
+   sequence="1000"
+  >
+  </alias>
+  <alias
+   name="herbs_picker__"
+   match="^\s*hpick\s*$"
+   enabled="y"
+   group="Herbs"
+   regexp="y"
+   script="herbs.handle_pick"
+   ignore_case="y"
+   sequence="1000"
+  >
+  </alias>
+  <alias
+   name="herbs_reset__"
+   match="^\s*reset\s+herbs\s*$"
+   enabled="y"
+   group="Herbs"
+   regexp="y"
+   script="herbs.handle_reset"
+   ignore_case="y"
+   sequence="1000"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Herbs"
+   match="^The following plants are growing in this room\:$"
+   name="herbs_growing__"
+   regexp="y"
+   script="herbs.handle_plants"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Plants"
+   match="\((\w+)\)\s+(\d+) left\."
+   name="herbs_room__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="herbs.handle_room"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Herbs"
+   match="^You reach down and carefully harvest .+?\.$"
+   name="herbs_picked_herb__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="herbs.handle_picked"
+   sequence="8000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Herbs"
+   match="^Hmm\, that wasn\'t the herb you thought after all\. It was some rare spices\!$"
+   name="herbs_picked_spices__"
+   regexp="y"
+   script="herbs.handle_spices"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Herbs"
+   match="^The (\w+) disappears into its own hibernation\.$"
+   name="herbs_disappeared__"
+   regexp="y"
+   script="herbs.handle_disappear"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Herbs"
+   match="^The plant refuses to release its bounty\.$"
+   name="herbs_guarded__"
+   regexp="y"
+   script="herbs.handle_guarded"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

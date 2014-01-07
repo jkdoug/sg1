@@ -1,0 +1,77 @@
+<variables>
+  <variable name="sg1_acquire">sovereigns?|essence|cocoon|tablet|lumber|rune|tints?|keys?|book|journal|lovashi|yig|olormi|flahti|augorum|bahlik|phlo|hakii|cluuvia|mhogaki|slaavi|uurulu|arnica|calamus|chervil|colewort|coltsfoot|earwort|faeleaf|flax|galingale|horehound|juniper|kafe|kombu|marjoram|merbloom|mistletoe|myrtle|pennyroyal|reishi|rosehips|sage|sargassum|sparkleberry|weed|wormwood|yarrow|cog</variable>
+</variables>
+
+<aliases>
+  <alias
+   name="acquire_pickup__"
+   match="^acquire$"
+   enabled="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   script="acquire.get"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^You have slain (.+?)\.$"
+   name="acquire_killed__"
+   regexp="y"
+   script="acquire.killed"
+   sequence="5000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^You suddenly scoop up the corpse of .+?\.$"
+   name="acquire_scooped__"
+   regexp="y"
+   script="acquire.scooped"
+   sequence="5000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   expand_variables="y"
+   group="Acquire"
+   keep_evaluating="y"
+   match="\b(@!sg1_acquire)\b"
+   name="acquire_pickup__"
+   regexp="y"
+   script="acquire.pickup"
+   sequence="5000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Acquire"
+   keep_evaluating="y"
+   match="^(?:[A-Z][a-z]+|You) grabs? the gold and distributes? it to"
+   name="acquire_gold_distributed__"
+   regexp="y"
+   script="acquire.distributed"
+   sequence="5000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Acquire"
+   keep_evaluating="y"
+   match="^Your avarice compels you to reach down and hoard [\d\,]+ gold for yourself\.$"
+   name="acquire_gold_avarice__"
+   regexp="y"
+   script="acquire.avarice"
+   sequence="5000"
+  >
+  </trigger>
+</triggers>

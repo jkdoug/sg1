@@ -1,0 +1,206 @@
+<aliases>
+  <alias
+   name="pipes__"
+   match="^\s*pipes\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="pipes.show"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="pipes_toggle__"
+   match="^\s*pipes\s+(on|off)\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="pipes.toggle"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+
+  <alias
+   name="empty__"
+   match="^\s*empty\s+(coltsfoot|faeleaf|myrtle)\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="pipes.empty"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="fill__"
+   match="^\s*fill\s+(coltsfoot|faeleaf|myrtle)\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="pipes.fill"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="smoke__"
+   match="^\s*smoke\s+(coltsfoot|faeleaf|myrtle)\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="pipes.smoke"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+
+  <alias
+   name="pipes_sync__"
+   match="^\s*pipes\s+sync\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="pipes.sync"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="pipes_light__"
+   match="^\s*pipes\s+light\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="pipes.light"
+   sequence="100"
+  >
+  </alias>
+
+  <alias
+   name="pipel__"
+   match="^\s*pipel(?:ist)?\s*$"
+   enabled="y"
+   group="Actions"
+   regexp="y"
+   script="pipes.list"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="n"
+   group="Track"
+   keep_evaluating="y"
+   match="^(?:[\*\-]+|\s*Id\s+Pipe\s+Herb\s+Puffs\s+Status\s*|\s*\d+\s+.+?\s+(?:coltsfoot|faeleaf|myrtle|empty)\s+\d+\s+(?:Lit|Unlit)|Total Pipes\: \d+)$"
+   name="pipelist_hide__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   send_to="14"
+   sequence="9900"
+  >
+  <send>prompt.queue(function () EnableTrigger("pipelist_hide__", false) end, "hidepipel")
+prompt.gag = true</send>
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="PipeList"
+   lines_to_match="3"
+   match="^\*+\n\s*Id\s+Pipe\s+Herb\s+Puffs\s+Status\s*\n\-+$"
+   multi_line="y"
+   name="pipelist__"
+   regexp="y"
+   script="pipes.listed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="PipeList"
+   match="^\s*(\d+)\s+.+?\s+(coltsfoot|faeleaf|myrtle)\s+(\d+)\s+(Unlit|Lit)$"
+   name="pipelist_full__"
+   regexp="y"
+   script="pipes.assign"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="PipeList"
+   match="^\s*(\d+)\s+.+?\s+empty\s+0\s+(Unlit|Lit)$"
+   name="pipelist_empty__"
+   regexp="y"
+   script="pipes.unassign"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:The pipe is full|(?:.+?pipe.*? has|\w+ of your pipes have) gone cold and dark|You hear a deep tone as a silver mist surrounds your pipe\, causing the embers to smolder and die out|You carefully light (?:.+?pipe.*? until it is|\w+ pipes until they are) (?:smok|burn)ing nicely|That pipe is already lit and burning nicely)\.$"
+   name="pipe_resync__"
+   regexp="y"
+   script="pipes.sync"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You tap out the contents of your pipe\.$"
+   name="pipe_emptied__"
+   regexp="y"
+   script="pipes.emptied"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You fill your pipe with .*?(coltsfoot|faeleaf|myrtle).*?\.$"
+   name="pipe_filled__"
+   regexp="y"
+   script="pipes.filled"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Actions"
+   match="^You take a long drag off (.+?pipe.*?)\.$"
+   name="pipe_smoked__"
+   regexp="y"
+   script="pipes.smoked"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The pipe has nothing smokeable in it\.$"
+   name="pipe_not_smokeable__"
+   regexp="y"
+   script="pipes.not_smoked"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Actions"
+   keep_evaluating="y"
+   match="^You remove \d+ (\w+)(?: from the rift)?\, bringing the total in the rift to \d+\.$"
+   name="fill_now__"
+   regexp="y"
+   script="pipes.fill_now"
+   sequence="9000"
+  >
+  </trigger>
+</triggers>

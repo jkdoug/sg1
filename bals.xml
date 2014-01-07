@@ -1,0 +1,195 @@
+<aliases>
+  <alias
+   name="bals__"
+   match="^\s*bals\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="bals.show"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <!-- Psionic -->
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You feel the (Sub|Super|Id)(?:stratus)? channel has been fully locked\.$"
+   name="balance_psi_locked__"
+   regexp="y"
+   script="bals.lock"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You relax your mind and feel the (Sub|Super|Id)(?:stratus)? channel opening again\.$"
+   name="balance_psi_unlocked__"
+   regexp="y"
+   script="bals.unlock"
+   sequence="10000"
+  >
+  </trigger>
+
+  <!-- Elixirs -->
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You may (?:drink|use) another (health)\, mana\, or bromide potion(?:\, or medicine bag)?\.$"
+   name="balance_health__"
+   regexp="y"
+   script="bals.gained"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Balances"
+   match="^The potion has no discernable effect\.$"
+   name="balance_health_failed__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>bals.gain("health")
+flags.clear("health_applying")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Balances"
+   match="^The (salve) has no discernable effect\.$"
+   name="balance_salve_failed__"
+   regexp="y"
+   script="bals.gained"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You may drink another (purgative) or curing potion\.$"
+   name="balance_purgative__"
+   regexp="y"
+   script="bals.gained"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You may take another dose of (allheale)\.$"
+   name="balance_allheale__"
+   regexp="y"
+   script="bals.gained"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You may apply another (salve) to yourself\.$"
+   name="balance_salve__"
+   regexp="y"
+   script="bals.gained"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You belch softly under your breath\, ready to quaff another (brew)\.$"
+   name="balance_brew__"
+   regexp="y"
+   script="bals.gained_brew"
+   sequence="10000"
+  >
+  </trigger>
+
+  <!-- Focus -->
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your mind is able to focus once again\.$"
+   name="balance_focus__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.clear("focusing")
+bals.gain("focus")</send>
+  </trigger>
+
+  <!-- Herbs -->
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You may eat or smoke another (herb)\.$"
+   name="balance_herb__"
+   regexp="y"
+   script="bals.gained"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You may eat another herb that gives the (sparkle)berry effect\.$"
+   name="balance_sparkle__"
+   regexp="y"
+   script="bals.gained"
+   sequence="10000"
+  >
+  </trigger>
+
+  <!-- Enchantments -->
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You may use a focus (charm) again\.$"
+   name="balance_charm__"
+   regexp="y"
+   script="bals.gained"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You may crank a (music) box again\.$"
+   name="balance_music__"
+   regexp="y"
+   script="bals.gained"
+   sequence="10000"
+  >
+  </trigger>
+
+  <!-- Scroll -->
+  <trigger
+   enabled="y"
+   group="Balances"
+   match="^You may be healed by a (scroll) again\.$"
+   name="balance_scroll__"
+   regexp="y"
+   script="bals.gained"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Balances"
+   keep_evaluating="y"
+   match="^You have recovered (.+?)\.$"
+   name="regain_balances__"
+   omit_from_output="y"
+   omit_from_log="y"
+   regexp="y"
+   script="bals.regain"
+   sequence="2000"
+  >
+  </trigger>
+</triggers>

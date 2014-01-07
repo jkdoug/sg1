@@ -1,0 +1,288 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Slashing viciously at you\, ([A-Z][a-z]+) rends you in the (chest|gut|head|left arm|left leg|right arm|right leg) with (.+?)\.$"
+   name="nekotai_nekai__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slices .+? (?:with|in) the Angknek style through your (left|right) (arm|leg)\, the pain making you slow and weak\.$"
+   name="nekotai_angknek_limb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) gouges .+? (?:with|in) the Angknek style into your gut\, spilling your steaming entrails\.$"
+   name="nekotai_angknek_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) punctures .+? into your chest (?:with|in) the Angknek style\, and a sharp pain streaks across your lungs\.$"
+   name="nekotai_angknek_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slashes .+? into your head (?:with|in) the Angknek style\, adorning your cheek with a gash of crimson\.$"
+   name="nekotai_angknek_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a hiss\, ([A-Z][a-z]+) slams [hH](?:is|er) nekai against your throat and presses against your windpipe\, painfully choking the life from you\.$"
+   name="nekotai_oothai__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slashes your (chest|gut|head|left arm|left leg|right arm|right leg) with such force that the blades warble\, creating an earsplitting screech that whistles through the air\.$"
+   name="nekotai_kaife__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Graceful as a scorpion\, ([A-Z][a-z]+) leaps in from the \w+ with a vicious cry\.$"
+   name="nekotai_scorpionstrike__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Filled with disgust\, ([A-Z][a-z]+) spits directly in your face\.$"
+   name="nekotai_spit__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Twirling .+?\, ([A-Z][a-z]+) shreds your (left|right) (arm|leg) (?:with|in) the Angkai style\, sending piercing pain through your nerves\.$"
+   name="nekotai_angkai_limb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:With|In) the Angkai style\, ([A-Z][a-z]+) plunges .+? into your head\, painfully gouging out your (left|right) eye\.$"
+   name="nekotai_angkai_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slices .+? through your chest (?:with|in) the Angkai style\, and you suddenly have trouble breathing\.$"
+   name="nekotai_angkai_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) shreds .+? across your gut in a vicious Angkai arc\, painfully traumatizing your liver\.$"
+   name="nekotai_angkai_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="Speedy as a crouching scorpion\, ([A-Z][a-z]+) twists back violently and sends you sprawling\.$"
+   name="nekotai_scorpiontail__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a sudden strike\, ([A-Z][a-z]+) skewers you with two nekais in the (chest|head|gut|left arm|right arm)\, holding you in place\.$"
+   name="nekotai_ootangk__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Leaping up and twisting in the air\, ([A-Z][a-z]+) smashes [hH](?:is|er) (?:left|right) foot into your (chest|gut|head|left arm|right arm)\, which trembles from the force of the kick\.$"
+   name="nekotai_sprongk__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Throwing a kick in the Spronghai style\, ([A-Z][a-z]+) slams [hH](?:is|er) (?:left|right) heel on your (chest|gut|head|left arm|left leg|right arm|right leg)\.$"
+   name="nekotai_spronghai__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) cuts .+? with an Angkhai arc into your (chest|gut|head|left arm|left leg|right arm|right leg)\.$"
+   name="nekotai_angkhai__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) gracefully cuts (.+?) across your head with an Angkhai arc\, slicing open your throat in three crimson streaks\.$"
+   name="nekotai_angkhai_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) rips .+? through your (left|right) leg tendon in an Angkhai arc\, leaving you crippled\.$"
+   name="nekotai_angkhai_leg__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Twisting in a circle\, ([A-Z][a-z]+) plunges .+? into your gut\, driving the foot so hard that it snaps your spine\.$"
+   name="nekotai_sprongma_gut__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Twisting in a circle\, ([A-Z][a-z]+) plunges .+? into your chest\, smashing your chest inward\.$"
+   name="nekotai_sprongma_chest__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Fountains of blood erupt as ([A-Z][a-z]+) neatly removes [hH](?:is|er) blades from your (chest|gut|head|left arm|left leg|right arm|right leg)\.$"
+   name="nekotai_amihai__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Hooding [hH](?:is|er) eyes and letting out a low hiss\, ([A-Z][a-z]+) spins around with such speed that (?:[hH]|[sS]h)e becomes a blur\,? and then suddenly kicks you in the (head|chest|gut|left arm|left leg|right arm|right leg)\.$"
+   name="nekotai_finalsting__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+
+  <trigger
+   enabled="n"
+   group="NekotaiMods"
+   match="^Your (\w+) starts to throb(?:\, and blood trickles out of your \1)?\.$"
+   name="nekotai_kaiga__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="NekotaiMods"
+   match="^Your (left|right) (arm|leg) snaps painfully\.$"
+   name="nekotai_oriama1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="NekotaiMods"
+   match="^Your (left|right) (arm|leg) is mangled into a twisted mass of bloody\, broken bone\!$"
+   name="nekotai_oriama2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

@@ -1,0 +1,201 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a guttural chant\, ([A-Z][a-z]+) places a hand on your chest and sucks the nourishment out of your body\.$"
+   name="necromancy_feed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) frowns in frustration\, unable to suck any nourishment from your body\, although (?:[hH]|[sS]h)e does manage to weaken your constitution\.$"
+   name="necromancy_feed_constitution__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) chants harshly at you\, while cracking [hH](?:is|er) knuckles loudly\.$"
+   name="necromancy_shrivel__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The flesh on your (left|right) (arm|leg) shrivels to the bone\.$"
+   name="necromancy_shriveled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) points at you and utters a string of terrible sounds\, which leech(?:es)? away your mental reserves\.$"
+   name="necromancy_leech__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) pronounces that you are under an ill omen\, and a sense of imminent foreboding descends upon you\.$"
+   name="necromancy_omen__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) curses you with the visage of a rotting corpse\.$"
+   name="necromancy_disfigure__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s eyes roll back into [hH](?:is|er) head and (?:[hH]|[sS]h)e begins to chant ugly\, discordant words\. With each syllable uttered\, white\, viscous smoke oozes out of [hH](?:is|er) mouth\.$"
+   name="necromancy_ectoplasm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The smoke envelops you\, leaving behind a thick coat of sticky slime\.$"
+   name="necromancy_ectoplasmed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:Several flies from the black cloud of filth fly into your mouth\, turning into a putrid sleaze that makes you gag and choke uncontrollably|A foul feeling churns in the pit of your stomach)\.$"
+   name="necromancy_contagion__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) chants harshly while laying ([hH](?:is|er)) hand upon you\. Searing pain flashes through \2 touch and where \2 palm touched\, a deathly mark has been burned into your skin\.$"
+   name="necromancy_deathmark__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The grim mark on your body suddenly darkens (slightly|greatly|brilliantly)\.$"
+   name="necromancy_deathmarks__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) begins to chant in a deep and baleful voice\, and an iron cross rises up from the ground before you\. Vicious spikes slam into your flesh and nail you to the cross\. You scream in pain and agony as blood is splattered in all directions\.$"
+   name="necromancy_crucify__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You jerk as the iron cross pulls your limbs\, resulting in a sickening crunch of bones\.$"
+   name="necromancy_crucified_jerk__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your crucified state makes that impossible\.$"
+   name="necromancy_crucified_impossible__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You bleed like a stuck pig upon the iron cross\.$"
+   name="necromancy_crucified_bleed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You can\'t concentrate enough to focus on your mind as you are crucified\!$"
+   name="necromancy_crucified_nofocus__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) lightly strokes your flesh\, and the cold of the grave seeps into your bones\.$"
+   name="necromancy_lichdom_touch__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The cold of the grave seeps into your bones\, causing you to shudder\.$"
+   name="necromancy_lichdom_coldaura__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

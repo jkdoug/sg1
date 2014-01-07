@@ -1,0 +1,231 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Drawing back [hH](?:is|er) (?:left|right) fist\, ([A-Z][a-z]+) punches you in the (chest|gut|head|left arm|left leg|right arm|right leg)\.$"
+   name="kata_punch__"
+   regexp="y"
+   script="wounds.kata_pk"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a quick spin\, ([A-Z][a-z]+) kicks you in the (chest|gut|head|left arm|left leg|right arm|right leg) with [hH](?:is|er) (?:left|right) foot\.$"
+   name="kata_kick__"
+   regexp="y"
+   script="wounds.kata_pk"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) firmly holds you in place with an iron\-strong grip\.$"
+   name="kata_hold__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are grappled by ([A-Z][a-z]+)\. You must writhe to escape\.$"
+   name="kata_hold_symptom1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are held down by a full\-body grapple\.$"
+   name="kata_hold_symptom2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) releases [hH](?:is|er) fierce grapple on you\.$"
+   name="kata_release__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) swiftly grabs you and hurls you forcefully to the ground\.$"
+   name="kata_throw__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a snarl\, ([A-Z][a-z]+) clutches your throat and begins to painfully choke the life from you\.$"
+   name="kata_choke__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You gasp helplessly for breath as ([A-Z][a-z]+) continues to viciously choke you\.$"
+   name="kata_choking__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) locks your (chest|gut|head|left arm|left leg|right arm|right leg) in a solid grapple\.$"
+   name="kata_lock__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your (chest|gut|head|left arm|left leg|right arm|right leg) is grappled by ([A-Z][a-z]+)]. You must writhe to escape\.$"
+   name="kata_lock_symptom__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) applies precise pressure and burning agony shoots (?:up|through) your (chest|gut|head|left arm|left leg|right arm|right leg) as it snaps\.$"
+   name="kata_snap__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) expertly tosses you\, sending you careening through the air away from [hH](?:im|er)\.$"
+   name="kata_toss__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) thrusts a clawed fist towards you\, ripping at the air before your face\.$"
+   name="kata_raze__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+
+  <trigger
+   enabled="n"
+   group="KataMods"
+   match="^A prickly stinging overcomes your body\, fading away into numbness\.$"
+   name="kata_pinchnerve__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="KataMods"
+   match="^Your nose is savagely hit and breaks\, causing blood to splurt forth\.$"
+   name="kata_break_head__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="KataMods"
+   match="^Your (left|right) leg shatters under the force of the blow\.$"
+   name="kata_break_leg__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="KataMods"
+   match="^Your (left|right) leg buckles as your kneecap emits a loud popping crack\.$"
+   name="kata_break_leg2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="KataMods"
+   match="^Your (left|right) arm breaks with a loud crack\.$"
+   name="kata_break_arm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="KataMods"
+   match="^Your (left|right) arm flops uselessly as your elbow emits a loud popping crack\.$"
+   name="kata_break_arm2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="KataMods"
+   match="^(?:The force of the blow forces you to stagger backwards\, and you feel slightly dazed\.|You reel back\, stunned at the power of the blow\!)$"
+   name="kata_stun__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="KataMods"
+   match="^The massive trauma to your head has damaged your skull and brain considerably\.$"
+   name="kata_concussion__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

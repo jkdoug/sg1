@@ -1,0 +1,90 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) brands you a heretic for your crimes against the Light\.$"
+   name="sacraments_heretic__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^([A-Z][a-z]+) calls down a beam of brilliant light upon you\.$"
+   name="sacraments_judgement_start__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^([A-Z][a-z]+) chants and a column of topaz light appears before [hH](?:im|er)\. (?:Sh|H)e points at you and the column of light obediently moves to envelop you\, a voice whispering in your mind that you will be judged\.$"
+   name="sacraments_judgement_continue__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) marks you as an infidel for your utter contempt for the Light\.$"
+   name="sacraments_infidel__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) calls down an inquisition upon you\, and a pillar of holy fire strikes you from the heavens\. A bright pain streaks through your body but you cannot move or even cry out in agony\.$"
+   name="sacraments_inquisition__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The pain of ritualistic inquisition subdues your actions\.$"
+   name="sacraments_inquisition_symptom__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You feel yourself released from the painful inquisition\.$"
+   name="sacraments_inquisition_done__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A cloudy vision forms in your mind\'s eye of a towering\, angelic woman with a cobalt blue shield who shouts\, &quot;Heretic\, get thee from the Light\!&quot; She points at you and a bolt of blue lightning slams into you\.$"
+   name="sacraments_heretic_tick__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

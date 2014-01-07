@@ -1,0 +1,154 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sudden shiver shoots up your spine\, making you involuntarily jerk as a creeping sensation crawls over your skin\.$"
+   name="dreamweaving_motes__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) slams [hH](?:is|er) hand into the air in front of you\, and you suddenly feel lightheaded and weak\.$"
+   name="dreamweaving_puncture__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You hear a voice hiss in your ears\, sending chills down your spine as you look around for its source\.$"
+   name="dreamweaving_spook__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Strange noises can be heard behind you and you see movement out of the corner of your eye\. What\'s that\? There it is again\!$"
+   name="dreamweaving_haunt__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:You stop for a moment to think about how great it would be if you were a god|A vision of yourself leaving the Basin and finding life beyond its borders briefly crosses your mind\, but you discard it as utterly ridiculous|Your mind wanders as you dream of greatness|You smile as you imagine yourself as the greatest chieftain of the Seren|A vision of yourself exploring the lands outside the Basin drifts across your mind|You pause as you try to imagine what the world would be like if there hadn\'t been any Soulless Gods|Your attention slips away from the material world as you ponder on the wonders of the Planes|Your mind wanders momentarily as you envision the totem spirits of the forest animals trying to convey a message to you that you can\'t quite understand|A fleeting vision fills your mind of a mighty stag leaping ahead of you under silver moonlight\, leading a noble chase through verdant forests|Your mind wanders momentarily to greatness as you imagine yourself single\-handedly protecting the Seren from its enemies|Passing thoughts of love lost flow through your mind|You briefly imagine yourself taking over Bob\'s trading business\, causing a small chuckle to grace your lips|You pause momentarily as you try to imagine what true peace would be like|Your mind wanders as you dream of riches and fame)\.$"
+   name="dreamweaving_daydreaming__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A terrifying nightmare invades your sleep\, of a gruesome monster slowly devouring you with sharpened fangs\. You cannot move as you are eaten alive\.$"
+   name="dreamweaving_nightmare__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You get a sudden headache\.$"
+   name="dreamweaving_channel__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A stabbing pain hits you in the chest\, causing you to moan\.$"
+   name="dreamweaving_sap__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A sudden urge to sleep is so string that your knees buckle\.$"
+   name="dreamweaving_drowse__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your eyes droop and you cannot stop yourself from yawning\.$"
+   name="dreamweaving_deepsleep__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You briefly feel a strange tingling on the back of your neck\.$"
+   name="dreamweaving_drift__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The tingling on the back of your neck returns momentarily before abruptly vanishing\.$"
+   name="dreamweaving_drifted__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A dark void opens up in your mind and devours your thoughts\.$"
+   name="dreamweaving_void__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The white mist here washes over you in a wave of ghostly tendrils\.$"
+   name="dreamweaving_sleepmist__"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

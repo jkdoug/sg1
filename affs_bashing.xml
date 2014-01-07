@@ -1,0 +1,548 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A mutilated mugwump raises her arm and gestures wildly towards you\, causing a pyre of searing flames to explode around your feet\.|A lost soul of death sweeps the area with his flaming\,? malevolent gaze\, and your muscles lock even as you combust in a conflagration of emerald balefire\.|Opening its beak wide\, a loathsome cockatrice exhales a stream of fire over you\!|Gognigin\, a small gorgog stares at you\, the flames in his eyes brightening and searing you with intense\, scorching heat|Shaking its head side to side\, an inferno beetle charges at you with flames shooting forth from its mandibles\.|An inferno beetle rears back and shoots a jet of liquid flame at you\.|Backing slowly up, an inferno beetle clacks its mandibles together\, which begin glowing to a blinding white heat\. Suddenly\, it unleashes a column of blazing flames at you\.|A robed obesefessor opens his book and a column of red fire shoots out and engulfs you\.|An enormous gorgog stares at you\, the flames in his eyes brightening and searing you with intense\, scorching heat\.|A Golden Champion\'s eyes flare with a blindingly brilliant golden light\, and your skin suddenly bursts into flames\.)$"
+   name="bashing_ablaze__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^A garghast coughs out a flaring cloud of hot embers towards you that singe and burn your skin\.$"
+   name="bashing_ablaze_blackout__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Eyes blazing with unholy fire\, a hideous archdemon touches you\, releasing a black fire that freezes your guts while burning your flesh\.$"
+   name="bashing_ablaze_paralysis__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:An aetheretic slivven suddenly becomes very still before releasing an aetheric pulse which explodes in a sphere through the room causing your mind to sear and the world to slow around you|An archangel holds out her hand and draws it through the air\. A luminous arc of white light streams from her fingertips and collides with your chest|A figurine of a male viscanti stands a tarot card on his open palm\, and blows it lightly at you\..*?|A manifested paradox of knowledge pulses with an emerald glow\, and the colour drains from reality as time itself distorts around you|Lord Necco tosses a red candy ball at your chest\, which shatters and releases a fizzy sugar foam that covers you in a sticky goo)\.$"
+   name="bashing_aeon__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A gangrenous symbiote detaches himself from the wall and wraps around your arm\, crushing it completely and rendering it useless|A gangrenous symbiote detaches himself from the wall and wraps around your arm\, crushing it completely and rendering it useless|A spirit of the great white shark clamps down on your arm\, tearing through flesh and breaking bone|A drooling nairemru clamps his teeth on your arm\, breaking through bone even as the drool burns your flesh|A female aslaran bites down on your arm\, her massive jaws splintering bone with a sickening cracking noise|A garghast reaches out and grabs you\, holding you tight to its chest in a smouldering embrace|Snarling\, a rime\-veined ice bear catches your arm between his massive jaws and bites\, shattering it with a vicious crunch|Swinging his head recklessly\, a massive ice worm crushes it against your side without restraint\. White hot pain shoots through your arm as it breaks with a loud crack|A freezing mist coalesces in a floating ice skull\'s mouth before lancing out in a solid icy spike\, impaling your arm with a numb chill)\.$"
+   name="bashing_arms__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A radiant defender of life points at you imperiously, and you begin to cough and hack\. Your lungs begin to tighten\, and your throat fills with phlegm|Black spores erupt from the mushrooms on an algae\-like phycomid\'s back\, covering your face and filling your lungs in a thick cloud|A freezing eyebane turns toward you\, his primary eye glowing a brilliant\, bright blue\. Pain blossoms in your chest as your lungs freeze)\.$"
+   name="bashing_blacklung__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:An ice(?:lord|lady|lad) raises h(?:is|er) hand into the air\, and with sudden incredible force\, strikes the back of h(?:is|er) hand across your face\.|An ice(?:lord|lady|lad) grabs a large chunk of ice nearby and hurls it at your head\. It connects painfully with a solid thump\.|A putrescent globule rolls his tremendous bulk directly on top of you\, immersing you in the foul liquids that compose him\. As you choke and gasp for air\, the world around you grows dim\.|A cloud carrion squats low before launching great clouds of toxic air in your direction\, your senses failing from the assault\.|A putrescent globule rolls his tremendous bulk directly on top of you\, immersing you in the foul liquids that compose him\. As you choke and gasp for air\, the world around you grows dim\.|Krangar\, Guardian of the Gates roars with awesome might\, and you find yourself stunned by his powerful voice\.|Speaking harsh syllables in a booming voice\, a king of justice taps his sceptre on the ground like a gavel\, causing tremors that vibrate through you as the world goes black\.|Violent ripples of impossibility spew from a manifested paradox of knowledge\, twisting reality as they spread\, and engulfing you in mind\-warping waves of broken colour and senseless noise\.|A blue\-ringed octopus releases a cloud of black ink into the environment\, blocking all light\.|A merian beachcomber reaches down to the beach\, and with a sudden movement flicks a handful of sand up and into your eyes\, blinding you momentarily before his other hand slaps you hard on the side of your head\.|A .+? story to you\, and the raw emotion becomes manifest\, causing a painful burst behind your eyes\.|Hive King [A-Z][a-z]+ steps in towards you\, his fists flashing in a fury of speed as he sends two quick jabs into your stomach\, ending with a solid upper\-cut to your jaw\.|Streaks of energy gather around an aetherway hynx\, building up into a massive bolt of electricity that slams into you with a violent blast\.|Bearing the metal rod in his hands\, a stern krokani overseer brutally slams it into the side of your head\.|Eyes glinting dangerously\, .+? spins h(?:is|er) dagger in an arc\, slamming the stone hilt savagely against the side of your head\.|You stagger as .+? swings h(?:is|er) large arm\, claws impacting the side of your head\.|A fettered soul throws back his head and howls in pain\, an otherwordly sound that splits the air and chills you to your core\. Motes of darkness flare across your vision and you stumble in pain\.|An emaciated virgin whispers of the dark things she wants to do to you and while you\'re caught off guard\, slams a dagger into your ear\.)$"
+   name="bashing_blackout__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^A shadow mordrath rises up and a deep\, sadistic laugh echoes through the chamber\. An ominous feeling of utter dread grips you\.$"
+   name="bashing_blackout_aeon__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^A hideous archdemon seizes you by the throat and squeezes the life out of you with a malicious grin\, uttering a harsh string of syllables that grate your ears\.$"
+   name="bashing_blackout_legs__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^A hooded gatekeeper chants in a deep\, harsh voice and lifts his hands violently\, causing a dark\, swirling mist to encompass you\.$"
+   name="bashing_blackout_paralysis__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A psionic aura flares around an illithoid ravager and courses into you with crackling speed as you lose awareness from the pain\.|Seething with anger\, Sakima Stonemane wraps a large hand around your neck and lifts you into the air\, squeezing tightly until you pass out from lack of breath\.)$"
+   name="bashing_blackout_prone__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Rynak\, the taurian shaman chants beneath his breath before facing his palms towards you\. An emerald green light streams out of his hands and wraps around your body\. You feel your mind drowned in darkness\.$"
+   name="bashing_blackout_stupidity__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A bulbous ribbachi swells suddenly before shrinking, the air vibrating agonizingly as your ears begin to bleed|A Golden Champion spins her golden spear and thrusts it deep into your side with a cold smirk)\.$"
+   name="bashing_bleed_70__"
+   regexp="y"
+   script="bashing.bleed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^A(?:n errant| guardian) homunculus shrills a cold\,? high laugh as cruelly barbed vines erupt out of the rose bush\,? which lashes at you with great ferocity\, seeking to rend flesh from bone\.$"
+   name="bashing_bleed_100__"
+   regexp="y"
+   script="bashing.bleed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Seeing an opening\, a bestial garul snarls and launches himself at your throat\, ripping and tearing violently\. You stumble back in shock\, desperately trying to draw a breath\,? but only blood wells up on your tongue\.$"
+   name="bashing_bleed_150__"
+   regexp="y"
+   script="bashing.bleed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^A willowy fae of nature\'s eyes glow amber and a rain of emerald nectar falls upon you\, strangely and painfully going through you\, leaving bleeding wounds\.$"
+   name="bashing_bleed_300__"
+   regexp="y"
+   script="bashing.bleed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Drawing his rapier\, a king of justice rushes toward you and plunges it into your heart\, then draws it out with a righteous twist\.$"
+   name="bashing_bleed_400__"
+   regexp="y"
+   script="bashing.bleed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:One of a two\-headed abhorrence\'s heads exhales a hot blast of steam into your eyes\, blinding you|A slavering stoneghast spits a black mist into your eyes|A two\-headed hamster of chaos shakes himself vigorously\, sending wisps of fur flying everywhere\. The flying fur takes on a life of its own as it actively seeks to irritate and harass you|Agonized shrieks of pain tear themselves from your lungs as you collapse to your knees\, grabbing at your face\. Thick\, viscous fluid begins to pour into your eyes as skin begins to slough away)\.$"
+   name="bashing_blinded__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^A bulbous ribbachi suddenly hops up\, slamming into your face\. You push it away and hear it hit the ground with a grotesque squelch\, yet your vision remains black\. You begin to claw at the thick\, doughy substance that covers your face\, yet find it begins to spread across your body\.$"
+   name="bashing_blinded_entangled__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Reaching into one of her pouches\, Huyana Greyhide casts a handful of finely ground herbs into your eyes\, blinding you and making you go stiff\.$"
+   name="bashing_blinded_paralysis__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:Eyes glowing a fierce red\, Llyzild\, a crystalline freak lashes out at you with her sharp claws|The empty eyes of a gargantuan crystal golem flash with a brilliant white light\. You feel a strange energy seeping into your bones|A crystal grodak lunges for your throat and sinks his massive crystal fangs into your flesh\. You feel the agony of the bite intermingling with the numb feeling of an unknown poison that rushes into your bloodstream|A festering garghoul stretches out and swipes you with a slime covered hand\, and your body tingles with an odd sensation|You gasp as a gargantuan red scorpion impales you on its huge stinger|A gargantuan red scorpion catches you with the tip of its tail\. You feel a dark venom begin to ooze through your system)\.$"
+   name="bashing_charybdon__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Countless filaments suddenly lash out at you from an aetheretic slivven\, tiny poisonous barbs dig into your flesh causing you to stagger on your feet as your body locks up in agony\.$"
+   name="bashing_charybdon_paralysis__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A monstrous ice devil turns his empty\, dead gaze upon you\. Twin pinpricks of blue light flare deep within his eye sockets\, and a freezing mist wraps around you in response\, chilling you to the bone|Extending a bloated, ephemeral limb, .+? strokes your face with tender care, eliciting a panicked cry as crackling webs of ice spread from his touch to encompass your body|The ice bites that mar your skin suddenly ooze with a thick chill fluid|A sudden gust of wind howls past you\, showering you in small flakes of snow and ice\, while chilling the already frigid air even further|An ice(?:lord|lady|lad) takes a deep breath and exhales a gout of freezing cold air all over your body|Extending a portion of (?:him|her)self\, (?:Skerriagh\, the Lord of the High Tide|Kintyre\, the Lady of the Rip Tide) releases a wave of water which consumes your body\, its cold waters running up your spine and freezing your flesh|A lucidian astrologer materializes a small ball of crackling blue energy and flings it at you\. As the energy engulfs your body\,? you feel your surroundings turn icy cold|Staring at you intensely\, Atrian Lerit\'r mutters a few words under his breath\. You find yourself unable to look away as\, almost gently\, a grave\-like cold takes hold of you|Throwing back his arms\, a lost soul of death gestures imperiously at you and a web of icicles form upon your freezing skin as he sucks the very heat from your body|The (?:Licorice|Liquorice) Queen casually waves a golden rolling pin at you\, blasting you with a cone of freezing raspberry ice|.+? eyes widen and s?he points at you\, coating your skin with a fine layer of ice|The icy eyes of a shadow mordrath shine at you with the cold of a midwinter night\, and you can feel frost seeping into your bones|Large clouds of icy vapour suddenly jet from a gargantuan water elemental and surround you like the chilled grasp of death itself|A creepy winged onyx crawler flaps her wings wildly\, chilling you with sudden cold|A slush elemental envelope?s you within its form\, freezing you with its very being|A spectral garwight\'s arm becomes translucent as it punches you in the chest\. You feel only a slight tingle for a moment before a spectral garwight seems to clench its fist and a wave of cold pain shoots through your body\, causing you to shiver uncontrollably|With silent precision\, a living onyx scorpion swings his tail at you\, injecting you with a dark poison that causes your blood to freeze within you|A vicious frost fiend turns his gaze on you before opening his maw\, exhaling jagged shards of ice that rake across your body\, leaving crackling trails of frost that slow your movements|A spider spirit lunges at you\, sinking his venomous fangs into your flesh and injecting you with poison|A deep\, hollow voice emanates from a floating ice skull\, words snapping with frigid power|With a tremendous bound\, a grinning frost imp bounces up\, latching on to you and scrambling up\, down\, and across your body\, a freezing chill leeching through your muscles wherever he touches|A freezing eyebane dives at you and clamps his jaws around your shoulder\. You wince as the cold settles in your blood|A vicious frost fiend lunges forward\, jagged teeth clamping onto your leg and drawing blood even as the wound freezes shut with a crackle|A monstrous ice devil points at you dumbly\. A profound\, aching chill settles in your heart before the blood in your veins freezes solid\, spikes of ice punching through your skin all over your body)\.$"
+   name="bashing_cold__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   lines_to_match="2"
+   match="^A repulsive ice lemure snaps his fingers at you\.\nSuddenly, your body drains of warmth and feeling as frosty\,? fractal patterns cross along your now\-blue skin\.$"
+   multi_line="y"
+   name="bashing_cold2__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Bounding forward\, a scuttling frost mane wraps a long\-fingered grasp tightly around your wrist\, causing ice crystals to crackle up your arm\.$"
+   name="bashing_cold_arm__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Bashing"
+   match="^With a loud \*CRACK\*\,? the bones in your arm shatter\.$"
+   name="bashing_cold_arm2__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^As the cold settles in\, you feel your muscles begin to lock up\.$"
+   name="bashing_cold_paralysis__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^You are frozen in terror as a shadowy garshade opens its maw horrifically\, bringing you into its terrible embrace and placing its mouth over yours\. A deathly cold forms in your chest as you feel your life essence being sucked away\.$"
+   name="bashing_damaged__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:The lips of a female manticore peel back as she roars wildly\, the sound intensifying to such a point that bursts your eardrums and causes fierce pain to course violently through your body|Pirouetting in a whirl of translucent vestments and golden hair, an alluring siren of beauty lifts her heartbreakingly beautiful face before uttering a single crystal clear chiming note that shatters your eardrums\, destroying all sense of equilibrium|An ice mammoth raises her trunk threateningly and lets out an ear\-splitting trumpet call)\.$"
+   name="bashing_deafened__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A.+? skara rushes forward suddenly and wraps h(?:is|er) sinuous lower body around you in a quick movement\. Viciously applying pressure\, a.+? skara locks you in place while at the same time hampering your ability to breathe|A serpentine sea snake wraps itself tightly about you before sinking its teeth into your neck|A large yellow spider rears up on its hind legs and squirts sticky webbing all over you|Drawing a length of barbed wire from his pocket\, a horrific asylum warden laughs sadistically as he wraps it around you and sees blood blooming up on each needle\-point|A figurine of an antlered high elfen druid points a mystic cudgel at you and marble vines shoot forth\, entangling you (?:with|in) a bloody\, thorny embrace|A figurine of a male viscanti flings a tarot card at you which turns an ominous\, sickly red before striking you in the head|Sticky strands of webbing spray out from a figurine of (?:a male viscanti|an imperial merian celestine) to cover you|A willowy fae of nature runs up and casts her arms about you\. You suddenly find yourself tied with vines and choking for air|An alluring siren of beauty holds out her arms to you while smiling invitingly\. You immediately stumble into her embrace\, which closes tightly around you with the force of an iron vice|A blue\-ringed octopus grabs you with multiple tentacles until you can no longer move|A bright pink sea anemone grabs you with multiple tentacles\, trying to pull you towards its maw|With an imperious frown\, the (?:Licorice|Liquorice) Queen casually waves a golden rolling pin towards you\.\nRopes of black (?:licorice|liquorice) rise up from the ground and wrap (?:around )?your limbs and neck\, choking and entangling you|A peep soldier whips you with a length of red (?:licorice|liquorice)\, which wraps around you|Doughboy flattens himself out and jumps onto you\, covering you with a thick coat of dough|Twisting around\, a spider spirit spurts sticky strands of web at you from the spinners on his abdomen|Hive King [A-Z][a-z]+ scoops your legs out from under you\, quickly coming down against you and pinning your limbs in a secure grapple|A kephera (?:warrior|worker|monk|attendant) scoops your legs out from under you\, quickly coming down against you and pinning your limbs in a secure grapple|A mass of sticky tendrils streak out from a morbidly\-tainted grub\, wrapping you in a cocoon of slime|A creepy eight\-legged amethyst crawler hisses menacingly and sprays sticky web all over you|Whirling around\, a mutated\, undead cave\-fisher shoots a line of webbing at you\, encasing you in sticky silk|His beady eyes wavering before you\, a large\, hairy solifugid suddenly rears up and sprays you with a mass of sticky black webbing|A mass of sticky tendrils streak out from a bloated parasite\, wrapping you in a cocoon of slime|A two\-headed hamster of chaos\'s two heads snap at you with successive ferocity\, and flowers suddenly burst out from their bite wounds\, entangling you|A mass of tentacles smacks you with a thick tentacle\, covering you in thick slime|A mound of gibbering eyeballs rolls over to you and slips up your body until they envelop your head in a mass of slime|A zombie covered in tumours wraps his slimy tongue around your body\, pulling you against him while he gnaws on your face|A mutated tumbleweed lashes out with several thorny briars that wrap around you with their punishing embrace)\.$"
+   name="bashing_entangled__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Slithering back and forth\, .+? quickly loops one massive coil around you\, squeezing with rib\-crushing force\.$"
+   name="bashing_entangled_arms__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:Crackling with electricity\, a horrific\, diseased parasite\'s aura suddenly discharges a powerful bolt of black lightning into your chest\, leaving you spasming|A large python sinks its fangs deep into your thigh\. Your mind whirls as the toxin enters your system|Your mind fills with swarming fears and thoughts of cowardice as an ur\'dead knight of Shallach stares you down with his cruel black eyes|A tentacled\, floating brain floats deathly still\, and hideous visions of pain and horror flash through your mind with agonizing intensity as blood drips from your nose|A scuttling frost mane fixes you with a beady gaze before loosing a bone\-chilling wail that causes the temperature around you to plummet)\.$"
+   name="bashing_fear__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Rak\'ia Arthar\'rt stares at you with cold\, hard eyes\, and utters a single word\, sending a shiver of fear down your spine\. Suddenly\, everything appears a lot more difficult than before\.$"
+   name="bashing_fear_stupidity__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:The eyes of a deformed lucidian glow a violent crimson as he mutters harshly under his breath\, (?:and )?with a sudden gesture towards you\, a rapid gust of air strikes at your leg\, painfully snapping bone with its sheer force\.|A scuttling crab solidly grabs onto your leg with a large claw and clamps down with a sickening crack\.|A jet\-black manta wraps its tail about one of your legs and squeezes until the bones break\.|Springing onto you\, a muhagli spider snaps the bones of your legs between his giant fangs\.|A scaly alligator rears up out of the water\, clasping hold of your leg\, tearing away flesh and cracking the bone\.|A shadow manta swings her tail at you with extraordinary force\, breaking bones\.|Forming a vicious sword from the ether\, a gorgeous undead beauty swings it around herself in a large arc\, slicing agonizingly through your leg\.|Raising her hand\, a muted slaugh mutters a curse in the fae tongue\. You gasp in pain as you feel the bone in your leg snap in two\.)$"
+   name="bashing_legs__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^A .+? shark clamps down on your (arm|leg)\, tearing through flesh and breaking bone\.$"
+   name="bashing_limb_mend__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A luminous purple spined starfish spins about in the sand\. Several spines rocket from his form to pierce you painfully\. An unnerving chill runs down your spine as you lose control of your limbs\.|A tangled hekoskeri grabs at you\, digging its nailless fingers into your flesh\, piercing your skin easily\. Toxins begin to flood your bloodstream\, and your body goes rigid\.|A figurine of an antlered high elfen druid slings an othero rune at you\, hitting you in the chest\.|Holding a metallic symbol of the Figurine Liberation Front before her\, a figurine of an imperial merian celestine makes the Sign of the Toymaker at you\, and your body suddenly locks up\.|A glowing sphere of harmony pulses brightly and crackling bolts of whitest lightning fork from its placid\, glowing surface and slam into you\.|Freeing his hands\, a champion of war raises them dramatically to summon coruscating blasts of azure lightning\, which career erratically from his palms in wide chaotic forks\, searing your skin and knocking you backwards\.|A loathsome cockatrice gazes at you\, its eyes glowing red\.|A grotesque crystalline freak\'s eyes glow a malicious red as he lets out a high\, piercing screech\. You gasp in pain as you feel your eardrums burst from the sound\.|The tendrils about the spirit of a loboshigaru hunter shudder and expand throughout the room searching for it\'?s victims\. A tendril lashes out catching you across the skull and causing you to scream in agony\!|A radiant priestess closes her eyes and touches her medallion\. After a moment\, her eyes shoot open and you feel a crippling pain in your head\.|Warpaint glowing faintly\, an aged orc elder points a crooked finger at you, snarling out a curse\. Your limbs suddenly lock up and cease to function\.|Bheion\, an aslaran mystic chants softly under his breath\, and suddenly you are unable to move\.|A garghast swipes at you with a crooked arm\, and you feel numb throughout your body\.|A spotted coeurl\'s jade eyes reflect a cunning intensity as a bolt of sizzling lightning forms between his flowing whiskers\. It crackles into your chest\, wracking you with pain as your muscles lock up\.|A mutated\, undead cave\-fisher jerks forward\, covering you in a spray of his saliva\. You scream as the acidic spit eats into your skin\.|Small balls of yellow spore bud off of a floating\, puffball fungal asconoid and pelt your exposed skin\, raising inflamed welts as your muscles lock up\.|A celestial archangel stares imperiously at you\, and tears begin to flow freely from your eyes as you recount all your past transgressions against the Light\, leaving you hollow and weak\.)$"
+   name="bashing_paralysis__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^A shadowy garshade grasps you roughly\, allowing its dark aura to partially encompass you\. Your muscles freeze up painfully as the chill of the grave seeps into your body\.$"
+   name="bashing_paralysis_cold__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A bright pink sea anemone lashes out at you with a mucus covered tendril\, and suddenly you are too weak to move|A bloated parasite lashes out at you with a mucus[\- ]covered tendril\, and suddenly you are too weak to move)\.$"
+   name="bashing_paralysis_poisoned__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:Lifting his sceptre\, a king of justice intones in a booming voice\, causing the scale on top to tip back and forth\. Suddenly\, you feel as if you have been judged and found wanting|A muted slaugh pulls back her shroud and stares at you with violet eyes that seem to pierce your mind\. A searing pain shoots through your nerves as your thoughts falter and your muscles become rigid)\.$"
+   name="bashing_paralysis_stupidity__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^A strange bone creature leaps out of a figurine of a shadowy lucidian harbinger\'s hands and attacks you\, gouging with its sharp fangs\, and attacks again in a frenzy\, gouging with its sharp fangs\, then quickly returns to a figurine of a shadowy lucidian harbinger\.$"
+   name="bashing_paranoia__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A haunting\, harmonious note washes over you\, clear as the sky and empty as the Void\, filling you with an awe\-struck sense of horror\. The boundless beauty of the note is matched only by its promise of endless despair \- the beauty of a heart as still as the grave and twice as cold\.|A foul necrotroph writhes furiously\, sending up a cloud of spores that float towards you\. As you inhale\, you feel your mental faculties begin to fade\.|An aerial stalker lashes out\, icy shards piercing your chest deeply\. Your breath begins to shorten suddenly\.|A demonic nagaradja darts forward\, sinking its fangs into your flesh\. You feel the dark toxins streaming through your veins\.|Chittering wildly\, a fire mantis impales you with the sharp point of a blade\-like arm\, injecting venom into your bloodstream\.|A large python sinks its fangs into your foot\, which swells up as the poisons sink in\.|With a malicious light in his eyes\, Nidhuug the Fiend swings his armoured tail at you\, stinging you with a numbing venom\.|A red\-striped salamander smears its slimy body against yours\.|With a menacing rattle\, a rattlesnake sinks his fangs into you\, and you feel the poison mixing with your blood\.|A jet\-black manta lashes (?:its tail into your arm|you with its tail\, and you feel the barbs sinking in deeply)\.|A duck\-billed platypus mauls you with its beak\.|A bright pink sea anemone lashes out at you with a slimy tentacle\.|Shuddering in pain\, the spirit of a loboshigaru hunter draws in the light around him collecting it within his palms\. With a lurch forward the spirit of a loboshigaru hunter opens his palms towards you and unleashes a torrent of light into your flesh\!|A gila lizard sinks its teeth deep into your arm\.|A slimy\, amphibious adorath hisses and plunges one of his barbed tentacles deep into your chest to inject his poison as the pain drains swiftly away\.|A queen gravedigger sinks (?:its|her) teeth deep into your flesh\.|A bloated parasite lashes out at you with a slimy tendril\.|A slavering stoneghast bites deep into your arm\.|A titanic\, fearsome kraken launches a gigantic tentacle at you\, grabbing your midsection with it and dragging you under the waters\, squeezing the breath out of you\.|With silent precision\, a living amethyst scorpion swings his tail at you\, injecting you with a poison that causes your arms to shrivel before your very eyes\.|A giant flesh maggot hits you with its body\.)$"
+   name="bashing_poisoned__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Glaring at you with amber eyes\, a willowy fae of nature whips her hair about\, the thorny strands cutting into your body with poisonous pain\.$"
+   name="bashing_poisoned_bleed__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:With silent precision\, a living jade scorpion swings his tail at you\, injecting you with a poison that causes your knees to fail as you fall to the ground\.|A squirming sludgeworm writhes closer to you before spitting a stream of filth at you\. All of its pores begin to leak the crud\, which froths and bubbles\, wrapping about your feet and legs\, climbing higher\.|A squirming sludgeworm spits a wad of the grotesque fluid that it wallows in\, landing it impossibly in your mouth\. Toxins begin to flood your system as you collapse\, vomiting\.|A bestial garul tilts h(?:is|er) head back and produces a blood\-curdling howl that resonates off the mountainside\. Momentarily surprised\, you trip and land hard on the frozen ground\, stunned by the ferocity of the howl\.|Without warning\, you suddenly slip on the frozen ground\, crashing head first into the ice\.|You slip suddenly on the icy path and fall down\, icicles breaking free from the surroundings and falling down on top of you\.|With a twist of (?:his|her) body\, (?:Murlough\, the Lord of the Red Tide|Loch\, the Lord of the Low Tide|Skerriagh\, the Lord of the High Tide|Kintyre\, the Lady of the Rip Tide) causes the surroundings to shake throwing you off your balance\.|With an angry roar, an apterous manticore surges forward and rams square into you with his hulking body\. The sheer force sends you reeling backwards to the ground\.|With a fearsome roar\, an apterous manticore pounces on top of you\, knocking you to the ground and tearing flesh from bone with his shark\-like teeth\.|A.+? roc bats at you with powerful wings, knocking you to the ground\.|A huge lindwyrm slams its huge\, bulbous body into you\, knocking you to the ground\.|You are caught up in a foul\, noxious gust as it drags you through the forest\.|With a sickening crunch\, a male centaur strikes your knees\, sending you to the ground and trampling you with his sharpened hooves\.|Flying this way and that\, a spirit warrior suddenly grabs you with his freezing hands and throws you to the ground\.|A horrific\, diseased parasite spins wildly around and his black aura solidifies into tentacles that wrap around your legs and trip you\!|With a sickening crunch\, Ahote Lonehoof strikes your knees\, sending you to the ground and trampling you with his sharpened hooves\.|A squat pelican bats at you with powerful wings\, knocking you to the ground\.|Atrian Lerit\'r pulls a small\, metallic cube from a hidden pocket in his robes and flings it violently at you\. A searing pain suddenly envelops your senses\, burning you from within and you fall to your knees\, gasping for air\.|Falling to your knees\, you scream in agony as Llyzild\, a crystalline freak jumps at you\, digging her claws deeply into your flesh\.|A writhing parasite sinks his sharp teeth into your ankles\, injecting a strange toxin that drains the strength from your legs\, making you topple over\.|A spawn of the horde begins to growl deeply\, the rumbling ever increasing in volume until he suddenly lunges forward\, ripping at your flesh and knocking you over\.|Sprinting back with an indignant bleat\, a brown hill goat charges at you with building speed until he crashes into you and knocks you painfully to the ground\.|A figurine of a shadowy lucidian harbinger suddenly leaps forward\, flipping into the air and slamming his feet against you\.|A figurine of a warrior merian swings her spear in a great arc\, lancing upwards with a jump to pierce your shoulder\. Your knees buckle as she yanks it downward at a painful angle\.|A mutilated gravedigger howls fiercely before charging with all his might towards you\. His body slams into you violently\, sending you tumbling head over heels\.|A rotten garskull utters a short\, rasping sound as he detaches his radius\, swinging it around and catching you in the temple\. As you fall to the ground\,? you notice a rotten garskull return the bone to his forearm neatly\.|With a mighty bellow\, Krangar\, Guardian of the Gates stomps strongly on the flooring\, sending tremors throughout the area\. Bits of stone and dust blast you from all directions as you fall to the ground\.|An ur\'dead shock trooper hits you hard in the face with the flat of his axe\, sending you sprawling\.|Throwing you backwards with his weight\, Pavel Yatskar jerks his handkerchief around your throat and squeezes the breath from your body\.|Swinging his sceptre at you\, a king of justice taps you painfully on the shoulders\. You kneel forcibly and submit his command\.|With a yell\, the Muffin Man barrels into you\, knocking you down and rolling over you with his great muffin body|Archmage Marinus Shervalian lifts a hand to point it at you as he mutters hostile\-sounding syllables under his breath\, a scalding jet of water slams into your chest\, blistering you with its heat as it knocks you down\.|The spirit of a loboshigaru hunter arches his back and with a guttural scream slams the jagged spear\'s head into your chest\! You scream as the flesh is ripped away and the spear [ei]mbeds itself in the bone\, knocking you to the ground\!|A spirit of the roc bats at you with powerful wings\, knocking you to the ground\.|The spirit of a loboshigaru hunter arches his back and with a guttural scream slams the jagged spear\'s head into your chest\! You scream as the flesh is ripped away and the spear imbeds itself in the bone\, knocking you to the ground\!|An aged orc elder knocks your legs out from under you with his staff\, before slamming it down into your gut\.|Hive King [A-Z][a-z]+ fluidly steps in close to you\, grasping your wrist in one hand and snaking his arm around your waist before flipping you solidly across his thorax and sending you to the ground\.|Slipping around you quickly\, Hive King [A-Z][a-z]+ locks his arms around your neck from behind\. With an increase of pressure\,? you quickly find the world fading to black around you\.|Slipping around you quickly\, a (?:watchful )?kephera (?:worker|warrior|monk|attendant|scout|sentry) locks his arms around your neck from behind\. With an increase of pressure you quickly find the world fading to black around you\.|A (?:watchful )?kephera (?:warrior|worker|monk|attendant|scout|sentry) fluidly steps in close to you\, grasping your wrist in one hand and snaking his arm around your waist before flipping you solidly across his thorax and sending you to the ground\.|.+? howls fiercely before charging with all his might towards you\. His body slams into you violently\, sending you tumbling head over heels\.|Whipping his massive tail around\, [Aa] bulbous swamp slug slaps you with it\, catapulting you backwards through the air and knocking the wind out of you\.|A crystal grodak pounces and slams into you\, sending you crashing to the ground\.|A gila lizard rears up and slams into you\, knocking you to the ground\.|A lumbering sandojin suddenly leaps and crashes into you\, sending you tumbling to the ground\.|A krokani guard catches your feet with the end of his pike\-staff\, sending you sprawling to the floor\.|Hooking the crook of her staff around your leg\, a lithe aslaran shepherd sweeps you off your feet quickly\.|A female aslaran crouches on powerful legs that bulge with muscle\,? and abruptly headbutts you in the gut\, knocking you over and winding you\.|A slush elemental dissolves and spreads himself over the entire surface of the floor\, turning it slick and causing you to slip and fall into the freezing mass\.|A kelpie warrior suddenly slams her shield into you and you stumble backwards\, falling down\.|A mantis\-like mantekarr fixes his compound eyes on you and beats his prismatic wings furiously\, sending a blast of air that knocks you to the ground\.|The earth trembles as a queen gravedigger thrashes violently\, damaging everything in her path\.|Bowling you over with his large body\, a.+? mammoth tramples across you with his massive feet\.|Pawing the dirt\, a .*?rockeater.*? charges at you\, knocking you off your feet\.|A gargantuan red scorpion rears up and slams into you\, knocking you to the ground\.|Pawing the dirt\, a two\-headed abhorrence charges at you\, knocking you off your feet\.|Both heads down\, a two\-headed abhorrence charges into you\, knocking you to the ground\.|Swirling violently\, a floating urn\'s metallic tentacle crashes into you\, knocking you to the ground\.|A stainless steel goat rears up on its hind legs and brings its metallic hooves down upon you\, knocking you to the ground\.|A hulking three\-horned bull paws the ground angrily before charging at you\, knocking you to the ground with a painful crunch\.|You are swept off your feet by a giant tentacle\.|A mass of tentacles sweeps across the room with a thick tentacle\.|A \w+ zombie stumbles forward with an unintelligible roar\, slamming into you and throwing you to the ground\.|A zombie covered in tumours whips his elongated tongue around your neck\, pulling you to your knees and choking you\.|A mutated tumbleweed lashes out with a thorny briar that ensnares your legs and causes you to trip\.|Swinging his scaled tail in a wide arc\, a massive ice worm brings it crashing down upon you with tremendous force\. Unable to withstand the force of the blow\, your knees buckle and you are crushed into the frozen ground\.|A celestial archangel clasps her hands together and offers devout prayers to the Holy Supernals\. She opens her eyes\,? which blaze with luminous light\, and you fall to the ground in agony for your sins\.|A monstrous ice devil wraps his hand about your neck\, lifting you off your feet as a frigid cold invades your airway\, robbing your breath\. With a dismissive flick\, he tosses you to one side where you crumple like a rag doll\.)$"
+   name="bashing_prone__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   lines_to_match="2"
+   match="^A sand cobra sinks its fangs into your flesh\, injecting you with venom\.\nYou feel woozy and fall down\.$"
+   multi_line="y"
+   name="bashing_prone2__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^A perfect chord resonates outward from a glowing sphere of harmony\,? becoming uniformly louder until your body shakes with intense pain\, and you are thrown off your feet\.$"
+   name="bashing_prone_deaf__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A tangled hekoskeri grabs at you with one of its many hands\, several others joining in the struggle with slaps and punches|A fae knight reaches to his back and pulls out a strange netting which he flings at you sweeping you off your feet)\.$"
+   name="bashing_prone_entangled__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Sweeping Daerciel\, Severer of Threads through the air overhead\, a figurine of a fierce loboshigaru axelord sends it whooshing straight towards your (left|right) leg\. Your \1 leg is elegantly struck and swept out from under you\, knocking you to the ground\.$"
+   name="bashing_prone_leg__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:Flexing a ponderous forelimb\, a heavy\-plated sand turtle barrels forward\, slamming into you with the force of a cannon\, sending you flying|Digging sharp spurs into the flanks of his steed\, a champion of war whips it into a frenzy\, trampling you under iron shod hooves|A gila lizard slams into your legs\, knocking you to the ground and trampling you\. You hear the sickening sound of bones crunching|A two\-headed abhorrence slams into your legs\, knocking you to the ground and trampling you\. You hear the sickening sound of bones crunching|A Golden Champion raises her hand into the air and clenches her fist\, and your bones snap in response as you fall to the ground\, howling in agony)\.$"
+   name="bashing_prone_legs__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:A bloated parasite drips mucus onto you\, and suddenly you feel too weak to stand)\.$"
+   name="bashing_prone_poisoned__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:With an amused chuckle\, a deformed lucidian points his staff towards you\, and then upwards\. Your body suddenly freezes in place before jolting into the air\, then back down to the ground with a sickening crunch|An ice mammoth swings her trunk at you\, hitting you solidly across the skull and flinging you to the ground|An alluring siren of beauty sings a series of hauntingly beautiful notes that drives you to your knees\, weeping as the song remains maddeningly beyond your ability to comprehend it)\.$"
+   name="bashing_prone_stupidity__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   lines_to_match="2"
+   match="^A figurine of a shadowy lucidian harbinger plays a twisted marble harp and directs the disharmonic notes towards you\.\nThe reverberating sound echoes through your head\, pounding you with excruciating pain\.$"
+   multi_line="y"
+   name="bashing_sensitivity_2__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:Rapidly beating his wings\, an expeditious manticore causes the air to stir violently and buffets you with great force\. The impact sends you flying into the wall headfirst|A foul necrotroph writhes furiously\, sending up a cloud of spores that float towards you\. As you inhale\, you feel your mental faculties begin to fade|Gromagh the Hag chants softly under her breath\, all her eyes glowing a sudden green as your head is wracked with unbearable pain|An illithoid marauder closes his reddened eyes in concentration as a flash of disorienting energy fills your mind\'s eye|Lifting her voice, a willowy fae of nature begins to sing a high\, lonely song\. Sticks and stones fall from the branches about you\, bruising and cutting you as the chatter of birds pierces your mind|A manifested paradox of knowledge reaches out to your mind\, filling your consciousness with conflicting\, irreconcilable truths\. Your mind grows dull as an uncontrollable pain wells up between your ears\, and you fight a desperate urge to flee|Battered staff suddenly glowing with power\, an aged orc elder taps you surprisingly gently on the head with it\. Your thoughts become muddled and a searing pain shoots through your mind|A multi\-stemmed fungoid basidion begins to glow a bright and beguiling yellow\, swaying and dancing before you\, confusing your mind|.+? mushroom pulls back and exhales\, blowing his acrid breath at you\. Your stomach can\'t help but turn as you gasp for air)\.$"
+   name="bashing_stupidity__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^(?:Smiling coldly\, a(?:n errant| guardian) homunculus stretches out both her arms towards you\,? and suddenly the world buckles beneath your feet as strange thoughts come unbidden into your head|A floating spix stares intently at you\, and you find yourself lost within its gaze)\.$"
+   name="bashing_stupidity_damaged__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Bashing"
+   match="^Shaking in rage\, a bulbous swamp slug suddenly rushes at you\, viciously shattering your shield of protection\.$"
+   name="bashing_unshield__"
+   regexp="y"
+   script="bashing.aff"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

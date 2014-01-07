@@ -1,0 +1,361 @@
+<aliases>
+  <alias
+   name="raid_status__"
+   match="^\s*raid\s*(?:status)?\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="raid.alias_status"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="raid_announce__"
+   match="^\s*r(?:aid)?ann(?:ounce)?\s+(.+?)\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="raid.alias_aether"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="raid_enemies__"
+   match="^\s*r(?:aid)?en(?:emies)?\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="raid.alias_enemies"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="raid_leader__"
+   match="^\s*r(?:aid)?l(?:eader)?\s+(.+?)\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="raid.alias_leader"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+  <alias
+   name="raid_target__"
+   match="^\s*r(?:aid)?t(?:arget)?\s+([\w\d]+)\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   script="raid.alias_target"
+   ignore_case="y"
+   sequence="100"
+  >
+  </alias>
+
+  <alias
+   name="coven_status__"
+   match="^\s*coven(?:\s+status)?\s*$"
+   enabled="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   script="raid.show_coven"
+   sequence="100"
+  >
+  </alias>
+
+  <alias
+   name="cleanse_ally__"
+   match="^\s*cll\s*$"
+   enabled="y"
+   expand_variables="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>point cleanse at @target_cleanse</send>
+  </alias>
+  <alias
+   name="stomp_toad__"
+   match="^\s*stt\s*$"
+   enabled="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>stomp toad</send>
+  </alias>
+  <alias
+   name="target_the_choker__"
+   match="^\s*ccc\s*$"
+   enabled="y"
+   expand_variables="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>t @target_choker</send>
+  </alias>
+  <alias
+   name="target_the_pitted__"
+   match="^\s*ppp\s*$"
+   enabled="y"
+   expand_variables="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   send_to="10"
+   sequence="100"
+  >
+  <send>t @target_pitted</send>
+  </alias>
+
+  <alias
+   name="toggle_spec_watch__"
+   match="^\s*watch\s+(on|off)\s*$"
+   enabled="y"
+   group="Interface"
+   ignore_case="y"
+   regexp="y"
+   script="raid.alias_watch"
+   sequence="100"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^With a grim smile\, [A-Z][a-z]+ touches the trees and sap courses out in a thick syrup that lunges at ([A-Z][a-z]+)\, coating [hH](?:im|er) in the viscid liquid\.$"
+   name="ally_sapped__"
+   regexp="y"
+   repeat="y"
+   script="raid.handle_ally_sapped"
+   sequence="100"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^You softly hear the bell from your trap at \'(.+?)\' ringing\.$"
+   name="trap_bell_rung__"
+   regexp="y"
+   repeat="y"
+   script="raid.handle_trap_bell"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   group="Track"
+   match="^([A-Z][a-z]+) (?:has entered the area|enters your demesne)\.$"
+   name="watcher_enter__"
+   regexp="y"
+   script="raid.handle_entering"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   group="Track"
+   match="^([A-Z][a-z]+) (?:has left the area|leaves your demesne)\.$"
+   name="watcher_exit__"
+   regexp="y"
+   script="raid.handle_exiting"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^Shadows suddenly leap out from every corner\, violently whirling about in a sudden surge from ([A-Z][a-z]+) to ([A-Z][a-z]+)\, then slightly dissipate\."
+   name="enemy_choking_friend__"
+   regexp="y"
+   script="raid.handle_choking_friend"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^Praying to Spirit Moon\, a silver shaft of light surrounds you as she blesses you as leader of a coven\.$"
+   name="coven_leader_new__"
+   regexp="y"
+   repeat="y"
+   script="raid.handle_coven_sync"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You welcome ([A-Z][a-z]+) into your coven\.$"
+   name="coven_member_joined__"
+   regexp="y"
+   script="raid.handle_coven_join"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) welcomes you into [hH](?:is|er) coven\.$"
+   name="coven_member_joined_up__"
+   regexp="y"
+   script="raid.handle_coven_leader"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The leadership of the coven of [A-Z][a-z]+ passes to ([A-Z][a-z]+)\.$"
+   name="coven_leadership_passed__"
+   regexp="y"
+   script="raid.handle_coven_leader"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^([A-Z][a-z]+) (?:breaks away from the coven|is ejected from the coven)\.$"
+   name="coven_member_left__"
+   regexp="y"
+   script="raid.handle_coven_leave"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You are not in a coven\.$"
+   name="coven_not__"
+   regexp="y"
+   script="raid.handle_coven_dissolve"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^You are not in a coven\.$"
+   name="coven_not_sync__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="raid.handle_coven_none"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^The following people are in ([A-Z][a-z]+)\'s coven\:$"
+   name="coven_members_sync__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="raid.handle_coven_members_sync"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^([A-Z][a-z]+)( \(in circle\))?$"
+   name="coven_members_sync_name__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="raid.handle_coven_members_sync_name"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^Total\: \d+$"
+   name="coven_members_sync_total__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^The following people are in ([A-Z][a-z]+)\'s coven\:$"
+   name="coven_members__"
+   regexp="y"
+   script="raid.handle_coven_members"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^([A-Z][a-z]+)( \(in circle\))?$"
+   name="coven_members_list__"
+   regexp="y"
+   script="raid.handle_coven_members_list"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:You link hands with those in your coven to form a sacred circle|[A-Z][a-z]+ links hands with you and the other members of the coven\, forming a sacred circle)\.$"
+   name="coven_circled__"
+   regexp="y"
+   script="raid.handle_coven_sync"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:You leave the coven circle|[A-Z][a-z]+ leaves the coven circle\, causing it to break)\.$"
+   name="coven_uncircled__"
+   regexp="y"
+   script="raid.handle_coven_sync"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^(?:You dissolve your coven|[A-Z][a-z]+ ejects you from the coven|The coven of [A-Z][a-z]+ dissolves|You break away from (?:your|[A-Z][a-z]+\'s) coven(?:\, leaving it to the leadership of [A-Z][a-z]+)?)\.$"
+   name="coven_dissolved__"
+   regexp="y"
+   script="raid.handle_coven_dissolve"
+   sequence="9000"
+  >
+  </trigger>
+</triggers>
+
+<!--
+Use map locator on these:
+
+(Serenwilde): A pixie says, "I'm in trouble here at a shaded woodland!"
+(Serenwilde): An elfen guard says, "I require assistance, commune members of Serenwilde! I'm under attack at a shaded woodland!"
+(Serenwilde): Miakoda, Maiden of the Moonhart says, "Ahhh! Send help quick to the Moonhart Mother Tree!"
+-->

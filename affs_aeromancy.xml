@@ -1,0 +1,146 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Thunder roars and a bolt of lightning strikes you(\, knocking you to the ground)?\.$"
+   name="aeromancy_thunderclouds__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A swift gust from the east pierces at your extremities\, plunging through your (left|right) (arm|leg)\.$"
+   name="aeromancy_eastwind__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The freezing blizzard nips at your fingers and toes\.$"
+   name="aeromancy_blizzard__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You run into a network of rainbows\, the light and colour confusing you and making you disoriented\.$"
+   name="aeromancy_rainbowclouds__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^An ear\-splitting thunderclap peals through the air as .+? flares h(?:is|er) wings\, opening h(?:is|er) beak and unleashing an orb of crackling white lightn?ing towards you\, tendrils of electricity enveloping your body and causing your skin to blacken and body to spasm in pure agony\.$"
+   name="aeromancy_thunderbird__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A cloudy tendril lashes at you\, filling your mind with disturbing images\.$"
+   name="aeromancy_miasma__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You are caught in a powerful twister that hurtles you to the ground\.$"
+   name="aeromancy_twister__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As you rise into the air\, you are entangled in an invisible net and fall back to the ground\.$"
+   name="aeromancy_airnet__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A chilling wind from the south sends an odd scent to your nostrils\.$"
+   name="aeromancy_southwind__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) raises [hH](?:is|er) staff\,? and a blast of wind whips around you\, stripping your levitation defen[cs]e and forcing you to the ground\.$"
+   name="aeromancy_raise_staff_stripped__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   lines_to_match="2"
+   match="^([A-Z][a-z]+) raises [hH](?:is|er) staff\,? and a blast of wind whips around you\.\nThe wind lifts you up into (?:the )?the air and flings you into the sky\.$"
+   multi_line="y"
+   name="aeromancy_raise_staff_thrown__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:A cold wind blows chill grey clouds in from the north\. The clouds circle around you\, suddenly constricting into a tight band of compressed air that makes it hard to breathe|([A-Z][a-z]+) raises [hH](?:is|er) arm and clenches [hH](?:is|er) fist\, causing air to swirl around you\. The wind suddenly tightens like painful\, constricting bands squeezing the breath from your body\, but you grit your teeth and persevere\, but you are left with more pressure than before)\.$"
+   name="aeromancy_northwind__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+<!--
+(Unleash Staff - Stage One)
+Person releases His staff, which hovers in the air before Him. He raises up His arms, and clouds gather around a delicate crystal staff, which lets loose forks of lightning.
+From the four directions, winds blow in and gather, rotating slowly and gathering more momentum. The clouds begin to twist as they follow in their wake.
+
+(Unleash Staff - Stage Two)
+Picking up speed, the relentlessly churning winds become more powerful, and lightning begins to strike out from among the swirling clouds.
+
+(Unleash Staff - Stage Three, 60+% health damage and ~250 bleeding)
+A towering cyclone forms, churning and twisting with the unrepentent force of the elements, lightning running riot within its cavernous maw. The winds pick you up and thrust you into the gauntlet of lightning blasts just before smashing you back into the ground.
+-->
+</triggers>

@@ -1,0 +1,645 @@
+<aliases>
+  <alias
+   name="arena_challenge__"
+   match="^\s*challenge\s+(\w+)\s*$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   keep_evaluating="y"
+   sequence="100"
+  >
+  <send>flags.set("arena_challenge", string.lower("%1"), 35)
+Send("challenge %1")</send>
+  </alias>
+  <alias
+   name="arena_combat_challenge__"
+   match="^\s*combat\s+challenge\s+(\w+)\s*$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   keep_evaluating="y"
+   sequence="100"
+  >
+  <send>flags.set("arena_challenge", string.lower("%1"), 35)
+Send("combat challenge %1")</send>
+  </alias>
+  <alias
+   name="arena_accept__"
+   match="^\s*accept\s+(\w+)\s*$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   keep_evaluating="y"
+   sequence="100"
+  >
+  <send>flags.set("arena_accept", string.lower("%1"), 35)
+Send("accept %1")</send>
+  </alias>
+  <alias
+   name="arena_join_event__"
+   match="^\s*join\s+(wargames|freeforall|battlerun)\s+(.+?)\s*$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   keep_evaluating="y"
+   sequence="100"
+  >
+  <send>flags.set("arena_event", string.lower("%1"), 5)
+Send("join %1 %2")</send>
+  </alias>
+
+  <alias
+   name="unwield_flag__"
+   match="^\s*unwield\s+(\w+)\s*$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>flags.set("unwielding", (flags.get("unwielding") or 0) + 1, 2)
+Send("%0")</send>
+  </alias>
+  <alias
+   name="sheathe_flag__"
+   match="^\s*sheathe\s+(\w+)\s*$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>flags.set("unwielding", (flags.get("unwielding") or 0) + 1, 2)
+Send("%0")</send>
+  </alias>
+  <alias
+   name="throw_flag__"
+   match="^\s*throw\s+\w+\s+\w+(?:\s+\w+)?(?:\s+\w+)?(?:\s+confirm)?\s*$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>if not defs.has("selfish") or string.find("%0", "confirm") then
+  flags.set("unwielding", (flags.get("unwielding") or 0) + 1, 2)
+end
+Send("%0")</send>
+  </alias>
+  <alias
+   name="giving_flag__"
+   match="^\s*give\s+\w+\s+to\s+\w+(?:\s+confirm)?\s*$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>if not defs.has("selfish") or string.find("%0", "confirm") then
+  flags.set("unwielding", (flags.get("unwielding") or 0) + 1, 2)
+end
+Send("%0")</send>
+  </alias>
+
+  <alias
+   name="herbs_away__"
+   match="^\s*haway\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>EnableTrigger("herbs_away1__", true)
+EnableTrigger("herbs_away2__", true)
+Send("inr all herb")</send>
+  </alias>
+
+  <alias
+   name="link_count__"
+   match="^\s*link\s+(\d+)\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>power_desired = %1
+power_drawn = 0
+Send("link nexus")</send>
+  </alias>
+  <alias
+   name="link_nexus__"
+   match="^\s*link\s+nexus\s*$"
+   enabled="y"
+   group="Interface"
+   regexp="y"
+   send_to="12"
+   ignore_case="y"
+   sequence="100"
+  >
+  <send>power_desired = 100
+power_drawn = 0
+Send("link nexus")</send>
+  </alias>
+
+  <alias
+   name="gmcp_skills_read__"
+   match="^OnGMCP Char\.Skills\.Groups (.+?)$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   script="main.got_skills"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+  <alias
+   name="gmcp_abilities_read__"
+   match="^OnGMCP Char\.Skills\.List (.+?)$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   script="main.got_abilities"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+
+  <alias
+   name="gmcp_composer_edit__"
+   match="^OnGMCP IRE\.Composer\.Edit (.+?)$"
+   enabled="y"
+   group="Track"
+   regexp="y"
+   script="main.composer"
+   ignore_case="y"
+   sequence="10000"
+  >
+  </alias>
+
+  <alias
+   enabled="y"
+   keep_evaluating="y"
+   name="command_forced_inv__"
+   match="^OnGMCP Char\.Items\.Add (.+?)$"
+   group="Track"
+   regexp="y"
+   script="failsafe.forced_inventory"
+   sequence="9500"
+  >
+  </alias>
+  <alias
+   enabled="y"
+   keep_evaluating="y"
+   name="command_forced_unwear__"
+   match="^OnGMCP Char\.Items\.Update (.+?)$"
+   group="Track"
+   regexp="y"
+   script="failsafe.forced_unwear"
+   sequence="9500"
+  >
+  </alias>
+</aliases>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your (?:artistic )?eye immediately notices the flaws in what is obviously an illusion\.$"
+   name="illusion_caught__"
+   regexp="y"
+   script="main.illusion"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You lose your footing and tumble crashing down to the forest floor\.$"
+   name="fell_out_of_trees__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.clear{"climb_down", "climbing_down", "climb_try"}</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^There are no trees from which to climb\.$"
+   name="no_trees_to_climb__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.clear{"climb_up", "climbing_up", "climb_try"}
+failsafe.disable("climb_up")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:You are not within the treetops|A sudden gust of wind catches you and blows you out of the tree|A large gust of wind suddenly rocks your body\. As you lose control\, you plummet into the ground.)\.$"
+   name="out_of_trees__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.clear{"climb_down", "climbing_down", "climb_try"}
+failsafe.disable("climb_down")</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^([A-Z][a-z]+) accepts your challenge\, and you walk through the portal after [hH](?:im|er)\, ready to do battle\."
+   name="arena_spar_challenge__"
+   regexp="y"
+   send_to="12"
+   sequence="9500"
+  >
+  <send>if flags.get("arena_challenge") == string.lower("%1") then
+  main.arena_enter()
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^You accept ([A-Z][a-z]+)\'s challenge\, and enter the portal\, ready to do battle\."
+   name="arena_spar_accept__"
+   regexp="y"
+   send_to="12"
+   sequence="9500"
+  >
+  <send>if flags.get("arena_accept") == string.lower("%1") then
+  main.arena_enter()
+end</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   lines_to_match="3"
+   match="^\*{58}\nYou have been defeated and are thrown out of the Arena\..*?\n\*{58}$"
+   multi_line="y"
+   name="arena_defeat__"
+   regexp="y"
+   send_to="12"
+   sequence="9500"
+  >
+  <send>flags.set("reset_defs", true)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^You have been slain by"
+   name="arena_killed__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send>EnableTrigger("arena_dead_ffa__", true)
+EnableTrigger("arena_dead_wargames__", true)
+prompt.queue(function ()
+  EnableTrigger("arena_dead_ffa__", false)
+  EnableTrigger("arena_dead_wargames__", false)
+end, "arena_dead")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^You are OUT of the combat free\-for\-all\!"
+   name="arena_dead_ffa__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.set("reset_defs", true)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^You are OUT of the Wargames\!"
+   name="arena_dead_wargames__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.set("reset_defs", true)</send>
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^You store \d+ .+? in the rift\, bringing the total to \d+"
+   name="herbs_away1__"
+   regexp="y"
+   sequence="10000"
+  >
+  <send>inr all herb</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^(?:You see no \w+ in your inventory|This rift will hold no more of that kind of thing)\.$"
+   name="herbs_away2__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>EnableTrigger("herbs_away1__", false)
+EnableTrigger("herbs_away2__", false)</send>
+  </trigger>
+
+  <trigger
+   custom_colour="17"
+   enabled="y"
+   group="Track"
+   match="An elder moonhart tree towers overhead\, her thick trunk rooted firmly in the ground\."
+   name="highlight_elder_moonhart__"
+   regexp="y"
+   sequence="10000"
+   other_text_colour="greenyellow"
+   other_back_colour="darkgreen"
+  >
+  </trigger>
+  <trigger
+   custom_colour="17"
+   enabled="y"
+   group="Track"
+   match="An elder ravenwood tree thrusts up from the ground here\, the air around it thick and dark\."
+   name="highlight_elder_ravenwood__"
+   regexp="y"
+   sequence="10000"
+   other_text_colour="plum"
+   other_back_colour="indigo"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:The tree sways\, then violently crashes to the ground with concussing force\. An angry wind blows through the forest\, raging against the premature death of its sacred tree|An? .+? tree sways back and forth\, then crashes to the ground)\.$"
+   name="tree_felled__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>bals.lose("bal")
+Execute("dofree g lumber|g lumber|g lumber|g lumber|g lumber|g lumber")</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:A magic aura flares around you and completely absorbs the damage|[A-Z][a-z]+ swings .+? at you\, but you duck out of its way|.+? leaps into the air in front of you\, deflecting the attack)\.$"
+   name="dodged_health__"
+   regexp="y"
+   script="flags.blocked_health"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You channel energy from your link with the Moonhart Mother Tree\.$"
+   name="nexus_draw__"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>power_drawn = (power_drawn or 0) + 1
+if power_drawn &gt;= (power_desired or 125) then
+  Send("unlink nexus")
+  display.Info("Total drawn: " .. power_drawn)
+else
+  display.Info("You have drawn " .. power_drawn .. " times from your nexus.")
+end
+</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You lay your hands upon the Moonhart Mother Tree and feel the latent power energies within\. Closing your eyes\, you tap directly into its coursing energy and begin channeling its energy into your own reserves\.$"
+   name="nexus_linked__"
+   regexp="y"
+   send_to="12"
+   sequence="100"
+  >
+  <send>power_drawn = 0</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   keep_evaluating="y"
+   match="^(?:The mortal threads of your being severed\, you scream in agony as the Divine spark within you enfolds your body with scorching flames|As darkness wavers across your vision and your life ends\, a sudden piercing pang of empathy shivers through your mind\. You feel the spirit of your familiar\, .+?\, filling your senses in a vivid sensation as the spark of its meager existence draws you back into life)\.$"
+   name="cause_of_death__"
+   regexp="y"
+   script="main.death"
+   sequence="9000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^As your soul leaves your body\, the elixir vitae courses through your spirit and suddenly bursts in a bright light\, forming a new body around your soul\.$"
+   name="dead_vitaed__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.set("vitaed", true, 0.5)</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Blackout"
+   match="^.+? falls out of your inventory\.$"
+   name="dead_dropping_stuff__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>local c = (flags.get("items_dropped") or 0) + 1
+flags.set("items_dropped", c)
+if c == 3 then
+  flags.set("am_i_dead", true, 0.5)
+end</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^(?:You sent|[A-Z][a-z]+ would)"
+   name="aff_natural_penny__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   send_to="12"
+   sequence="1"
+  >
+  <send>prompt.queue(function () EnableTrigger("aff_natural_penny__", false) Execute("gmcp off quiet") end, "anp")</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your rift expands\!  ?It can now store (\d+) of normal riftable items\.$"
+   name="rift_expanded__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>SetVariable("sg1_maxrift", %1)</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You hold your hands in the air and pray to the [sS]tag totem for succor\. (?:A medicine bag forms in your hands|Your medicine bag is refreshed and sparkles with a green shimmer)\.$"
+   name="stag_medbag_create__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>SetVariable("sg1_medbag", tonumber(GetVariable("sg1_medbag_max") or "50"))
+main.info("medbag")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Your medicine bag crumbles into dust\.$"
+   name="stag_medbag_expire__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>SetVariable("sg1_medbag", 0)
+main.info("medbag")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Made from soft leather\, a medicine bag is filled with a fine blend of rare herbs\, which give off an intoxicating fragrance\. The medicine bag is covered with tiny coloured beads that form intricate geometric patterns\, creating the abstract image of a stag\.$"
+   name="stag_medbag_probe__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>EnableTrigger("stag_medbag_probe2__", true)
+prompt.queue(function () EnableTrigger("stag_medbag_probe2__", false) end, "mbprobe")</send>
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^Your bag can be touched (\d+) more times\.$"
+   name="stag_medbag_probe2__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>SetVariable("sg1_medbag", %1)
+main.info("medbag")</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You have given up knowledge of (\w+) (?:temporarily for the time being|permanently)\.$"
+   name="skillflex_forget__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>main.forget_skill("%1")</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You swell in pride as you choose to become a student of (\w+)\.$"
+   name="skillflex_choose__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>main.choose_skill("%1")</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You imbue .+? with \d+ units? of your esteem\.$"
+   name="item_imbued__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.clear("imbue_try")</send>
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^(?:A compelling voice within your mind takes control of you|You feel your will manipulated by .+?|[A-Z][a-z]+ commands you in a booming voice|[A-Z][a-z]+ locks eyes with you and\, with absolute authority\, commands you to act\. Your tired mind complies)\.$"
+   name="command_forced__"
+   regexp="y"
+   script="failsafe.forced_command"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You use your divine power to refresh yourself\.$"
+   name="refreshed_self__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.set("refresh_power", true, 0.2)</send>
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You draw energy from your body and refresh your power\.$"
+   name="refreshed_power__"
+   regexp="y"
+   send_to="12"
+   sequence="10000"
+  >
+  <send>flags.set("refresh_power", true, 0.2)</send>
+  </trigger>
+</triggers>
+
+<timers>
+  <timer
+   enabled="y"
+   name="memory_cleanup__"
+   minute="2"
+   offset_second="0.00"
+   send_to="12"
+   group="Track"
+  >
+  <send>local mem = collectgarbage("count")
+collectgarbage("collect")
+display.Debug("Cleaned up " .. (mem - collectgarbage("count")) .. " kilobytes of memory.", "scan")</send>
+  </timer>
+</timers>

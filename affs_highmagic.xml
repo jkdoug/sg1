@@ -1,0 +1,33 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A cobalt blue hexagram shoots up from below\.$"
+   name="highmagic_hexagram__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^It slams into you\, knocking you to the ground\.$"
+   name="highmagic_hexagrammed__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) mutters and traces complex glowing symbols before (?:[hH]im|[hH]er)\. The symbols lash out at you\, and your body painfully desiccates as vitality is drained from you\.$"
+   name="highmagic_binah__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

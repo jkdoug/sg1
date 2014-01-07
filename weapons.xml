@@ -1,0 +1,55 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^There are (?:the following|no) poisons or magical effects on (.+?)[\:\.]$"
+   name="weaponprobe_start__"
+   regexp="y"
+   script="weapons.wp_start"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Track"
+   match="^(\d+)\) (\w+)$"
+   name="weaponprobe_poison__"
+   regexp="y"
+   script="weapons.wp_poison"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^You rub some (\w+) on (.+?)\.$"
+   name="envenomed_weapon__"
+   regexp="y"
+   script="weapons.envenomed"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^With your keen eye\, you notice that (\w+) from (.+?) has (poisoned|failed to poison) ([A-Z][a-z]+)\.$"
+   name="keeneyed_weapon__"
+   omit_from_log="y"
+   omit_from_output="y"
+   regexp="y"
+   script="weapons.keeneye"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Track"
+   match="^Being careful not to poison yourself\, you wipe off all the poisons from (.+?)\.$"
+   name="wiped_weapon__"
+   regexp="y"
+   script="weapons.wiped"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

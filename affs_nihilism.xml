@@ -1,0 +1,166 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With [hH](?:is|er) deadly tail\, ([A-Z][a-z]+) strikes out at you and stings you\.$"
+   name="nihilism_sting__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a cold smile\, .+? digs [hH](?:is|er) claws into your flesh\, sending a bolt of excruciating pain through your body\.$"
+   name="nihilism_demon_nifilhema__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? grabs your shoulders and gutturally whispers into your mind\. Though the language is harsh and unknown\, the words twist in your brain over and over\.$"
+   name="nihilism_demon_baalphegar__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? vomits forth a stream of noxious fluid that strikes you\, coating you with a thick\,? green slime\.$"
+   name="nihilism_demon_gorgulu__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? forms a ball of darkness in [hH](?:is|er) palm\, then hurls it at you\, striking you full in the chest\. Shadowy tendrils burst forth and slither over your skin\.$"
+   name="nihilism_demon_luciphage__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Clenching [hH](?:is|er) fists\, .+? screams in rage at you\, and a ball of fire erupts at your feet\, briefly enveloping you\.$"
+   name="nihilism_demon_ashtorath__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The Nil Grim Horror rams his bony head into your skull\, causing the world to blank out around you\.$"
+   name="nihilism_champion_pet1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The Nil Grim Horror grabs ahold of you with a rotting\,? taloned claw\, draining all warmth from your body\.$"
+   name="nihilism_champion_pet2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The Nil Grim Horror spreads its leperous wings and looms up before you\, causing you to scream in a primal panic that rises up from your gut\.$"
+   name="nihilism_champion_pet3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) points at you and shoves a (?:squat imp|sensuous fiend|malevolent demon|hideous archdemon) towards you\. Wicked steel implements appear in [hH](?:is|er) claws as (?:[sS]h|[hH])e jumps on you\, then begins to carve deeply and slowly into your flesh\. You scream and convulse in abject agony during this obscene torture\.$"
+   name="nihilism_torture__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Holding .+? before [hH](?:im|er)\, ([A-Z][a-z]+) makes the Sign of Luciphage at you\, and you are engulfed in suffocating darkness\.$"
+   name="nihilism_evoke_luciphage__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Holding .+? before [hH](?:im|er)\, ([A-Z][a-z]+) makes the Sign of Ashtorath at you\, and you are engulfed in scorching flames\.$"
+   name="nihilism_evoke_ashtorath__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Holding .+? before [hH](?:im|er)\, ([A-Z][a-z]+) makes the Sign of Nifilhema at you\, and you are engulfed in bloody needles\.$"
+   name="nihilism_evoke_nifilhema__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Holding .+? before [hH](?:im|er)\, ([A-Z][a-z]+) makes the Sign of Baalphegar at you\, and you are engulfed in a harsh\, icy wind\.$"
+   name="nihilism_evoke_baalphegar__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions - Nihilism"
+   match="^Holding .+? before [hH](?:im|er)\, ([A-Z][a-z]+) makes the Sign of Gorgulu at you\, and you are engulfed in oozing slime\.$"
+   name="nihilism_evoke_gorgulu__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions - Nihilism"
+   match="^([A-Z][a-z]+) grasps .+? tightly between both of [hH](?:is|er) hands and thrusts it towards? you\, hissing and spitting foul curses in your direction\. Suddenly\,? thin strands of white webbing lash out from the symbol in [hH](?:is|er) hands\, piercing your skin in a hundred places whilst a deafening hiss pierces your thoughts\.$"
+   name="nihilism_demonweb__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

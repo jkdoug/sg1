@@ -1,0 +1,137 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^\&quot;.+?\&quot; sings ([A-Z][a-z]+)\, playing .+? with haunting (?:harmonies|melodies)\, and (?:[hH]|[sS]h)e looks directly at you\.$"
+   name="wildarrane_singing__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A ghostly echo of ([A-Z][a-z]+)\'s voice reaches you on the wind\, faintly humming a tune of [hH](?:is|er) ancestors\.$"
+   name="wildarrane_singing2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^One of the pale spirits swirling around ([A-Z][a-z]+) looms before you\, howling guttural curses that cause your limbs to quiver\.$"
+   name="wildarrane_ancientcurse__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The mournful winter melodies send shivers down your spine\.$"
+   name="wildarrane_naturerhythm__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Ancestral spirits roar towards you from ([A-Z][a-z]+)\, keening in rage and fury\.$"
+   name="wildarrane_ancientfeud__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A ghostly image howls as it looms before you\, preventing your movement\.$"
+   name="wildarrane_ancientfeud_movement__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^One of the pale spirits surrounding ([A-Z][a-z]+) flies towards you and\, with a sickening wrench you can feel through your very being\, attaches itself to your aura\.$"
+   name="wildarrane_cairnlargo0__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^One of the pale spirits haunting you wraps itself around your legs\.$"
+   name="wildarrane_cairnlargo1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^You are snatched out of the air by two of the pale spirits haunting you and swiftly carried to ([A-Z][a-z]+)\.$"
+   name="wildarrane_cairnlargo2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^Three of the pale spirits haunting you disperse in a chilling\, biting winter wind\.$"
+   name="wildarrane_cairnlargo3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^Four of the pale spirits haunting you flood into your eyes and harrow your mind with disturbing visions of death\.$"
+   name="wildarrane_cairnlargo4__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="SongEffects"
+   match="^Five of the pale spirits haunting you loom up in a cloud of chilling mist full of the weight of aeons\.$"
+   name="wildarrane_cairnlargo5__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The sound of a song on the wind calls the (\w+) spirits? haunting you to suddenly depart\, leaving you feeling freed\.$"
+   name="wildarrane_cairnlargo_recall__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

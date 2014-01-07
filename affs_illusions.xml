@@ -1,0 +1,12 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) raises [hH](?:is|er) hands and a hideous monstrosity rises up from the ground and looms over you\. It stares at you with bulging eyes and dozens of scabrous claws\. This nightmare then opens its massive maw\, which drips with thick mucus and reveals rows of dagger\-like teeth\, and a primal fear surges up the length of your spine\.$"
+   name="illusions_spook__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

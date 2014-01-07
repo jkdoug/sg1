@@ -1,0 +1,214 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A spinning garnet around ([A-Z][a-z]+) casts a ruddy light onto you\.$"
+   name="harmonics_garnet__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^[A-Z][a-z]+ tosses a scintillating stone into the air\, which explodes in a glittering cloud of green and pink motes\.$"
+   name="harmonics_mendingstone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As the sparkling motes settles? upon your skin\, you shiver as a powerful healing balm washes over you\.$"
+   name="harmonics_mendingstone_cure__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) holds the pulsating stone aloft just as it detonates in a soundless explosion of white light\.$"
+   name="harmonics_balestone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^The white light washes over you\, and you stagger back as the balefire erases something deep within you\.$"
+   name="harmonics_balestone_fire__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A spinning opal around ([A-Z][a-z]+) flashes dark hues onto you\.$"
+   name="harmonics_opal__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A spinning onyx around ([A-Z][a-z]+) casts a sickly shadow over you\.$"
+   name="harmonics_onyx__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A spinning bloodstone around ([A-Z][a-z]+) bathes you with a bloody light\.$"
+   name="harmonics_bloodstone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The spinning emerald around [A-Z][a-z]+ suffuses you with a deep green glow\.$"
+   name="harmonics_emerald__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) smashes a chunk of dark rock at [hH](?:is|er) feet and red and black smoke roils about [hH](?:im|er)\.$"
+   name="harmonics_malefactgem__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^Tendrils of red and black smoke wrap around you\, covering your skin in a sticky film\.$"
+   name="harmonics_malefactgem_affs__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A spinning sapphire around ([A-Z][a-z]+) beams a ray of blue light at you\, causing a piercing headache between your eyes\.$"
+   name="harmonics_sapphire__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) tosses a delicate\,? blue sphere into the air at you\, which shatters in a flurr?y of brilliant sapphire rays\.$"
+   name="harmonics_shockstone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Placing a ruby crystal on the palm of [hH](?:is|er) hand\, ([A-Z][a-z]+) stares intently at it until the crystal floats up into the air\. It zooms around your head\, settling into an orbit around you\.$"
+   name="harmonics_ruby__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A spinning ruby around you shoots a small ball of balefire at you\.$"
+   name="harmonics_ruby_balefire__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A spinning ruby crystal around you explodes in your face\.$"
+   name="harmonics_ruby_explode__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) presses [hH](?:is|er) palms together and stares at the ring of rubies spinning around your head\. The rubies speed up and you are blinded by the brilliant crimson blaze that rips apart your face and causes time to slow down\, magnifying the agony\.$"
+   name="harmonics_shatterplex__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The Temporal Omnihedron shifts through a complex series of shapes and suddenly time around you appears to slow\.$"
+   name="harmonics_champion_pet1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The Temporal Omnihedron shimmers with a brilliant array of complex colours\, causing you to lose some of your mental prowess as you attempt to understand the shifting shape before you\.$"
+   name="harmonics_champion_pet2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The Temporal Omnihedron shifts through a violent array of shapes\, causing several large shards of crystal to shoot out and strike you\.$"
+   name="harmonics_champion_pet3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

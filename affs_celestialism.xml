@@ -1,0 +1,103 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) points a finger at you and demands that you atone for your sins\. You grit your teeth and grimace as a flash of blinding light briefly overwhelms your senses\.$"
+   name="celestialism_atone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+? flings a cobalt blue disc at you\, which envelops you in a field of crackling energy\.$"
+   name="celestialism_angel_shakiniel__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Bowing [hH](?:is|er) head and crossing [hH](?:is|er) arms\, .+? sends a bolt of topaz light at you\, which sinks deep into your skull and sets your mind reeling\.$"
+   name="celestialism_angel_japhiel__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^.+?\'s eyes shoot forth beams of holy light that strike you and cause your very being to quake\.$"
+   name="celestialism_angel_elohora__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A pink glow surrounds .+?\, who reaches forth with outstretched arms and hugs you in a loving embrace\.$"
+   name="celestialism_angel_raziela__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Bellowing a thunderous war cry\, .+? smites you with a ball of holy flame\.$"
+   name="celestialism_angel_methrenton__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The overwhelming power of .+? forces you to humbly kneel down\.$"
+   name="celestialism_angel_kneel__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The Handmaiden of Shakiniel raises her shield\, which shoots a ball of crackling blue lightning at you\.$"
+   name="celestialism_handmaiden_blackout__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Raising her hand towards you\, the Handmaiden of Shakiniel releases a ball of white light\, which envelops you in a paraly[sz]ing flash\.$"
+   name="celestialism_handmaiden_paralysis__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The Handmaiden of Shakiniel breathes out a cloud of scintillating light\, which engulfs you and drains your mental strength\.$"
+   name="celestialism_handmaiden_damage__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

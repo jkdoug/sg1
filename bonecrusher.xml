@@ -1,0 +1,166 @@
+<variables>
+  <variable name="sg1_weapon_hit">strike|crush|pulp|smite|bash|pound|smash</variable>
+  <variable name="sg1_weapon_hits">strikes|crushes|pulps|smites|bashes|pounds|smashes</variable>
+  <variable name="sg1_weapon_hitting">striking|crushing|pulping|smiting|bashing|pounding|smashing</variable>
+  <variable name="sg1_weapon_hitted">striked|crushed|pulped|smote|bashed|pounded|smashed</variable>
+</variables>
+
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   keep_evaluating="y"
+   match="^Focusing on [hH](?:is|er) (?:chest|gut|head|left arm|left leg|right arm|right leg)\, you strike at ([A-Z][a-z]+) with .+?\. "
+   name="offense_bonecrusher_crush__"
+   regexp="y"
+   send_to="12"
+   sequence="9000"
+  >
+  <send></send>
+  </trigger>
+
+<!--
+Actions
+=======
+(Swing)
+You wildly swing .+? at ([A-Z][a-z]+)
+(Smite)
+With a heavy overhand stroke\, you slam .+? down upon ([A-Z][a-z]+)
+Letting .+? droop\, you suddenly heave it up at ([A-Z][a-z]+)
+(Strike/Crush)
+Focusing on [hH](?:is|er) (chest|gut|head|left arm|left leg|right arm|right leg)\, you strike at ([A-Z][a-z]+) with .+?
+(Bash)
+Flourishing .+? above your head\, you take a swing at ([A-Z][a-z]+)
+(Pound/Jab)
+You swing .+? at ([A-Z][a-z]+)
+(Smash)
+Swinging .+? in an underhand arc\, you strike at ([A-Z][a-z]+)
+(Pulp)
+Hefting both weapons above your head\, you begin swinging them in circles and bellow out.+?$
+(Riposte)
+With a deft move\, you retaliate with a quick swing of .+? at ([A-Z][a-z]+)
+
+Reactions
+=========
+(success)
+\.
+(parried)
+\, who brandishes .+?\.
+\, who raises .+?\.
+\, who partially blocks the blow with .+?\.
+\, who partially parries the blow with .+?\.
+(dodged)
+\, who smoothly steps away from the blow
+(rebounded)
+\, but your (?:swing|thrust) hits [hH](?:is|er) powerful aura and rebounds back into you\.
+
+Resolutions
+===========
+(missed)
+Your weapon (?:pounds|smashes) through the air\, missing completely\.$
+You almost lose your balance as your thrust fails to connect\.$
+
+(blocked)
+ Your .+? (?:@sg1_weapon_hits) [hH](?:is|er) .+?\, which completely absorbs the blow\.$
+ Your .+? (?:@sg1_weapon_hits) into [hH](?:is|er) .+?\, which deflects the blow easily\.$
+ Your .+? strikes [hH](?:is|er) .+? and bounces harmlessly off\.$
+ Your .+? is deflected by a flick of the opposing .+?\.$
+Swinging .+? at ([A-Z][a-z]+)\, you grit your teeth as it is deflected by [hH](?:is|er) .+?\.$
+You swing .+? at ([A-Z][a-z]+)\, and (?:[hH]|[sS]h)e raises [hH](?:is|er) .+? which absorbs the blow\.$
+
+(health > 66%)
+ You (?:@sg1_weapon_hit) [hH](?:im|er) for only a glancing blow to the side of [hH](?:is|er) head\.$
+ You cuff the side of [hH](?:is|er) face lightly\.$
+ You (?:@sg1_weapon_hit) [hH](?:is|er) chest\, leaving a small bruise\.$
+ You thump [hH](?:is|er) chest weakly\.$
+ You (?:@sg1_weapon_hit) [hH](?:im|er) in the gut\, but it barely fazes [hH](?:im|er)\.$
+ You tap [hH](?:im|er) in the stomach with little effect\.$
+ You (?:@sg1_weapon_hit) [hH](?:im|er) on the (left|right) arm\, bruising [hH](?:im|er) slightly\.$
+ You hit [hH](?:is|er) (left|right) arm and only leave a small bruise\.$
+ You (?:@sg1_weapon_hit) [hH](?:im|er) on the (left|right) leg\, leaving only a red welt\.$
+ You hit [hH](?:is|er) (left|right) thigh for a minor bruise\.$
+
+(health > 33%)
+ You (?:@sg1_weapon_hit) [hH](?:im|er) in [hH](?:is|er) head\, leaving an ugly bruise\.$
+ You pound [hH](?:is|er) face with gusto\.$
+ You powerfully (?:@sg1_weapon_hit) [hH](?:im|er) in the chest\, making [hH](?:im|er) stagger back\.$
+ You smack [hH](?:im|er) in the chest with a solid blow\.$
+ You (?:@sg1_weapon_hit) [hH](?:im|er) in the gut\, making [hH](?:im|er) grunt and turn blue\.$
+ You fiercely thrust your \.+? hard into [hH](?:is|er) stomach\, making [hH](?:im|er) bare [hH](?:is|er) teeth in pain\.$
+ You (?:@sg1_weapon_hit) [hH](?:im|er) hard on the (left|right) arm\, delivering an enormous bruise\.$
+ You hit [hH](?:is|er) (left|right) arm forcefully\, leaving an enormous bruise on the forearm\.$
+ You (?:@sg1_weapon_hit) [hH](?:im|er) hard on the (left|right) leg\, creating a large bruise on [hH](?:is|er) thigh\.$
+ You smack [hH](?:is|er) (left|right) leg with a force that goes to the bone\.$
+
+(health <= 33%)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) skull with a resounding crack that makes [hH](?:im|er) stagger and shake [hH](?:is|er) head\.$
+ H(?:is|er) head whips back from the force of your blow\.$
+ With great force\, you (?:@sg1_weapon_hit) [hH](?:im|er) in the chest with a satisfying crunch\.$
+ You brutally whack [hH](?:im|er) in the chest\, forcing [hH](?:im|er) back several steps\.$
+ You (?:@sg1_weapon_hit) [hH](?:im|er) hard in the belly\, making [hH](?:im|er) double over and turn purple\.$
+ Your blow punches hard into [hH](?:is|er) belly\, making [hH](?:is|er) eyes water and face turn several shades of purple\.$
+ You (?:@sg1_weapon_hit) [hH](?:im|er) severely on the (left|right) arm\, making [hH](?:im|er) falter in [hH](?:is|er) tracks\.$
+ You drive your \.+? into [hH](?:is|er) (left|right) arm\, almost dislocating it from its shoulder\.$
+ You brutally (?:@sg1_weapon_hit) [hH](?:is|er) (left|right) leg so hard that (?:[hH]|[sS]h)e stumbles and almost falls\.$
+ You plow your \.+? deep into the meat of [hH](?:is|er) (left|right) leg\, making [hH](?:im|er) stumble and totter\.$
+
+Head
+....
+(BashBrain)
+ You (?:@sg1_weapon_hit) ([A-Z][a-z]+)'s skull and crack it open\, splattering [hH](?:is|er) brains in a bloody spray of gore\. There is no surviving such a blow\.$
+(BlackEye)
+ You (?:@sg1_weapon_hit) [hH](?:im|er) in the eye\, which turns purple and swells shut\.$
+(FracturedSkull)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) skull hard\, making [hH](?:is|er) head snap back and a dazed expression blankets [hH](?:is|er) face\.$
+(BreakNose)
+ You (?:@sg1_weapon_hit) [hH](?:im|er) savagely in the nose\, breaking it across the bridge and causing blood to splurt forth\.$
+
+(Concussion)
+ You (?:@sg1_weapon_hit) [hH](?:im|er) in the head with crushing force\, and (?:[hH]|[sS]h)e blankly blinks about [hH](?:im|er)self in shock\.$
+(CrushWindpipe)
+ You (?:@sg1_weapon_hit) [hH](?:im|er) in the throat\, crushing [hH](?:is|er) windpipe\.$
+(BreakJaw)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) jaw\, which shatters and hangs loose\.$
+(BloodyNose)
+ You (?:@sg1_weapon_hit) [hH](?:im|er) squarely in the nose\, which bleeds profusely\.$
+
+Chest
+.....
+(CrushChest)
+ You brutally (?:@sg1_weapon_hit) [hH](?:is|er) chest\, and [hH](?:is|er) ribs snap under the force of the blow\.$
+(BreakChest)
+ You viciously (?:@sg1_weapon_hit) [hH](?:is|er) ribs\, forcing [hH](?:im|er) to grimace in pain\.$
+
+Gut
+...
+(BurstOrgans)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) gut with a mortal blow that ruptures [hH](?:is|er) internal organs\.$
+(VomitBlood)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) gut with great force\, and blood begins to foam at [hH](?:is|er) mouth\.$
+(Wind)
+ You (?:@sg1_weapon_hit) [hH](?:im|er) in the gut\, knocking the wind out of [hH](?:im|er)\.$
+
+Legs
+....
+(CrushLeg)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) (left|right) leg with an awesome blow and pulveri[sz]e it into a bloody stump\.$
+(BreakLeg)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) (left|right) thigh bone which shatters under the force of the blow\.$
+(Knockdown)
+ With an elegant stroke\, you (?:@sg1_weapon_hit) [hH](?:is|er) (left|right) leg\, knocking [hH](?:im|er) to the ground\.$
+
+Arms
+....
+(BreakWrist)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) (left|right) wrist and break the bones there\.$
+(BreakArm)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) (left|right) arm\, which breaks with a loud crack\.$
+(FractureArm)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) (left|right) arm\, which becomes limp and falls to [hH](?:is|er) side\.$
+(SlapKnuckle)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) (left|right) knuckles with a loud crack\, and (?:[hH]|[sS]h)e unwields .+?\.$
+ You (?:@sg1_weapon_hit) [hH](?:is|er) (left|right) knuckles with a loud crack\.$
+(CrackElbow)
+ You (?:@sg1_weapon_hit) [hH](?:is|er) (left|right) elbow\, eliciting a sickening crack\.$
+-->
+</triggers>

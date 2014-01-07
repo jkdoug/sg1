@@ -1,0 +1,211 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)(?:\'s phantom sightstealer projects thousands of voices into your mind| raises an arm\, pointing in your direction and suddenly thousands of voices bombard you)\, urging you to watch your back\, to kill\, while startling you with unexpected screeches\.$"
+   name="phantasms_whisper__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As you try to go that way\, you find yourself entangled in a purple web of phantasms\, screaming and clawing at you\, entangling you in their grasp\.$"
+   name="phantasms_phantomwall__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) wiggles [hH](?:is|er) fingers before you\, and you sense a shadow passing overhead\.$"
+   name="phantasms_phantom__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Shadow tendrils wrap around your limbs\.$"
+   name="phantasms_phantom_entangled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Shadows creep up all around you and close in\.$"
+   name="phantasms_phantom_claustrophobia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Shadows flicker before you\, forming strange and weird shapes\.$"
+   name="phantasms_phantom_confusion__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Shadows seep into your clothing\, crawling like dark maggots\.$"
+   name="phantasms_phantom_vestiphobia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Shadowy shapes rise up around you and form into familiar shapes\.$"
+   name="phantasms_phantom_hallucinations__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Shadowy voices whisper dark warnings in your ear\.$"
+   name="phantasms_phantom_paranoia__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)(?: lifts and arm and flicks [hH](?:is|er) wrist|\'s phantom sightstealer projects a hazy image into your mind)\. A faint form begins to materialise and once you can make it out you (?:realise that it is the Mask of Lord Fain\. The mouth of His mask turns into a smirk as He slowly removes it\, revealing unimaginable horrors\. It feels like eons of pain pass before you realise that there is nothing before you\, yet you feel mentally drained|see Lady Terentia\, wielding the massive Even Blade axe\. With stunning precision and speed\, She sweeps the Even Blade through your form\, slicing you in twain\. It feels like eons of pain pass before you realise that your physical body remains whole\, despite feeling mentally drained)\.$"
+   name="phantasms_redmask_evenblade__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) waves [hH](?:is|er) hands at you\, and momentarily you see nothing but a throbbing red glow\.$"
+   name="phantasms_wounds__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A shadow passes overhead and you feel a chill touch in your mind\.$"
+   name="phantasms_stalker__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:([A-Z][a-z]+) weaves a fierce phantasm and sets it upon you\, where it begins to hungrily rake your skin with its claws|You scream out in pain as a phantom rakes your skin with its sharp claws)\.$"
+   name="phantasms_claws__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As the attack punches through ([A-Z][a-z]+)\'s phantom armour\, a backlash of crackling phantasmal energy lashes out at you\.$"
+   name="phantasms_phantomarmour__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A phantom sphere flows into translucent\, ghostly spears that shatter your shield of magical protection\,? before reforming ominously before you\.$"
+   name="phantasms_phantomsphere_unshield__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A phantom sphere shatters into a myriad of splinters\.$"
+   name="phantasms_phantomsphere_attack__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^On command\, the splinters of a phantom sphere fly into your head and you close your eyes tight to ward off possible pain\. You feel them\, inside your mind\, threateningly colluding with your worst fears and (?:resting just barely beneath consciousness|joining (?:one|two) other phantom spheres?)\.$"
+   name="phantasms_phantomsphere_attacked__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^(?:As the sphere shatters and injures you\, a great force from between your temples unites with it\, sending you reeling|A shard from the sphere pierces your skin and pain erupts between your temples)\.$"
+   name="phantasms_phantomsphere_detonated__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Slowly turning in a circle\,? ([A-Z][a-z]+) stretches out [hH](?:is|er) hands\. As (?:[hH]|[sS]h)e completes a revolution\, you notice bright flashes of light out of the corners of your eyes\.$"
+   name="phantasms_reality_cast__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Reality twists and turns in on itself\, causing the sky to melt into a blur of riotous colours and the ground to undulate and bubble\.$"
+   name="phantasms_reality__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger> 
+</triggers>

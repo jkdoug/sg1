@@ -1,0 +1,153 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A violent tremor rocks the (trees|mountains|land\, causing the earth to shake and the ground to buck beneath your feet)\.$"
+   name="geomancy_tremors__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Dust suddenly and painfully gusts into your eyes\.$"
+   name="geomancy_dust__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A deep\, foreboding hum emanates from the tainted earth\, and then you are suddenly slammed into the ground by an irresistable force\.$"
+   name="geomancy_lodestone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Black clouds suddenly release hundreds of stones which rain down on you like a blizzard of gray hail\, pummeling you cruelly and driving you to the ground\.$"
+   name="geomancy_stonerain__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   lines_to_match="2"
+   match="^[A-Z][a-z]+ faces (\w+) and sharply claps [hH](?:is|er) hands together\, the sound of which is like two bricks being slammed against each other\.\nThe earth erupts and pushes up a massive wall of stone\.$"
+   multi_line="y"
+   name="geomancy_stonewall__"
+   regexp="y"
+   script="affs.process"
+   sequence="100"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The earth erupts and pushes up a massive wall of stone\.$"
+   name="geomancy_stonewall2__"
+   regexp="y"
+   script="affs.process"
+   sequence="200"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Dust clouds rise as the earth shifts and sharp rocks slide and bounce\, some flying into the air\. You yelp in pain as several of them smash into you\, bruising your flesh and cutting your skin\.$"
+   name="geomancy_rockslide__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Fumes rise up from the tainted earth and make you cough\. Ugly\,? cankerous sores break out on your skin\, dripping with pus\.$"
+   name="geomancy_sickening__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^(?:A torrent of poisonous fumes and sharp rocks hurtle at you from the \w+|([A-Z][a-z]+) points [hH](?:is|er) staff at you and it swells\, rapidly discharging a torrent of poisonous fumes and sharp rocks into your body\, engulfing flesh and smashing bone)\.$"
+   name="geomancy_staff_point__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) twirls [hH](?:is|er) staff in front of you\, which spews forth vile black oil that covers you in a sticky morass of filth\.$"
+   name="geomancy_staff_twirl__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) points at the tainted earth beneath your feet\, snarling with a look of madness on [hH](?:is|er) face\. The ground begins to tremble\.$"
+   name="geomancy_chasm1__"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s finger trembles and (?:[sS]h|[hH])e bares [hH](?:is|er) teeth in a hideous grimace\. A small crack appears in the ground beneath you\!$"
+   name="geomancy_chasm2__"
+   regexp="y"
+   send_to="14"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Eyes narrowed in concentration\, ([A-Z][a-z]+) slams [hH](?:is|er) palm against your chest\. Your muscles begin to freeze and your skin turns to slate grey\. It dawns on you that you have been turned to stone\, but you are aware of what is going on around you even though you cannot make any action\.$"
+   name="geomancy_fleshstone__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You have been turned to stone and cannot move\.$"
+   name="geomancy_fleshstoned__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

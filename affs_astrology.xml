@@ -1,0 +1,53 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) raises [hH](?:is|er) arms to the sky\, as an incandescent glow surrounds [hH](?:im|er)\.$"
+   name="astrology_astrocast__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^In a brilliant ray of light\, the power of (?:the )?([A-Z][a-z]+) lashes down upon you\.$"
+   name="astrology_sphere__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Standing in the centre of a ritual zodiac circle drawn in \w+\, ([A-Z][a-z]+) casts [hH](?:is|er) hands up towards the stars and whispers the names of the planets\. (?:H|Sh)e points an imperious finger towards you and the spheres of the zodiac glow brightly as the terrible blackness between the stars grows\, an ominous shadow falling across the ground\.$"
+   name="astrology_meteor1__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The darkness in the skies grows ominously large\, blotting out the stars as it approaches\.$"
+   name="astrology_meteor2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The darkness in the sky bursts into fire as the meteor descends through the atmosphere\, hurtling towards you\. It crashes into the ground at your feet and explodes in an enveloping holocaust of fire and destructive magic\, annihilating everything in its path with the unbridled power of celestial bodies colliding\.$"
+   name="astrology_meteor3__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>

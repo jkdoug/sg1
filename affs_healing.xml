@@ -1,0 +1,72 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A warm tingle runs through your body as ([A-Z][a-z]+) touches two fingers to your forehead\, shifting a brilliant aura to you\.$"
+   name="healing_aurashift__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) bows ([hH](?:is|er)) head and closes \2 eyes\, hooking \2 finger in a terrible wrenching motion as your insides twist and turn in a hideously contorted dance\.$"
+   name="healing_aurawarp__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Your insides twist (?:as the dread plague ravages your internal homeostasis|and turn\, (?:closing up your throat|causing your hands to uncontrollably shudder))\.$"
+   name="healing_aurawarp_homeostasis__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^With a grand gesture of righteous fury\, ([A-Z][a-z]+) bedevils you with [hH](?:is|er) afflictions\.$"
+   name="healing_bedevil__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The plague of bedeviling sickness causes your insides to clench in sheer agony\.$"
+   name="healing_bedevil_symptom__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s presence prevents you from curing your (bedeviling sickness|warped aura)\.$"
+   name="healing_aurawarp_bedevil_fail__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>
+
+<!--
+(detect the healing, what was cured, and then add the new affliction; oh, boy!)
+Person places a forefinger between your eyes, and a soothing warmth passes through you.
+The bones in your left arm mend.
+The plague of bedeviling sickness causes your insides to clench in sheer agony.
+-->

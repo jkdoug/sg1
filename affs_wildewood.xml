@@ -1,0 +1,228 @@
+<triggers>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) touches you with one of [hH](?:is|er) branches and your flesh slowly begins to turn to bark\.$"
+   name="wildewood_barktouch__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s bluebell flowers quiver and trickle yellow pollen down upon you\, your mental faculties failing\.$"
+   name="wildewood_bluebell__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^One of ([A-Z][a-z]+)\'s knobbled branches lashes out at you\, the crack of breaking bones coinciding with a sudden and sharp pain\.$"
+   name="wildewood_knobbled__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s horned lily flowers sway in [hH](?:is|er) eaves\, releasing a trickle of orange pollen down upon you\. You groan\, your strength leaving your body\.$"
+   name="wildewood_hornedlily__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s moontear blossoms dance amongst [hH](?:is|er) branches as they pour silvery pollen down on you\, your sense of bodily equilibrium instantly thrown off\.$"
+   name="wildewood_moontear__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Exhaling in a loud\, rushing \'HOOM\!\'\, ([A-Z][a-z]+) throws [hH](?:is|er) branches wide\. Yellow and orange pollen swirl together and cloud your vision\, the sounds of cracking and groaning erupting nearby as a wave of energy comes upon you\, accompanied by small acorns whizzing past\.$"
+   name="wildewood_bluehorn__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^As you come in contact with the wave of emerald energy you feel a powerful sensation of wrongness\, as though you are intruding\. As you struggle to overcome the sensation\, dozens of acorns peg you in the face and torso with surprising force and accuracy\. Though you keep your footing\, you sense a powerful curse settling within your soul\.$"
+   name="wildewood_bluehorn2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) turns a baleful gaze upon you\, [hH](?:is|er) eaves beginning to rustle with activity\. Loud chittering announces a family of squirrels moments before they begin to pick nuts from the neighboring branches to chuck at you\. As each one makes contact they break apart into shimmering energy\, scourging the area of contact\.$"
+   name="wildewood_garland__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Exhaling in a deep\, booming \'HOOM\!\'\, ([A-Z][a-z]+) thrusts [hH](?:is|er) branches forward\. Yellow and silvery pollen rush forward to coat your surroundings in a thick hartpine cloud\, a seeking\, probing will rushing through your midst\.$"
+   name="wildewood_hartpine__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^A deep\, powerful voice booms at you in a slow\, groaning tone\, the pollen around you twisting into the visage of a great stag\. With a deep bellow the spirit charges at you\, his antlers piercing deep within your being\. As the pollen stag dissipates some of the pollen settles into your wounds\, which become rapidly inflamed and infected\.$"
+   name="wildewood_hartpine2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s faeblossom flowers whistle in an ethereal breeze as they spray you with bright green pollen which turns to a sticky slush when it touches you\.$"
+   name="wildewood_faeblossom__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^The gossamer coating on ([A-Z][a-z]+)\'s branches glow with a soft ethereal light\, your movements growing clumsy as you stumble\.$"
+   name="wildewood_gossamer__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s eyes flutter as (?:[hH]|[sS]h)e finally exhales with a soft\, gentle \'hoom\'\. The winds\, once tame by comparison\, grow wild and raging\, twisting outwards in powerful blasts of shimmering spores\, obscuring vision and forming a thick\, cloying cloud of pollen\, spores and petals\.$"
+   name="wildewood_flowerpower__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^You grunt as a blast of pollen slams against you\, and then another\. Petals begin to stick and cling to your flesh and face\, numbing the nerves while the furious winds wrench at your limbs\, shattering bone\.$"
+   name="wildewood_flowerpower2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+)\'s great form creaks and groans as (?:[hH]|[sS]h)e wraps [hH](?:is|er) branches about you and smashes you against [hH](?:is|er) great trunk in a tight hug\, your (left|right) (arm|leg) cracking painfully\.$"
+   name="wildewood_treehug__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^A myriad of beautiful blossoms open up along ([A-Z][a-z]+)\'s branches\, filling [hH](?:is|er) eaves with a panoply of colour\. You cannot help but stare at them until you find yourself face\-down\, eating dirt\.$"
+   name="wildewood_flowering__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^As you pass beneath ([A-Z][a-z]+)\'s branches the mossy tendrils brush against you\, spreading bits of collected spores\, pollen and fungi\. You suddenly feel your muscles lock up and lose sensation throughout your body\.$"
+   name="wildewood_mossy__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^([A-Z][a-z]+) exhales a soft\, gentle \'hoom\'\, a small azure wisp of fire escaping on [hH](?:is|er) breath\. Like a spark into dry tinder the wisp catches\, and all about you the spores build into a wild\, raging storm of infinitismal specks of blue fire\. As the building cloud of cool blue\, misty fire churns\, wild shapes of animals leap between the banks of fiery mist\.$"
+   name="wildewood_glinshari__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="n"
+   group="Afflictions"
+   match="^A great buck of misty blue leaps up and slams into you with concussive force\, erupting into a scintillating mist that envelops you\. Your very being feels torn and pulled at as the mists seep into your pores\.$"
+   name="wildewood_glinshari2__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Leaping from ([A-Z][a-z]+)\'s side\, a fierce wolverine tears teeth and claw into you\, shredding flesh in a surprising frenzy\.$"
+   name="wildewood_wildecall_wolverine__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+  
+  <trigger
+   enabled="y"
+   group="Afflictions"
+   match="^Swelling threateningly\, a treefrog on ([A-Z][a-z]+) spits a stream of poison at you\.$"
+   name="wildewood_wildecall_treefrog__"
+   regexp="y"
+   script="affs.process"
+   sequence="10000"
+  >
+  </trigger>
+</triggers>
