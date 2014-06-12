@@ -116,6 +116,7 @@ local beast_xlate = {
   ["six-headed scyllus"] = "scyllus",
   ["black dragon"] = "dragon",
   ["ominous shadow"] = "shadow",
+  ["tendril of Kethuru"] = "tendril",
 }
 
 local last_module = {}
