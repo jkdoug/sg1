@@ -253,7 +253,7 @@
   <trigger
    enabled="y"
    group="Afflictions"
-   match="^A sense of deep inner calm descends on you\.$"
+   match="^(?:A sense of deep inner calm descends on you|You are feeling far too tranquil to attempt such a violent act)\.$"
    name="aff_pacifism__"
    regexp="y"
    script="affs.process"
