@@ -535,9 +535,15 @@ function wa.nerve(wc)
 end
 
 function wa.obstruction(wc)
-  if main.attacked("", "cavalier", "obstrution") then
+  if main.attacked("", "cavalier", "obstruction") then
     local part = string.gsub(wc[1], " ", "")
     add(part, 500)
+    affs.prone()
+  end
+end
+
+function wa.obstruction2(wc)
+  if main.attacked("", "cavalier", "obstruction") then
     affs.prone()
   end
 end

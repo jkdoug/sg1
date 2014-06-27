@@ -941,6 +941,16 @@ end</send>
   <trigger
    enabled="y"
    group="Afflictions"
+   match="^.+? rears up and brutally kicks you\, sending you sprawling\.$"
+   name="cavalier_obstruction2__"
+   regexp="y"
+   script="wounds.aff"
+   sequence="10000"
+  >
+  </trigger>
+  <trigger
+   enabled="y"
+   group="Afflictions"
    match="^([A-Z][a-z]+) charges in from the \w+ and slams into you\, impaling [hH](?:is|er) (\w+) deep in your gut\.$"
    name="cavalier_pincharge__"
    regexp="y"
