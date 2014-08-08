@@ -112,7 +112,7 @@
   <trigger
    enabled="y"
    group="Afflictions"
-   match="^([A-Z][a-z]+) lifts [hH](?:is|er) voice in a clarion hymn to Celestia\. A host of angels descends from above to circle \1\, trumpeting a rapturous hymn that pierces the air about you\, leaving you defenseless to [hH](?:is|er) songs\.$"
+   match="^([A-Z][a-z]+) lifts [hH](?:is|er) voice in a clarion hymn to Celestia\. A host of angels descends from above to circle \1\, trumpeting a rapturous hymn that pierces the air about you\, leaving you defen[cs]eless to [hH](?:is|er) songs\.$"
    name="starhymn_angelichost__"
    regexp="y"
    script="affs.process"

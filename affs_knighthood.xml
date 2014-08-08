@@ -125,7 +125,7 @@ wounds.attacked("%1", "knighthood", "lunge", "%2", #"%3" &gt; 1, "%0")</send>
    expand_variables="y"
    group="Afflictions"
    keep_evaluating="y"
-   match="^Cleaving through your defenses\, ([A-Z][a-z]+) makes a slow\,? deadly strike at your .+? with (.+?)(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
+   match="^Cleaving through your defen[cs]es\, ([A-Z][a-z]+) makes a slow\,? deadly strike at your .+? with (.+?)(?:(@sg1_warrior_miss)|\, and you partially (?:parry|block) the blow with .+?)?\."
    name="knighthood_cleave__"
    regexp="y"
    send_to="12"

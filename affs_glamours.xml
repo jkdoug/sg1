@@ -238,7 +238,7 @@
   <trigger
    enabled="y"
    group="Afflictions"
-   match="^([A-Z][a-z]+) traces blasphemous patterns in the air with [hH](?:is|er) finger\, weaving a deadly glamour that constricts tightly around you\, unraveling your defenses\.\n\d+h\,"
+   match="^([A-Z][a-z]+) traces blasphemous patterns in the air with [hH](?:is|er) finger\, weaving a deadly glamour that constricts tightly around you\, unraveling your defen[cs]es\.\n\d+h\,"
    name="glamours_deadlypattern__"
    regexp="y"
    script="affs.process"
