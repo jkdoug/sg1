@@ -511,7 +511,7 @@ function items_remove(name, line, wildcards, styles)
   display.q = true
   local stuff = json.decode(wildcards[1])
   if stuff.location == "room" then
-    local id = tonumber(stuff.item)
+    local id = tonumber(stuff.item.id)
     for i = #room_inv,1,-1 do
       if id == room_inv[i].id then
         display.Debug("Bashing unnoticed: " .. string.format("%d, ", id) .. room_inv[i].name, "bash")
